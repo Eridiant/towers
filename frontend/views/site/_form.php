@@ -14,9 +14,11 @@ use yii\widgets\ActiveForm;
 
         <?= $form->field($model, 'name') ?>
 
-        <?= $form->field($model, 'tel') ?>
+        <?= $form->field($model, 'phone') ?>
 
         <?= $form->field($model, 'email') ?>
+
+        <?= $form->field($model, 'viewed')->checkbox(['label' => 'Я принимаю условия пользовательского соглашения и даю право на обработку моих персональных данных']) ?>
 
         <div class="form-group">
             <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>

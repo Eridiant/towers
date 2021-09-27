@@ -17,11 +17,11 @@ class m210926_181806_create_feedback_table extends Migration
             'name' => $this->string()->notNull(),
             'email' => $this->string(32)->notNull(),
             'phone' => $this->string(32)->notNull(),
-            'subject' => $this->string(32),
+            'subject' => $this->string(255),
             'lang' => $this->string(32),
             'body' => $this->text(),
             'viewed' => $this->boolean()->defaultValue(0),
-            'date' => $this->integer()->notNull(),
+            'created_at' => $this->timestamp(),
         ]);
     }
 
