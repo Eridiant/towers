@@ -11,6 +11,10 @@ use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
 AppAsset::register($this);
+
+$cookies = Yii::$app->request->cookies;
+$currentLang = $cookies->getValue('_locale', 'en-US');
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

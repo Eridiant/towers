@@ -17,6 +17,7 @@ class AppAsset extends AssetBundle
         'css/jquery.fancybox.min.css',
         'css/main.min.css',
         'css/site.css',
+        'css/for_del.css',
     ];
     public $js = [
         'js/swiper-bundle.min.js',

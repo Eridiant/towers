@@ -32,9 +32,12 @@
         </a>
       </div>
       <div class="header-lang">
-        <a href="#" class="current"><span>ru</span></a>
-        <a href="#"><span>he</span></a>
-        <a href="#"><span>en</span></a>
+        <?php $model = \backend\modules\language\models\Language::find()->where(['deleted_at' => null])->all(); ?>
+        <?php foreach ($model as $lang): ?>
+          <a <?= ($lang->key == $currentLang) ? 'class="current"' : ''; ?> href="/site/set-locale?locale=<?=$lang->key?>">
+            <span><?= preg_replace('/-\w{2}/', '$1', $lang->key); ?></span>
+          </a>
+        <?php endforeach; ?>
       </div>
     </div>
     <div class="header-panel">
@@ -76,9 +79,9 @@
          <svg width="46" height="56"><use xlink:href="images/icons.svg#burger-logo"></use></svg>
         </div>
         <div class="burger-lang">
-          <a href="#" class="current"><span>ru</span></a>
-          <a href="#"><span>he</span></a>
-          <a href="#"><span>en</span></a>
+          <a href="/site/set-locale?locale=ru-RU" class="current"><span>ru</span></a>
+          <a href="/site/set-locale?locale=he-Ge"><span>he</span></a>
+          <a href="/site/set-locale?locale=en-US"><span>en</span></a>
         </div>
       </div>
       <div class="burger-menu">

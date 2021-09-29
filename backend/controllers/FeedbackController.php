@@ -7,6 +7,7 @@ use frontend\models\FeedbackSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * FeedbackController implements the CRUD actions for Feedback model.
@@ -21,12 +22,35 @@ class FeedbackController extends Controller
         return array_merge(
             parent::behaviors(),
             [
+                'access' => [
+                    'class' => AccessControl::class,
+                    'rules' => [
+                        [
+                            'actions' => ['login', 'error'],
+                            'allow' => true,
+                        ],
+                        [
+                            'actions' => ['logout', 'index', 'delete'],
+                            'allow' => true,
+                            'roles' => ['@'],
+                        ],
+                    ],
+                ],
                 'verbs' => [
                     'class' => VerbFilter::class,
                     'actions' => [
                         'delete' => ['POST'],
                     ],
                 ],
+                // 'access' => [
+                //     'class' => AccessControl::class,
+                //     'rules' => [
+                //         [
+                //             'allow' => true,
+                //             'roles' => ['canAdmin'],
+                //         ],
+                //     ],
+                // ],
             ]
         );
     }

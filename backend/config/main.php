@@ -10,8 +10,15 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['log'],
-    'modules' => [],
+    'bootstrap' => ['log', 'gii', 'languageSelector'],
+    'modules' => [
+        'gii' => [
+            'class' => 'yii\gii\Module',
+        ],
+        'language' => [
+            'class' => backend\modules\language\Module::class,
+        ],
+    ],
     'components' => [
         'request' => [
             'baseUrl' => '/admin',
@@ -49,6 +56,9 @@ return [
                 // '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 // '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
+        ],
+        'languageSelector' => [
+            'class' => 'common\components\LanguageSelector',
         ],
     ],
     'params' => $params,

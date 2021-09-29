@@ -9,7 +9,7 @@ $params = array_merge(
 return [
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
-    'bootstrap' => ['log'],
+    'bootstrap' => ['log', 'languageSelector'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
         'request' => [
@@ -44,12 +44,20 @@ return [
                 '' => 'site/index',
                 'index' => 'site/index',
                 '<url:\w+>' => 'page/index',
+                'site/set-locale' => 'site/set-locale',
                 '<controller:\w+>' => '<controller>/index',
                 '<controller:\w+>/<id:\d+>' => '<controller>/view',
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ],
         ],
+        'languageSelector' => [
+            'class' => 'common\components\LanguageSelector',
+        ],
     ],
+    'as locale' => [
+        'class' => common\behaviors\LocaleBehavior::class,
+        'enablePreferredLanguage' => true
+    ], 
     'params' => $params,
 ];
