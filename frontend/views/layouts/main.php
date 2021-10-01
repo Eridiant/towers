@@ -29,26 +29,27 @@ $currentLang = $cookies->getValue('_locale', 'en-US');
 <body>
 <?php $this->beginBody() ?>
 
-<header>
+<header class="header">
     <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
-        ],
-    ]);
-    $menuItems = [
-        ['label' => 'Contact', 'url' => ['/site/contact']],
-    ];
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav'],
-        'items' => $menuItems,
-    ]);
-    NavBar::end();
+    // NavBar::begin([
+    //     'brandLabel' => Yii::$app->name,
+    //     'brandUrl' => Yii::$app->homeUrl,
+    //     'options' => [
+    //         'class' => 'navbar navbar-expand-md navbar-dark bg-dark fixed-top',
+    //     ],
+    // ]);
+    // $menuItems = [
+    //     ['label' => 'Contact', 'url' => ['/site/contact']],
+    // ];
+    // echo Nav::widget([
+    //     'options' => ['class' => 'navbar-nav'],
+    //     'items' => $menuItems,
+    // ]);
+    // NavBar::end();
     ?>
+    <?php require_once('template-header.php'); ?>
 </header>
-<?php require_once('template-header.php'); ?>
+
 
 <?= $content ?>
 
