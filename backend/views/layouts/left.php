@@ -4,12 +4,8 @@
 
         <!-- Sidebar user panel -->
         <div class="user-panel">
-            <div class="pull-left image">
-                <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
-            </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
-                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                <p> <?= Yii::$app->user->identity->username; ?> </p>
             </div>
         </div>
 
@@ -21,7 +17,24 @@
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Главные настройки', 'icon' => 'home', 'url' => ['site/index']],
+                    // ['label' => 'Кваритры', 'icon' => 'building-o', 'url' => ['floor/index']],
+                    [
+                        'label' => 'Кваритры',
+                        'icon' => 'building-o',
+                        'url' => '#',
+                        'items' => [
+                            ['label' => 'Этажи', 'icon' => 'building', 'url' => ['floor/index'],],
+                            ['label' => 'Квартиры', 'icon' => 'wpforms', 'url' => ['apartments/index'],],
+                        ],
+                    ],
                     ['label' => 'Заявки', 'icon' => 'envelope-open-o', 'url' => ['feedback/index']],
+                    ['label' => 'Системные', 'options' => ['class' => 'header'], 'permission' => ['canSupper', 'canAdmin', 'canEditor']],
+                    [
+                        'label' => 'Локализация',
+                        'icon' => 'language',
+                        'url' => '/admin/language/languages/active',
+                        'permission' => ['canSupper', 'canAdmin']
+                    ],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Some tools',

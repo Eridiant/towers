@@ -70,6 +70,23 @@ a.desc:after {
     color: rgba(255, 255, 255, 0.5);
 }
 
+.main-header a.logo {
+    height: 60px;
+}
+
+.logo-lg{
+    height: 60px;
+}
+
+.main-header .navbar > * {
+    flex-basis: 50%;
+    /* justify-content: flex-start; */
+}
+
+.navbar-nav {
+    flex-direction: row;
+}
+
 @media(max-width:767px) {
     .nav li > form > button.logout {
         display:block;

@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use backend\modules\language\models\Language;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -25,6 +26,12 @@ if (Yii::$app->controller->action->id === 'login') {
     dmstr\web\AdminLteAsset::register($this);
 
     $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@vendor/almasaeed2010/adminlte/dist');
+    $languages = Language::find()->where('id != :current_id', [':current_id' => Language::getCurrent()->id, ])->andWhere(['IS', 'deleted_at', null])->all();
+    // var_dump('<pre>');
+    // var_dump($languages);
+    // var_dump('</pre>');
+    // die;
+    
     ?>
     <?php $this->beginPage() ?>
     <!DOCTYPE html>
@@ -42,7 +49,7 @@ if (Yii::$app->controller->action->id === 'login') {
 
         <?= $this->render(
             'header.php',
-            ['directoryAsset' => $directoryAsset]
+            ['directoryAsset' => $directoryAsset, 'languages' => $languages]
         ) ?>
 
         <?= $this->render(

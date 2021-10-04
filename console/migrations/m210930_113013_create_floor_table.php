@@ -14,7 +14,7 @@ class m210930_113013_create_floor_table extends Migration
     {
         $this->createTable('{{%floor}}', [
             'id' => $this->primaryKey(),
-            'floor' => $this->string(24),
+            'floor' => $this->string(24)->notNull()->unique(),
         ]);
     }
 

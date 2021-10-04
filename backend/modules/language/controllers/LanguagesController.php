@@ -23,16 +23,16 @@ class LanguagesController extends Controller
                     'delete' => ['get'],
                 ],
             ],
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['canAdmin']
-                    ],
+            // 'access' => [
+            //     'class' => AccessControl::className(),
+            //     'rules' => [
+            //         [
+            //             'allow' => true,
+            //             'roles' => ['canAdmin']
+            //         ],
 
-                ],
-            ],
+            //     ],
+            // ],
         ];
     }
 

@@ -65,15 +65,15 @@ class Feedback extends ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => Yii::t('app', 'ID'),
-            'name' => Yii::t('app', 'Name'),
-            'email' => Yii::t('app', 'Email'),
-            'phone' => Yii::t('app', 'Phone'),
-            'subject' => Yii::t('app', 'Subject'),
-            'lang' => Yii::t('app', 'Lang'),
-            'body' => Yii::t('app', 'Body'),
-            'viewed' => Yii::t('app', 'Viewed'),
-            'created_at' => Yii::t('app', 'Date'),
+            'id' => Yii::t('frontend', 'ID'),
+            'name' => Yii::t('frontend', 'Имя'),
+            'email' => Yii::t('frontend', 'Email'),
+            'phone' => Yii::t('frontend', 'Телефон'),
+            'subject' => Yii::t('frontend', 'Subject'),
+            'lang' => Yii::t('frontend', 'Язык'),
+            'body' => Yii::t('frontend', 'Body'),
+            'viewed' => Yii::t('frontend', 'Viewed'),
+            'created_at' => Yii::t('frontend', 'Date'),
         ];
     }
 }

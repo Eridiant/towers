@@ -14,7 +14,19 @@ class m211001_050714_create_apartment_info_table extends Migration
     {
         $this->createTable('{{%apartment_info}}', [
             'id' => $this->primaryKey(),
+            'apartment_id' => $this->integer(11)->notNull(),
+            'area' => $this->float(),
+            'price' => $this->money(),
+            'img' => $this->string(),
         ]);
+        $this->addForeignKey(
+            'apartments-apartment_info',
+            '{{%apartment_info}}',
+            'apartment_id',
+            '{{%apartments}}',
+            'id',
+            'CASCADE'
+        );
     }
 
     /**
