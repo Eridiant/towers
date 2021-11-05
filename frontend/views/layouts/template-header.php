@@ -1,125 +1,108 @@
-
-<div class="header-bg">
-  <picture class="header-vis">
-    <source srcset="images/del/bg14.jpg" media="(max-width: 420px)">
-    <source srcset="images/del/bg13.jpg" media="(max-width: 1280px)">
-    <source srcset="images/del/bg12.jpg" media="(max-width: 1500px)">
-    <source srcset="images/del/bg11.jpg" media="(min-width: 1501px)">
-    <img src="images/del/bg13.jpg" alt="">
-  </picture>
-  <picture class="header-vis">
-    <source srcset="images/del/bg24.jpg" media="(max-width: 420px)">
-    <source srcset="images/del/bg23.jpg" media="(max-width: 1280px)">
-    <source srcset="images/del/bg22.jpg" media="(max-width: 1500px)">
-    <source srcset="images/del/bg21.jpg" media="(min-width: 1501px)">
-    <img src="images/del/bg23.jpg" alt="">
-  </picture>
+<div class="top">
+	<div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
+		<div class="top-nav">
+			<div class="top-logo">
+				<a href="/">
+					<svg width="100%" height="100%"><use xlink:href="/images/icons.svg#logo"></use></svg>
+				</a>
+			</div>
+			<div class="top-social">
+				<a href="#">
+					<svg width="16" height="16"><use xlink:href="/images/icons.svg#fb"></use></svg>
+				</a>
+				<a href="#">
+					<svg width="16" height="16"><use xlink:href="/images/icons.svg#youtube"></use></svg>
+				</a>
+				<a href="#">
+					<svg width="16" height="16"><use xlink:href="/images/icons.svg#instagram"></use></svg>
+				</a>
+				<a href="#">
+					<svg width="16" height="16"><use xlink:href="/images/icons.svg#telegram"></use></svg>
+				</a>
+			</div>
+			<a href="#" class="top-sound">
+				<svg width="32" height="32"><use xlink:href="/images/icons.svg#sound"></use></svg>
+			</a>
+			<div class="top-lang">
+				<a href="#">ge</a>
+				<a href="#">en</a>
+				<a href="#" class="current">ru</a>
+				<a href="#">he</a>
+			</div>
+			<div class="top-navg">
+				<a href="infrastructure.html">Инфраструктура</a>
+                <a href="layouts.html">Планировки</a>
+                <a href="gallery.html">Галерея</a>
+                <a href="about.html">О компании</a>
+                <a href="news.html">Новости</a>
+                <a href="contacts.html">Контакты</a>
+			</div>
+			<a href="tel:+70988900043" class="top-phone phone">+7 (098) 890-00-43</a>
+		</div>
+	</div>
 </div>
-<div class="container" style="max-width: 1170px; margin-left: auto; margin-right: auto">
-  <div class="header-link">
-    <div class="header-icon">
-      <a href="#">
-        <svg width="16" height="16"><use xlink:href="images/icons.svg#header-icon"></use></svg>
-      </a>
-      <a href="#">
-        <svg width="9" height="16"><use xlink:href="images/icons.svg#header-icon2"></use></svg>
-      </a>
-      <a href="#">
-        <svg width="16" height="16"><use xlink:href="images/icons.svg#header-icon3"></use></svg>
-      </a>
-      <a href="#">
-        <svg width="16" height="16"><use xlink:href="images/icons.svg#header-icon4"></use></svg>
-      </a>
+
+<div class="container-lg" style="max-width: 1920px; margin-left: auto; margin-right: auto">
+    <div class="menu">
+        <svg width="23" height="17"><use xlink:href="images/icons.svg#menu"></use></svg>
     </div>
-    <div class="header-lang">
-      <?php $model = \backend\modules\language\models\Language::find()->where(['deleted_at' => null])->all(); ?>
-      <?php foreach ($model as $lang): ?>
-        <a <?= ($lang->key == $currentLang) ? 'class="current"' : ''; ?> href="/site/set-locale?locale=<?=$lang->key?>">
-          <span><?= preg_replace('/-\w{2}/', '$1', $lang->key); ?></span>
-        </a>
-      <?php endforeach; ?>
+    <div class="lang">
+        <div class="lang-choosed">
+            ru
+        </div>
+        <div class="lang-choose">
+            <ul>
+                <li><a href="#">
+                    ge
+                </a></li>
+                <li><a href="#">
+                    en
+                </a></li>
+                <li><a href="#">
+                    ru
+                </a></li>
+                <li><a href="#">
+                    he
+                </a></li>
+            </ul>
+        </div>
     </div>
-  </div>
-  <div class="header-panel">
-    <div class="header-logo">
-      <svg width="46" height="56"><use xlink:href="images/icons.svg#header-logo"></use></svg>
-    </div>
-    <div class="header-nav">
-      <div class="header-nav-item"><a href="#">О проекте</a></div>
-      <div class="header-nav-item"><a href="#">Апартаменты</a></div>
-      <div class="header-nav-item"><a href="#">Галерея</a></div>
-      <div class="header-nav-item"><a href="#">Условия</a></div>
-      <div class="header-nav-item"><a href="#">Контакты</a></div>
-    </div>
-    <a href="tel:+995574202020" class="header-tel">
-      +995 (574) 20 20 20 
-    </a>
-  </div>
-  <div class="header-content">
-    <p class="header-subtitile">Жилой комплекс</p>
-    <h1>CUBE TOWER</h1>
-    <p>Роскошные апартаменты для жизни и инвестиций.</p>
-    <div class="header-button">
-      <a href="#" class="btn btn-yellow">Выбрать квартиру</a>
-      <a data-fancybox="" data-src="#modal" href="javascript:;" class="btn btn-yellow">Заказать звонок</a>
-      <a href="#" class="btn btn-bg">Mardi</a>
-    </div>
-  </div>
-  <div class="header-burger">
-    <svg width="32" height="26" viewBox="0 0 32 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M32 0.814453H0V3.99326H32V0.814453Z" fill="currentColor"/>
-      <path d="M32 22.0068H0V25.1856H32V22.0068Z" fill="currentColor"/>
-      <path d="M32 11.4102H0V14.589H32V11.4102Z" fill="currentColor"/>
-    </svg>
-  </div>
-  <div class="burger-bg">
-    <!-- <img src="images/dist/burger-bg.jpg" alt=""> -->
-    <div class="burger-top">
-      <div class="burger-logo">
-        <svg width="46" height="56"><use xlink:href="images/icons.svg#burger-logo"></use></svg>
-      </div>
-      <div class="burger-lang">
-        <a href="/site/set-locale?locale=ru-RU" class="current"><span>ru</span></a>
-        <a href="/site/set-locale?locale=he-Ge"><span>he</span></a>
-        <a href="/site/set-locale?locale=en-US"><span>en</span></a>
-      </div>
-    </div>
-    <div class="burger-menu">
-      <div class="burger-nav">
-        <div class="burger-nav-item"><a href="#">О проекте</a></div>
-        <div class="burger-nav-item"><a href="#">Апартаменты</a></div>
-        <div class="burger-nav-item"><a href="#">Галерея</a></div>
-        <div class="burger-nav-item"><a href="#">Условия</a></div>
-        <div class="burger-nav-item"><a href="#">Контакты</a></div>
-      </div>
-      <a href="tel:+995574202020" class="burger-tel">
-        +995 (574) 20 20 20 
-      </a>
-      <div class="burger-icon">
+</div>
+<div class="content">
+    <div class="content-header">
         <a href="#">
-          <svg width="16" height="16"><use xlink:href="images/icons.svg#viber"></use></svg>
+            <svg width="53" height="108"><use xlink:href="images/icons.svg#logo"></use></svg>
         </a>
-        <a href="#">
-          <svg width="9" height="16"><use xlink:href="images/icons.svg#fb"></use></svg>
-        </a>
-        <a href="#">
-          <svg width="16" height="16"><use xlink:href="images/icons.svg#instagram"></use></svg>
-        </a>
-        <a href="#">
-          <svg width="16" height="16"><use xlink:href="images/icons.svg#whatsapp"></use></svg>
-        </a>
-      </div>
+        <div class="top-social">
+            <a href="#">
+                <svg width="16" height="16"><use xlink:href="images/icons.svg#fb"></use></svg>
+            </a>
+            <a href="#">
+                <svg width="16" height="16"><use xlink:href="images/icons.svg#youtube"></use></svg>
+            </a>
+            <a href="#">
+                <svg width="16" height="16"><use xlink:href="images/icons.svg#instagram"></use></svg>
+            </a>
+            <a href="#">
+                <svg width="16" height="16"><use xlink:href="images/icons.svg#telegram"></use></svg>
+            </a>
+        </div>
+        <div class="content-empty"></div>
+        <div class="content-close">
+            <svg width="20" height="20"><use xlink:href="images/icons.svg#close"></use></svg>
+        </div>
     </div>
-    <div class="burger-arrow">
-      <svg width="32" height="28"><use xlink:href="images/icons.svg#burger-arrow"></use></svg>
+    <div class="content-wrapper">
+        <div class="content-nav">
+            <ul>
+                <li><a href="infrastructure.html">Инфраструктура</a></li>
+                <li><a href="layouts.html">Планировки</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="about.html">О компании</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </div>
+        <a class="content-footer" href="#">Политики конфиденциальности</a>
     </div>
-  </div>
-  <div class="header-navigation navigation">
-    <div class="header-prev prev">
-      <svg width="24" height="16"><use xlink:href="images/icons.svg#header-prev prev"></use></svg>
-    </div>
-    <div class="header-next next">
-      <svg width="24" height="16"><use xlink:href="images/icons.svg#header-next next"></use></svg>
-    </div>
-  </div>
 </div>

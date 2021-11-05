@@ -13,15 +13,15 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         // 'css/',
-        // 'css/',
-        'css/jquery.fancybox.min.css',
-        'css/main.min.css',
+        'css/swiper-bundle.min.css',
+        // 'css/jquery.fancybox.min.css',
+        'css/app.min.css',
         'css/site.css',
         'css/for_del.css',
     ];
     public $js = [
         'js/swiper-bundle.min.js',
-        'js/jquery.fancybox.min.js',
+        // 'js/jquery.fancybox.min.js',
         'js/app.min.js',
     ];
     public $depends = [

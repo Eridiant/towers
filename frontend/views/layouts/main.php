@@ -28,8 +28,8 @@ $currentLang = $cookies->getValue('_locale', 'en-US');
 </head>
 <body>
 <?php $this->beginBody() ?>
-
-<header class="header">
+<?php require_once('template-header.php'); ?>
+<!-- <header class="header"> -->
     <?php
     // NavBar::begin([
     //     'brandLabel' => Yii::$app->name,
@@ -47,8 +47,8 @@ $currentLang = $cookies->getValue('_locale', 'en-US');
     // ]);
     // NavBar::end();
     ?>
-    <?php require_once('template-header.php'); ?>
-</header>
+    
+<!-- </header> -->
 
 
 <?= $content ?>
