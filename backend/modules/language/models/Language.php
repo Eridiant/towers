@@ -18,9 +18,9 @@ class Language extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'key'], 'required'],
-            [['name', 'key'], 'string', 'max' => 255],
-            ['key', 'unique'],
+            [['name', 'key', 'code'], 'required'],
+            [['name', 'key', 'code'], 'string', 'max' => 255],
+            [['key', 'code'], 'unique'],
         ];
     }
 
@@ -30,6 +30,7 @@ class Language extends ActiveRecord
             'id' => '№',
             'name' => 'Язык',
             'key' => 'Url ключ',
+            'code' => 'ключ',
         ];
     }
 

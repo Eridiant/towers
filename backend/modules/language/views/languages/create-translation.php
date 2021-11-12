@@ -20,7 +20,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php $form = ActiveForm::begin(); ?>
 
-            <?= $form->field($model, 'category')->dropDownList(['common'=>'common','frontend'=>'frontend','backend'=>'backend']) ?>
+            <?= $form->field($model, 'category')->dropDownList(['frontend'=>'frontend','common'=>'common','backend'=>'backend']) ?>
 
             <?= $form->field($model, 'message')->textInput(['maxlength' => true]) ?>
 

@@ -44,7 +44,7 @@ class LanguagesController extends Controller
         $dataProvider2 = new ActiveDataProvider([
             'query' => Trasnlations::find(),
             'pagination' => [
-              'pageSize' => 5,
+              'pageSize' => 20,
             ],
         ]);
         return $this->render('index', [

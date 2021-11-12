@@ -21,6 +21,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= $form->field($model, 'key')->textInput(['maxlength' => true])->hint('Введите ключ языка. Он должен быть уникальным') ?>
 
+    <?= $form->field($model, 'code')->textInput(['maxlength' => true])->hint('Введите отображаемое значение языка') ?>
+
     <div class="form-group">
         <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
     </div>

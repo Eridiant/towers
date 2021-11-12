@@ -26,7 +26,7 @@ $currentLang = $cookies->getValue('_locale', 'en-US');
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body class="<?= $this->context->bodyClass; ?>">
 <?php $this->beginBody() ?>
 <?php require_once('template-header.php'); ?>
 <!-- <header class="header"> -->

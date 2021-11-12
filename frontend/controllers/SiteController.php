@@ -22,6 +22,9 @@ use frontend\models\Feedback;
  */
 class SiteController extends Controller
 {
+
+    public $bodyClass;
+
     /**
      * {@inheritdoc}
      */
@@ -84,10 +87,122 @@ class SiteController extends Controller
 
         $request = Yii::$app->request;
         if ($request->isPost && $model->load($request->post())) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             $model->lang = Yii::$app->language;
-            $model->save();
+            
+            if($model->save()){
+                return ['data' => ['success' => true]];
+            }
+            return ['data' => ['success' => true]];
         }
+
+        $this->bodyClass = 'wh';
+
         return $this->render('index', compact('model'));
+    }
+
+    public function actionAjax()
+    {
+        $model = new Feedback();
+
+        $request = Yii::$app->request;
+        
+        if ($request->isPost) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            $model->name = $request->post("name");
+            $model->phone = $request->post("phone");
+            $model->viewed = $request->post("viewed") == "on" ? 1 : 0;
+            $model->lang = Yii::$app->language;
+            
+            if($model->save()){
+                return ['data' => ['success' => true]];
+            }
+
+            return ['data' => ['success' => false]];
+        }
+    }
+
+    public function actionInfrastructure()
+    {
+
+        $this->bodyClass = 'wh';
+
+        return $this->render('infrastructure');
+    }
+
+    public function actionLayouts()
+    {
+
+        $this->bodyClass = 'other bl';
+
+        return $this->render('layouts');
+    }
+
+    public function actionGallery()
+    {
+
+        $this->bodyClass = 'other bl';
+
+        $rend = '_gallery';
+
+        return $this->render('gallery', compact('rend'));
+    }
+
+    public function actionBatumi()
+    {
+
+        $this->bodyClass = 'other bl';
+
+        $rend = '_batumi';
+
+        return $this->render('gallery', compact('rend'));
+    }
+
+    public function actionConstructionProgress()
+    {
+
+        $this->bodyClass = 'other bl';
+
+        $rend = '_progress';
+
+        return $this->render('gallery', compact('rend'));
+    }
+
+    public function actionOurTeam()
+    {
+
+        $this->bodyClass = 'other bl';
+
+        $rend = '_team';
+
+        return $this->render('gallery', compact('rend'));
+    }
+
+    public function actionVideo()
+    {
+
+        $this->bodyClass = 'other bl';
+
+        $rend = '_video';
+
+        return $this->render('gallery', compact('rend'));
+    }
+
+    public function actionAbout()
+    {
+
+        $this->bodyClass = 'other bl';
+
+        return $this->render('about');
+    }
+
+    public function actionContacts()
+    {
+
+        $this->bodyClass = 'other bl';
+
+        return $this->render('contacts');
     }
 
     /**

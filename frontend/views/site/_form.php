@@ -1,29 +1,17 @@
-<?php
 
-use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model backend\models\AuthAssignment */
-/* @var $form yii\widgets\ActiveForm */
-?>
-
-<div class="auth-assignment-form">
-
-    <?php $form = ActiveForm::begin(); ?>
-
-        <?= $form->field($model, 'name') ?>
-
-        <?= $form->field($model, 'phone') ?>
-
-        <?= $form->field($model, 'email') ?>
-
-        <?= $form->field($model, 'viewed')->checkbox(['label' => 'Я принимаю условия пользовательского соглашения и даю право на обработку моих персональных данных']) ?>
-
-        <div class="form-group">
-            <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+<form id="form" action="/" method="post"> 
+    <input type="hidden" name="_csrf-frontend" value="<?= Yii::$app->request->csrfToken; ?>">
+    <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>">
+    <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>">
+    <!-- <div class="contact-wrap">
+        <input type="text" name="email" placeholder="Имя">
+    </div> -->
+    <div class="contact-wrap">
+        <div class="contact-inner">
+            <label for="contact-check"><?=Yii::t('frontend', 'Я согласен с условиями обработки персональных данных')?></label>
+            <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed">
         </div>
-
-    <?php ActiveForm::end(); ?>
-
-</div>
+        <button class="btn btn-white"><?=Yii::t('frontend', 'Отправить')?></button>
+    </div>
+</form>

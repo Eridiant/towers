@@ -79,10 +79,10 @@ use yii\helpers\Html;
             <?= GridView::widget([
                 'dataProvider' => $dataProvider2,
                 'columns' => [
-                    [
-                        'attribute'=>'id',
-                        'label'=>'№',
-                    ],
+                    // [
+                    //     'attribute'=>'id',
+                    //     'label'=>'№',
+                    // ],
                     [
                         'attribute'=>'category',
                     ],
