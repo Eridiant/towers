@@ -345,8 +345,8 @@ $this->title = 'My Yii Application';
                     </div>
                 </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next infr-next"></div>
+            <div class="swiper-button-prev infr-prev"></div>
             <div class="swiper-scrollbar"></div>
         </div>
     </div>
@@ -357,11 +357,27 @@ $this->title = 'My Yii Application';
         <h2>
             <?=Yii::t('frontend', 'О компании')?>
         </h2>
-        <div class="aboute-img">
-            <picture>
-                <source type="image/jpeg" srcset="images/dist/index/about.jpg, images/dist/about/about-2x.jpg 2x">
-                <img src="images/dist/index/about.jpg" width="1306" height="764" alt="">
-            </picture>
+        <div class="swiper aboute-swiper" style="--swiper-navigation-color: #fff">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="aboute-img">
+                        <picture>
+                            <source type="image/jpeg" srcset="images/dist/index/about.jpg, images/dist/about/about-2x.jpg 2x">
+                            <img src="images/dist/index/about.jpg" width="1306" height="764" alt="">
+                        </picture>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="aboute-img">
+                        <picture>
+                            <source type="image/jpeg" srcset="images/dist/index/about.jpg, images/dist/about/about-2x.jpg 2x">
+                            <img src="images/dist/index/about.jpg" width="1306" height="764" alt="">
+                        </picture>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next aboute-next"></div>
+            <div class="swiper-button-prev aboute-prev"></div>
         </div>
     </div>
 </div>
@@ -484,8 +500,8 @@ $this->title = 'My Yii Application';
                     </div>
                 </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next choose-next"></div>
+            <div class="swiper-button-prev choose-prev"></div>
         </div>
     </div>
 </div>

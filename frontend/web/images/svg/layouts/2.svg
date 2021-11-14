@@ -66,8 +66,7 @@
    <style type="text/css" id="style1">
       .area {
          cursor: pointer;
-         fill: #fff;
-         fill-opacity: 0;
+         fill: #4dd48a3b;
          stroke-opacity: 1;
          transition: .3s;
       }
@@ -76,21 +75,21 @@
          fill-opacity: .6;
       }
       .reserved {
-         fill: #fab551;
+         fill: #ffe656e7;
          fill-opacity: .35;
          cursor: default
       }
       .reserved:hover {
-         fill: #fab551;
+         fill: #A34D1A;
          fill-opacity: .35;
       }
       .solded {
-         fill: #fa5151;
+         fill: #061102;
          fill-opacity: .35;
          cursor: default
       }
       .solded:hover {
-         fill: #fa5151;
+         fill: #555;
          fill-opacity: .35;
       }
    </style>
