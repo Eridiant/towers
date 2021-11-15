@@ -23,6 +23,13 @@ $this->title = 'My Yii Application';
             </object>
         </figure>
     </div>
+    <div class="layouts-bg-svg">
+        <figure class="layouts-bg-fig">
+            <object id="floors" data="/images/svg/layout-flats.svg" type="image/svg+xml">
+                <!-- <img src="images/dist/bg-1920x1450.jpg" alt=""> -->
+            </object>
+        </figure>
+    </div>
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="layouts-content">
             <div class="layouts-title">
@@ -325,6 +332,11 @@ $this->title = 'My Yii Application';
                     <p>
                         Цены на квартиры по этажам одна, отличия только вида
                     </p>
+                </div>
+                <div class="flat-num-img">
+                    <picture>
+                        <img src="/images/3d.jpg" alt="">
+                    </picture>
                 </div>
             </div>
         </div>
