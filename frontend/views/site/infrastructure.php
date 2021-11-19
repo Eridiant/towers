@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = Yii::t('frontend', 'Инфраструктур');
 
 ?>
 <div id="infrastructure" class="infrastructure">
@@ -314,7 +314,12 @@ $this->title = 'My Yii Application';
 
 <div class="slider">
     <div class="container-sl" style="max-width: 1500px; margin-left: auto; margin-right: auto">
-        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper slider-main">
+        <div class="swiper-slide">
+            <picture>
+                <img src="/images/default.jpg" alt="">
+            </picture>
+        </div>
+        <!--<div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper slider-main">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <picture>
@@ -423,6 +428,6 @@ $this->title = 'My Yii Application';
                     </picture>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </div>

@@ -11,28 +11,28 @@ use yii\helpers\Url;
 		<div class="footer-logo">
 			<svg width="53" height="108"><use xlink:href="/images/icons.svg#logos"></use></svg>
 		</div>
-		<div class="footer-wrapper">
+		<div class="footer-wrapper footer-main">
 			<div class="footer-social">
 				<p>
 					<?=Yii::t('frontend', 'Соцсети')?>:
 				</p>
 				<div class="footer-social-inner">
-					<a href="#">
+					<a href="<?= $user_info->fb; ?>">
 						<svg width="16" height="16"><use xlink:href="/images/icons.svg#fb"></use></svg>
 					</a>
-					<a href="#">
+					<a href="<?= $user_info->youtube; ?>">
 						<svg width="16" height="16"><use xlink:href="/images/icons.svg#youtube"></use></svg>
 					</a>
-					<a href="#">
+					<a href="<?= $user_info->instagram; ?>">
 						<svg width="16" height="16"><use xlink:href="/images/icons.svg#instagram"></use></svg>
 					</a>
-					<a href="#">
+					<a href="https://telegram.me/<?= $user_info->telegram; ?>">
 						<svg width="16" height="16"><use xlink:href="/images/icons.svg#telegram"></use></svg>
 					</a>
-					<a href="#">
+					<a href="https://wa.me/<?= $user_info->whats_app; ?>">
 						<svg width="16" height="16"><use xlink:href="/images/icons.svg#whatsapp"></use></svg>
 					</a>
-					<a href="#">
+					<a href="viber://add?number=<?= $user_info->viber; ?>">
 						<svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
 					</a>
 				</div>
@@ -61,12 +61,15 @@ use yii\helpers\Url;
 				</div>
 			</div>
 			<div class="footer-phone">
-				<a href="tel:+70988900043" class="top-phone phone">+7 (098) 890-00-43</a>
+			<a href="tel:<?= $user_info->phone; ?>" class="top-phone phone"><?= preg_replace("/^(\d{2})(\d{3})(\d{3})(\d{2})(\d{2})$/", "+$1($2)-$3-$4-$5", $user_info->phone); ?></a>
 				</br>
 				<span>г. Москва, ул. Пражская 88/23</span>
 			</div>
 		</div>
-		<a href="#"><?=Yii::t('frontend', 'Политика конфиденциальности')?></a>
+		<div class="footer-wrapper footer-footer">
+			<a class="trsp" href="#"><?=Yii::t('frontend', 'Политика конфиденциальности')?></a>
+			<a href="#"><img src="images/syndicate.png" alt=""></a>
+		</div>
 	</div>
 </footer>
 

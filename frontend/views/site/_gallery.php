@@ -16,11 +16,23 @@ use yii\helpers\Url;
                     <h1>Галерея</h1>
                 </div>
                 <div class="gallery-tab">
-                    <a href="<?=Url::toRoute('/gallery') ?>">Жилой дом</a>
-                    <a href="<?=Url::toRoute('/construction-progress') ?>">Ход строительства</a>
-                    <a href="<?=Url::toRoute('/batumi') ?>">Батуми</a>
-                    <a href="<?= Url::toRoute('/our-team') ?>">Команда</a>
-                    <a href="<?= Url::toRoute('/video-report') ?>">Видео отчет о ходе строительства</a>
+                    <ul>
+                        <li>
+                            <a href="<?=Url::toRoute('/gallery') ?>">Жилой дом</a>
+                        </li>
+                        <li>
+                            <a href="<?=Url::toRoute('/construction-progress') ?>">Ход строительства</a>
+                        </li>
+                        <li>
+                            <a href="<?=Url::toRoute('/batumi') ?>">Батуми</a>
+                        </li>
+                        <li>
+                            <a href="<?= Url::toRoute('/our-team') ?>">Команда</a>
+                        </li>
+                        <li>
+                            <a href="<?= Url::toRoute('/video-report') ?>">Видео отчет о ходе строительства</a>
+                        </li>
+                    </ul>
                 </div>
                 <a href="#" class="contacts-call btn btn-blue">
                     <span>Скачать план (PDF)</span>
@@ -29,7 +41,7 @@ use yii\helpers\Url;
             </div>
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper gallery-main">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <!--  <div class="swiper-slide">
                         <picture>
                             <img src="/images/dist/gallery/gallery-1.jpg" width="1204" height="779" alt="">
                         </picture>
@@ -38,7 +50,7 @@ use yii\helpers\Url;
                         <picture>
                             <img src="/images/dist/gallery/gallery-2.jpg" width="1204" height="779" alt="">
                         </picture>
-                    </div>
+                    </div> -->
                     <div class="swiper-slide">
                         <picture>
                             <img src="/images/dist/gallery/gallery-3.jpg" width="1204" height="779" alt="">
@@ -81,7 +93,7 @@ use yii\helpers\Url;
         </div>
         <div thumbsSlider="" class="swiper gallery-thumb">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
+                <!-- <div class="swiper-slide">
                     <picture>
                         <img src="/images/dist/gallery/gallery-1.jpg" width="1204" height="779" alt="">
                     </picture>
@@ -90,7 +102,7 @@ use yii\helpers\Url;
                     <picture>
                         <img src="/images/dist/gallery/gallery-2.jpg" width="1204" height="779" alt="">
                     </picture>
-                </div>
+                </div> -->
                 <div class="swiper-slide">
                     <picture>
                         <img src="/images/dist/gallery/gallery-3.jpg" width="1204" height="779" alt="">

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+$this->title = 'Calligraphy';
 
 ?>
 
@@ -15,36 +16,26 @@ use yii\helpers\Url;
 				</a>
 			</div>
 			<div class="top-social">
-				<a href="#">
+				<a href="<?= $user_info->fb; ?>">
 					<svg width="16" height="16"><use xlink:href="/images/icons.svg#fb"></use></svg>
 				</a>
-				<a href="#">
+				<a href="<?= $user_info->youtube; ?>">
 					<svg width="16" height="16"><use xlink:href="/images/icons.svg#youtube"></use></svg>
 				</a>
-				<a href="#">
+				<a href="<?= $user_info->instagram; ?>">
 					<svg width="16" height="16"><use xlink:href="/images/icons.svg#instagram"></use></svg>
 				</a>
-				<a href="#">
+				<a href="https://telegram.me/<?= $user_info->telegram; ?>">
 					<svg width="16" height="16"><use xlink:href="/images/icons.svg#telegram"></use></svg>
 				</a>
-				<a href="#">
+				<a href="https://wa.me/<?= $user_info->whats_app; ?>">
 					<svg width="16" height="16"><use xlink:href="/images/icons.svg#whatsapp"></use></svg>
 				</a>
-				<a href="#">
+				<a href="viber://add?number=<?= $user_info->viber; ?>">
 					<svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
 				</a>
 			</div>
-			<a href="#" class="top-sound">
-				<svg width="32" height="32"><use xlink:href="/images/icons.svg#sound"></use></svg>
-			</a>
-			<div class="top-lang">
-                <?php $langs = \backend\modules\language\models\Language::find()->where(['deleted_at' => null])->all(); ?>
-                <?php foreach ($langs as $lang): ?>
-                    <a <?= ($lang->key == $currentLang) ? 'class="current"' : ''; ?> href="/site/set-locale?locale=<?=$lang->key?>">
-                        <span><?= $lang->code; ?></span>
-                    </a>
-                <?php endforeach; ?>
-			</div>
+            <div class="content-empty"></div>
 			<div class="top-navg">
                 <a href="<?=Url::toRoute('/') ?>">
                     <?=Yii::t('frontend', 'Главная')?>
@@ -68,7 +59,7 @@ use yii\helpers\Url;
                     <?=Yii::t('frontend', 'Контакты')?>
                 </a>
 			</div>
-			<a href="tel:+70988900043" class="top-phone phone">+7 (098) 890-00-43</a>
+			<a href="tel:<?= $user_info->phone; ?>" class="top-phone phone"><?= preg_replace("/^(\d{2})(\d{3})(\d{3})(\d{2})(\d{2})$/", "+$1($2)-$3-$4-$5", $user_info->phone); ?></a>
 		</div>
 	</div>
 </div>
@@ -105,22 +96,22 @@ use yii\helpers\Url;
             <svg width="53" height="108"><use xlink:href="/images/icons.svg#logo"></use></svg>
         </a>
         <div class="top-social">
-            <a href="#">
+            <a href="<?= $user_info->fb; ?>">
                 <svg width="16" height="16"><use xlink:href="/images/icons.svg#fb"></use></svg>
             </a>
-            <a href="#">
+            <a href="<?= $user_info->youtube; ?>">
                 <svg width="16" height="16"><use xlink:href="/images/icons.svg#youtube"></use></svg>
             </a>
-            <a href="#">
+            <a href="<?= $user_info->instagram; ?>">
                 <svg width="16" height="16"><use xlink:href="/images/icons.svg#instagram"></use></svg>
             </a>
-            <a href="#">
+            <a href="https://telegram.me/<?= $user_info->telegram; ?>">
                 <svg width="16" height="16"><use xlink:href="/images/icons.svg#telegram"></use></svg>
             </a>
-            <a href="#">
+            <a href="https://wa.me/<?= $user_info->whats_app; ?>">
                 <svg width="16" height="16"><use xlink:href="/images/icons.svg#whatsapp"></use></svg>
             </a>
-            <a href="#">
+            <a href="viber://add?number=<?= $user_info->viber; ?>">
                 <svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
             </a>
         </div>
@@ -155,6 +146,6 @@ use yii\helpers\Url;
                 </a></li>
             </ul>
         </div>
-        <a class="content-footer" href="#"><?=Yii::t('frontend', 'Политика конфиденциальности')?></a>
+        <a class="content-footer trsp" href="#"><?=Yii::t('frontend', 'Политика конфиденциальности')?></a>
     </div>
 </div>

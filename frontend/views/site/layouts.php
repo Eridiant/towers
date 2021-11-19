@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = Yii::t('frontend', 'Планировки');
 
 
 ?>
@@ -113,7 +113,10 @@ $this->title = 'My Yii Application';
                                     <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
                                 </object>
                             </figure>
-                            <div class="focus"></div>
+                            <div class="focus">
+                                <p class="focus-flat"></p>
+                                <p class="focus-status"></p>
+                            </div>
                         </div>
                     </div>
                     <div class="floor-choose-inner" data-floor="2">
@@ -318,25 +321,21 @@ $this->title = 'My Yii Application';
                 </div> -->
             </div>
             <div class="flat-num">
-                <div class="flat-num-title">
-                    <h2>Название</h2>
-                    <p>№ <span id="flat-num">1</span></p> 
-                </div>
                 <div class="flat-num-wrapper">
-                    <div class="flat-num-inner">
-                        <a href="#" class="contacts-call btn btn-blue">
-                            <span>Скачать план (PDF)</span>
-                            <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
-                        </a>
-                    </div>
                     <p>
                         Цены на квартиры по этажам одна, отличия только вида
                     </p>
                 </div>
                 <div class="flat-num-img">
                     <picture>
-                        <img src="/images/3d.jpg" alt="">
+                        <img src="/images/3d.png" alt="">
                     </picture>
+                </div>
+                <div class="flat-num-inner">
+                    <a href="#" class="contacts-call btn btn-blue">
+                        <span>Скачать план (PDF)</span>
+                        <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
+                    </a>
                 </div>
             </div>
         </div>

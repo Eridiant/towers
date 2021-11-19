@@ -40,8 +40,21 @@ $this->title = 'My Yii Application';
                     </ul>
                 </div>
             </div>
-            <div class="about-img">
-                <img src="/images/dist/about/about.jpg" alt="">
+            <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper aboute-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="about-img">
+                            <img src="/images/dist/about/about.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="about-img">
+                            <img src="/images/dist/about/about.jpg" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
         </div>
     </div>

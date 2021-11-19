@@ -26,6 +26,9 @@
    <style>
       .blur {
          fill: #E0B5B588;
+         stroke: #fff;
+         stroke-width: 1px;
+         stroke-opacity: 0;
          transition: .4s
       }
       .active {

@@ -1,8 +1,10 @@
 <?php
 
-/* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+use yii\helpers\Html;
+use yii\helpers\Url;
+
+/* @var $this yii\web\View */
 
 ?>
 
@@ -10,22 +12,22 @@ $this->title = 'My Yii Application';
 	<div class="header-bg img-bg">
 		<div class="header-bg-wrap header-lights">
 			<picture>
-				<!-- <source srcset="images/del/bg14.jpg" media="(max-width: 420px)">
-				<source srcset="images/del/bg13.jpg" media="(max-width: 1280px)">
-				<source srcset="images/del/bg12.jpg" media="(max-width: 1500px)">
-				<source srcset="images/del/bg11.jpg" media="(min-width: 1501px)"> -->
-                <source type="image/jpeg" srcset="images/dist/header/header_bg.jpg, images/dist/header/header_bg-2x.jpg 2x">
-				<img src="images/dist/header/header_bg.jpg" alt="">
+				<!-- <source srcset="/images/del/bg14.jpg" media="(max-width: 420px)">
+				<source srcset="/images/del/bg13.jpg" media="(max-width: 1280px)">
+				<source srcset="/images/del/bg12.jpg" media="(max-width: 1500px)">
+				<source srcset="/images/del/bg11.jpg" media="(min-width: 1501px)"> -->
+                <source type="image/jpeg" srcset="/images/dist/header/header_bg.jpg, images/dist/header/header_bg-2x.jpg 2x">
+				<img src="/images/dist/header/header_bg.jpg" alt="">
 			</picture>
 		</div>
 		<div class="header-bg-wrap">
 			<picture>
-				<!-- <source srcset="images/del/bg14.jpg" media="(max-width: 420px)">
-				<source srcset="images/del/bg13.jpg" media="(max-width: 1280px)">
-				<source srcset="images/del/bg12.jpg" media="(max-width: 1500px)">
-				<source srcset="images/del/bg11.jpg" media="(min-width: 1501px)"> -->
-				<source type="image/jpeg" srcset="images/dist/header/header_bg_night.jpg, images/dist/header/header_bg_night-2x.jpg 2x">
-				<img src="images/dist/header/header_bg_night.jpg" alt="">
+				<!-- <source srcset="/images/del/bg14.jpg" media="(max-width: 420px)">
+				<source srcset="/images/del/bg13.jpg" media="(max-width: 1280px)">
+				<source srcset="/images/del/bg12.jpg" media="(max-width: 1500px)">
+				<source srcset="/images/del/bg11.jpg" media="(min-width: 1501px)"> -->
+				<source type="image/jpeg" srcset="/images/dist/header/header_bg_night.jpg, images/dist/header/header_bg_night-2x.jpg 2x">
+				<img src="/images/dist/header/header_bg_night.jpg" alt="">
 			</picture>
 		</div>
 	</div>
@@ -37,17 +39,25 @@ $this->title = 'My Yii Application';
                 </p>
 				<h1 class="header-title">Calligraphy Towers Batumi</h1>
 				<div class="header-video">
-					<svg width="141" height="141"><use xlink:href="images/icons.svg#video"></use></svg>
+					<svg width="141" height="141"><use xlink:href="/images/icons.svg#video"></use></svg>
 					<p>
                         <?=Yii::t('frontend', 'Видео о жилом комплексе')?>
                     </p>
 				</div>
 			</div>
 		</div>
-		<div class="header-light">
-			<svg width="19" height="19"><use xlink:href="images/icons.svg#sun"></use></svg>
-			<svg class="header-light-rt" width="57" height="24"><use xlink:href="images/icons.svg#switch"></use></svg>
-			<svg width="17" height="17"><use xlink:href="images/icons.svg#moon"></use></svg>
+        <div class="header-footer">
+			<div class="header-light">
+				<svg width="19" height="19"><use xlink:href="/images/icons.svg#sun"></use></svg>
+				<svg class="header-light-rt" width="57" height="24"><use xlink:href="/images/icons.svg#switch"></use></svg>
+				<svg width="17" height="17"><use xlink:href="/images/icons.svg#moon"></use></svg>
+			</div>
+			<div class="header-sound">
+				<a href="#" class="top-sound top-sound-mb">
+					<svg width="32" height="32"><use xlink:href="/images/icons.svg#sound"></use></svg>
+				</a>
+			</div>
+
 		</div>
 	</div>
 </header>
@@ -108,7 +118,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-1.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-1.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -128,7 +138,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-2.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-2.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -148,7 +158,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-3.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-3.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -168,7 +178,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-4.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-4.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -188,7 +198,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-5.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-5.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -208,7 +218,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-6.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-6.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -228,7 +238,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-6.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-6.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -248,7 +258,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-8.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-8.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -268,7 +278,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-9.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-9.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -288,7 +298,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-10.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-10.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -308,7 +318,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-11.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-11.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -328,7 +338,7 @@ $this->title = 'My Yii Application';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="images/dist/index/infr/infr-12.jpg" width="362" height="544" alt="">
+                                <img src="/images/dist/index/infr/infr-12.jpg" width="362" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -362,16 +372,16 @@ $this->title = 'My Yii Application';
                 <div class="swiper-slide">
                     <div class="aboute-img">
                         <picture>
-                            <source type="image/jpeg" srcset="images/dist/index/about.jpg, images/dist/about/about-2x.jpg 2x">
-                            <img src="images/dist/index/about.jpg" width="1306" height="764" alt="">
+                            <source type="image/jpeg" srcset="/images/dist/index/about.jpg, images/dist/about/about-2x.jpg 2x">
+                            <img src="/images/dist/index/about.jpg" width="1306" height="764" alt="">
                         </picture>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="aboute-img">
                         <picture>
-                            <!-- <source type="image/jpeg" srcset="images/dist/index/about.jpg, images/dist/about/about-2x.jpg 2x"> -->
-                            <img src="images/dist/index/about-2.jpg" width="1306" height="764" alt="">
+                            <!-- <source type="image/jpeg" srcset="/images/dist/index/about.jpg, images/dist/about/about-2x.jpg 2x"> -->
+                            <img src="/images/dist/index/about-2.jpg" width="1306" height="764" alt="">
                         </picture>
                     </div>
                 </div>
@@ -388,27 +398,27 @@ $this->title = 'My Yii Application';
             <div class="project-img">
                 <div class="project-img-hide project-show" id="project-1">
                     <picture>
-                        <img src="images/dist/index/project/project-1.jpg" width="486" height="691" alt="">
+                        <img src="/images/dist/index/project/project-1.jpg" width="486" height="691" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-2">
                     <picture>
-                        <img src="images/dist/index/project/project-2.jpg" width="486" height="691" alt="">
+                        <img src="/images/dist/index/project/project-2.png" width="486" height="691" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-3">
                     <picture>
-                        <img src="images/dist/index/project/project-3.jpg" width="486" height="691" alt="">
+                        <img src="/images/dist/index/project/project-3.png" width="486" height="691" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-4">
                     <picture>
-                        <img src="images/dist/index/project/project-4.jpg" width="486" height="691" alt="">
+                        <img src="/images/dist/index/project/project-4.png" width="486" height="691" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-5">
                     <picture>
-                        <img src="images/dist/index/project/project-5.jpg" width="486" height="691" alt="">
+                        <img src="/images/dist/index/project/project-5.png" width="486" height="691" alt="">
                     </picture>
                 </div>
             </div>
@@ -419,8 +429,8 @@ $this->title = 'My Yii Application';
                 </p>
                 <div class="project-svg">
                     <figure class="project-fig">
-                        <object id="project" data="images/svg/project.svg" type="image/svg+xml">
-                            <!-- <img src="images/dist/bg-1920x1450.jpg" alt=""> -->
+                        <object id="project" data="/images/svg/project.svg" type="image/svg+xml">
+                            <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
                         </object>
                     </figure>
                 </div>
@@ -434,13 +444,13 @@ $this->title = 'My Yii Application';
         <div class="choose-bg">
             <div class="choose-bg-img">
                 <picture>
-                    <img src="images/dist/index/choose-bg.jpg" alt="">
+                    <img src="/images/dist/index/choose-bg.jpg" alt="">
                 </picture>
             </div>
             <div class="choose-bg-svg">
                 <figure class="choose-bg-fig">
-                    <object id="choosed" data="images/svg/choose-bg.svg" type="image/svg+xml">
-                        <!-- <img src="images/dist/bg-1920x1450.jpg" alt=""> -->
+                    <object id="choosed" data="/images/svg/choose-bg.svg" type="image/svg+xml">
+                        <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
                     </object>
                 </figure>
             </div>
@@ -452,13 +462,13 @@ $this->title = 'My Yii Application';
                     <?=Yii::t('frontend', 'Выберите блок')?>
                 </h2>
                 <div class="choose-buttons">
-                    <a href="layouts.html" class="choose-button" data-choose="1">
+                    <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button" data-choose="1">
                         <?=Yii::t('frontend', 'Блок')?> <span>а</span>
                     </a>
-                    <a href="layouts.html" class="choose-button" data-choose="2">
+                    <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button" data-choose="2">
                         <?=Yii::t('frontend', 'Блок')?> <span>б</span>
                     </a>
-                    <a href="layouts.html" class="choose-button" data-choose="3">
+                    <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button" data-choose="3">
                         <?=Yii::t('frontend', 'Блок')?> <span>с</span>
                     </a>
                 </div>
@@ -474,7 +484,7 @@ $this->title = 'My Yii Application';
                         <h2><?=Yii::t('frontend', 'Блок')?> A</h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="images/dist/index/choose/block-a.png" alt="">
+                                <img src="/images/dist/index/choose/block-a.png" alt="">
                             </picture>
                         </div>
                     </div>
@@ -484,7 +494,7 @@ $this->title = 'My Yii Application';
                         <h2><?=Yii::t('frontend', 'Блок')?> Б</h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="images/dist/index/choose/block-b.png" alt="">
+                                <img src="/images/dist/index/choose/block-b.png" alt="">
                             </picture>
                         </div>
                     </div>
@@ -494,7 +504,7 @@ $this->title = 'My Yii Application';
                         <h2><?=Yii::t('frontend', 'Блок')?> С</h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="images/dist/index/choose/block-c.png" alt="">
+                                <img src="/images/dist/index/choose/block-c.png" alt="">
                             </picture>
                         </div>
                     </div>
@@ -510,32 +520,16 @@ $this->title = 'My Yii Application';
     <div class="contact">
         <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
             <div class="contact-wrapper">
-                <div class="contact-cam">
-                    <div class="contact-cam-inner">
-                        <p>live cam</p>
-                        <p><?=Yii::t('frontend', 'Посмотреть')?></p>
-                    </div>
-                    <div class="contact-cam-wrap">
-                        <svg width="28" height="26"><use xlink:href="images/icons.svg#cam"></use></svg>
-                    </div>
-                </div>
-                <div class="contact-video">
-                    <p><?=Yii::t('frontend', 'Видео')?></p>
-                    <div class="contact-video-inner">
-                        <p>3D</p>
-                        <svg width="36" height="34"><use xlink:href="images/icons.svg#3d"></use></svg>
-                    </div>
-                </div>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.574059231447!2d41.61839171541153!3d41.6433373792416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40678672f2beb8cb%3A0x33e0f1c9145ee33!2zMTE2IFp1cmFiIEdvcmdpbGFkemUgU3QsIEJhdHVtaSwg0JPRgNGD0LfQuNGP!5e0!3m2!1sru!2sru!4v1621084648113!5m2!1sru!2sru" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
             </div>
 
 
             <div class="contact-wrapper">
-                <div class="contact-bg">
+                <!-- <div class="contact-bg">
                     <picture>
                         <img src="/images/contact-team.jpg" alt="">
                     </picture>
-                </div>
+                </div> -->
                 <div class="contact-form">
                     <p class="title"><?=Yii::t('frontend', 'Поможем в выборе!')?></p>
                     <p>
@@ -545,6 +539,24 @@ $this->title = 'My Yii Application';
                     <?= $this->render('_form', [
                         'model' => $model,
                     ]) ?>
+                </div>
+                <div class="contact-bg">
+                    <div class="contact-cam">
+                        <div class="contact-cam-inner">
+                            <p>live cam</p>
+                            <p><?=Yii::t('frontend', 'Посмотреть')?></p>
+                        </div>
+                        <div class="contact-cam-wrap">
+                            <svg width="28" height="26"><use xlink:href="/images/icons.svg#cam"></use></svg>
+                        </div>
+                    </div>
+                    <div class="contact-video">
+                        <p><?=Yii::t('frontend', 'Видео')?></p>
+                        <div class="contact-video-inner">
+                            <p>3D</p>
+                            <svg width="36" height="34"><use xlink:href="/images/icons.svg#3d"></use></svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

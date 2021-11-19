@@ -240,7 +240,7 @@
             transition: .25s
         }
         .area:hover {
-            fill: #0c66ccaa;
+            fill: #0b2867dd;
         }
     </style>
 </svg>

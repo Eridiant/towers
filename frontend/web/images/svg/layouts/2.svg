@@ -17,78 +17,107 @@
 
    <g>
       <path d="M 2762.194,503.4333 V 403.0161 h 78.0224 v -62.62959 h 9.0762 V 135.11536 h 3.5597 V 72.002677 h -304.7454 v 58.247703 h 17.5871 v 358.61493 h 101.5703 v 14.35556 z"
-         id="path-1" class="area" data-flat="1" />
+         id="path-1" class="area" data-flat="1"
+         data-status="" />
       <path d="m 3235.5041,130.95587 v 252.09171 h -296.1614 v 120.31334 h -118.327 v -14.11788 h -47.2661 v -74.93223 h 97.9196 v -74.13639 h -8.8122 v -205.1678 h -2.9235 V 72.150805 h 291.8647 z"
-         id="path-2" class="area reserved" data-flat="2" />
+         id="path-2" class="area reserved" data-flat="2"
+         data-status="reserved" />
       <path d="m 2950.5634,617.9883 h 114.2943 v 100.45552 h 86.3768 v -19.17014 h 97.5118 v 30.99264 h 72.1743 V 384.06253 h -72.2219 v 30.53006 h -97.4556 v -19.02932 h -187.0842 v 4.08158 H 2950.17 v 217.99833 z"
-         id="path-3" class="area solded" data-flat="3" />
+         id="path-3" class="area solded" data-flat="3"
+         data-status="solded" />
       <path d="M 3234.9851,978.80204 V 729.59835 h -181.51 V 629.229 h -114.5714 v -18.44028 h -67.5975 v 161.61952 h -8.366 v 206.17004 h -3.9202 v 71.92522 h 387.5282 v -71.93189 z"
-         id="path-4" class="area" data-flat="4" />
+         id="path-4" class="area" data-flat="4"
+         data-status="" />
       <path d="M 2689.7691,978.61541 V 610.38975 h 76.8738 v 14.11635 h 54.3591 v -14.29822 h 39.2411 v 88.93821 h -19.9043 v 73.36118 h 8.8721 v 206.2205 h 3.5989 v 71.96243 H 2687.451 v -72.12121 z"
-         id="path-5" class="area" data-flat="5" />
+         id="path-5" class="area" data-flat="5"
+         data-status="" />
       <path d="M 2678.1392,978.19907 V 610.46439 h -69.766 v 14.06738 h -91.5481 v 74.72351 h 1.717 v 279.45164 h -4.1109 v 72.04068 h 166.7315 v -72.41436 z"
-         id="path-6" class="area solded" data-flat="6" />
+         id="path-6" class="area solded" data-flat="6"
+         data-status="solded" />
       <path d="M 2345.5507,978.4733 V 610.43641 h 69.4196 v 14.1749 h 91.2487 v 74.72093 h -0.9813 V 978.5928 h 3.7697 v 72.2026 h -166.4096 v -72.26164 z"
-         id="path-7" class="area reserved" data-flat="7" />
+         id="path-7" class="area reserved" data-flat="7"
+         data-status="reserved" />
       <path d="M 2334.2372,978.32595 V 610.46574 h -69.9338 v 14.21382 h -91.4656 v 74.85279 h 1.3133 v 279.20353 h -3.5144 v 72.26122 h 166.3157 v -72.71369 z"
-         id="path-8" class="area reserved" data-flat="8" />
+         id="path-8" class="area reserved" data-flat="8"
+         data-status="reserved" />
       <path d="M 2000.8027,978.04624 V 610.1736 h 70.207 v 14.35202 h 91.06 v 74.91208 h -1.4262 v 279.16248 h 3.7155 v 72.61682 h -166.1603 v -73.12577 z"
-         id="path-9" class="area reserved" data-flat="9" />
+         id="path-9" class="area reserved" data-flat="9"
+         data-status="reserved" />
       <path d="M 1989.2736,977.75082 V 609.99983 h -69.228 v 14.66005 h -91.3706 v 74.72878 h 0.8881 v 279.0606 h -3.6664 v 72.59704 h 167.2568 v -73.30536 z"
-         id="path-10" class="area reserved" data-flat="10" />
+         id="path-10" class="area reserved" data-flat="10"
+         data-status="reserved" />
       <path d="M 1656.6605,978.23168 V 609.74321 h 70.4273 v 14.76741 h 91.2444 v 74.81853 h -1.9068 v 279.19938 h 4.0721 v 72.57057 h -166.7609 v -72.91932 z"
-         id="path-11" class="area reserved" data-flat="11" />
+         id="path-11" class="area reserved" data-flat="11"
+         data-status="reserved" />
       <path d="M 1645.3622,978.13313 V 610.16861 h -70.1265 v 14.33844 h -91.3164 v 74.8878 h 1.4795 v 279.16676 h -3.5605 v 72.74969 h 166.5662 v -73.20079 z"
-         id="path-12" class="area reserved" data-flat="12" />
+         id="path-12" class="area reserved" data-flat="12"
+         data-status="reserved" />
       <path d="M 1312.4708,978.29643 V 610.07892 h 70.7183 v 14.46969 h 90.4163 v 75.14701 h -1.0722 v 278.7477 h 3.69 v 72.93488 h -166.8594 v -72.98032 z"
-         id="path-13" class="area reserved" data-flat="13" />
+         id="path-13" class="area reserved" data-flat="13"
+         data-status="reserved" />
       <path d="M 1301.2629,978.33963 V 610.10585 h -69.5279 v 14.30944 h -92.1699 v 75.09484 h 1.9095 v 279.08873 h -3.8979 v 72.01634 h 166.7104 v -72.29475 z"
-         id="path-14" class="area reserved" data-flat="14" />
+         id="path-14" class="area reserved" data-flat="14"
+         data-status="reserved" />
       <path d="M 968.39142,978.00744 V 610.32643 h 69.77778 v 14.00494 h 91.4935 v 75.27844 h -1.496 v 279.03854 h 3.2639 v 72.06055 H 964.94859 v -72.6773 z"
-         id="path-15" class="area reserved" data-flat="15" />
+         id="path-15" class="area reserved" data-flat="15"
+         data-status="reserved" />
       <path d="M 956.90477,977.95434 V 610.29691 h -70.33363 v 14.09921 h -91.06351 v 75.19369 h 1.0329 v 279.17224 h -2.95111 v 72.04575 h 166.17056 v -72.87928 z"
-         id="path-16" class="area solded" data-flat="16" />
+         id="path-16" class="area solded" data-flat="16"
+         data-status="solded" />
       <path d="M 623.8211,977.8929 V 610.14356 h 69.77403 v 14.51648 h 91.60531 v 74.89419 h -1.41562 V 978.6397 h 3.60079 v 72.4104 H 620.72539 v -73.14395 z"
-         id="path-17" class="area reserved" data-flat="17" />
+         id="path-17" class="area reserved" data-flat="17"
+         data-status="reserved" />
       <path d="M 612.44448,977.91686 V 609.81605 H 486.59989 v 14.53377 h -42.89666 v 75.14489 h 17.78028 v 73.08386 h -8.90401 v 206.13314 h -3.81403 v 72.24299 H 615.6516 v -73.05138 z"
-         id="path-18" class="area solded" data-flat="18" />
+         id="path-18" class="area solded" data-flat="18"
+         data-status="solded" />
       <path d="M 784.6857,489.37905 V 135.31051 h 2.66516 V 71.6727 H 451.6842 v 64.05392 h 1.00552 v 204.79459 h 8.78677 v 74.00951 h -17.7322 v 74.91667 h 42.79728 v 14.0013 h 207.66476 v -13.86125 z"
-         id="path-19" class="area" data-flat="19" />
+         id="path-19" class="area" data-flat="19"
+         data-status="" />
       <path d="m 952.29229,135.38072 v 274.24405 h 4.25276 v 93.9511 H 886.93783 V 489.4991 h -91.30844 v -75.03209 h 1.0516 V 135.27742 h -3.7762 V 71.720072 h 164.16142 v 63.713988 z"
-         id="path-20" class="area solded" data-flat="20" />
+         id="path-20" class="area solded" data-flat="20"
+         data-status="solded" />
       <path d="m 1360.3349,503.41572 h 172.6298 v -13.92255 h 53.8335 v 13.96572 h 39.6036 V 71.840747 h -307.4966 v 63.728423 h 2.767 V 489.2592 h 38.4909 z"
-         id="path-21" class="area solded" data-flat="21" />
+         id="path-21" class="area solded" data-flat="21"
+         data-status="solded" />
       <path d="m 1636.7121,135.5621 v 367.84696 h 71.1526 v -14.13135 h 91.3798 V 383.47305 h 16.966 v -248.0359 h 4.2022 V 71.664131 h -187.8568 v 63.903529 z"
-         id="path-22" class="area solded" data-flat="22" />
+         id="path-22" class="area solded" data-flat="22"
+         data-status="solded" />
       <path d="m 1829.7352,135.30361 v 279.20366 h -20.163 v 88.90595 h 36.8628 v -13.99565 h 54.4754 v 14.14729 h 237.5863 v -17.92859 h -5.1063 V 130.50186 h 16.7186 V 71.654915 h -324.3167 v 63.715965 z"
-         id="path-23" class="area" data-flat="23" />
+         id="path-23" class="area" data-flat="23"
+         data-status="" />
    </g>
    <style type="text/css" id="style1">
       .area {
+         cursor: pointer;
+         fill: #fff0;
+         stroke-opacity: 1;
+         transition: .3s;
+      }
+      .areas {
          cursor: pointer;
          fill: #4dd48a3b;
          stroke-opacity: 1;
          transition: .3s;
       }
-      .area:hover {
+      .areas:hover {
          fill: #4dd48a;
          fill-opacity: .6;
       }
-      .reserved {
+      .reserveds {
          fill: #ffe656e7;
          fill-opacity: .35;
          cursor: default
       }
-      .reserved:hover {
+      .reserveds:hover {
          fill: #A34D1A;
          fill-opacity: .35;
       }
-      .solded {
+      .soldeds {
          fill: #061102;
          fill-opacity: .35;
          cursor: default
       }
-      .solded:hover {
+      .soldeds:hover {
          fill: #555;
          fill-opacity: .35;
       }
