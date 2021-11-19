@@ -33,29 +33,29 @@ $this->title = Yii::t('frontend', 'Планировки');
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="layouts-content">
             <div class="layouts-title">
-                <p class="subtitle">Выберите блок</p>
-                <h1>Планировки</h1>
+                <p class="subtitle"><?=Yii::t('frontend', 'Выберите блок')?></p>
+                <h1><?=Yii::t('frontend', 'Планировки')?></h1>
             </div>
             <div class="choose-buttons">
                 <a href="#" class="choose-button" data-choose="1">
-                    Блок <span>а</span>
+                    <?=Yii::t('frontend', 'Блок')?> <span>а</span>
                 </a>
                 <a href="#" class="choose-button" data-choose="2">
-                    Блок <span>б</span>
+                    <?=Yii::t('frontend', 'Блок')?> <span>б</span>
                 </a>
                 <a href="#" class="choose-button" data-choose="3">
-                    Блок <span>с</span>
+                    <?=Yii::t('frontend', 'Блок')?> <span>с</span>
                 </a>
             </div>
         </div>
     </div>
     <div class="choose-slider">
-        <p>Выберите блок</p>
+        <p><?=Yii::t('frontend', 'Выберите блок')?></p>
         <div style="--swiper-navigation-size: 30px; --swiper-navigation-color: #fff;" class="swiper choose-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="choose-inner">
-                        <h2>Блок A</h2>
+                        <h2><?=Yii::t('frontend', 'Блок')?> A</h2>
                         <div class="choose-img">
                             <picture>
                                 <img src="/images/dist/index/choose/block-a.png" alt="">
@@ -65,7 +65,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                 </div>
                 <div class="swiper-slide">
                     <div class="choose-inner">
-                        <h2>Блок Б</h2>
+                        <h2><?=Yii::t('frontend', 'Блок')?> Б</h2>
                         <div class="choose-img">
                             <picture>
                                 <img src="/images/dist/index/choose/block-b.png" alt="">
@@ -75,7 +75,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                 </div>
                 <div class="swiper-slide">
                     <div class="choose-inner">
-                        <h2>Блок С</h2>
+                        <h2><?=Yii::t('frontend', 'Блок')?> С</h2>
                         <div class="choose-img">
                             <picture>
                                 <img src="/images/dist/index/choose/block-c.png" alt="">
@@ -95,11 +95,11 @@ $this->title = Yii::t('frontend', 'Планировки');
         <div class="floor-wrapper">
             <div class="floor-floor">
                 <div class="breadcrumbs">
-                    <a href="/">Главная</a>
-                    <a href="/">Планировки</a>
-                    <p>Блок С</p>
+                    <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
+                    <a href="/"><?=Yii::t('frontend', 'Планировки')?></a>
+                    <p><?=Yii::t('frontend', 'Блок')?> С</p>
                 </div>
-                <h2>Этажи</h2>
+                <h2><?=Yii::t('frontend', 'Этажи')?></h2>
                 <div id="floor-choose" class="floor-choose">
                     <div class="floor-choose-inner floor-show" data-floor="1">
                         <div class="floor-choose-img">
@@ -220,20 +220,20 @@ $this->title = Yii::t('frontend', 'Планировки');
                 </div>
                 <div class="floor-inf">
                     <div class="floor-item">
-                        <p class="cap">Квартир на этаже:</p>
+                        <p class="cap"><?=Yii::t('frontend', 'Квартир на этаже')?>:</p>
                         <div class="floor-item-inner">
                             <p>2/6</p>
                         </div>
                     </div>
                     <div class="floor-item">
-                        <p class="cap">Типы:</p>
+                        <p class="cap"><?=Yii::t('frontend', 'Блок')?>Типы:</p>
                         <div class="floor-item-inner">
-                            <p>Название</p>
-                            <p>Название квартиры</p>
+                            <p><?=Yii::t('frontend', 'Название')?></p>
+                            <p><?=Yii::t('frontend', 'Название квартиры')?></p>
                         </div>
                     </div>
                     <div class="floor-item">
-                        <p class="cap">Стоимость от:</p>
+                        <p class="cap"><?=Yii::t('frontend', 'Стоимость от')?>:</p>
                         <div class="floor-item-inner">
                             <p>220 000</p>
                         </div>
@@ -241,7 +241,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                 </div>
                 <a href="#" class="contacts-call floor-call btn btn-blue">
                     <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
-                    <span>Выбрать блок</span>
+                    <span><?=Yii::t('frontend', 'Выбрать блок')?></span>
                 </a>
             </div>
             <div class="floor-choose">
@@ -268,44 +268,44 @@ $this->title = Yii::t('frontend', 'Планировки');
         <div class="flat-wrapper">
             <div class="flat-description">
                 <div class="breadcrumbs">
-                    <a href="/">Главная</a>
-                    <a href="/">Планировки</a>
-                    <p>Квартира</p>
+                    <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
+                    <a href="/"><?=Yii::t('frontend', 'Планировки')?></a>
+                    <p><?=Yii::t('frontend', 'Квартира')?></p>
                 </div>
-                <h2>Экспликация</h2>
+                <h2><?=Yii::t('frontend', 'Экспликация')?></h2>
                 <div class="flat-description-inner">
                     <dl>
-                        <dt>Кухня</dt>
+                        <dt><?=Yii::t('frontend', 'Кухня')?></dt>
                         <dd>6 м<sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt>Спальня</dt>
+                        <dt><?=Yii::t('frontend', 'Спальня')?></dt>
                         <dd>12 м<sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt>Гостинная</dt>
+                        <dt><?=Yii::t('frontend', 'Гостинная')?></dt>
                         <dd>8 м<sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt>Ванная</dt>
+                        <dt><?=Yii::t('frontend', 'Ванная')?></dt>
                         <dd>6 м<sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt>Терраса</dt>
+                        <dt><?=Yii::t('frontend', 'Терраса')?></dt>
                         <dd>2 м<sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt>Ванная</dt>
+                        <dt><?=Yii::t('frontend', 'Ванная')?></dt>
                         <dd>6 м<sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt>Терраса</dt>
+                        <dt><?=Yii::t('frontend', 'Терраса')?></dt>
                         <dd>2 м<sup>2</sup></dd>
                     </dl>
                 </div>
                 <a href="#" id="flat-call" class="contacts-call flat-call floor-call btn btn-blue">
                     <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
-                    <span>Выбрать блок</span>
+                    <span><?=Yii::t('frontend', 'Выбрать блок')?></span>
                 </a>
             </div>
             <div class="flat-plan">
@@ -323,7 +323,7 @@ $this->title = Yii::t('frontend', 'Планировки');
             <div class="flat-num">
                 <div class="flat-num-wrapper">
                     <p>
-                        Цены на квартиры по этажам одна, отличия только вида
+                        <?=Yii::t('frontend', 'Цены на квартиры по этажам одна, отличия только вида')?>
                     </p>
                 </div>
                 <div class="flat-num-img">
@@ -333,7 +333,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                 </div>
                 <div class="flat-num-inner">
                     <a href="#" class="contacts-call btn btn-blue">
-                        <span>Скачать план (PDF)</span>
+                        <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                         <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                     </a>
                 </div>
