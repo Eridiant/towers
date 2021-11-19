@@ -11,21 +11,21 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
     <div class="container" style="max-width: 1306px; margin-left: auto; margin-right: auto">
         <div class="infr-btn">
             <div class="infr-btn-choosed btn btn-blue">
-                Бассейн
+                <?=Yii::t('frontend', 'Бассейн')?>
             </div>
             <div class="infr-btn-choose">
-                <p data-num="1">Бассейн</p>
-                <p data-num="2">SPA - центр</p>
-                <p data-num="3">Фитнес зал</p>
+                <p data-num="1"><?=Yii::t('frontend', 'Бассейн')?></p>
+                <p data-num="2"><?=Yii::t('frontend', 'SPA - центр')?></p>
+                <p data-num="3"><?=Yii::t('frontend', 'Фитнес')?></p>
                 <p data-num="4">Lounge Bar</p>
-                <p data-num="5">Кинотеатр</p>
-                <p data-num="6">Собственный пляж</p>
-                <p data-num="7">Озелененная терраса</p>
-                <p data-num="8">Детская комната</p>
+                <p data-num="5"><?=Yii::t('frontend', 'Кинотеатр')?></p>
+                <p data-num="6"><?=Yii::t('frontend', 'Собственный пляж')?></p>
+                <p data-num="7"><?=Yii::t('frontend', 'Озелененные террасы')?></p>
+                <p data-num="8"><?=Yii::t('frontend', 'Детская комната')?></p>
                 <p data-num="9">Coworking зона</p>
                 <p data-num="10">Конференц-зал</p>
-                <p data-num="11">Паркинг</p>
-                <p data-num="12">Казино</p>
+                <p data-num="11"><?=Yii::t('frontend', 'Паркинг')?></p>
+                <p data-num="12"><?=Yii::t('frontend', 'Казино')?></p>
             </div>
         </div>
     </div>
@@ -47,7 +47,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Открытый и закрытый бассейн
+                        Открытый и закрытый <?=Yii::t('frontend', 'Бассейн')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -93,7 +93,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Фитнес зал
+                        <?=Yii::t('frontend', 'Фитнес')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -139,7 +139,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Кинотеатр “Calligraphy Cinema”
+                        <?=Yii::t('frontend', 'Кинотеатр')?> “Calligraphy Cinema”
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -162,7 +162,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Собственный пляж, услуги гольф-машин
+                        <?=Yii::t('frontend', 'Собственный пляж')?>, услуги гольф-машин
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -185,7 +185,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Озелененная терраса в общего пользования
+                        <?=Yii::t('frontend', 'Озелененные террасы')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -208,7 +208,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Детская комната
+                        <?=Yii::t('frontend', 'Детская комната')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -277,7 +277,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Паркинг на 300 парковочных мест
+                        <?=Yii::t('frontend', 'Паркинг')?> на 300 парковочных мест
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -300,7 +300,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Казино
+                        <?=Yii::t('frontend', 'Казино')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">

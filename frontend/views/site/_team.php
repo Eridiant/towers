@@ -10,32 +10,32 @@ use yii\helpers\Url;
             <div class="gallery-inf">
                 <div class="gallery-inner">
                     <div class="breadcrumbs">
-                        <a href="/">Главная</a>
-                        <p>Галерея</p>
+                        <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
+                        <p><?=Yii::t('frontend', 'Галерея')?></p>
                     </div>
-                    <h1>Галерея</h1>
+                    <h1><?=Yii::t('frontend', 'Галерея')?></h1>
                 </div>
                 <div class="gallery-tab">
                     <ul>
                         <li>
-                            <a href="<?=Url::toRoute('/gallery') ?>">Жилой дом</a>
+                            <a href="<?=Url::toRoute('/gallery') ?>"><?=Yii::t('frontend', 'Жилой дом')?></a>
                         </li>
                         <li>
-                            <a href="<?=Url::toRoute('/construction-progress') ?>">Ход строительства</a>
+                            <a href="<?=Url::toRoute('/construction-progress') ?>"><?=Yii::t('frontend', 'Ход строительства')?></a>
                         </li>
                         <li>
-                            <a href="<?=Url::toRoute('/batumi') ?>">Батуми</a>
+                            <a href="<?=Url::toRoute('/batumi') ?>"><?=Yii::t('frontend', 'Батуми')?></a>
                         </li>
                         <li>
-                            <a href="<?= Url::toRoute('/our-team') ?>">Команда</a>
+                            <a href="<?= Url::toRoute('/our-team') ?>"><?=Yii::t('frontend', 'Команда')?></a>
                         </li>
                         <li>
-                            <a href="<?= Url::toRoute('/video-report') ?>">Видео отчет о ходе строительства</a>
+                            <a href="<?= Url::toRoute('/video-report') ?>"><?=Yii::t('frontend', 'Видео отчет о ходе строительства')?></a>
                         </li>
                     </ul>
                 </div>
                 <a href="#" class="contacts-call btn btn-blue">
-                    <span>Скачать план (PDF)</span>
+                    <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                     <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                 </a>
             </div>

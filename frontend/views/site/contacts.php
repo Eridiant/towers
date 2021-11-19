@@ -14,28 +14,28 @@ $this->title = Yii::t('frontend', 'Контакты');
         <div class="contacts-wrapper">
             <div class="contacts-inf">
                 <div class="breadcrumbs">
-                    <a href="/">Главная</a>
-                    <p>Контакты</p>
+                    <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
+                    <p><?=Yii::t('frontend', 'Контакты')?></p>
                 </div>
-                <h1>Свяжитесь с нами</h1>
+                <h1><?=Yii::t('frontend', 'Свяжитесь с нами')?></h1>
                 <div class="contacts-contact">
                     <div class="contacts-inner">
                         <div class="contacts-inner-svg">
                             <svg width="20" height="20"><use xlink:href="images/icons.svg#phone"></use></svg>
                         </div>
-                        <a href="+995514779900">+995 514 77 99 00</a>
+                        <a href="+995571075555">+995 571 07 55 55</a>
                     </div>
                     <div class="contacts-inner">
                         <div class="contacts-inner-svg">
                             <svg width="21" height="16"><use xlink:href="images/icons.svg#mail"></use></svg>
                         </div>
-                        <a href="mailto:info@kaligraf.ge">info@kaligraf.ge</a>
+                        <a href="mailto:info@calligraphy-towers.com">info@calligraphy-towers.com</a>
                     </div>
                     <div class="contacts-inner">
                         <div class="contacts-inner-svg">
                             <svg width="17" height="24"><use xlink:href="images/icons.svg#address"></use></svg>
                         </div>
-                        <p>г. Баутми ул. Жиули Шартава 18</p>
+                        <p><?=Yii::t('frontend', 'г. Баутми ул. Шартава 18')?></p>
                     </div>
                 </div>
                 <a href="#" class="contacts-call btn btn-blue">
