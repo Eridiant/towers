@@ -63,7 +63,7 @@ use yii\helpers\Url;
 			<div class="footer-phone">
 			<a href="tel:<?= $user_info->phone; ?>" class="top-phone phone"><?= preg_replace("/^(\d{2})(\d{3})(\d{3})(\d{2})(\d{2})$/", "+$1($2)-$3-$4-$5", $user_info->phone); ?></a>
 				</br>
-				<span>г. Москва, ул. Пражская 88/23</span>
+				<span><?=Yii::t('frontend', 'г. Баутми ул. Шартава 18')?></span>
 			</div>
 		</div>
 		<div class="footer-wrapper footer-footer">

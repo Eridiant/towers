@@ -322,14 +322,14 @@ use yii\helpers\Url;
                             </picture>
                             <div>
                                 <p>
-                                    <strong><?=Yii::t('frontend', 'Бассейн')?></strong> <?=Yii::t('frontend', 'входит в концепцию - подогреваемый бассейн. входит в концепцию - подогреваемый бассейн.')?>
+                                    <strong><?=Yii::t('frontend', 'Бассейн')?></strong> <?=Yii::t('frontend', 'входит в концепцию - подогреваемый бассейн.')?>
                                 </p>
                             </div>
                         </div>
                         <div class="infr-title">
                             <h3><?=Yii::t('frontend', 'Бассейн')?></h3>
                             <p>
-                                <strong><?=Yii::t('frontend', 'Бассейн')?></strong> <?=Yii::t('frontend', 'входит в концепцию - подогреваемый бассейн. входит в концепцию - подогреваемый бассейн.')?>
+                                <strong><?=Yii::t('frontend', 'Бассейн')?></strong> <?=Yii::t('frontend', 'входит в концепцию - подогреваемый бассейн.')?>
                             </p>
                         </div>
                     </div>
