@@ -69,23 +69,21 @@ $this->title = 'Calligraphy';
         <svg width="23" height="17"><use xlink:href="/images/icons.svg#menu"></use></svg>
     </div>
     <div class="lang">
+        <?php $langs = \backend\modules\language\models\Language::find()->where(['deleted_at' => null])->all(); ?>
         <div class="lang-choosed">
-            ru
+            <?php foreach ($langs as $lang): ?>
+                <?php if ($lang->key == $currentLang) {
+                    echo $lang->code;
+                } ?>
+            <?php endforeach; ?>
         </div>
         <div class="lang-choose">
             <ul>
-                <li><a href="#">
-                    ge
-                </a></li>
-                <li><a href="#">
-                    en
-                </a></li>
-                <li><a href="#">
-                    ru
-                </a></li>
-                <li><a href="#">
-                    he
-                </a></li>
+                <?php foreach ($langs as $lang): ?>
+                    <li><a href="/site/set-locale?locale=<?=$lang->key?>">
+                        <?= $lang->code; ?>
+                    </a></li>
+                <?php endforeach; ?>
             </ul>
         </div>
     </div>
