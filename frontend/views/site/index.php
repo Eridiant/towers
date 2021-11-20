@@ -8,22 +8,6 @@ use yii\helpers\Url;
 
 ?>
 
-<div class="test">
-    <div class="cont" style="max-width: 2400px; margin-left: auto; margin-right: auto">
-        <picture>
-            <?php for ($i=320; $i < 2400; $i++) { ?>
-                <source type="image/jpeg" srcset="http://dummyimage.com/<?= $i; ?>x600/a6a6ff" media="(max-width: <?= $i; ?>px)">
-            <?php } ?>
-            <img src="http://dummyimage.com/150x60/a6a6ff">
-        </picture>
-    </div>
-</div>
-<style>
-    .test img {
-        width: 100%;
-    }
-</style>
-
 <header class="header">
 	<div class="header-bg img-bg">
 		<div class="header-bg-wrap header-lights">
@@ -77,6 +61,7 @@ use yii\helpers\Url;
 		</div>
 	</div>
 </header>
+
 
 <div id="infr" class="infr">
     <div class="container" style="max-width: 1306px; margin-left: auto; margin-right: auto">
