@@ -6,6 +6,9 @@ use yii\helpers\Url;
 $this->title = 'Calligraphy';
 
 ?>
+<script>
+    var currLang = "<?= \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one()->code; ?>"
+</script>
 
 <div class="top">
 	<div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">

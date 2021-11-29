@@ -2,9 +2,15 @@
 
 namespace frontend\controllers;
 
+use Yii;
+use backend\models\FloorA;
+use backend\models\FloorB;
+use backend\models\FloorC;
+use backend\models\ApartmentsA;
+use backend\models\ApartmentsB;
+use backend\models\ApartmentsC;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
-use Yii;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
 use yii\web\Controller;
@@ -131,12 +137,78 @@ class SiteController extends Controller
         return $this->render('infrastructure');
     }
 
-    public function actionLayouts()
+    public function actionLayouts($id = 1, $slug = null)
     {
+        $request = Yii::$app->request;
+
+        if ($request->isAjax){
+            $slug = $request->post('slug');
+            if ($request->post('floor')) {
+                $id = $request->post('floor');
+            }
+        }
+
+        if ($slug === 'block-A' || $slug == NULL) {
+            $block = 'a';
+            $blocks = FloorA::find()->all();
+            $floor = FloorA::find()
+                    ->where('id=:id')
+                    ->addParams([':id' => $id])
+                    ->one();
+            $model = ApartmentsA::find()
+                    ->where('floor_num=:floor_num')
+                    ->addParams([':floor_num' => $floor->floor])
+                    ->asArray()
+                    ->all();
+        }
+
+        if ($slug === 'block-B') {
+            $block = 'b';
+            $blocks = FloorB::find()->all();
+            $floor = FloorB::find()
+                    ->where('id=:id')
+                    ->addParams([':id' => $id])
+                    ->one();
+            $model = ApartmentsB::find()
+                    ->where('floor_num=:floor_num')
+                    ->addParams([':floor_num' => $floor->floor])
+                    ->asArray()
+                    ->all();
+        }
+
+        if ($slug === 'block-C') {
+            $block = 'c';
+            $blocks = FloorC::find()->all();
+            $floor = FloorC::find()
+                    ->where('id=:id')
+                    ->addParams([':id' => $id])
+                    ->one();
+            $model = ApartmentsC::find()
+                    ->where('floor_num=:floor_num')
+                    ->addParams([':floor_num' => $floor->floor])
+                    ->asArray()
+                    ->all();
+        }
+
+        // $model = json_encode($model);
+        // $blocks = json_encode($blocks);
+        
+
+        if ($request->isAjax){
+            $summ = json_encode(['model'=>$model, 'blocks'=>$blocks]);
+            return $summ;
+        }
+
+        $floor_num = $floor->floor;
+        // var_dump('<pre>');
+        // var_dump($floor);
+        // var_dump('</pre>');
+        // die;
+        
 
         $this->bodyClass = 'other bl';
 
-        return $this->render('layouts');
+        return $this->render('layouts', compact('model', 'block', 'floor_num'));
     }
 
     public function actionGallery()

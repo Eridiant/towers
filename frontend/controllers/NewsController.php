@@ -16,6 +16,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Feedback;
+use backend\models\News;
 
 /**
  * News controller
@@ -52,18 +53,42 @@ class NewsController extends Controller
      */
     public function actionIndex()
     {
+        $cookies = Yii::$app->request->cookies;
+        $lang = $cookies->getValue('_locale', 'en-US');
+
+        $lang = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $lang])->one();
+        $code = $lang->code;
+        $title = "title_{$code}";
+
+        $model = News::find()
+            // ->where(['IS NOT', $title, null])
+            ->where(['active' => 1])
+            ->andWhere(['not', [$title => null]])
+            ->all();
 
         $this->bodyClass = 'other bl';
 
-        return $this->render('index');
+        return $this->render('index', compact('model', 'code', 'title'));
     }
 
     public function actionView($slug)
     {
+        $cookies = Yii::$app->request->cookies;
+        $lang = $cookies->getValue('_locale', 'en-US');
+
+        $lang = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $lang])->one();
+        $code = $lang->code;
+        $title = "title_{$code}";
+
+        $model = News::find()
+            ->where('slug=:slug', [':slug' => $slug])
+            ->andWhere(['active' => 1])
+            ->andWhere(['not', [$title => null]])
+            ->one();
 
         $this->bodyClass = 'other bl';
 
-        return $this->render('view', compact('slug'));
+        return $this->render('view', compact('model', 'code', 'title'));
     }
 
 }

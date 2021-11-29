@@ -45,6 +45,7 @@ return [
                 'index' => 'site/index',
                 'infrastructure' => 'site/infrastructure',
                 'layouts' => 'site/layouts',
+                'layouts/<slug:[\w-]+>' => 'site/layouts',
                 'gallery' => 'site/gallery',
                 'construction-progress' => 'site/construction-progress',
                 'batumi' => 'site/batumi',

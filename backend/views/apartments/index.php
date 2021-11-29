@@ -7,15 +7,13 @@ use yii\widgets\Pjax;
 /* @var $searchModel backend\models\ApartmentsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Apartments';
+$this->title = 'Квартиры';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="apartments-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
-        <?= Html::a('Create Apartments', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Apartments', ['create', 'block' => $block], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php Pjax::begin(); ?>
@@ -23,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        // 'filterModel' => $searchModel,
         'pager' => [
             'firstPageLabel' => 'Начало',
             'lastPageLabel' => 'Конец',
@@ -31,15 +29,44 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             'floor_num',
             'num',
-            // 'status',
             [
-                'label' => 'status',
-                'attribute' => 'status',
-                'filter' => ['0' => 'Активная', '1' => 'Продана', '2' => 'Резерв'],
-                'filterInputOptions' => ['prompt' => 'All educations', 'class' => 'form-control', 'id' => null]
+                'label' => 'Статус',
+                'value'=>function ($model) {
+                    if($model->status == 0){
+                        return 'Активная';
+                    }elseif ($model->status == 1) {
+                        return 'Продана';
+                    }elseif ($model->status == 2) {
+                        return 'Резерв';
+                    }
+                },
             ],
-
-            ['class' => 'yii\grid\ActionColumn'],
+            // 'status',
+            // [
+            //     'label' => 'status',
+            //     'attribute' => 'status',
+            //     'filter' => ['0' => 'Активная', '1' => 'Продана', '2' => 'Резерв'],
+            //     'filterInputOptions' => ['prompt' => 'All educations', 'class' => 'form-control', 'id' => null]
+            // ],
+            // {view} apartments/update
+            // ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'header'=>'Действия', 
+                'headerOptions' => ['width' => '80'],
+                'template' => '{update} {delete}{link}',
+                'buttons' => [
+                    // 'view' => function ($url, $data) use ($block) {
+                    //     return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['apartments/view', 'id' => $data->id, 'block' => $block]);
+                    // },
+                    'update' => function ($url, $data) use ($block) {
+                        return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['apartments/update', 'id' => $data->id, 'block' => $block]);
+                    },
+                    'delete' => function ($url, $data) use ($block) {
+                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', ['apartments/delete', 'id' => $data->id, 'block' => $block]);
+                    },
+                ],
+            ],
         ],
     ]); ?>
 

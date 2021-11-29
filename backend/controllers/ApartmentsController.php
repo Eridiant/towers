@@ -3,8 +3,15 @@
 namespace backend\controllers;
 
 use backend\models\Floor;
+use backend\models\FloorA;
+use backend\models\FloorB;
+use backend\models\FloorC;
 use backend\models\Apartments;
+use backend\models\ApartmentsA;
+use backend\models\ApartmentsB;
+use backend\models\ApartmentsC;
 use backend\models\ApartmentsSearch;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -25,7 +32,7 @@ class ApartmentsController extends Controller
                 'verbs' => [
                     'class' => VerbFilter::className(),
                     'actions' => [
-                        'delete' => ['POST'],
+                        'delete' => ['GET', 'POST'],
                     ],
                 ],
             ]
@@ -36,14 +43,47 @@ class ApartmentsController extends Controller
      * Lists all Apartments models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($block)
     {
-        $searchModel = new ApartmentsSearch();
-        $dataProvider = $searchModel->search($this->request->queryParams);
+        // $searchModel = new ApartmentsSearch();
+        // $dataProvider = $searchModel->search($this->request->queryParams);
+
+        if ($block === 'a') {
+            $dataProvider = new ActiveDataProvider([
+                'query' => ApartmentsA::find(),
+            ]);
+        }
+
+        if ($block === 'b') {
+            $dataProvider = new ActiveDataProvider([
+                'query' => ApartmentsB::find(),
+            ]);
+        }
+
+        if ($block === 'c') {
+            $dataProvider = new ActiveDataProvider([
+                'query' => ApartmentsC::find(),
+            ]);
+        }
+
+        /*$dataProvider = new ActiveDataProvider([
+            'query' => ApartmentsA::find(),
+            
+            'pagination' => [
+                'pageSize' => 50
+            ],
+            'sort' => [
+                'defaultOrder' => [
+                    'id' => SORT_DESC,
+                ]
+            ],
+            
+        ]);*/
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
+            // 'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'block' => $block,
         ]);
     }
 
@@ -53,11 +93,21 @@ class ApartmentsController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionView($id)
+    public function actionView($id, $block)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
+        if ($block === 'a') {
+            $model = ApartmentsA::find($id)->one();
+        }
+
+        if ($block === 'b') {
+            $model = ApartmentsB::find($id)->one();
+        }
+
+        if ($block === 'c') {
+            $model = ApartmentsC::find($id)->one();
+        }
+
+        return $this->render('view', compact('model'));
     }
 
     /**
@@ -65,20 +115,34 @@ class ApartmentsController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($block)
     {
-        $model = new Apartments();
+        if ($block === 'a') {
+            $model = new ApartmentsA();
+            $floor = FloorA::find()->all();
+        }
+
+        if ($block === 'b') {
+            $model = new ApartmentsB();
+            $floor = FloorB::find()->all();
+        }
+
+        if ($block === 'c') {
+            $model = new ApartmentsC();
+            $floor = FloorC::find()->all();
+        }
+        // $model = new Apartments();
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
                 // return $this->redirect(['view', 'id' => $model->id]);
-                return $this->redirect(['index']);
+                return $this->redirect(['index', 'block' => $block]);
             }
         } else {
             $model->loadDefaultValues();
         }
 
-        $floor = Floor::find()->all();
+        // $floor = Floor::find()->all();
 
         return $this->render('create', compact('model', 'floor'));
     }
@@ -90,20 +154,26 @@ class ApartmentsController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id, $block)
     {
-        $model = $this->findModel($id);
-        // $model = Apartments::find($id)->with('floorNum')->one();
-// var_dump('<pre>');
-// var_dump($model);
-// var_dump('</pre>');
-// die;
+        if ($block === 'a') {
+            $model = ApartmentsA::find()->where(['id' => $id])->one();
+            $floor = FloorA::find()->all();
+        }
 
-        $floor = Floor::find()->all();
+        if ($block === 'b') {
+            $model = ApartmentsB::find()->where(['id' => $id])->one();
+            $floor = FloorB::find()->all();
+        }
+
+        if ($block === 'c') {
+            $model = ApartmentsC::find()->where(['id' => $id])->one();
+            $floor = FloorC::find()->all();
+        }
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
             // return $this->redirect(['view', 'id' => $model->id]);
-            return $this->redirect(['index']);
+            return $this->redirect(['index', 'block' => $block]);
         }
 
         return $this->render('update', compact('model', 'floor'));
@@ -116,11 +186,24 @@ class ApartmentsController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($id, $block)
     {
-        $this->findModel($id)->delete();
+        if ($block === 'a') {
+            $model = ApartmentsA::find($id)->one();
+        }
 
-        return $this->redirect(['index']);
+        if ($block === 'b') {
+            $model = ApartmentsB::find($id)->one();
+        }
+
+        if ($block === 'c') {
+            $model = ApartmentsC::find($id)->one();
+        }
+
+        $model->find($id)->one();
+        $model->delete();
+
+        return $this->redirect(['index', 'block' => $block]);
     }
 
     /**

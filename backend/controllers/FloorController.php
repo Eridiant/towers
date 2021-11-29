@@ -2,7 +2,14 @@
 
 namespace backend\controllers;
 
+use Yii;
 use backend\models\Floor;
+use backend\models\FloorA;
+use backend\models\FloorB;
+use backend\models\FloorC;
+use backend\models\ApartmentsA;
+use backend\models\ApartmentsB;
+use backend\models\ApartmentsC;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -24,7 +31,8 @@ class FloorController extends Controller
                 'verbs' => [
                     'class' => VerbFilter::class,
                     'actions' => [
-                        'delete' => ['POST'],
+                        'update' => ['get', 'POST'],
+                        'delete' => ['get', 'POST'],
                     ],
                 ],
             ]
@@ -35,11 +43,29 @@ class FloorController extends Controller
      * Lists all Floor models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($block)
     {
-        $dataProvider = new ActiveDataProvider([
+        if ($block === 'a') {
+            $dataProvider = new ActiveDataProvider([
+                'query' => FloorA::find(),
+            ]);
+        }
+
+        if ($block === 'b') {
+            $dataProvider = new ActiveDataProvider([
+                'query' => FloorB::find(),
+            ]);
+        }
+
+        if ($block === 'c') {
+            $dataProvider = new ActiveDataProvider([
+                'query' => FloorC::find(),
+            ]);
+        }
+        
+        /*$dataProvider = new ActiveDataProvider([
             'query' => Floor::find(),
-            /*
+            
             'pagination' => [
                 'pageSize' => 50
             ],
@@ -48,12 +74,10 @@ class FloorController extends Controller
                     'id' => SORT_DESC,
                 ]
             ],
-            */
-        ]);
+            
+        ]);*/
 
-        return $this->render('index', [
-            'dataProvider' => $dataProvider,
-        ]);
+        return $this->render('index', compact('dataProvider', 'block'));
     }
 
     /**
@@ -74,21 +98,29 @@ class FloorController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
-    public function actionCreate()
+    public function actionCreate($block)
     {
-        $model = new Floor();
+        if ($block === 'a') {
+            $model = new FloorA();
+        }
+
+        if ($block === 'b') {
+            $model = new FloorB();
+        }
+
+        if ($block === 'c') {
+            $model = new FloorC();
+        }
 
         if ($this->request->isPost) {
             if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+                return $this->redirect(['index', 'block' => $block]);
             }
         } else {
             $model->loadDefaultValues();
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        return $this->render('create', compact('model', 'block'));
     }
 
     /**
@@ -98,17 +130,169 @@ class FloorController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionUpdate($id)
+    public function actionUpdate($id, $block)
     {
-        $model = $this->findModel($id);
+
+        if ($block === 'a') {
+            $model = FloorA::find($id)->one();
+        }
+
+        if ($block === 'b') {
+            $model = FloorB::find($id)->one();
+        }
+
+        if ($block === 'c') {
+            $model = FloorC::find($id)->one();
+        }
 
         if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+            return $this->redirect(['index', 'block' => $block]);
         }
 
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+    public function actionMulty($id = 1, $block = 'a')
+    {
+
+        if ($block === 'a') {
+            $model = FloorA::find($id)->one();
+            $floor = FloorA::find()->all();
+            $fl = $this->request->post("FloorA")["floor"];
+            $qqq = ApartmentsA::find()
+                    ->where(['floor_num' => $fl])
+                    ->one();
+        }
+
+        if ($block === 'b') {
+            $model = FloorB::find($id)->one();
+            $floor = FloorB::find()->all();
+            $fl = $this->request->post("FloorB")["floor"];
+            $qqq = ApartmentsB::find()
+                    ->where(['floor_num' => $fl])
+                    ->one();
+        }
+
+        if ($block === 'c') {
+            $model = FloorC::find($id)->one();
+            $floor = FloorC::find()->all();
+            $fl = $this->request->post("FloorC")["floor"];
+            $qqq = ApartmentsC::find()
+                    ->where(['floor_num' => $fl])
+                    ->one();
+        }
+
+        if ($this->request->isPost) {
+
+            $field = explode(PHP_EOL, $this->request->post('field'));
+
+            if ($this->request->post('category') != 'num') {
+                $count = $qqq->num;
+            } else {
+                $count = (int)$field[0];
+            }
+
+            $floor = 0;
+            if ($this->request->post('FloorA')) {
+                $floor = $this->request->post('FloorA')['floor'];
+            }
+            if ($this->request->post('FloorB')) {
+                $floor = $this->request->post('FloorB')['floor'];
+            }
+            if ($this->request->post('FloorC')) {
+                $floor = $this->request->post('FloorC')['floor'];
+            }
+
+            $category = $this->request->post('category');
+
+            for ($i=0; $i < count($field); $i++) { 
+                // var_dump((int)$field[$i]);
+                // issetModel($count, $block);
+
+                
+                $mod = $this->issetModel($count, $block);
+                // var_dump('<pre>');
+                // var_dump($mod);
+                // var_dump('</pre>');
+                
+                
+                
+                $mod->floor_num = $floor;
+                $expression = $field[$i];
+                if ($this->request->post('quotes')) {
+                    $expression = str_replace('"', '', $expression);
+                    $expression = trim($expression);
+                }
+                if ($this->request->post('comma')) {
+                    $expression =  substr($expression, 0, strpos($expression, ','));
+                }
+                if ($this->request->post('float')) {
+                    $expression = str_replace(',', '.', $expression); 
+                    $expression = floatval($expression);
+                }
+                if ($this->request->post('int')) {
+                    $expression = preg_replace("/[^0-9]/", '', $expression);
+                    $expression = intval($expression);
+                }
+                if ($this->request->post('price')) {
+                    $expression = substr($expression, 0, strpos($expression, ','));
+                    $expression = str_replace('$', '', $expression); 
+                    $expression = str_replace(' ', '', $expression); 
+                    $expression = preg_replace("/[^0-9]/", '', $expression);
+                    $expression = intval($expression);
+                }
+                $mod->$category = $expression;
+
+                var_dump($expression);
+                // die;
+                $mod->save();
+                
+                $count++;
+                if ($mod->getErrors()) {
+                    var_dump($mod->getErrors());
+                }
+            }
+            if ($mod->getErrors()) {
+                die;
+            }
+            // Yii::$app->session->setFlash('success', "User created successfully.");
+            // die;
+            return $this->refresh();
+            // return $this->redirect(['index', 'block' => $block]);
+        }
+
+        return $this->render('multy', compact('model', 'block', 'floor'));
+    }
+
+    protected function issetModel($count, $block)
+    {
+        if ($block === 'a') {
+            if (($model = ApartmentsA::find()->where(['num' => $count])->one()) !== null) {
+                var_dump('a');
+                
+                return $model;
+            }
+            var_dump('ne a' . $count);
+            
+            return $model = new ApartmentsA();
+        }
+
+        if ($block === 'b') {
+            if (($model = ApartmentsB::find()->where(['num' => $count])->one()) !== null) {
+                return $model;
+            }
+            return $model = new ApartmentsB();
+        }
+
+        if ($block === 'c') {
+            if (($model = ApartmentsC::find()->where(['num' => $count])->one()) !== null) {
+                return $model;
+            }
+            return $model = new ApartmentsC();
+        }
+        
     }
 
     /**
@@ -118,11 +302,24 @@ class FloorController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-    public function actionDelete($id)
+    public function actionDelete($id, $block)
     {
-        $this->findModel($id)->delete();
+        if ($block === 'a') {
+            $model = FloorA::find($id)->one();
+        }
 
-        return $this->redirect(['index']);
+        if ($block === 'b') {
+            $model = FloorB::find($id)->one();
+        }
+
+        if ($block === 'c') {
+            $model = FloorC::find($id)->one();
+        }
+
+        $model->find($id)->one();
+        $model->delete();
+
+        return $this->redirect(['index', 'block' => $block]);
     }
 
     /**

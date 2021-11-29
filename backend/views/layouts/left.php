@@ -17,14 +17,61 @@
                     ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Главные настройки', 'icon' => 'home', 'url' => ['site/index']],
+                    ['label' => 'Новости', 'icon' => 'home', 'url' => ['news/index']],
                     // ['label' => 'Кваритры', 'icon' => 'building-o', 'url' => ['floor/index']],
+                    // [
+                        // 'label' => 'Новости',
+                        // 'icon' => 'building-o',
+                        // 'url' => '#',
+                        // 'items' => [
+                            // ['label' => 'Этажи', 'icon' => 'building', 'url' => ['floor/index'],],
+                            // ['label' => 'Квартиры', 'icon' => 'wpforms', 'url' => ['apartments/index'],],
+                        // ],
+                    // ],
+                    // [
+                    //     'label' => 'Кваритры',
+                    //     'icon' => 'building-o',
+                    //     'url' => '#',
+                    //     'items' => [
+                    //         ['label' => 'Этажи', 'icon' => 'building', 'url' => ['floor/index'],],
+                    //         ['label' => 'Квартиры', 'icon' => 'wpforms', 'url' => ['apartments/index'],],
+                    //     ],
+                    // ],
                     [
                         'label' => 'Кваритры',
                         'icon' => 'building-o',
                         'url' => '#',
                         'items' => [
-                            ['label' => 'Этажи', 'icon' => 'building', 'url' => ['floor/index'],],
-                            ['label' => 'Квартиры', 'icon' => 'wpforms', 'url' => ['apartments/index'],],
+                            [
+                                'label' => 'блок а',
+                                'icon' => 'circle-o',
+                                'url' => '#',
+                                'items' => [
+                                    ['label' => 'Этажи', 'icon' => 'building', 'url' => ['floor/index', 'block' => 'a'],],
+                                    ['label' => 'Этажи', 'icon' => 'building', 'url' => ['floor/multy', 'block' => 'a'],],
+                                    ['label' => 'Квартиры', 'icon' => 'wpforms', 'url' => ['apartments/index', 'block' => 'a'],],
+                                ],
+                            ],
+                            [
+                                'label' => 'блок б',
+                                'icon' => 'circle-o',
+                                'url' => '#',
+                                'items' => [
+                                    ['label' => 'Этажи', 'icon' => 'building', 'url' => ['floor/index', 'block' => 'b'],],
+                                    ['label' => 'Этажи', 'icon' => 'building', 'url' => ['floor/multy', 'block' => 'b'],],
+                                    ['label' => 'Квартиры', 'icon' => 'wpforms', 'url' => ['apartments/index', 'block' => 'b'],],
+                                ],
+                            ],
+                            [
+                                'label' => 'блок с',
+                                'icon' => 'circle-o',
+                                'url' => '#',
+                                'items' => [
+                                    ['label' => 'Этажи', 'icon' => 'building', 'url' => ['floor/index', 'block' => 'c'],],
+                                    ['label' => 'Этажи', 'icon' => 'building', 'url' => ['floor/multy', 'block' => 'c'],],
+                                    ['label' => 'Квартиры', 'icon' => 'wpforms', 'url' => ['apartments/index', 'block' => 'c'],],
+                                ],
+                            ],
                         ],
                     ],
                     ['label' => 'Заявки', 'icon' => 'envelope-open-o', 'url' => ['feedback/index']],

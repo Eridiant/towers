@@ -8,7 +8,9 @@ $this->title = Yii::t('frontend', 'Планировки');
 
 
 ?>
-
+<script>
+    var dato = <?= json_encode($model); ?>; // Don't forget the extra semicolon!
+</script>
 
 <div id="layouts" class="layouts">
     <div class="layouts-bg">
@@ -26,7 +28,7 @@ $this->title = Yii::t('frontend', 'Планировки');
     <div class="layouts-bg-svg">
         <figure class="layouts-bg-fig">
             <object id="floors" data="/images/svg/layout-flats.svg" type="image/svg+xml">
-                <!-- <img src="images/dist/bg-1920x1450.jpg" alt=""> -->
+                <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
             </object>
         </figure>
     </div>
@@ -37,13 +39,13 @@ $this->title = Yii::t('frontend', 'Планировки');
                 <h1><?=Yii::t('frontend', 'Планировки')?></h1>
             </div>
             <div class="choose-buttons">
-                <a href="#" class="choose-button" data-choose="1">
+                <a href="javascript:void(0);" class="choose-button" data-choose="1">
                     <?=Yii::t('frontend', 'Блок')?> <span>а</span>
                 </a>
-                <a href="#" class="choose-button" data-choose="2">
+                <a href="javascript:void(0);" class="choose-button" data-choose="2">
                     <?=Yii::t('frontend', 'Блок')?> <span>б</span>
                 </a>
-                <a href="#" class="choose-button" data-choose="3">
+                <a href="javascript:void(0);" class="choose-button" data-choose="3">
                     <?=Yii::t('frontend', 'Блок')?> <span>с</span>
                 </a>
             </div>
@@ -90,6 +92,50 @@ $this->title = Yii::t('frontend', 'Планировки');
     </div>
 </div>
 
+<div id="for-del" class="for-del" style="display:none">
+    <div class="container" style="max-width: 1200px; margin-left: auto; margin-right: auto">
+        <h1><?=Yii::t('frontend', 'Блок С, скоро в продаже')?></h1>
+    </div>
+</div>
+
+<div id="blocks" class="block">
+    <div class="container" style="max-width: 1200px; margin-left: auto; margin-right: auto">
+        <div class="block-wrapper">
+            <div class="block-desc">
+                <div class="breadcrumbs">
+                    <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
+                    <a href="/"><?=Yii::t('frontend', 'Планировки')?></a>
+                    <p><?=Yii::t('frontend', 'Блок')?> <span class="blocks"><?= $block; ?></span></p>
+                </div>
+                <h3><?=Yii::t('frontend', 'Информация о блоке')?></h3>
+                <dl>
+                    <dt><?=Yii::t('frontend', 'Этаж')?>:</dt>
+                    <dd id="fl">1</dd>
+                </dl>
+            </div>
+            <div class="block-inner">
+              <div class="block-block">
+                <div class="block-img">
+                  <picture> 
+                      <img src="/images/src/layouts/block/block-<?= $block; ?>-x1.png" alt="">
+                  </picture>
+                </div>
+                <div class="block-svg<?= $block == 'a' ? ' block-svg-active' : ''; ?>" data-block="1">
+                  <object id="buildA" data="/images/svg/layouts/block/a.svg" type="image/svg+xml">
+                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
+                  </object>
+                </div>
+                <div class="block-svg<?= $block == 'b' ? ' block-svg-active' : ''; ?>" data-block="2">
+                  <object id="buildB" data="/images/svg/layouts/block/b.svg" type="image/svg+xml">
+                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
+                  </object>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div id="floor" class="floor">
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="floor-wrapper">
@@ -97,19 +143,19 @@ $this->title = Yii::t('frontend', 'Планировки');
                 <div class="breadcrumbs">
                     <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
                     <a href="/"><?=Yii::t('frontend', 'Планировки')?></a>
-                    <p><?=Yii::t('frontend', 'Блок')?> С</p>
+                    <p><?=Yii::t('frontend', 'Блок')?> <span class="blocks"><?= $block; ?></span></p>
                 </div>
                 <h2><?=Yii::t('frontend', 'Этажи')?></h2>
                 <div id="floor-choose" class="floor-choose">
-                    <div class="floor-choose-inner floor-show" data-floor="1">
+                    <div class="floor-choose-inner floor-show">
                         <div class="floor-choose-img">
                             <picture>
-                                <img src="/images/dist/layouts/2.jpg" alt="">
+                                <img src="/images/blocks/img/<?= $block; ?>/<?= $floor_num; ?>.jpg" alt="">
                             </picture>
                         </div>
                         <div class="floor-choose-svg">
                             <figure class="floor-choose-fig">
-                                <object id="test" data="/images/svg/layouts/2.svg" type="image/svg+xml">
+                                <object id="test" data="/images/blocks/svg/<?= $block; ?>/<?= $floor_num; ?>.svg" type="image/svg+xml">
                                     <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
                                 </object>
                             </figure>
@@ -119,104 +165,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                             </div>
                         </div>
                     </div>
-                    <div class="floor-choose-inner" data-floor="2">
-                        <div class="floor-choose-img">
-                            <picture>
-                                <img src="/images/dist/layouts/3.jpg" alt="">
-                            </picture>
-                        </div>
-                        <div class="floor-choose-svg">
-                            <figure class="floor-choose-fig">
-                                <object data="/images/svg/layouts/3.svg" type="image/svg+xml">
-                                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
-                                </object>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="floor-choose-inner" data-floor="3">
-                        <div class="floor-choose-img">
-                            <picture>
-                                <img src="/images/dist/layouts/4.jpg" alt="">
-                            </picture>
-                        </div>
-                        <div class="floor-choose-svg">
-                            <figure class="floor-choose-fig">
-                                <object data="/images/svg/layouts/4.svg" type="image/svg+xml">
-                                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
-                                </object>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="floor-choose-inner" data-floor="4">
-                        <div class="floor-choose-img">
-                            <picture>
-                                <img src="/images/dist/layouts/5.jpg" alt="">
-                            </picture>
-                        </div>
-                        <div class="floor-choose-svg">
-                            <figure class="floor-choose-fig">
-                                <object data="/images/svg/layouts/5.svg" type="image/svg+xml">
-                                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
-                                </object>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="floor-choose-inner" data-floor="5">
-                        <div class="floor-choose-img">
-                            <picture>
-                                <img src="/images/dist/layouts/6.jpg" alt="">
-                            </picture>
-                        </div>
-                        <div class="floor-choose-svg">
-                            <figure class="floor-choose-fig">
-                                <object data="/images/svg/layouts/6.svg" type="image/svg+xml">
-                                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
-                                </object>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="floor-choose-inner" data-floor="6">
-                        <div class="floor-choose-img">
-                            <picture>
-                                <img src="/images/dist/layouts/7.jpg" alt="">
-                            </picture>
-                        </div>
-                        <div class="floor-choose-svg">
-                            <figure class="floor-choose-fig">
-                                <object data="/images/svg/layouts/7.svg" type="image/svg+xml">
-                                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
-                                </object>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="floor-choose-inner" data-floor="7">
-                        <div class="floor-choose-img">
-                            <picture>
-                                <img src="/images/dist/layouts/8.jpg" alt="">
-                            </picture>
-                        </div>
-                        <div class="floor-choose-svg">
-                            <figure class="floor-choose-fig">
-                                <object data="/images/svg/layouts/8.svg" type="image/svg+xml">
-                                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
-                                </object>
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="floor-choose-inner" data-floor="8">
-                        <div class="floor-choose-img">
-                            <picture>
-                                <img src="/images/dist/layouts/9.jpg" alt="">
-                            </picture>
-                        </div>
-                        <div class="floor-choose-svg">
-                            <figure class="floor-choose-fig">
-                                <object data="/images/svg/layouts/9.svg" type="image/svg+xml">
-                                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
-                                </object>
-                            </figure>
-                        </div>
-                    </div>
+                    
                 </div>
                 <div class="floor-inf">
                     <div class="floor-item">
@@ -275,32 +224,28 @@ $this->title = Yii::t('frontend', 'Планировки');
                 <h2><?=Yii::t('frontend', 'Экспликация')?></h2>
                 <div class="flat-description-inner">
                     <dl>
-                        <dt><?=Yii::t('frontend', 'Кухня')?></dt>
-                        <dd>6 м<sup>2</sup></dd>
+                        <dt><?=Yii::t('frontend', 'Номер')?></dt>
+                        <dd><span class="num">6</span></dd>
                     </dl>
                     <dl>
-                        <dt><?=Yii::t('frontend', 'Спальня')?></dt>
-                        <dd>12 м<sup>2</sup></dd>
+                        <dt><?=Yii::t('frontend', 'Общая площадь')?></dt>
+                        <dd><span class="total">6</span> м<sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt><?=Yii::t('frontend', 'Гостинная')?></dt>
-                        <dd>8 м<sup>2</sup></dd>
+                        <dt><?=Yii::t('frontend', 'Балкон')?></dt>
+                        <dd><span class="balcony">12</span> м<sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt><?=Yii::t('frontend', 'Ванная')?></dt>
-                        <dd>6 м<sup>2</sup></dd>
+                        <dt><?=Yii::t('frontend', 'Стоисть')?></dt>
+                        <dd>$<span class="price">8</span></dd>
                     </dl>
                     <dl>
-                        <dt><?=Yii::t('frontend', 'Терраса')?></dt>
-                        <dd>2 м<sup>2</sup></dd>
+                        <dt><?=Yii::t('frontend', 'Вид')?></dt>
+                        <dd><span class="view">8</span></dd>
                     </dl>
                     <dl>
-                        <dt><?=Yii::t('frontend', 'Ванная')?></dt>
-                        <dd>6 м<sup>2</sup></dd>
-                    </dl>
-                    <dl>
-                        <dt><?=Yii::t('frontend', 'Терраса')?></dt>
-                        <dd>2 м<sup>2</sup></dd>
+                        <dt><?=Yii::t('frontend', 'Статус')?></dt>
+                        <dd><span class="status">8</span></dd>
                     </dl>
                 </div>
                 <a href="#" id="flat-call" class="contacts-call flat-call floor-call btn btn-blue">
