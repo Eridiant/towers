@@ -245,7 +245,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                         <dd><span class="balcony"><?= $model[0]['balcony_area']; ?></span> м<sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt><?=Yii::t('frontend', 'Стоисть')?></dt>
+                        <dt><?=Yii::t('frontend', 'Стоимость')?></dt>
                         <dd>$<span class="price"><?= $model[0]['money']; ?></span></dd>
                     </dl>
                     <dl>
