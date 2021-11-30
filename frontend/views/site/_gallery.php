@@ -86,6 +86,61 @@ use yii\helpers\Url;
                             <img src="/images/dist/gallery/gallery-9.jpg" width="1204" height="779" alt="">
                         </picture>
                     </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-10.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-11.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-12.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-13.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-14.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-15.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-16.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-17.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-18.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-19.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-20.jpg" width="1204" height="779" alt="">
+                        </picture>
+                    </div>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>

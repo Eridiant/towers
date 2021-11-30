@@ -23,7 +23,7 @@ $this->title = Yii::t('frontend', 'Контакты');
                         <div class="contacts-inner-svg">
                             <svg width="20" height="20"><use xlink:href="images/icons.svg#phone"></use></svg>
                         </div>
-                        <a href="+995571075555">+995 571 07 55 55</a>
+                        <a href="+995571075555">+995 (571) 07-55-55</a>
                     </div>
                     <div class="contacts-inner">
                         <div class="contacts-inner-svg">

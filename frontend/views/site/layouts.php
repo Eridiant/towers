@@ -35,13 +35,13 @@ $this->title = Yii::t('frontend', 'Планировки');
             </object>
         </figure>
     </div>
-    <div class="layouts-bg-svg">
+    <!-- <div class="layouts-bg-svg">
         <figure class="layouts-bg-fig">
             <object id="floors" data="/images/svg/layout-flats.svg" type="image/svg+xml">
-                <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
+                <img src="/images/dist/bg-1920x1450.jpg" alt="">
             </object>
         </figure>
-    </div>
+    </div> -->
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="layouts-content">
             <div class="layouts-title">
@@ -122,6 +122,10 @@ $this->title = Yii::t('frontend', 'Планировки');
                     <dt><?=Yii::t('frontend', 'Этаж')?>:</dt>
                     <dd id="fl">1</dd>
                 </dl>
+                <a href="#" class="contacts-call floor-call btn btn-blue">
+                    <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
+                    <span><?=Yii::t('frontend', 'Выбрать блок')?></span>
+                </a>
             </div>
             <div class="block-inner">
               <div class="block-block">
@@ -200,7 +204,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                 </div>
                 <a href="#" class="contacts-call floor-call btn btn-blue">
                     <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
-                    <span><?=Yii::t('frontend', 'Выбрать блок')?></span>
+                    <span><?=Yii::t('frontend', 'Выбрать этаж')?></span>
                 </a>
             </div>
             <div class="floor-choose">
@@ -255,7 +259,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                 </div>
                 <a href="#" id="flat-call" class="contacts-call flat-call floor-call btn btn-blue">
                     <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
-                    <span><?=Yii::t('frontend', 'Выбрать блок')?></span>
+                    <span><?=Yii::t('frontend', 'Выбрать квартиру')?></span>
                 </a>
             </div>
             <div class="flat-plan">
@@ -291,3 +295,29 @@ $this->title = Yii::t('frontend', 'Планировки');
         </div>
     </div>
 </div>
+
+<main>
+    <div class="contact">
+        <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
+            
+            <div class="contact-wrapper">
+                <!-- <div class="contact-bg">
+                    <picture>
+                        <img src="/images/contact-team.jpg" alt="">
+                    </picture>
+                </div> -->
+                <div class="contact-form">
+                    <p class="title"><?=Yii::t('frontend', 'Поможем в выборе!')?></p>
+                    <p>
+                        <?=Yii::t('frontend', 'Разнообразный и богатый опыт начало повседневной работы по формированию.')?>
+                    </p>
+
+                    <?= $this->render('_form', [
+                        'model' => $model,
+                    ]) ?>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</main>
