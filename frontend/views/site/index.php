@@ -462,10 +462,10 @@ use yii\helpers\Url;
                     <?=Yii::t('frontend', 'Выберите блок')?>
                 </h2>
                 <div class="choose-buttons">
-                    <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button" data-choose="1">
+                    <a href="<?=Url::toRoute('/layouts/block-A') ?>" class="choose-button" data-choose="1">
                         <?=Yii::t('frontend', 'Блок')?> <span>а</span>
                     </a>
-                    <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button" data-choose="2">
+                    <a href="<?=Url::toRoute('/layouts/block-B') ?>" class="choose-button" data-choose="2">
                         <?=Yii::t('frontend', 'Блок')?> <span>б</span>
                     </a>
                     <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button" data-choose="3">
