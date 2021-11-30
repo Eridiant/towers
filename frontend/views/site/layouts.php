@@ -238,11 +238,11 @@ $this->title = Yii::t('frontend', 'Планировки');
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Общая площадь')?></dt>
-                        <dd><span class="total"><?= $model[0]['total_area']; ?></span> м<sup>2</sup></dd>
+                        <dd><span class="total"><?= $model[0]['total_area']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Балкон')?></dt>
-                        <dd><span class="balcony"><?= $model[0]['balcony_area']; ?></span> м<sup>2</sup></dd>
+                        <dd><span class="balcony"><?= $model[0]['balcony_area']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Стоимость')?></dt>
