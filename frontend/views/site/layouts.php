@@ -6,10 +6,20 @@ use yii\helpers\Url;
 
 $this->title = Yii::t('frontend', 'Планировки');
 
+// foreach ($blocks as $block):
+//     var_dump('<pre>');
+//     var_dump($block->floor);
+//     var_dump('</pre>');
+    
+// endforeach;
+// var_dump('<pre>');
+// var_dump($model[0]['floor_num']);
+// var_dump('</pre>');
+// die;
 
 ?>
 <script>
-    var dato = <?= json_encode($model); ?>; // Don't forget the extra semicolon!
+    var summ = <?= json_encode($model); ?>; // Don't forget the extra semicolon!
 </script>
 
 <div id="layouts" class="layouts">
@@ -136,7 +146,7 @@ $this->title = Yii::t('frontend', 'Планировки');
     </div>
 </div>
 
-<div id="floor" class="floor">
+<div id="floor" class="floor" data-floor="block-<?= mb_strtoupper($block); ?>">
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="floor-wrapper">
             <div class="floor-floor">
@@ -155,7 +165,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                         </div>
                         <div class="floor-choose-svg">
                             <figure class="floor-choose-fig">
-                                <object id="test" data="/images/blocks/svg/<?= $block; ?>/<?= $floor_num; ?>.svg" type="image/svg+xml">
+                                <object id="test" data-block="<?= $block; ?>" data="/images/blocks/svg/<?= $block; ?>/<?= $floor_num; ?>.svg" type="image/svg+xml">
                                     <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
                                 </object>
                             </figure>
@@ -197,14 +207,9 @@ $this->title = Yii::t('frontend', 'Планировки');
                 <!-- Swiper -->
                 <div class="swiper floorChoose">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">1</div>
-                        <div class="swiper-slide">2</div>
-                        <div class="swiper-slide">3</div>
-                        <div class="swiper-slide">4</div>
-                        <div class="swiper-slide">5</div>
-                        <div class="swiper-slide">6</div>
-                        <div class="swiper-slide">7</div>
-                        <div class="swiper-slide">8</div>
+                        <?php foreach ($blocks as $blocks): ?>
+                            <div class="swiper-slide"><?= $blocks->floor; ?></div>
+                        <?php endforeach; ?>
                     </div>
                 </div>
             </div>
@@ -225,27 +230,27 @@ $this->title = Yii::t('frontend', 'Планировки');
                 <div class="flat-description-inner">
                     <dl>
                         <dt><?=Yii::t('frontend', 'Номер')?></dt>
-                        <dd><span class="num">6</span></dd>
+                        <dd><span class="num"><?= $model[0]['num']; ?></span></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Общая площадь')?></dt>
-                        <dd><span class="total">6</span> м<sup>2</sup></dd>
+                        <dd><span class="total"><?= $model[0]['total_area']; ?></span> м<sup>2</sup></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Балкон')?></dt>
-                        <dd><span class="balcony">12</span> м<sup>2</sup></dd>
+                        <dd><span class="balcony"><?= $model[0]['balcony_area']; ?></span> м<sup>2</sup></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Стоисть')?></dt>
-                        <dd>$<span class="price">8</span></dd>
+                        <dd>$<span class="price"><?= $model[0]['money']; ?></span></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Вид')?></dt>
-                        <dd><span class="view">8</span></dd>
+                        <dd><span class="view"><?= $model[0]["en"]; ?></span></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Статус')?></dt>
-                        <dd><span class="status">8</span></dd>
+                        <dd><span class="status"><?= $model[0]['status']; ?></span></dd>
                     </dl>
                 </div>
                 <a href="#" id="flat-call" class="contacts-call flat-call floor-call btn btn-blue">
@@ -255,8 +260,8 @@ $this->title = Yii::t('frontend', 'Планировки');
             </div>
             <div class="flat-plan">
                 <div class="flat-plan-img">
-                    <picture>
-                        <img src="/images/dist/flats/1.jpg" alt="">
+                    <picture> 
+                        <img src="/images/blocks/<?= $block; ?>/<?= $floor_num; ?>/1.jpg" alt="">
                     </picture>
                 </div>
                 <!-- <div class="flat-plan-floor">
@@ -277,7 +282,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                     </picture>
                 </div>
                 <div class="flat-num-inner">
-                    <a href="#" class="contacts-call btn btn-blue">
+                    <a href="/images/blocks/pdf/<?= $block; ?>/<?= $floor_num; ?>/1.pdf" alt="" class="contacts-call btn btn-blue">
                         <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                         <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                     </a>

@@ -192,7 +192,7 @@ class SiteController extends Controller
 
         // $model = json_encode($model);
         // $blocks = json_encode($blocks);
-        
+        $summ = json_encode(['model'=>$model, 'blocks'=>$blocks]);
 
         if ($request->isAjax){
             $summ = json_encode(['model'=>$model, 'blocks'=>$blocks]);
@@ -201,14 +201,14 @@ class SiteController extends Controller
 
         $floor_num = $floor->floor;
         // var_dump('<pre>');
-        // var_dump($floor);
+        // var_dump($summ);
         // var_dump('</pre>');
         // die;
         
 
         $this->bodyClass = 'other bl';
 
-        return $this->render('layouts', compact('model', 'block', 'floor_num'));
+        return $this->render('layouts', compact('model', 'block', 'floor_num', 'summ', 'blocks'));
     }
 
     public function actionGallery()

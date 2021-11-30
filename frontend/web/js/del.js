@@ -1,4 +1,5 @@
 window.addEventListener('load', () => {
+
     // alert(JSON.parse(dato));
     // alert(dato);
     // let arr = JSON.parse(dato);
@@ -45,7 +46,8 @@ window.addEventListener('load', () => {
 
     if (document.querySelector('#layouts')) {
         let layouts = document.querySelector('#block').contentDocument;
-        
+        fillData(summ);
+        showStatus();
 		var floor = new Swiper(".floorChoose", {
 			direction: "vertical",
 			slidesPerView: 5,
@@ -63,6 +65,8 @@ window.addEventListener('load', () => {
 				},
 			},
 		});
+        // document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(summ.length, summ[0].floor_num);
+        // floor.update();
 
 		floor.on('slideChange', fn);
 
@@ -75,8 +79,8 @@ window.addEventListener('load', () => {
 			let fnCall = () => {
 				
 				if (floor_num != (floor.activeIndex + 1) ) {
-					num = floor.activeIndex;
-
+					num = floor.activeIndex + 1;
+                    ajaxFloor(document.querySelector('#floor').dataset.floor, num)
 					// document.querySelector('.floor-show').classList.remove('floor-show');
 
 					// document.querySelector(`.floor-choose-inner[data-floor="${num + 1}"`).classList.add('floor-show');
@@ -130,7 +134,7 @@ window.addEventListener('load', () => {
 
         function ajaxFloor(block, fl) {
             let data = {'slug': block, 'floor': fl};
-            changeModule(block); //, floor
+            changeModule(checkModule(block, fl)); //, floor
             $.ajax({
                 url: '/site/layouts',
                 type: 'POST',
@@ -138,10 +142,9 @@ window.addEventListener('load', () => {
                 success: function(response){
                     // console.log(JSON.parse(response).model);
                     let model = JSON.parse(response).model;
-                    let blocks = JSON.parse(response).blocks;
+                    // let blocks = JSON.parse(response).blocks;
                     // console.log(model[0].floor_num);
                     // console.log(blocks.length);
-                    document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(blocks.length, model[0].floor_num);
                     // floor.update();
                     fillData(model);
                     // console.log(response['blocks']);
@@ -198,6 +201,7 @@ window.addEventListener('load', () => {
                         bl = 'a';
                         changeBlock(1, bl);
                         ajaxBlock('block-A');
+                        document.querySelector('#floor').dataset.floor = 'block-A';
                     }
                 }
 				if (button == 2) {
@@ -209,6 +213,7 @@ window.addEventListener('load', () => {
                         bl = 'b';
                         changeBlock(2, bl);
                         ajaxBlock('block-B');
+                        document.querySelector('#floor').dataset.floor = 'block-B';
                     }
                 }
 				if (button == 3) {
@@ -227,7 +232,7 @@ window.addEventListener('load', () => {
                 // let data = ['block' = 'block'].serializeArray();
                 let data = {'slug': block};
                 // let data = `'slug' = ${block}`;
-                changeModule(block);
+                changeModule(checkModule(block));
                 $.ajax({
                     url: '/site/layouts',
                     type: 'POST',
@@ -257,18 +262,60 @@ window.addEventListener('load', () => {
 	}
 })
 
-function changeModule(block, floor = 0) {
-    let fl = 0;
-    if (!floor) {
-        if (block === 'block-A') {
-            block = 'a';
-            fl = 11;
-        }
-        if (block === 'block-B') {
-            block = 'b';
-            fl = 2;
+function checkModule(block, floor = 0) {
+    let fls = 0;
+    console.log(floor);
+    
+    if (block === 'block-A') {
+        block = 'a';
+        if (!floor) return [block, fls = 11];
+        switch (parseInt(floor)) {
+            case 1:
+                fls = 11;
+                break;
+            case 24:
+                fls = 34;
+                break;
+            case 25:
+                fls = 35;
+                break;
+            default:
+                fls = 12;
+                break;
         }
     }
+    if (block === 'block-B') {
+        block = 'b';
+        if (!floor) return [block, fls = 2];
+        switch (parseInt(floor)) {
+            case 1:
+                fls = 2;
+                break;
+            case 2:
+                fls = 3;
+                break;
+            case 3:
+                fls = 5;
+                break;
+            case 4:
+            case 8:
+            case 9:
+            case 16:
+                fls = 5;
+                break;
+            default:
+                fls = 6;
+                break;
+        }
+    }
+    return [block, fls];
+}
+
+function changeModule(arr) {
+    block = arr[0];
+    fl = arr[1];
+    console.log(block,fl);
+    
     document.querySelector('#floor .floor-choose-img').innerHTML = `<picture><img src="/images/blocks/img/${block}/${fl}.jpg" alt=""></picture>`;
     let svg = document.querySelector('#floor .floor-choose-fig');
     svg.innerHTML = `<object id="test" data-block="${block}" data="/images/blocks/svg/${block}/${fl}.svg" type="image/svg+xml"></object>`;
@@ -287,6 +334,7 @@ function showStatus() {
             let i = et.dataset.i;
             // document.querySelector('#flat-num').innerHTML = flat;
             document.querySelector('.flat-plan-img').innerHTML = `<picture><img src="/images/blocks/${bl}/${floor}/${i}.jpg" alt=""></picture>`;
+            document.querySelector('.flat-num-inner .btn').href = `/images/blocks/pdf/${bl}/${floor}/${i}.pdf`;
             document.querySelector('.num').innerHTML = et.dataset.flat;
             document.querySelector('.total').innerHTML = et.dataset.total;
             document.querySelector('.balcony').innerHTML = et.dataset.balcony;
@@ -298,6 +346,11 @@ function showStatus() {
         }
     })
     // let floorDoc = document.querySelector(`#floor${num}`).contentDocument;
+    focus();
+}
+
+function focus() {
+    let test = document.querySelector('#test').contentDocument;
     let focus = document.querySelector('.focus');
     let flat = document.querySelector('.focus-flat');
     let status = document.querySelector('.focus-status');
@@ -327,6 +380,7 @@ function showStatus() {
         // focus.style.backgroundColor = "blue";
         }
     });
+    
 }
 
 function fillData(model) {
