@@ -245,8 +245,6 @@ class FloorController extends Controller
                 }
                 $mod->$category = $expression;
 
-                var_dump($expression);
-                // die;
                 $mod->save();
                 
                 $count++;
