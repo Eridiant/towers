@@ -207,7 +207,7 @@ class FloorController extends Controller
 
             $category = $this->request->post('category');
 
-            $text = '';
+            $text = $floor . '||';
             for ($i=0; $i < count($field); $i++) { 
                 // var_dump((int)$field[$i]);
                 // issetModel($count, $block);
@@ -250,7 +250,7 @@ class FloorController extends Controller
                 }
                 $mod->$category = $expression;
 
-                // $mod->save();
+                $mod->save();
                 $text = $text . ', ' . $expression;
                 // var_dump($expression);
                 
