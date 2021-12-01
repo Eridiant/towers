@@ -143,13 +143,13 @@ class SiteController extends Controller
             $model->lang = Yii::$app->language;
             
             if($model->save()){
-                Yii::$app->mailer->compose()
-                    // ->setTo($mail['email'])
-                    ->setTo('info@calligraphy-towers.com')
-                    ->setFrom('bitcoin@eridiante.bhuser.ru')
-                    ->setSubject('заявка')
-                    ->setTextBody('Имя: ' . $request->post("name") . ' Телефон ' . $request->post("phone"))
-                    ->send();
+                // Yii::$app->mailer->compose()
+                //     // ->setTo($mail['email'])
+                //     ->setTo('info@calligraphy-towers.com')
+                //     ->setFrom('bitcoin@eridiante.bhuser.ru')
+                //     ->setSubject('заявка')
+                //     ->setTextBody('Имя: ' . $request->post("name") . ' Телефон ' . $request->post("phone"))
+                //     ->send();
                 return ['data' => ['success' => true]];
             }
 
