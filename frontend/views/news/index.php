@@ -11,10 +11,10 @@ $this->title = Yii::t('frontend', 'Новости');
 <div class="news">
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="breadcrumbs">
-            <a href="/">Главная</a>
-            <p>Новости</p>
+            <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
+            <p><?=Yii::t('frontend', 'Новости')?></p>
         </div>
-        <h1>Читайте больше</h1>
+        <h1><?=Yii::t('frontend', 'Читайтать больше')?></h1>
         <div class="news-wrapper">
             <?php foreach ($model as $model): ?>
                 <div class="news-news">
@@ -35,6 +35,6 @@ $this->title = Yii::t('frontend', 'Новости');
                 </div>
             <?php endforeach; ?>
         </div>
-        <div class="news-next">Показать больше</div>
+        <div class="news-next"><?=Yii::t('frontend', 'Показать больше')?></div>
     </div>
 </div>

@@ -18,6 +18,6 @@ $this->title = 'My Yii Application';
         </div>
         <h1><?= $model->$title; ?></h1>
         <div class="nws-text"><?= $model->$code; ?></div>
-        <a href="<?=Url::toRoute('/news') ?>">Назад</a>
+        <a href="<?=Url::toRoute('/news') ?>"><?=Yii::t('frontend', 'Назад')?></a>
     </div>
 </div>
