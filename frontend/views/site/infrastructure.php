@@ -39,15 +39,13 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
+                        
                         <p class="infrastructure-item-text">
                             <?=Yii::t('frontend', 'входит в концепцию - подогреваемый бассейн. входит в концепцию - подогреваемый бассейн.')?>
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Открытый и закрытый <?=Yii::t('frontend', 'Бассейн')?>
+                    <?=Yii::t('frontend', 'Открытый и закрытый')?> <?=Yii::t('frontend', 'Бассейн')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -62,9 +60,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             <?=Yii::t('frontend', 'Будет иметь роскошное светлое пространство, отдельные зоны массажа и оздоровительных процедур. В отличие от большинства спа,которые рассчитаны на туристов, наш спа центр будет иметь — ориентацию на клиентов отеля и владельцев апартаментов, мы сделали упор на  благородные материалы в отделке, лаконичность дизайна и бесконечная элегантность.')?>
                         </p>
@@ -85,9 +80,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             <?=Yii::t('frontend', 'наша задача — создать все условия, чтобы спорт приносил не только пользу, но и удовольствие оснащенный новейшим спортивным оборудованием и всеми необходимыми тренажерами для профессионального спорта и любительских занятий')?>
                         </p>
@@ -108,9 +100,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             Разнообразный и богатый опыт начало повседневной работы по формированию позиции позволяет.
                         </p>
@@ -131,9 +120,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             <?=Yii::t('frontend', 'концепция калиграф таурс, также направлена на досуг с семьей. Вы сможете насладиться современным кинотеатром, с современной акустикой и 3D графикой.')?>
                         </p>
@@ -154,9 +140,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             <?=Yii::t('frontend', 'ваш отдых будет иметь персональную зону на море, отдельный пляж и лежаки.')?>
                         </p>
@@ -177,9 +160,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             <?=Yii::t('frontend', 'сможете насладиться видами вечернего Батуми , футбольным матчем или концертом мирового масштаба не покидая комплекс')?>
                         </p>
@@ -200,9 +180,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             <?=Yii::t('frontend', 'концепция отеля имеет детский клуб и анимацию для детей от 2 до 10 лет,  мы ценим ваш отдых и заботимся о ваших детях.')?>
                         </p>
@@ -223,9 +200,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             Разнообразный и богатый опыт начало повседневной работы по формированию позиции позволяет.
                         </p>
@@ -246,9 +220,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             Разнообразный и богатый опыт начало повседневной работы по формированию позиции позволяет.
                         </p>
@@ -269,9 +240,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             <?=Yii::t('frontend', 'Паркинг на 300 парковочных мест')?>
                         </p>
@@ -292,9 +260,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-subtitle">
-                            Отличное место для работы
-                        </p>
                         <p class="infrastructure-item-text">
                             <?=Yii::t('frontend', 'комплекс включает формат развлечений для лиц старше 21+, вас ждет казино и разнообразные игры в режиме 24 часа')?>
                         </p>
