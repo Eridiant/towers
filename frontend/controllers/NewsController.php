@@ -68,12 +68,6 @@ class NewsController extends Controller
         $code = $lang->code;
         $title = "title_{$code}";
 
-        var_dump('<pre>');
-        var_dump($code);
-        var_dump('</pre>');
-        die;
-        
-
         $model = News::find()
             // ->where(['IS NOT', $title, null])
             ->where(['active' => 1])
