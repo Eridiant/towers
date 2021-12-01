@@ -146,7 +146,7 @@ class SiteController extends Controller
                 Yii::$app->mailer->compose()
                     // ->setTo($mail['email'])
                     ->setTo('info@calligraphy-towers.com')
-                    ->setFrom('bitcoin@eridiante.bhuser.ru')
+                    ->setFrom('mali@seamarble.ge')
                     ->setSubject('заявка')
                     ->setTextBody('Имя: ' . $request->post("name") . ' Телефон ' . $request->post("phone"))
                     ->send();
