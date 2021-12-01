@@ -14,11 +14,11 @@ return [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'piter22.dns-rus.net',
-                'username' => 'bitcoin@eridiante.bhuser.ru',
-                'password' => '4HlU6ef86yi6HP',
+                'host' => 'mali@seamarble.ge',
+                'username' => 'mali@seamarble.ge',
+                'password' => '0239qgsl2A',
                 'port' => '465',
-                'encryption' => 'tls',
+                'encryption' => 'ssl',
             ],
         ],
         'languageSelector' => [
