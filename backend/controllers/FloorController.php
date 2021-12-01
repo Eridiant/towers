@@ -249,9 +249,9 @@ class FloorController extends Controller
                 }
                 $mod->$category = $expression;
 
-                // $mod->save();
+                $mod->save();
                 
-                var_dump($expression);
+                // var_dump($expression);
                 
                 // die;
                 
@@ -260,7 +260,7 @@ class FloorController extends Controller
                     var_dump($mod->getErrors());
                 }
             }
-            die;
+            // die;
             if ($mod->getErrors()) {
                 die;
             }
