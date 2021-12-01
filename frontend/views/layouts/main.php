@@ -37,6 +37,10 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
 	<meta name="msapplication-TileColor" content="#da532c">
 	<meta name="theme-color" content="#ffffff">
     <?php $this->head() ?>
+    
+    
+    <?= Yii::$app->language == 'ka-GE' ? '<link rel="stylesheet" href="/css/ge.css">' : '' ; ?>
+    <?= Yii::$app->language == 'en-US' ? '<link rel="stylesheet" href="/css/en.css">' : '' ; ?>
 </head>
 <body class="<?= $this->context->bodyClass; ?>">
 <?php $this->beginBody() ?>

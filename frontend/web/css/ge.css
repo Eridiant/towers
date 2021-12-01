@@ -1,0 +1,29 @@
+@font-face {
+    font-family: "HelveticaNeue";
+    font-style: bold;
+    font-weight: 700;
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("HelveticaNeue"),
+         /* Если не получилось, загрузит woff2 */
+        url("../fonts/HelveticaNeueLTGEO-Bold.woff2") format("woff2"),
+        /* Если браузер не поддерживает woff2, загрузит woff */
+        url("/fonts/HelveticaNeueLTGEO-Bold.woff") format("woff"),
+        url("/fonts/HelveticaNeueLTGEO-Bold.ttf") format("ttf");
+}
+@font-face {
+    font-family: "HelveticaNeue";
+    font-style: normal;
+    font-weight: 400;
+    /* Браузер сначала попробует найти шрифт локально */
+    src: local("HelveticaNeue"),
+         /* Если не получилось, загрузит woff2 */
+        url("../fonts/HelveticaNeueLTGE-reg.woff2") format("woff2"),
+        /* Если браузер не поддерживает woff2, загрузит woff */
+        url("/fonts/HelveticaNeueLTGE-reg.woff") format("woff"),
+        url("/fonts/HelveticaNeueLTGE-reg.ttf") format("ttf");
+}
+
+/* Теперь можно использовать шрифт */
+body {
+    font-family: "HelveticaNeue", sans-serif;
+}

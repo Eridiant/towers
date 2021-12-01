@@ -1,5 +1,18 @@
 window.addEventListener('load', () => {
 
+    setTimeout(() => {
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/61a67a909099530957f761a7/1flp4thvt';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
+        
+    }, 10000);
+
     // alert(JSON.parse(dato));
     // alert(dato);
     // let arr = JSON.parse(dato);
@@ -97,21 +110,81 @@ window.addEventListener('load', () => {
         let buildB = document.querySelector('#buildB').contentDocument;
         let buildA = document.querySelector('#buildA').contentDocument;
         let floorNum = document.querySelector('#fl');
+        let focusa = document.querySelector('#blocks .block-svg-a .focus');
+        let focusb = document.querySelector('#blocks .block-svg-b .focus');
+        
 
+        // start
+        // let tooltipElem;
+        // document.onmouseover = function(event) {
+        //     let target = event.target;
+
+        //     // если у нас есть подсказка...
+        //     let tooltipHtml = target.dataset.floor;
+        //     if (!tooltipHtml) return;
+
+        //     // ...создадим элемент для подсказки
+
+        //     tooltipElem = document.createElement('div');
+        //     tooltipElem.className = 'tooltip';
+        //     tooltipElem.innerHTML = tooltipHtml;
+        //     document.body.append(tooltipElem);
+
+        //     // спозиционируем его сверху от аннотируемого элемента (top-center)
+        //     let coords = target.getBoundingClientRect();
+
+        //     let left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
+        //     if (left < 0) left = 0; // не заезжать за левый край окна
+
+        //     let top = coords.top - tooltipElem.offsetHeight - 5;
+        //     if (top < 0) { // если подсказка не помещается сверху, то отображать её снизу
+        //         top = coords.top + target.offsetHeight + 5;
+        //     }
+
+        //     tooltipElem.style.left = left + 'px';
+        //     tooltipElem.style.top = top + 'px';
+        // };
+
+        // document.onmouseout = function(e) {
+
+        // if (tooltipElem) {
+        //     tooltipElem.remove();
+        //     tooltipElem = null;
+        // }
+
+        // };
+        // sdfsdf
         buildA.addEventListener('mouseover', (e) => {
             if (e.target.classList.contains('area')) {
+                let target = e.target;
                 
-                floorNum.innerHTML = e.target.dataset.floor;
-            // focus.style.backgroundColor = "blue";
+                floorNum.innerHTML = target.dataset.floor;
+                // focus.style.backgroundColor = "blue";
+                focusa.classList.add('focus-pocus');
+                
+                focusa.style = `top: ${target.getBoundingClientRect().top * 0.9}px; left: ${target.getBoundingClientRect().right + 10}px;`;
+                focusa.innerHTML = target.dataset.floor;
             }
         });
+
+        buildA.addEventListener('mouseout', (e) => {
+            focusa.classList.remove('focus-pocus');
+        })
+
         buildB.addEventListener('mouseover', (e) => {
             if (e.target.classList.contains('area')) {
-                
-                floorNum.innerHTML = e.target.dataset.floor;
+                let target = e.target;
+                floorNum.innerHTML = target.dataset.floor;
             // focus.style.backgroundColor = "blue";
+                focusb.classList.add('focus-pocus');
+                
+                focusb.style = `top: ${target.getBoundingClientRect().top * 0.9}px; left: ${target.getBoundingClientRect().right + 10}px;`;
+                focusb.innerHTML = target.dataset.floor;
             }
         });
+        buildB.addEventListener('mouseout', (e) => {
+            focusa.classList.remove('focus-pocus');
+        })
         buildA.addEventListener('click', (e) => {
 
             if (Number(e.target.dataset.floor)) {
@@ -346,14 +419,15 @@ function showStatus() {
         }
     })
     // let floorDoc = document.querySelector(`#floor${num}`).contentDocument;
-    focus();
+    // let test = document.querySelector('#test').contentDocument;
+    let focus = document.querySelector('#floor .focus');
+    let flat = document.querySelector('#floor .focus-flat');
+    let status = document.querySelector('#floor .focus-status');
+    focuss(test, focus, flat, status);
 }
 
-function focus() {
-    let test = document.querySelector('#test').contentDocument;
-    let focus = document.querySelector('.focus');
-    let flat = document.querySelector('.focus-flat');
-    let status = document.querySelector('.focus-status');
+function focuss(test, focus, flat, status) {
+    
     test.addEventListener('mousemove', (e) => {
         // console.log(document.querySelector('#floor').contentDocument);
         
@@ -367,7 +441,7 @@ function focus() {
         // focus.style.left = '0';
     })
     test.addEventListener('mouseout', (e) => {
-        document.querySelector('.focus').classList.remove('focus-pocus');
+        focus.classList.remove('focus-pocus');
     })
     test.addEventListener('mouseover', (e) => {
         if (e.target.classList.contains('area')) {

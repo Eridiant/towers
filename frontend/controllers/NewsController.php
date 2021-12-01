@@ -46,6 +46,14 @@ class NewsController extends Controller
         ];
     }
 
+    // function beforeAction() {
+
+    //     $cs = Yii::app()->getClientScript();
+
+    //     $cs->registerCssFile('');
+
+    // }
+
     /**
      * Displays homepage.
      *
@@ -59,6 +67,12 @@ class NewsController extends Controller
         $lang = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $lang])->one();
         $code = $lang->code;
         $title = "title_{$code}";
+
+        var_dump('<pre>');
+        var_dump($code);
+        var_dump('</pre>');
+        die;
+        
 
         $model = News::find()
             // ->where(['IS NOT', $title, null])

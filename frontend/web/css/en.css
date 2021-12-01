@@ -1,0 +1,19 @@
+@font-face {
+	font-family: 'Allumi';
+	src: url('../fonts/en/Allumi-Regular.eot');
+	src: local('☺'), url('../fonts/en/Allumi-Regular.woff') format('woff'), url('../fonts/en/Allumi-Regular.ttf') format('truetype'), url('../fonts/en/Allumi-Regular.svg') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Allumi';
+	src: url('../fonts/en/Allumi-Bold.eot');
+	src: local('☺'), url('../fonts/en/Allumi-Bold.woff') format('woff'), url('../fonts/en/Allumi-Bold.ttf') format('truetype'), url('../fonts/en/Allumi-Bold.svg') format('svg');
+	font-weight: 700;
+	font-style: bold;
+}
+
+body {
+    font-family: "Allumi", sans-serif;
+}

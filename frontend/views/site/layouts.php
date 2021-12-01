@@ -134,16 +134,19 @@ $this->title = Yii::t('frontend', 'Планировки');
                       <img src="/images/src/layouts/block/block-<?= $block; ?>-x1.png" alt="">
                   </picture>
                 </div>
-                <div class="block-svg<?= $block == 'a' ? ' block-svg-active' : ''; ?>" data-block="1">
+                <div class="block-svg block-svg-a<?= $block == 'a' ? ' block-svg-active' : ''; ?>" data-block="1">
                   <object id="buildA" data="/images/svg/layouts/block/a.svg" type="image/svg+xml">
                     <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
                   </object>
+                  <div class="focus"></div>
                 </div>
-                <div class="block-svg<?= $block == 'b' ? ' block-svg-active' : ''; ?>" data-block="2">
+                <div class="block-svg block-svg-b<?= $block == 'b' ? ' block-svg-active' : ''; ?>" data-block="2">
                   <object id="buildB" data="/images/svg/layouts/block/b.svg" type="image/svg+xml">
                     <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
                   </object>
+                  <div class="focus"></div>
                 </div>
+                  
               </div>
             </div>
         </div>

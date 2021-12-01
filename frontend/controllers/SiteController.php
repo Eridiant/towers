@@ -82,6 +82,27 @@ class SiteController extends Controller
         ];
     }
 
+    // function beforeAction($action) {
+
+    //     // $cs = Yii::$app->getClientScript();
+
+        
+
+
+    //     $cookies = Yii::$app->request->cookies;
+    //     $lang = $cookies->getValue('_locale', 'en-US');
+
+    //     $lang = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $lang])->one();
+    //     $code = $lang->code;
+    //     $title = "title_{$code}";
+
+    //     // var_dump('<pre>');
+    //     // var_dump($code);
+    //     // var_dump('</pre>');
+    //     // die;
+    //     \yii\helpers\Html::cssFile()($code);
+    // }
+
     /**
      * Displays homepage.
      *

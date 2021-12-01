@@ -104,6 +104,9 @@ use yii\helpers\Url;
 </div>
 
 
+<div class="popup-wrapper video">
+    <div class="popup"></div>
+</div>
 
 
 
