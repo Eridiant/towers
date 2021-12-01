@@ -53,7 +53,7 @@ use yii\helpers\Url;
 				<svg width="17" height="17"><use xlink:href="/images/icons.svg#moon"></use></svg>
 			</div>
 			<div class="header-sound">
-				<a href="#" class="top-sound top-sound-mb">
+				<a href="/sound/sea.mp3" class="top-sound top-sound-mb">
 					<svg width="32" height="32"><use xlink:href="/images/icons.svg#sound"></use></svg>
 				</a>
 			</div>

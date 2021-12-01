@@ -5,10 +5,10 @@
     /* Браузер сначала попробует найти шрифт локально */
     src: local("HelveticaNeue"),
          /* Если не получилось, загрузит woff2 */
-        url("../fonts/HelveticaNeueLTGEO-Bold.woff2") format("woff2"),
+        url("../fonts/ge/HelveticaNeueLTGEO-Bold.woff2") format("woff2"),
         /* Если браузер не поддерживает woff2, загрузит woff */
-        url("/fonts/HelveticaNeueLTGEO-Bold.woff") format("woff"),
-        url("/fonts/HelveticaNeueLTGEO-Bold.ttf") format("ttf");
+        url("/fonts/ge/HelveticaNeueLTGEO-Bold.woff") format("woff"),
+        url("/fonts/ge/HelveticaNeueLTGEO-Bold.ttf") format("ttf");
 }
 @font-face {
     font-family: "HelveticaNeue";
@@ -17,10 +17,10 @@
     /* Браузер сначала попробует найти шрифт локально */
     src: local("HelveticaNeue"),
          /* Если не получилось, загрузит woff2 */
-        url("../fonts/HelveticaNeueLTGE-reg.woff2") format("woff2"),
+        url("../fonts/ge/HelveticaNeueLTGE-reg.woff2") format("woff2"),
         /* Если браузер не поддерживает woff2, загрузит woff */
-        url("/fonts/HelveticaNeueLTGE-reg.woff") format("woff"),
-        url("/fonts/HelveticaNeueLTGE-reg.ttf") format("ttf");
+        url("/fonts/ge/HelveticaNeueLTGE-reg.woff") format("woff"),
+        url("/fonts/ge/HelveticaNeueLTGE-reg.ttf") format("ttf");
 }
 
 /* Теперь можно использовать шрифт */
