@@ -27,7 +27,7 @@ $lang = Language::getCurrent()->code;
             <option value="balcony_area">Балкон</option>
             <option value="<?= $lang; ?>">Вид</option>
             <option value="status">Статус</option>
-            <option value="num">Номер</option>
+            <!-- <option value="num">Номер</option> -->
         </select>
     </div>
     <textarea name="field" id="" cols="100%" rows="10"></textarea>
