@@ -233,6 +233,10 @@ class FloorController extends Controller
                     $expression = floatval($expression);
                 }
                 if ($this->request->post('int')) {
+                    $expression = trim($expression);
+                    if (strcasecmp($expression, 'sold') == 0) {
+                        $expression = 2;
+                    }
                     $expression = preg_replace("/[^0-9]/", '', $expression);
                     $expression = intval($expression);
                 }
@@ -245,13 +249,18 @@ class FloorController extends Controller
                 }
                 $mod->$category = $expression;
 
-                $mod->save();
+                // $mod->save();
+                
+                var_dump($expression);
+                
+                // die;
                 
                 $count++;
                 if ($mod->getErrors()) {
                     var_dump($mod->getErrors());
                 }
             }
+            die;
             if ($mod->getErrors()) {
                 die;
             }
