@@ -207,6 +207,7 @@ class FloorController extends Controller
 
             $category = $this->request->post('category');
 
+            $text = '';
             for ($i=0; $i < count($field); $i++) { 
                 // var_dump((int)$field[$i]);
                 // issetModel($count, $block);
@@ -249,8 +250,8 @@ class FloorController extends Controller
                 }
                 $mod->$category = $expression;
 
-                $mod->save();
-                
+                // $mod->save();
+                $text = $text . ', ' . $expression;
                 // var_dump($expression);
                 
                 // die;
@@ -264,7 +265,7 @@ class FloorController extends Controller
             if ($mod->getErrors()) {
                 die;
             }
-            // Yii::$app->session->setFlash('success', "User created successfully.");
+            Yii::$app->session->setFlash('success', $text);
             // die;
             return $this->refresh();
             // return $this->redirect(['index', 'block' => $block]);
