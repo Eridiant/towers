@@ -14,7 +14,7 @@ return [
             'useFileTransport' => false,
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'mali@seamarble.ge',
+                'host' => 'smtp.beget.com',
                 'username' => 'mali@seamarble.ge',
                 'password' => '0239qgsl2A',
                 'port' => '465',
