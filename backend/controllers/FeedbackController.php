@@ -22,24 +22,36 @@ class FeedbackController extends Controller
         return array_merge(
             parent::behaviors(),
             [
-                'access' => [
-                    'class' => AccessControl::class,
-                    'rules' => [
-                        [
-                            'actions' => ['login', 'error'],
-                            'allow' => true,
-                        ],
-                        [
-                            'actions' => ['logout', 'index', 'delete'],
-                            'allow' => true,
-                            'roles' => ['@'],
-                        ],
-                    ],
-                ],
+                // 'access' => [
+                //     'class' => AccessControl::class,
+                //     'rules' => [
+                //         [
+                //             'actions' => ['login', 'error'],
+                //             'allow' => true,
+                //         ],
+                //         [
+                //             'actions' => ['logout', 'index', 'delete'],
+                //             'allow' => true,
+                //             'roles' => ['@'],
+                //         ],
+                //     ],
+                // ],
                 'verbs' => [
                     'class' => VerbFilter::class,
                     'actions' => [
                         'delete' => ['POST'],
+                    ],
+                    'actions' => [
+                        'delete' => ['GET', 'POST'],
+                    ],
+                    [
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],
+                        'allow' => true,
+                        'roles' => ['@'],
                     ],
                 ],
                 // 'access' => [

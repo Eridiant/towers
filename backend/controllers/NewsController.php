@@ -29,6 +29,15 @@ class NewsController extends Controller
                     'actions' => [
                         'delete' => ['POST'],
                     ],
+                    [
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ]
         );

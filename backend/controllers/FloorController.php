@@ -34,6 +34,15 @@ class FloorController extends Controller
                         'update' => ['get', 'POST'],
                         'delete' => ['get', 'POST'],
                     ],
+                    [
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ]
         );
@@ -251,24 +260,24 @@ class FloorController extends Controller
                 if ($this->request->post('view')) {
 
                     if (strcasecmp(trim($expression), 'mountain view')) {
-                        $mod->ru = 'Горы';
+                        $mod->ru = 'горы';
                         $mod->ge = 'მთები';
                         $mod->en = 'mountain';
                         $mod->he = 'ההרים';
                         $text = $text . ', Горы';
                     }
                     if (strcasecmp(trim($expression), 'sea view')) {
-                        $mod->ru = 'Море';
+                        $mod->ru = 'море';
                         $mod->ge = 'ზღვის';
                         $mod->en = 'sea';
                         $mod->he = 'יָם';
                         $text = $text . ', Море';
                     }
 
-                    $mod->save();
+                    // $mod->save();
                 } else {
                     $mod->$category = $expression;
-                    $mod->save();
+                    // $mod->save();
                     $text = $text . ', ' . $expression;
                 }
                 
@@ -293,7 +302,7 @@ class FloorController extends Controller
             }
             Yii::$app->session->setFlash('success', $text);
             // die;
-            return $this->refresh();
+            // return $this->refresh();
             // return $this->redirect(['index', 'block' => $block]);
         }
 

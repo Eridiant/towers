@@ -34,6 +34,15 @@ class ApartmentsController extends Controller
                     'actions' => [
                         'delete' => ['GET', 'POST'],
                     ],
+                    [
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
                 ],
             ]
         );
