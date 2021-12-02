@@ -32,6 +32,10 @@ $lang = Language::getCurrent()->code;
     </div>
     <textarea name="field" id="" cols="100%" rows="10"></textarea>
     <div>
+        <input type="checkbox" id="view" name="view">
+        <label for="view">Вид</label>
+    </div>
+    <div>
         <input type="checkbox" id="int" name="int">
         <label for="int">Число</label>
     </div>

@@ -248,10 +248,33 @@ class FloorController extends Controller
                     $expression = preg_replace("/[^0-9]/", '', $expression);
                     $expression = intval($expression);
                 }
-                $mod->$category = $expression;
+                if ($this->request->post('view')) {
 
-                $mod->save();
-                $text = $text . ', ' . $expression;
+                    if (strcasecmp(trim($expression), 'mountain view')) {
+                        $mod->ru = 'Горы';
+                        $mod->ge = 'მთის';
+                        $mod->en = 'Mountain view';
+                        $mod->he = 'ההרים';
+                        $text = $text . ', Горы';
+                    }
+                    if (strcasecmp(trim($expression), 'mountain view')) {
+                        $mod->ru = 'Море';
+                        $mod->ge = 'ზღვის';
+                        $mod->en = 'Mountain view';
+                        $mod->he = 'יָם';
+                        $text = $text . ', Море';
+                    }
+
+                    $mod->save();
+                } else {
+                    $mod->$category = $expression;
+                    $mod->save();
+                    $text = $text . ', ' . $expression;
+                }
+                
+
+                // $mod->save();
+                // $text = $text . ', ' . $expression;
                 // var_dump($expression);
                 
                 // die;
@@ -260,6 +283,9 @@ class FloorController extends Controller
                 if ($mod->getErrors()) {
                     var_dump($mod->getErrors());
                 }
+
+
+
             }
             // die;
             if ($mod->getErrors()) {
