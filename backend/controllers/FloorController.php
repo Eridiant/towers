@@ -252,15 +252,15 @@ class FloorController extends Controller
 
                     if (strcasecmp(trim($expression), 'mountain view')) {
                         $mod->ru = 'Горы';
-                        $mod->ge = 'მთის';
-                        $mod->en = 'Mountain view';
+                        $mod->ge = 'მთები';
+                        $mod->en = 'mountain';
                         $mod->he = 'ההרים';
                         $text = $text . ', Горы';
                     }
-                    if (strcasecmp(trim($expression), 'mountain view')) {
+                    if (strcasecmp(trim($expression), 'sea view')) {
                         $mod->ru = 'Море';
                         $mod->ge = 'ზღვის';
-                        $mod->en = 'Mountain view';
+                        $mod->en = 'sea';
                         $mod->he = 'יָם';
                         $text = $text . ', Море';
                     }
