@@ -436,6 +436,69 @@ use yii\helpers\Url;
                 </div>
             </div>
         </div>
+        <div class="project-slider">
+            <div style="--swiper-navigation-size: 30px; --swiper-navigation-color: #0b2867;" class="swiper project-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="choose-inner">
+                            <div class="choose-img">
+                                <picture>
+                                    <img src="/images/dist/index/project/project-1.jpg" width="486" height="691" alt="">
+                                </picture>
+                            </div>
+                            <p><?=Yii::t('frontend', 'Лето, 2019')?></p>
+                            <p><?=Yii::t('frontend', 'согласование работ')?></p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="choose-inner">
+                            <div class="choose-img">
+                                <picture>
+                                    <img src="/images/dist/index/project/project-2.png" width="486" height="691" alt="">
+                                </picture>
+                            </div>
+                            <p><?=Yii::t('frontend', 'Лето, 2020')?></p>
+                            <p><?=Yii::t('frontend', 'контракт с отелем Хемптон')?></p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="choose-inner">
+                            <div class="choose-img">
+                                <picture>
+                                    <img src="/images/dist/index/project/project-3.png" width="486" height="691" alt="">
+                                </picture>
+                            </div>
+                            <p><?=Yii::t('frontend', 'Лето, 2023')?></p>
+                            <p><?=Yii::t('frontend', 'завершение строительства блока Б')?></p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="choose-inner">
+                            <div class="choose-img">
+                                <picture>
+                                    <img src="/images/dist/index/project/project-4.png" width="486" height="691" alt="">
+                                </picture>
+                            </div>
+                            <p><?=Yii::t('frontend', 'Лето, 2024')?></p>
+                            <p><?=Yii::t('frontend', 'завершение строительства блока А  и  открытие гостиницы Hampton')?></p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="choose-inner">
+                            <div class="choose-img">
+                                <picture>
+                                    <img src="/images/dist/index/project/project-5.png" width="486" height="691" alt="">
+                                </picture>
+                            </div>
+                            <p><?=Yii::t('frontend', 'Лето, 2025')?></p>
+                            <p><?=Yii::t('frontend', 'завершение строительства блока С')?></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next project-next"></div>
+                <div class="swiper-button-prev project-prev"></div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -463,13 +526,13 @@ use yii\helpers\Url;
                 </h2>
                 <div class="choose-buttons">
                     <a href="<?=Url::toRoute('/layouts/block-A') ?>" class="choose-button" data-choose="1">
-                        <?=Yii::t('frontend', 'Блок')?> <span>а</span>
+                        <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'а')?></span>
                     </a>
                     <a href="<?=Url::toRoute('/layouts/block-B') ?>" class="choose-button" data-choose="2">
-                        <?=Yii::t('frontend', 'Блок')?> <span>б</span>
+                        <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'б')?></span>
                     </a>
                     <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button" data-choose="3">
-                        <?=Yii::t('frontend', 'Блок')?> <span>с</span>
+                        <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
                     </a>
                 </div>
             </div>
@@ -477,11 +540,22 @@ use yii\helpers\Url;
     </div>
     <div class="choose-slider">
         <p><?=Yii::t('frontend', 'Выберите блок')?></p>
+        <div class="choose-buttons-mob">
+            <a href="<?=Url::toRoute('/layouts/block-A') ?>" class="choose-button-mob" data-choose="1">
+                <?=Yii::t('frontend', 'а')?>
+            </a>
+            <a href="<?=Url::toRoute('/layouts/block-B') ?>" class="choose-button-mob" data-choose="2">
+                <?=Yii::t('frontend', 'б')?>
+            </a>
+            <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button-mob" data-choose="3">
+                <?=Yii::t('frontend', 'с')?>
+            </a>
+        </div>
         <div style="--swiper-navigation-size: 30px; --swiper-navigation-color: #fff;" class="swiper choose-swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="choose-inner">
-                        <h2><?=Yii::t('frontend', 'Блок')?> A</h2>
+                        <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'A')?></h2>
                         <div class="choose-img">
                             <picture>
                                 <img src="/images/dist/index/choose/block-a.png" alt="">
@@ -491,7 +565,7 @@ use yii\helpers\Url;
                 </div>
                 <div class="swiper-slide">
                     <div class="choose-inner">
-                        <h2><?=Yii::t('frontend', 'Блок')?> Б</h2>
+                        <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'Б')?></h2>
                         <div class="choose-img">
                             <picture>
                                 <img src="/images/dist/index/choose/block-b.png" alt="">
@@ -501,7 +575,7 @@ use yii\helpers\Url;
                 </div>
                 <div class="swiper-slide">
                     <div class="choose-inner">
-                        <h2><?=Yii::t('frontend', 'Блок')?> С</h2>
+                        <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'С')?></h2>
                         <div class="choose-img">
                             <picture>
                                 <img src="/images/dist/index/choose/block-c.png" alt="">

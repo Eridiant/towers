@@ -71,16 +71,13 @@ $this->title = 'Calligraphy';
     <div class="menu">
         <svg width="23" height="17"><use xlink:href="/images/icons.svg#menu"></use></svg>
     </div>
-    <div class="lang">
-        <?php $langs = \backend\modules\language\models\Language::find()->where(['deleted_at' => null])->all(); ?>
+    <div class="lang lang-dt">
+        <?php $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one(); ?>
         <div class="lang-choosed">
-            <?php foreach ($langs as $lang): ?>
-                <?php if ($lang->key == $currentLang) {
-                    echo $lang->code;
-                } ?>
-            <?php endforeach; ?>
+            <?= $lg->code; ?>
         </div>
         <div class="lang-choose">
+            <?php $langs = \backend\modules\language\models\Language::find()->where(['deleted_at' => null])->all(); ?>
             <ul>
                 <?php foreach ($langs as $lang): ?>
                     <li><a href="/site/set-locale?locale=<?=$lang->key?>">
@@ -119,6 +116,20 @@ $this->title = 'Calligraphy';
         <div class="content-empty"></div>
         <div class="content-close">
             <svg width="20" height="20"><use xlink:href="/images/icons.svg#close"></use></svg>
+        </div>
+    </div>
+    <div class="lang lang-menu">
+        <div class="lang-choosed">
+            <?= $lg->code; ?>
+        </div>
+        <div class="lang-choose">
+            <ul>
+                <?php foreach ($langs as $lang): ?>
+                    <li><a href="/site/set-locale?locale=<?=$lang->key?>">
+                        <?= $lang->code; ?>
+                    </a></li>
+                <?php endforeach; ?>
+            </ul>
         </div>
     </div>
     <div class="content-wrapper">

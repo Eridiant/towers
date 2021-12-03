@@ -50,13 +50,13 @@ $this->title = Yii::t('frontend', 'Планировки');
             </div>
             <div class="choose-buttons">
                 <a href="javascript:void(0);" class="choose-button" data-choose="1">
-                    <?=Yii::t('frontend', 'Блок')?> <span>а</span>
+                    <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'а')?></span>
                 </a>
                 <a href="javascript:void(0);" class="choose-button" data-choose="2">
-                    <?=Yii::t('frontend', 'Блок')?> <span>б</span>
+                    <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'б')?></span>
                 </a>
                 <a href="javascript:void(0);" class="choose-button" data-choose="3">
-                    <?=Yii::t('frontend', 'Блок')?> <span>с</span>
+                    <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
                 </a>
             </div>
         </div>
@@ -67,7 +67,7 @@ $this->title = Yii::t('frontend', 'Планировки');
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <div class="choose-inner">
-                        <h2><?=Yii::t('frontend', 'Блок')?> A</h2>
+                        <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'A')?></h2>
                         <div class="choose-img">
                             <picture>
                                 <img src="/images/dist/index/choose/block-a.png" alt="">
@@ -77,7 +77,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                 </div>
                 <div class="swiper-slide">
                     <div class="choose-inner">
-                        <h2><?=Yii::t('frontend', 'Блок')?> Б</h2>
+                        <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'Б')?></h2>
                         <div class="choose-img">
                             <picture>
                                 <img src="/images/dist/index/choose/block-b.png" alt="">
@@ -87,7 +87,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                 </div>
                 <div class="swiper-slide">
                     <div class="choose-inner">
-                        <h2><?=Yii::t('frontend', 'Блок')?> С</h2>
+                        <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'С')?></h2>
                         <div class="choose-img">
                             <picture>
                                 <img src="/images/dist/index/choose/block-c.png" alt="">
@@ -172,7 +172,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                         </div>
                         <div class="floor-choose-svg">
                             <figure class="floor-choose-fig">
-                                <object id="test" data-block="<?= $block; ?>" data="/images/blocks/svg/<?= $block; ?>/<?= $floor_num; ?>.svg" type="image/svg+xml">
+                                <object id="test" data-floor="<?= $floor_num; ?>" data-block="<?= $block; ?>" data="/images/blocks/svg/<?= $block; ?>/<?= $floor_num; ?>.svg" type="image/svg+xml">
                                     <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
                                 </object>
                             </figure>
@@ -182,7 +182,6 @@ $this->title = Yii::t('frontend', 'Планировки');
                             </div>
                         </div>
                     </div>
-                    
                 </div>
                 <div class="floor-inf">
                     <div class="floor-item">
@@ -210,7 +209,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                     <span><?=Yii::t('frontend', 'Выбрать этаж')?></span>
                 </a>
             </div>
-            <div class="floor-choose">
+            <div class="floor-choose floor-choose-swiper">
                 <!-- Swiper -->
                 <div class="swiper floorChoose">
                     <div class="swiper-wrapper">

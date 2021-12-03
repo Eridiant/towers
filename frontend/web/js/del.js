@@ -55,7 +55,25 @@ window.addEventListener('load', () => {
         })
     });
 
-    
+    if (document.querySelector('.project-swiper')) {
+        var project =  new Swiper(".project-swiper", {
+            slidesPerView: 1,
+            navigation: {
+                nextEl: ".choose-next",
+                prevEl: ".choose-prev",
+            },
+        });
+    }
+
+    if (document.querySelector('.choose-swiper')) {
+        var choose =  new Swiper(".choose-swiper", {
+            slidesPerView: 1,
+            navigation: {
+                nextEl: ".choose-next",
+                prevEl: ".choose-prev",
+            },
+        });
+    }
 
     if (document.querySelector('#layouts')) {
         let layouts = document.querySelector('#block').contentDocument;
@@ -63,23 +81,51 @@ window.addEventListener('load', () => {
         showStatus();
 		var floor = new Swiper(".floorChoose", {
 			direction: "vertical",
-			slidesPerView: 5,
+			slidesPerView: 3,
 			centeredSlides: true,
 			grabCursor: true,
 			breakpoints: {
-				1700: {
-					slidesPerView: 5,
-				},
 				1000: {
 					slidesPerView: 5,
-				},
-				600: {
-					slidesPerView: 3,
 				},
 			},
 		});
         // document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(summ.length, summ[0].floor_num);
         // floor.update();
+        // let sdf = choose;
+        choose.on('slideChange', ch);
+        function ch() {
+			let timeoutId = null;
+
+            let fncCall = () => {
+                if (choose.activeIndex == 0) {
+                    ajaxBlock('block-A');
+                    document.querySelector('#floor').dataset.floor = 'block-A';
+                    if (window.history.replaceState) {
+                        window.history.replaceState('blockA', 'Title', '/layouts/block-A');
+                    }
+                    fdel();
+
+                }
+                if (choose.activeIndex == 1) {
+                    ajaxBlock('block-B');
+                    document.querySelector('#floor').dataset.floor = 'block-B';
+                    if (window.history.replaceState) {
+                        window.history.replaceState('blockB', 'Title', '/layouts/block-B');
+                    }
+                    fdel();
+                }
+                if (choose.activeIndex == 2) {
+                    fdelc();
+                }
+                
+                
+            }
+
+            clearTimeout(timeoutId);
+
+			timeoutId = setTimeout(fncCall, 1000);
+        }
 
 		floor.on('slideChange', fn);
 
@@ -269,25 +315,25 @@ window.addEventListener('load', () => {
                     if (window.history.replaceState) {
                         //prevents browser from storing history with each change:
                         window.history.replaceState('blockA', 'Title', '/layouts/block-A');
-                        ltrs('A');
-                        fordel();
-                        bl = 'a';
-                        changeBlock(1, bl);
-                        ajaxBlock('block-A');
-                        document.querySelector('#floor').dataset.floor = 'block-A';
                     }
+                    ltrs('A');
+                    fordel();
+                    bl = 'a';
+                    changeBlock(1, bl);
+                    ajaxBlock('block-A');
+                    document.querySelector('#floor').dataset.floor = 'block-A';
                 }
 				if (button == 2) {
                     if (window.history.replaceState) {
                         //prevents browser from storing history with each change:
                         window.history.replaceState('blockB', 'Title', '/layouts/block-B');
-                        ltrs('B');
-                        fordel();
-                        bl = 'b';
-                        changeBlock(2, bl);
-                        ajaxBlock('block-B');
-                        document.querySelector('#floor').dataset.floor = 'block-B';
                     }
+                    ltrs('B');
+                    fordel();
+                    bl = 'b';
+                    changeBlock(2, bl);
+                    ajaxBlock('block-B');
+                    document.querySelector('#floor').dataset.floor = 'block-B';
                 }
 				if (button == 3) {
                     // if (window.history.replaceState) {
@@ -301,36 +347,36 @@ window.addEventListener('load', () => {
 
             
 
-            function ajaxBlock(block) {
-                // let data = ['block' = 'block'].serializeArray();
-                let data = {'slug': block};
-                // let data = `'slug' = ${block}`;
-                changeModule(checkModule(block));
-                $.ajax({
-                    url: '/site/layouts',
-                    type: 'POST',
-                    data: data,
-                    success: function(response){
-                        // console.log(JSON.parse(response).model);
-                        let model = JSON.parse(response).model;
-                        let blocks = JSON.parse(response).blocks;
-                        // console.log(model[0].floor_num);
-                        // console.log(blocks.length);
-                        document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(blocks.length, model[0].floor_num);
-                        floor.update();
-                        fillData(model);
-                        // console.log(response['blocks']);
-                    },
-                    error: function(response) {
-                        console.log(response);
-                        
-                    }
-                })
-            }
+            
 
             
         })
-
+        function ajaxBlock(block) {
+            // let data = ['block' = 'block'].serializeArray();
+            let data = {'slug': block};
+            // let data = `'slug' = ${block}`;
+            changeModule(checkModule(block));
+            $.ajax({
+                url: '/site/layouts',
+                type: 'POST',
+                data: data,
+                success: function(response){
+                    // console.log(JSON.parse(response).model);
+                    let model = JSON.parse(response).model;
+                    let blocks = JSON.parse(response).blocks;
+                    // console.log(model[0].floor_num);
+                    // console.log(blocks.length);
+                    document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(blocks.length, model[0].floor_num);
+                    floor.update();
+                    fillData(model);
+                    // console.log(response['blocks']);
+                },
+                error: function(response) {
+                    console.log(response);
+                    
+                }
+            })
+        }
         
 	}
 })
@@ -385,13 +431,17 @@ function checkModule(block, floor = 0) {
 }
 
 function changeModule(arr) {
+
     block = arr[0];
     fl = arr[1];
+
+    let checkFloor = document.querySelector('#test');
+    if (checkFloor.dataset.block == block && checkFloor.dataset.floor == fl) return;
     console.log(block,fl);
     
     document.querySelector('#floor .floor-choose-img').innerHTML = `<picture><img src="/images/blocks/img/${block}/${fl}.jpg" alt=""></picture>`;
     let svg = document.querySelector('#floor .floor-choose-fig');
-    svg.innerHTML = `<object id="test" data-block="${block}" data="/images/blocks/svg/${block}/${fl}.svg" type="image/svg+xml"></object>`;
+    svg.innerHTML = `<object id="test" data-floor="${fl}" data-block="${block}" data="/images/blocks/svg/${block}/${fl}.svg" type="image/svg+xml"></object>`;
     setTimeout(showStatus, 2000);
 }
 
@@ -414,8 +464,8 @@ function showStatus() {
             document.querySelector('.price').innerHTML = et.dataset.price;
             document.querySelector('.view').innerHTML = et.dataset.view;
             document.querySelector('.status').innerHTML = et.dataset.status;
+            document.querySelector('#flat').scrollIntoView()
 
-            setTimeout(document.querySelector('#flat').scrollIntoView(), 500);
         }
     })
     // let floorDoc = document.querySelector(`#floor${num}`).contentDocument;
@@ -459,6 +509,7 @@ function focuss(test, focus, flat, status) {
 
 function fillData(model) {
     let floor = document.querySelector('#test').contentDocument.querySelectorAll('.area');
+    
     for (let i = 0; i < floor.length; i++) {
         // const element = array[i];
         floor[i].dataset.flat = model[i].num;
@@ -486,7 +537,7 @@ function fillData(model) {
 }
 
 function changeBlock(block, imgNum) {
-    console.log(block);
+    // console.log(block);
     
     document.querySelector("#blocks").scrollIntoView();
     let bl = document.querySelector(`#blocks [data-block="${block}"]`);
@@ -517,5 +568,15 @@ function fordel() {
     document.querySelector('#floor').style.display = 'block';
     document.querySelector('#flat').style.display = 'block';
     document.querySelector('#blocks').style.display = 'block';
+    document.querySelector('#for-del').style.display = 'none';
+}
+function fdelc() {
+    document.querySelector('#floor').style.display = 'none';
+    document.querySelector('#flat').style.display = 'none';
+    document.querySelector('#for-del').style.display = 'block';
+}
+function fdel() {
+    document.querySelector('#floor').style.display = 'block';
+    document.querySelector('#flat').style.display = 'block';
     document.querySelector('#for-del').style.display = 'none';
 }

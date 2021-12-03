@@ -22,26 +22,17 @@ class LanguagesController extends Controller
                 'actions' => [
                     'delete' => ['get'],
                 ],
-                [
-                    'actions' => ['login', 'error'],
-                    'allow' => true,
-                ],
-                [
-                    'actions' => ['logout', 'index'],
-                    'allow' => true,
-                    'roles' => ['@'],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@']
+                    ],
+
                 ],
             ],
-            // 'access' => [
-            //     'class' => AccessControl::className(),
-            //     'rules' => [
-            //         [
-            //             'allow' => true,
-            //             'roles' => ['canAdmin']
-            //         ],
-
-            //     ],
-            // ],
         ];
     }
 
