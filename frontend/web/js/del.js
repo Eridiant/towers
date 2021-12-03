@@ -414,13 +414,54 @@ function checkModule(block, floor = 0) {
                 fls = 3;
                 break;
             case 3:
-                fls = 5;
+                fls = 4;
                 break;
             case 4:
             case 8:
             case 9:
             case 16:
                 fls = 5;
+                break;
+            case 29:
+                fls = 30;
+                break;
+            case 30:
+            case 31:
+            case 32:
+            case 33:
+            case 34:
+                fls = 31;
+                break;
+            case 35:
+                fls = 36;
+                break;
+            case 36:
+                fls = 37;
+                break;
+            case 36:
+                fls = 37;
+                break;
+            case 37:
+                fls = 38;
+                break;
+            case 38:
+                fls = 39;
+                break;
+            case 39:
+            case 40:
+            case 41:
+            case 42:
+            case 43:
+                fls = 40;
+                break;
+            case 44:
+                fls = 45;
+                break;
+            case 45:
+                fls = 46;
+                break;
+            case 46:
+                fls = 47;
                 break;
             default:
                 fls = 6;

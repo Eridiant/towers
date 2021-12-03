@@ -265,16 +265,16 @@ class FloorController extends Controller
                         $text = $text . ', Море';
                     }
 
-                    // $mod->save();
+                    $mod->save();
                 } else {
                     $mod->$category = $expression;
-                    // $mod->save();
+                    $mod->save();
                     $text = $text . ', ' . $expression;
                 }
                 
 
-                // $mod->save();
-                // $text = $text . ', ' . $expression;
+                $mod->save();
+                $text = $text . ', ' . $expression;
                 // var_dump($expression);
                 
                 // die;
