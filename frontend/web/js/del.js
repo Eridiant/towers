@@ -265,6 +265,8 @@ window.addEventListener('load', () => {
                     // console.log(model[0].floor_num);
                     // console.log(blocks.length);
                     // floor.update();
+                    document.querySelector('#min').innerHTML = JSON.parse(response).min;
+                    document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
                     fillData(model);
                     // console.log(response['blocks']);
                 },
@@ -366,6 +368,8 @@ window.addEventListener('load', () => {
                     let blocks = JSON.parse(response).blocks;
                     // console.log(model[0].floor_num);
                     // console.log(blocks.length);
+                    document.querySelector('#min').innerHTML = JSON.parse(response).min;
+                    document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
                     document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(blocks.length, model[0].floor_num);
                     floor.update();
                     fillData(model);

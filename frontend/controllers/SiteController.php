@@ -233,10 +233,10 @@ class SiteController extends Controller
 
         // $model = json_encode($model);
         // $blocks = json_encode($blocks);
-        $summ = json_encode(['model'=>$model, 'blocks'=>$blocks]);
+        $summ = json_encode(['model'=>$model, 'blocks'=>$blocks, 'min' => $min, 'flats' => $flats, 'flats_free' => $flats_free]);
 
         if ($request->isAjax){
-            $summ = json_encode(['model'=>$model, 'blocks'=>$blocks]);
+            // $summ = json_encode(['model'=>$model, 'blocks'=>$blocks]);
             return $summ;
         }
 
