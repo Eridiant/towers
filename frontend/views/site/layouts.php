@@ -187,7 +187,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                     <div class="floor-item">
                         <p class="cap"><?=Yii::t('frontend', 'Квартир на этаже')?>:</p>
                         <div class="floor-item-inner">
-                            <p>2/6</p>
+                            <p id="floor-free"><?= $flats_free; ?>/<?= $flats; ?></p>
                         </div>
                     </div>
                     <div class="floor-item">
@@ -200,7 +200,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                     <div class="floor-item">
                         <p class="cap"><?=Yii::t('frontend', 'Стоимость от')?>:</p>
                         <div class="floor-item-inner">
-                            <p>220 000</p>
+                            <p id="min"><?= $min; ?></p>
                         </div>
                     </div>
                 </div>

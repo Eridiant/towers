@@ -188,6 +188,9 @@ class SiteController extends Controller
                     ->addParams([':floor_num' => $floor->floor])
                     ->asArray()
                     ->all();
+            $mod = ApartmentsA::find()
+                    ->where('floor_num=:floor_num')
+                    ->addParams([':floor_num' => $floor->floor]);
         }
 
         if ($slug === 'block-B') {
@@ -202,6 +205,9 @@ class SiteController extends Controller
                     ->addParams([':floor_num' => $floor->floor])
                     ->asArray()
                     ->all();
+            $mod = ApartmentsB::find()
+                    ->where('floor_num=:floor_num')
+                    ->addParams([':floor_num' => $floor->floor]);
         }
 
         if ($slug === 'block-C') {
@@ -216,7 +222,14 @@ class SiteController extends Controller
                     ->addParams([':floor_num' => $floor->floor])
                     ->asArray()
                     ->all();
-        }
+            $mod = ApartmentsC::find()
+                    ->where('floor_num=:floor_num')
+                    ->addParams([':floor_num' => $floor->floor]);
+            }
+
+        $min = $mod->min('money');
+        $flats = $mod->count();
+        $flats_free = $mod->andWhere(['status' => 0])->count();
 
         // $model = json_encode($model);
         // $blocks = json_encode($blocks);
@@ -236,7 +249,7 @@ class SiteController extends Controller
 
         $this->bodyClass = 'other bl';
 
-        return $this->render('layouts', compact('model', 'block', 'floor_num', 'summ', 'blocks'));
+        return $this->render('layouts', compact('model', 'block', 'floor_num', 'summ', 'blocks', 'min', 'flats', 'flats_free'));
     }
 
     public function actionGallery()
