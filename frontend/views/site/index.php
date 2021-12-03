@@ -433,6 +433,28 @@ use yii\helpers\Url;
                             <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
                         </object>
                     </figure>
+                    <div class="project-desc">
+                    <div class="project-desc-1">
+                            <p><?=Yii::t('frontend', 'Лето, 2019')?></p>
+                            <p><?=Yii::t('frontend', 'согласование работ')?></p>
+                        </div>
+                        <div class="project-desc-2">
+                            <p><?=Yii::t('frontend', 'Лето, 2020')?></p>
+                            <p><?=Yii::t('frontend', 'контракт с отелем Хемптон')?></p>
+                        </div>
+                        <div class="project-desc-3">
+                            <p><?=Yii::t('frontend', 'Лето, 2023')?></p>
+                            <p><?=Yii::t('frontend', 'завершение строительства блока Б')?></p>
+                        </div>
+                        <div class="project-desc-4">
+                            <p><?=Yii::t('frontend', 'Лето, 2024')?></p>
+                            <p><?=Yii::t('frontend', 'завершение строительства блока А  и  открытие гостиницы Hampton')?></p>
+                        </div>
+                        <div class="project-desc-5">
+                            <p><?=Yii::t('frontend', 'Лето, 2025')?></p>
+                            <p><?=Yii::t('frontend', 'завершение строительства блока С')?></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
