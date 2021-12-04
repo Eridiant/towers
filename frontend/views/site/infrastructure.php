@@ -34,7 +34,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item infrastructure-active" data-item="1">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-1.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-1.jpg, /images/dist/infrastructure/intr-1-2x.jpg 2x" src="/images/dist/infrastructure/intr-1.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -55,7 +55,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="2">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-2.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-2.jpg, /images/dist/infrastructure/intr-2-2x.jpg 2x" src="/images/dist/infrastructure/intr-2.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -75,7 +75,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="3">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-3.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-3.jpg, /images/dist/infrastructure/intr-3-2x.jpg 2x" src="/images/dist/infrastructure/intr-3.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -95,7 +95,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="4">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-4.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-4.jpg, /images/dist/infrastructure/intr-4-2x.jpg 2x" src="/images/dist/infrastructure/intr-4.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -115,7 +115,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="5">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-5.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-5.jpg, /images/dist/infrastructure/intr-5-2x.jpg 2x" src="/images/dist/infrastructure/intr-5.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -135,7 +135,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="6">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/infrs-6.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/infrs-6.jpg, /images/dist/infrastructure/infrs-6-2x.jpg 2x" src="/images/dist/infrastructure/infrs-6.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -155,7 +155,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="7">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-7.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-7.jpg, /images/dist/infrastructure/intr-7-2x.jpg 2x" src="/images/dist/infrastructure/intr-7.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -175,7 +175,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="8">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-8.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-8.jpg, /images/dist/infrastructure/intr-8-2x.jpg 2x" src="/images/dist/infrastructure/intr-8.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -195,7 +195,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="9">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-9.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-9.jpg, /images/dist/infrastructure/intr-9-2x.jpg 2x" src="/images/dist/infrastructure/intr-9.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -215,7 +215,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="10">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-10.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-10.jpg, /images/dist/infrastructure/intr-10-2x.jpg 2x" src="/images/dist/infrastructure/intr-10.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -235,7 +235,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="11">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-11.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-11.jpg, /images/dist/infrastructure/intr-11-2x.jpg 2x" src="/images/dist/infrastructure/intr-11.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
@@ -255,7 +255,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="12">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img src="/images/dist/infrastructure/intr-12.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-12.jpg, /images/dist/infrastructure/intr-12-2x.jpg 2x" src="/images/dist/infrastructure/intr-12.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
