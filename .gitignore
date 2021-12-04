@@ -42,4 +42,4 @@ phpunit.phar
 /backend/web/index-test.php
 /backend/web/robots.txt
 
-/frontend/web/images
+/frontend/web/images/blocks
