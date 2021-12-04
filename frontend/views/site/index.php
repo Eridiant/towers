@@ -118,7 +118,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-1.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-20.jpg, /images/dist/infrastructure/inf-20-2x.jpg 2x" src="/images/dist/infrastructure/inf-20.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -138,7 +138,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-2.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-2.jpg, /images/dist/infrastructure/inf-2-2x.jpg 2x" src="/images/dist/infrastructure/inf-2.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -158,7 +158,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-3.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-5.jpg, /images/dist/infrastructure/inf-5-2x.jpg 2x" src="/images/dist/infrastructure/inf-5.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -178,7 +178,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-4.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-12.jpg, /images/dist/infrastructure/inf-12-2x.jpg 2x" src="/images/dist/infrastructure/inf-12.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -198,7 +198,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-5.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-11.jpg, /images/dist/infrastructure/inf-11-2x.jpg 2x" src="/images/dist/infrastructure/inf-11.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -218,7 +218,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-6.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-9.jpg, /images/dist/infrastructure/inf-9-2x.jpg 2x" src="/images/dist/infrastructure/inf-9.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -238,7 +238,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-6.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-9.jpg, /images/dist/infrastructure/inf-9-2x.jpg 2x" src="/images/dist/infrastructure/inf-9.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -258,7 +258,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-8.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-8.jpg, /images/dist/infrastructure/inf-8-2x.jpg 2x" src="/images/dist/infrastructure/inf-8.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -278,7 +278,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-9.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-1.jpg, /images/dist/infrastructure/inf-1-2x.jpg 2x" src="/images/dist/infrastructure/inf-1.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -298,7 +298,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-10.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-7.jpg, /images/dist/infrastructure/inf-7-2x.jpg 2x" src="/images/dist/infrastructure/inf-7.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -318,7 +318,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-11.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-1.jpg, /images/dist/infrastructure/inf-1-2x.jpg 2x" src="/images/dist/infrastructure/inf-1.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -338,7 +338,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img src="/images/dist/index/infr/infr-12.jpg" width="362" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-11.jpg, /images/dist/infrastructure/inf-11-2x.jpg 2x" src="/images/dist/infrastructure/inf-11.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
