@@ -41,46 +41,15 @@ use yii\helpers\Url;
             </div>
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper gallery-main">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <picture>
-                            <img src="images/dist/gallery/construction-1.jpg" width="1204" height="779" alt="">
-                        </picture>
-                    </div>
-                    <div class="swiper-slide">
-                        <picture>
-                            <img src="images/dist/gallery/construction-2.jpg" width="1204" height="779" alt="">
-                        </picture>
-                    </div>
-                    <div class="swiper-slide">
-                        <picture>
-                            <img src="images/dist/gallery/construction-3.jpg" width="1204" height="779" alt="">
-                        </picture>
-                    </div>
-                    <div class="swiper-slide">
-                        <picture>
-                            <img src="images/dist/gallery/construction-4.jpg" width="1204" height="779" alt="">
-                        </picture>
-                    </div>
-                    <div class="swiper-slide">
-                        <picture>
-                            <img src="images/dist/gallery/construction-5.jpg" width="1204" height="779" alt="">
-                        </picture>
-                    </div>
-                    <div class="swiper-slide">
-                        <picture>
-                            <img src="images/dist/gallery/construction-6.jpg" width="1204" height="779" alt="">
-                        </picture>
-                    </div>
-                    <div class="swiper-slide">
-                        <picture>
-                            <img src="images/dist/gallery/construction-7.jpg" width="1204" height="779" alt="">
-                        </picture>
-                    </div>
-                    <div class="swiper-slide">
-                        <picture>
-                            <img src="images/dist/gallery/construction-8.jpg" width="1204" height="779" alt="">
-                        </picture>
-                    </div>
+                    <?php for($i=1; $i<9; $i++): ?>
+                        <div class="swiper-slide">
+                            <picture>
+                                <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/gallery/construction-mb-<?= $i; ?>.jpg, /images/dist/gallery/construction-mb-<?= $i; ?>-2x.jpg 2x">
+                                <source type="image/jpeg" srcset="/images/dist/gallery/construction-<?= $i; ?>.jpg, /images/dist/gallery/construction-<?= $i; ?>-2x.jpg 2x">
+                                <img src="/images/dist/gallery/construction-<?= $i; ?>.jpg" width="1204" height="779" alt="">
+                            </picture>
+                        </div>
+                    <?php endfor; ?>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -88,46 +57,13 @@ use yii\helpers\Url;
         </div>
         <div thumbsSlider="" class="swiper gallery-thumb">
             <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <picture>
-                        <img src="images/dist/gallery/construction-1.jpg" width="1204" height="779" alt="">
-                    </picture>
-                </div>
-                <div class="swiper-slide">
-                    <picture>
-                        <img src="images/dist/gallery/construction-2.jpg" width="1204" height="779" alt="">
-                    </picture>
-                </div>
-                <div class="swiper-slide">
-                    <picture>
-                        <img src="images/dist/gallery/construction-3.jpg" width="1204" height="779" alt="">
-                    </picture>
-                </div>
-                <div class="swiper-slide">
-                    <picture>
-                        <img src="images/dist/gallery/construction-4.jpg" width="1204" height="779" alt="">
-                    </picture>
-                </div>
-                <div class="swiper-slide">
-                    <picture>
-                        <img src="images/dist/gallery/construction-5.jpg" width="1204" height="779" alt="">
-                    </picture>
-                </div>
-                <div class="swiper-slide">
-                    <picture>
-                        <img src="images/dist/gallery/construction-6.jpg" width="1204" height="779" alt="">
-                    </picture>
-                </div>
-                <div class="swiper-slide">
-                    <picture>
-                        <img src="images/dist/gallery/construction-7.jpg" width="1204" height="779" alt="">
-                    </picture>
-                </div>
-                <div class="swiper-slide">
-                    <picture>
-                        <img src="images/dist/gallery/construction-8.jpg" width="1204" height="779" alt="">
-                    </picture>
-                </div>
+                <?php for($i=1; $i<9; $i++): ?>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img srcset="/images/dist/gallery/construction-mb-<?= $i; ?>.jpg, /images/dist/gallery/construction-mb-<?= $i; ?>-2x.jpg 2x" src="/images/dist/gallery/construction-<?= $i; ?>.jpg" width="480" height="311" alt="">
+                        </picture>
+                    </div>
+                <?php endfor; ?>
             </div>
         </div>
     </div>

@@ -16,7 +16,7 @@ use yii\helpers\Url;
 				<source srcset="/images/del/bg13.jpg" media="(max-width: 1280px)">
 				<source srcset="/images/del/bg12.jpg" media="(max-width: 1500px)">
 				<source srcset="/images/del/bg11.jpg" media="(min-width: 1501px)"> -->
-                <source type="image/jpeg" srcset="/images/dist/header/header_bg.jpg, images/dist/header/header_bg-2x.jpg 2x">
+                <source type="image/jpeg" srcset="/images/dist/header/header_bg.jpg, /images/dist/header/header_bg-2x.jpg 2x">
 				<img src="/images/dist/header/header_bg.jpg" alt="">
 			</picture>
 		</div>
@@ -26,7 +26,7 @@ use yii\helpers\Url;
 				<source srcset="/images/del/bg13.jpg" media="(max-width: 1280px)">
 				<source srcset="/images/del/bg12.jpg" media="(max-width: 1500px)">
 				<source srcset="/images/del/bg11.jpg" media="(min-width: 1501px)"> -->
-				<source type="image/jpeg" srcset="/images/dist/header/header_bg_night.jpg, images/dist/header/header_bg_night-2x.jpg 2x">
+				<source type="image/jpeg" srcset="/images/dist/header/header_bg_night.jpg, /images/dist/header/header_bg_night-2x.jpg 2x">
 				<img src="/images/dist/header/header_bg_night.jpg" alt="">
 			</picture>
 		</div>
@@ -238,7 +238,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-9.jpg, /images/dist/infrastructure/inf-9-2x.jpg 2x" src="/images/dist/infrastructure/inf-9.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-21.jpg, /images/dist/infrastructure/inf-21-2x.jpg 2x" src="/images/dist/infrastructure/inf-21.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -372,16 +372,14 @@ use yii\helpers\Url;
                 <div class="swiper-slide">
                     <div class="aboute-img">
                         <picture>
-                            <source type="image/jpeg" srcset="/images/dist/index/about.jpg, images/dist/about/about-2x.jpg 2x">
-                            <img src="/images/dist/index/about.jpg" width="1306" height="764" alt="">
+                            <img srcset="/images/dist/index/about.jpg, /images/dist/about/about-2x.jpg 2x" src="/images/dist/index/about.jpg" width="1306" height="764" alt="">
                         </picture>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="aboute-img">
                         <picture>
-                            <!-- <source type="image/jpeg" srcset="/images/dist/index/about.jpg, images/dist/about/about-2x.jpg 2x"> -->
-                            <img src="/images/dist/index/about-2.jpg" width="1306" height="764" alt="">
+                            <img srcset="/images/dist/index/about-2.jpg, /images/dist/about/about-2-2x.jpg 2x" src="/images/dist/index/about-2.jpg" width="1306" height="764" alt="">
                         </picture>
                     </div>
                 </div>
@@ -398,27 +396,27 @@ use yii\helpers\Url;
             <div class="project-img">
                 <div class="project-img-hide project-show" id="project-1">
                     <picture>
-                        <img src="/images/dist/index/project/project-1.jpg" width="486" height="691" alt="">
+                        <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-2">
                     <picture>
-                        <img src="/images/dist/index/project/project-2.png" width="486" height="691" alt="">
+                        <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-3">
                     <picture>
-                        <img src="/images/dist/index/project/project-3.png" width="486" height="691" alt="">
+                        <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-4">
                     <picture>
-                        <img src="/images/dist/index/project/project-4.png" width="486" height="691" alt="">
+                        <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-5">
                     <picture>
-                        <img src="/images/dist/index/project/project-5.png" width="486" height="691" alt="">
+                        <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" alt="">
                     </picture>
                 </div>
             </div>
@@ -465,7 +463,7 @@ use yii\helpers\Url;
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img src="/images/dist/index/project/project-1.jpg" width="486" height="691" alt="">
+                                    <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" alt="">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Лето')?>, 2019</p>
@@ -476,7 +474,7 @@ use yii\helpers\Url;
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img src="/images/dist/index/project/project-2.png" width="486" height="691" alt="">
+                                    <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" alt="">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Лето')?>, 2020</p>
@@ -487,7 +485,7 @@ use yii\helpers\Url;
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img src="/images/dist/index/project/project-3.png" width="486" height="691" alt="">
+                                    <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" alt="">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Лето')?>, 2023</p>
@@ -498,7 +496,7 @@ use yii\helpers\Url;
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img src="/images/dist/index/project/project-4.png" width="486" height="691" alt="">
+                                    <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" alt="">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Лето')?>, 2024</p>
@@ -509,7 +507,7 @@ use yii\helpers\Url;
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img src="/images/dist/index/project/project-5.png" width="486" height="691" alt="">
+                                    <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" alt="">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Лето')?>, 2025</p>
@@ -529,7 +527,7 @@ use yii\helpers\Url;
         <div class="choose-bg">
             <div class="choose-bg-img">
                 <picture>
-                    <img src="/images/dist/index/choose-bg.jpg" alt="">
+                    <img srcset="/images/dist/index/choose-bg.jpg, /images/dist/index/choose-bg-1_5x.jpg 1.5x" src="/images/dist/index/choose-bg.jpg" alt="">
                 </picture>
             </div>
             <div class="choose-bg-svg">

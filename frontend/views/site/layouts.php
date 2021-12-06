@@ -301,24 +301,16 @@ $this->title = Yii::t('frontend', 'Планировки');
 <main>
     <div class="contact">
         <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
-            
             <div class="contact-wrapper">
-                <!-- <div class="contact-bg">
-                    <picture>
-                        <img src="/images/contact-team.jpg" alt="">
-                    </picture>
-                </div> -->
                 <div class="contact-form">
                     <p class="title"><?=Yii::t('frontend', 'Поможем в выборе!')?></p>
                     <p>
                         <?=Yii::t('frontend', 'Разнообразный и богатый опыт начало повседневной работы по формированию.')?>
                     </p>
-
                     <?= $this->render('_form', [
                         'model' => $model,
                     ]) ?>
                 </div>
-                
             </div>
         </div>
     </div>

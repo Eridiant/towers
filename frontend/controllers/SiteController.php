@@ -292,7 +292,7 @@ class SiteController extends Controller
         return $this->render('gallery', compact('rend'));
     }
 
-    public function actionVideo()
+    public function actionVideoReport()
     {
 
         $this->bodyClass = 'other bl';
