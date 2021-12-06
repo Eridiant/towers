@@ -500,9 +500,12 @@ function showStatus() {
         if(et){
             let floor = et.dataset.floor;
             let i = et.dataset.i;
-            // document.querySelector('#flat-num').innerHTML = flat;
+            // http://calligraphy1.mamaevjg.beget.tech/pdf?block=a&floor=11&flat=1
+            // document.querySelector('#flat-num').innerHTML = flat;http://calligraphy.de/pdf?block=a&floor=11&flat=1
             document.querySelector('.flat-plan-img').innerHTML = `<picture><img src="/images/blocks/${bl}/${floor}/${i}.jpg" alt=""></picture>`;
-            document.querySelector('.flat-num-inner .btn').href = `/images/blocks/pdf/${bl}/${floor}/${i}.pdf`;
+            // document.querySelector('.flat-num-inner .btn').href = `/images/blocks/pdf/${bl}/${floor}/${i}.pdf`;
+            // document.querySelector('.flat-num-inner .btn').href = `http://calligraphy.de/pdf?block=${bl}&floor=${floor}&flat=${i}`;
+            document.querySelector('.flat-num-inner .btn').href = `http://calligraphy1.mamaevjg.beget.tech/pdf?block=${bl}&floor=${floor}&flat=${i}`;
             document.querySelector('.num').innerHTML = et.dataset.flat;
             document.querySelector('.total').innerHTML = et.dataset.total;
             document.querySelector('.balcony').innerHTML = et.dataset.balcony;

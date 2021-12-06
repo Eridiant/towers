@@ -44,6 +44,7 @@ return [
                 '' => 'site/index',
                 'index' => 'site/index',
                 'infrastructure' => 'site/infrastructure',
+                'pdf' => 'site/pdf',
                 'layouts' => 'site/layouts',
                 'layouts/<slug:[\w-]+>' => 'site/layouts',
                 'gallery' => 'site/gallery',

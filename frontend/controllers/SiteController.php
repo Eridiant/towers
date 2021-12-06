@@ -318,6 +318,18 @@ class SiteController extends Controller
         return $this->render('contacts');
     }
 
+    public function actionPdf()
+    {
+        $request = Yii::$app->request;
+        $block = $request->get('block');
+        $floor = $request->get('floor');
+        $flat = $request->get('flat');
+
+        $this->bodyClass = 'other bl';
+
+        return $this->renderPartial('pdf', compact('block', 'floor', 'flat'));
+    }
+
     /**
      * Logs in a user.
      *

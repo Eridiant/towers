@@ -275,7 +275,8 @@ $this->title = Yii::t('frontend', 'Планировки');
                     </picture>
                 </div>
                 <div class="flat-num-inner">
-                    <a href="/images/blocks/pdf/<?= $block; ?>/<?= $floor_num; ?>/1.pdf" alt="" class="contacts-call btn btn-blue">
+                    <a href="<?=Url::toRoute(['/site/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => 1]) ?>" class="contacts-call btn btn-blue">
+     
                         <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                         <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                     </a>
