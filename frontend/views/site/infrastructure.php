@@ -272,7 +272,6 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                     <svg width="31" height="31"><use xlink:href="/images/icons.svg#btn"></use></svg>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>

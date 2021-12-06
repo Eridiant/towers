@@ -29,7 +29,7 @@ use yii\helpers\Url;
                         <li>
                             <a href="<?= Url::toRoute('/our-team') ?>"><?=Yii::t('frontend', 'Команда')?></a>
                         </li>
-                        <li>
+                        <li class="gallery-tab-current">
                             <a href="<?= Url::toRoute('/video-report') ?>"><?=Yii::t('frontend', 'Видео отчет о ходе строительства')?></a>
                         </li>
                     </ul>

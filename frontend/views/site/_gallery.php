@@ -17,7 +17,7 @@ use yii\helpers\Url;
                 </div>
                 <div class="gallery-tab">
                     <ul>
-                        <li>
+                        <li class="gallery-tab-current">
                             <a href="<?=Url::toRoute('/gallery') ?>"><?=Yii::t('frontend', 'Жилой дом')?></a>
                         </li>
                         <li>

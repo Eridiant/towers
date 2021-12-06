@@ -26,7 +26,7 @@ use yii\helpers\Url;
                         <li>
                             <a href="<?=Url::toRoute('/batumi') ?>"><?=Yii::t('frontend', 'Батуми')?></a>
                         </li>
-                        <li>
+                        <li class="gallery-tab-current">
                             <a href="<?= Url::toRoute('/our-team') ?>"><?=Yii::t('frontend', 'Команда')?></a>
                         </li>
                         <li>

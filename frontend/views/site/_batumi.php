@@ -23,7 +23,7 @@ use yii\helpers\Url;
                         <li>
                             <a href="<?=Url::toRoute('/construction-progress') ?>"><?=Yii::t('frontend', 'Ход строительства')?></a>
                         </li>
-                        <li>
+                        <li class="gallery-tab-current">
                             <a href="<?=Url::toRoute('/batumi') ?>"><?=Yii::t('frontend', 'Батуми')?></a>
                         </li>
                         <li>
