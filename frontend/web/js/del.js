@@ -506,7 +506,7 @@ function showStatus() {
             document.querySelector('.num').innerHTML = et.dataset.flat;
             document.querySelector('.total').innerHTML = et.dataset.total;
             document.querySelector('.balcony').innerHTML = et.dataset.balcony;
-            document.querySelector('.price').innerHTML = et.dataset.price;
+            document.querySelector('.living').innerHTML = et.dataset.living;
             document.querySelector('.view').innerHTML = et.dataset.view;
             document.querySelector('.status').innerHTML = et.dataset.status;
             document.querySelector('#flat').scrollIntoView()
@@ -568,7 +568,7 @@ function fillData(model) {
             floor[i].dataset.status = 'solded';
         }
         floor[i].dataset.floor = model[i].floor_num;
-        floor[i].dataset.price = model[i].money;
+        floor[i].dataset.living = model[i].money;
         floor[i].dataset.total = model[i].total_area;
         floor[i].dataset.living = model[i].living_space;
         floor[i].dataset.balcony = model[i].balcony_area;

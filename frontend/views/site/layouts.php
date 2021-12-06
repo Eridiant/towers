@@ -190,19 +190,6 @@ $this->title = Yii::t('frontend', 'Планировки');
                             <p id="floor-free"><?= $flats_free; ?>/<?= $flats; ?></p>
                         </div>
                     </div>
-                    <div class="floor-item">
-                        <p class="cap"><?=Yii::t('frontend', 'Блок')?>Типы:</p>
-                        <div class="floor-item-inner">
-                            <p><?=Yii::t('frontend', 'Название')?></p>
-                            <p><?=Yii::t('frontend', 'Название квартиры')?></p>
-                        </div>
-                    </div>
-                    <div class="floor-item">
-                        <p class="cap"><?=Yii::t('frontend', 'Стоимость от')?>:</p>
-                        <div class="floor-item-inner">
-                            <p id="min"><?= $min; ?></p>
-                        </div>
-                    </div>
                 </div>
                 <a href="#" class="contacts-call floor-call btn btn-blue">
                     <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
@@ -243,12 +230,12 @@ $this->title = Yii::t('frontend', 'Планировки');
                         <dd><span class="total"><?= $model[0]['total_area']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt><?=Yii::t('frontend', 'Балкон')?></dt>
-                        <dd><span class="balcony"><?= $model[0]['balcony_area']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
+                        <dt><?=Yii::t('frontend', 'Жилая площадь')?></dt>
+                        <dd><span class="living"><?= $model[0]['living_space']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
                     </dl>
                     <dl>
-                        <dt><?=Yii::t('frontend', 'Стоимость')?></dt>
-                        <dd>$<span class="price"><?= $model[0]['money']; ?></span></dd>
+                        <dt><?=Yii::t('frontend', 'Балкон')?></dt>
+                        <dd><span class="balcony"><?= $model[0]['balcony_area']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Вид')?></dt>
