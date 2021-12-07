@@ -5,6 +5,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 use yii\grid\GridView;
 use yii\helpers\Html;
+use yii\widgets\Pjax;
 ?>
     <p style="display: inline-block">
         <?= Html::a('Добавить', ['create'], ['class' => 'btn btn-primary']) ?>
@@ -76,8 +77,11 @@ use yii\helpers\Html;
     <div class="table-admin-container">
         <h3>Translations</h3>
         <div class="table-content">
+            <?php Pjax::begin(); ?>
+            <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
             <?= GridView::widget([
                 'dataProvider' => $dataProvider2,
+                'filterModel' => $searchModel,
                 'columns' => [
                     // [
                     //     'attribute'=>'id',
@@ -119,6 +123,7 @@ use yii\helpers\Html;
                     ],
                 ],
             ]); ?>
+            <?php Pjax::end(); ?>
         </div>
     </div>
 </div>

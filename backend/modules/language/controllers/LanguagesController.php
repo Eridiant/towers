@@ -6,6 +6,7 @@ namespace backend\modules\language\controllers;
 use backend\modules\language\models\Language;
 use backend\modules\language\models\Trasnlations;
 use backend\modules\language\models\TrasnlationsMessage;
+use backend\modules\language\models\TrasnlationsSearch;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
@@ -41,15 +42,18 @@ class LanguagesController extends Controller
         $dataProvider = new ActiveDataProvider([
             'query' => Language::find()->where(['IS', 'deleted_at', null]),
         ]);
-        $dataProvider2 = new ActiveDataProvider([
-            'query' => Trasnlations::find(),
-            'pagination' => [
-              'pageSize' => 20,
-            ],
-        ]);
+        $searchModel = new TrasnlationsSearch();
+        $dataProvider2 = $searchModel->search($this->request->queryParams);
+        // $dataProvider2 = new ActiveDataProvider([
+        //     'query' => Trasnlations::find(),
+        //     'pagination' => [
+        //       'pageSize' => 20,
+        //     ],
+        // ]);
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'dataProvider2' => $dataProvider2,
+            'searchModel' => $searchModel,
         ]);
     }
 
