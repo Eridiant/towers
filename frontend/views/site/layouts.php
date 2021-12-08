@@ -16,6 +16,7 @@ $this->title = Yii::t('frontend', 'Планировки');
 // var_dump($model[0]['floor_num']);
 // var_dump('</pre>');
 // die;
+// $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one();
 
 ?>
 <script>
@@ -214,11 +215,11 @@ $this->title = Yii::t('frontend', 'Планировки');
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="flat-wrapper">
             <div class="flat-description">
-                <div class="breadcrumbs">
-                    <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
-                    <a href="/"><?=Yii::t('frontend', 'Планировки')?></a>
-                    <p><?=Yii::t('frontend', 'Квартира')?></p>
-                </div>
+                <!-- <div class="breadcrumbs">
+                    <a href="/"><?//=Yii::t('frontend', 'Главная')?></a>
+                    <a href="/"><?//=Yii::t('frontend', 'Планировки')?></a>
+                    <p><?//=Yii::t('frontend', 'Квартира')?></p>
+                </div> -->
                 <h2><?=Yii::t('frontend', 'Экспликация')?></h2>
                 <div class="flat-description-inner">
                     <dl>
@@ -239,7 +240,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Вид')?></dt>
-                        <dd><span class="view"><?= $model[0]["en"]; ?></span></dd>
+                        <dd><span class="view"><?= $model[0]['en']; ?></span></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Статус')?></dt>
