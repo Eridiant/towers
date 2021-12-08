@@ -37,7 +37,7 @@ class Feedback extends \yii\db\ActiveRecord
             [['body'], 'string'],
             [['viewed'], 'integer'],
             [['created_at'], 'safe'],
-            [['name', 'subject'], 'string', 'max' => 255],
+            [['name', 'subject', 'country'], 'string', 'max' => 255],
             [['email', 'phone', 'lang'], 'string', 'max' => 32],
         ];
     }
@@ -54,6 +54,7 @@ class Feedback extends \yii\db\ActiveRecord
             'phone' => 'Phone',
             'subject' => 'Subject',
             'lang' => 'Lang',
+            'country' => 'country',
             'body' => 'Body',
             'viewed' => 'Viewed',
             'created_at' => 'Created At',

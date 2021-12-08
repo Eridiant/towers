@@ -39,6 +39,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'email:email',
             'phone',
+            'country',
+            'email',
             // 'subject',
             //'body:ntext',
             //'viewed',

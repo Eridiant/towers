@@ -139,6 +139,8 @@ class SiteController extends Controller
 
             $model->name = $request->post("name");
             $model->phone = $request->post("phone");
+            $model->email = $request->post("email");
+            $model->country = $request->post("country");
             $model->viewed = $request->post("viewed") == "on" ? 1 : 0;
             $model->lang = Yii::$app->language;
             
@@ -148,7 +150,7 @@ class SiteController extends Controller
                     ->setTo('info@calligraphy-towers.com')
                     ->setFrom('mali@seamarble.ge')
                     ->setSubject('заявка')
-                    ->setTextBody('Имя: ' . $request->post("name") . ' Телефон ' . $request->post("phone"))
+                    ->setTextBody('Имя: ' . $request->post("name") . ' Телефон ' . $request->post("phone") . ' Страна ' . $request->post("country") . ' Почтаы ' . $request->post("email"))
                     ->send();
                 return ['data' => ['success' => true]];
             }
