@@ -552,7 +552,7 @@ use yii\helpers\Url;
                         <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'б')?></span>
                     </a>
                     <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button" data-choose="3" data-inf="<?=Yii::t('frontend', 'скоро в продаже')?>">
-                        <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
+                        <?//=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
                     </a>
                 </div>
             </div>
@@ -644,7 +644,7 @@ use yii\helpers\Url;
                             <svg width="28" height="26"><use xlink:href="/images/icons.svg#cam"></use></svg>
                         </div>
                     </div>
-                    <div class="contact-video">
+                    <div class="contact-video contact-cam">
                         <p><?=Yii::t('frontend', 'Видео')?></p>
                         <div class="contact-video-inner">
                             <p>3D</p>

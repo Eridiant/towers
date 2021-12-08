@@ -422,8 +422,7 @@ function checkModule(block, floor = 0) {
                 break;
             case 4:
             case 8:
-            case 9:
-            case 16:
+            case 15:
                 fls = 5;
                 break;
             case 29:
@@ -442,9 +441,6 @@ function checkModule(block, floor = 0) {
             case 36:
                 fls = 37;
                 break;
-            case 36:
-                fls = 37;
-                break;
             case 37:
                 fls = 38;
                 break;
@@ -455,8 +451,10 @@ function checkModule(block, floor = 0) {
             case 40:
             case 41:
             case 42:
-            case 43:
                 fls = 40;
+                break;
+            case 43:
+                fls = 44;
                 break;
             case 44:
                 fls = 45;
