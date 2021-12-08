@@ -194,20 +194,20 @@ class FloorController extends Controller
                 $count = (int)$field[0];
             }
 
-            $floor = 0;
+            $fl = 0;
             if ($this->request->post('FloorA')) {
-                $floor = $this->request->post('FloorA')['floor'];
+                $fl = $this->request->post('FloorA')['floor'];
             }
             if ($this->request->post('FloorB')) {
-                $floor = $this->request->post('FloorB')['floor'];
+                $fl = $this->request->post('FloorB')['floor'];
             }
             if ($this->request->post('FloorC')) {
-                $floor = $this->request->post('FloorC')['floor'];
+                $fl = $this->request->post('FloorC')['floor'];
             }
 
             $category = $this->request->post('category');
 
-            $text = $floor . '||';
+            $text = $fl . '||';
             for ($i=0; $i < count($field); $i++) { 
                 // var_dump((int)$field[$i]);
                 // issetModel($count, $block);
@@ -220,7 +220,7 @@ class FloorController extends Controller
                 
                 
                 
-                $mod->floor_num = $floor;
+                $mod->floor_num = $fl;
                 $expression = $field[$i];
                 if ($this->request->post('quotes')) {
                     $expression = str_replace('"', '', $expression);
