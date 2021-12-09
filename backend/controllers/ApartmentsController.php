@@ -11,6 +11,9 @@ use backend\models\ApartmentsA;
 use backend\models\ApartmentsB;
 use backend\models\ApartmentsC;
 use backend\models\ApartmentsSearch;
+use backend\models\ApartmentsASearch;
+use backend\models\ApartmentsBSearch;
+use backend\models\ApartmentsCSearch;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -47,23 +50,24 @@ class ApartmentsController extends Controller
     {
         // $searchModel = new ApartmentsSearch();
         // $dataProvider = $searchModel->search($this->request->queryParams);
-
+        
         if ($block === 'a') {
-            $dataProvider = new ActiveDataProvider([
-                'query' => ApartmentsA::find(),
-            ]);
+            // $dataProvider = new ActiveDataProvider([
+            //     'query' => ApartmentsA::find(),
+            // ]);
+            $searchModel = new ApartmentsASearch();
+            $dataProvider = $searchModel->search($this->request->queryParams);
+
         }
 
         if ($block === 'b') {
-            $dataProvider = new ActiveDataProvider([
-                'query' => ApartmentsB::find(),
-            ]);
+            $searchModel = new ApartmentsBSearch();
+            $dataProvider = $searchModel->search($this->request->queryParams);
         }
 
         if ($block === 'c') {
-            $dataProvider = new ActiveDataProvider([
-                'query' => ApartmentsC::find(),
-            ]);
+            $searchModel = new ApartmentsCSearch();
+            $dataProvider = $searchModel->search($this->request->queryParams);
         }
 
         /*$dataProvider = new ActiveDataProvider([
@@ -80,11 +84,8 @@ class ApartmentsController extends Controller
             
         ]);*/
 
-        return $this->render('index', [
-            // 'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-            'block' => $block,
-        ]);
+        return $this->render('index', compact('searchModel','dataProvider','block'));
+
     }
 
     /**

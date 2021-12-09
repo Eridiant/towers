@@ -21,14 +21,26 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        // 'filterModel' => $searchModel,
+        'filterModel' => $searchModel,
         'pager' => [
             'firstPageLabel' => 'Начало',
             'lastPageLabel' => 'Конец',
         ],
         'columns' => [
-            'floor_num',
-            'num',
+            // 'floor_num',
+            // 'num',
+            [
+                'attribute' => 'floor_num',
+                'headerOptions' => ['width' => '15%'],
+            ],
+            [
+                'attribute' => 'num',
+                'headerOptions' => ['width' => '15%'],
+            ],
+            // 'money',
+            // 'total_area',
+            // 'living_space',
+            // 'balcony_area',
             [
                 'label' => 'Статус',
                 'value'=>function ($model) {
@@ -54,7 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'class' => 'yii\grid\ActionColumn',
                 'header'=>'Действия', 
                 'headerOptions' => ['width' => '80'],
-                'template' => '{update} {delete}{link}',
+                'template' => '{update}',
                 'buttons' => [
                     // 'view' => function ($url, $data) use ($block) {
                     //     return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['apartments/view', 'id' => $data->id, 'block' => $block]);
@@ -62,9 +74,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     'update' => function ($url, $data) use ($block) {
                         return Html::a('<span class="glyphicon glyphicon-pencil"></span>', ['apartments/update', 'id' => $data->id, 'block' => $block]);
                     },
-                    'delete' => function ($url, $data) use ($block) {
-                        return Html::a('<span class="glyphicon glyphicon-trash"></span>', ['apartments/delete', 'id' => $data->id, 'block' => $block]);
-                    },
+                    // 'delete' => function ($url, $data) use ($block) {
+                    //     return Html::a('<span class="glyphicon glyphicon-trash"></span>', ['apartments/delete', 'id' => $data->id, 'block' => $block]);
+                    // }, {delete}{link}
                 ],
             ],
         ],
