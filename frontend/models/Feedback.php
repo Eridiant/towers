@@ -41,7 +41,7 @@ class Feedback extends ActiveRecord
             [['body'], 'string'],
             [['created_at'], 'safe'],
             ['viewed', 'compare', 'compareValue' => 1, 'operator' => '===', 'type' => 'number', 'message'=>'Необходимо принять условия пользовательского соглашения'],
-            [['name', 'subject'], 'string', 'max' => 255],
+            [['name', 'subject', 'country'], 'string', 'max' => 255],
             [['email', 'phone', 'lang'], 'string', 'max' => 32],
         ];
     }

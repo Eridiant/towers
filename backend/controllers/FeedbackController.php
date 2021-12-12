@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use frontend\models\Feedback;
+use backend\models\Feedback;
 use frontend\models\FeedbackSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -80,8 +80,23 @@ class FeedbackController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
+        $msg = Feedback::find($id)->one();
+        if (true) {
+            $msg->viewed = 0;
+            $msg->save();
+            if ($msg->getErrors()) {
+                var_dump($msg->getErrors());
+            }
+
+        }
+
+
+        $searchModel = new FeedbackSearch();
+        $dataProvider = $searchModel->search($this->request->queryParams);
+
+        return $this->render('index', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
         ]);
     }
 

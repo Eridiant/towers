@@ -1,18 +1,24 @@
 window.addEventListener('load', () => {
 
-    setTimeout(() => {
-        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-        (function(){
-        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-        s1.async=true;
-        s1.src='https://embed.tawk.to/61a67a909099530957f761a7/1flp4thvt';
-        s1.charset='UTF-8';
-        s1.setAttribute('crossorigin','*');
-        s0.parentNode.insertBefore(s1,s0);
-        })();
+    // setTimeout(() => {
+    //     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    //     (function(){
+    //     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    //     s1.async=true;
+    //     s1.src='https://embed.tawk.to/61a67a909099530957f761a7/1flp4thvt';
+    //     s1.charset='UTF-8';
+    //     s1.setAttribute('crossorigin','*');
+    //     s0.parentNode.insertBefore(s1,s0);
+    //     })();
         
-    }, 10000);
+    // }, 10000);
 
+    document.addEventListener('click', (e) => {
+        let target = e.target;
+        if (target.closest('.btn')) {
+            document.querySelector(`${target.closest('.btn').dataset.trg}`).scrollIntoView();
+        }
+    })
     // alert(JSON.parse(dato));
     // alert(dato);
     // let arr = JSON.parse(dato);
@@ -77,7 +83,7 @@ window.addEventListener('load', () => {
 
     if (document.querySelector('#layouts')) {
         let layouts = document.querySelector('#block').contentDocument;
-        fillData(summ);
+        fillData(summ, stt);
         showStatus();
 		var floor = new Swiper(".floorChoose", {
 			direction: "vertical",
@@ -158,48 +164,7 @@ window.addEventListener('load', () => {
         let floorNum = document.querySelector('#fl');
         let focusa = document.querySelector('#blocks .block-svg-a .focus');
         let focusb = document.querySelector('#blocks .block-svg-b .focus');
-        
 
-        // start
-        // let tooltipElem;
-        // document.onmouseover = function(event) {
-        //     let target = event.target;
-
-        //     // если у нас есть подсказка...
-        //     let tooltipHtml = target.dataset.floor;
-        //     if (!tooltipHtml) return;
-
-        //     // ...создадим элемент для подсказки
-
-        //     tooltipElem = document.createElement('div');
-        //     tooltipElem.className = 'tooltip';
-        //     tooltipElem.innerHTML = tooltipHtml;
-        //     document.body.append(tooltipElem);
-
-        //     // спозиционируем его сверху от аннотируемого элемента (top-center)
-        //     let coords = target.getBoundingClientRect();
-
-        //     let left = coords.left + (target.offsetWidth - tooltipElem.offsetWidth) / 2;
-        //     if (left < 0) left = 0; // не заезжать за левый край окна
-
-        //     let top = coords.top - tooltipElem.offsetHeight - 5;
-        //     if (top < 0) { // если подсказка не помещается сверху, то отображать её снизу
-        //         top = coords.top + target.offsetHeight + 5;
-        //     }
-
-        //     tooltipElem.style.left = left + 'px';
-        //     tooltipElem.style.top = top + 'px';
-        // };
-
-        // document.onmouseout = function(e) {
-
-        // if (tooltipElem) {
-        //     tooltipElem.remove();
-        //     tooltipElem = null;
-        // }
-
-        // };
-        // sdfsdf
         buildA.addEventListener('mouseover', (e) => {
             if (e.target.classList.contains('area')) {
                 let target = e.target;
@@ -261,13 +226,14 @@ window.addEventListener('load', () => {
                 success: function(response){
                     // console.log(JSON.parse(response).model);
                     let model = JSON.parse(response).model;
+                    let status = JSON.parse(response).status;
                     // let blocks = JSON.parse(response).blocks;
                     // console.log(model[0].floor_num);
                     // console.log(blocks.length);
                     // floor.update();
                     // document.querySelector('#min').innerHTML = JSON.parse(response).min;
                     document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
-                    fillData(model);
+                    fillData(model, status);
                     // console.log(response['blocks']);
                 },
                 error: function(response) {
@@ -366,13 +332,15 @@ window.addEventListener('load', () => {
                     // console.log(JSON.parse(response).model);
                     let model = JSON.parse(response).model;
                     let blocks = JSON.parse(response).blocks;
+                    let status = JSON.parse(response).status;
                     // console.log(model[0].floor_num);
                     // console.log(blocks.length);
                     // document.querySelector('#min').innerHTML = JSON.parse(response).min;
                     document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
                     document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(blocks.length, model[0].floor_num);
                     floor.update();
-                    fillData(model);
+                    fillData(model, status);
+                    changeBlockStatus(model, status, block);
                     // console.log(response['blocks']);
                 },
                 error: function(response) {
@@ -387,8 +355,7 @@ window.addEventListener('load', () => {
 
 function checkModule(block, floor = 0) {
     let fls = 0;
-    console.log(floor);
-    
+
     if (block === 'block-A') {
         block = 'a';
         if (!floor) return [block, fls = 11];
@@ -480,12 +447,41 @@ function changeModule(arr) {
 
     let checkFloor = document.querySelector('#test');
     if (checkFloor.dataset.block == block && checkFloor.dataset.floor == fl) return;
-    console.log(block,fl);
+    // console.log(block,fl);
     
     document.querySelector('#floor .floor-choose-img').innerHTML = `<picture><img src="/images/blocks/img/${block}/${fl}.jpg" alt=""></picture>`;
     let svg = document.querySelector('#floor .floor-choose-fig');
+
     svg.innerHTML = `<object id="test" data-floor="${fl}" data-block="${block}" data="/images/blocks/svg/${block}/${fl}.svg" type="image/svg+xml"></object>`;
+    
     setTimeout(showStatus, 2000);
+}
+
+function changeBlockStatus(model, status, block) {
+    let bl = '';
+    switch (block) {
+        case 'block-A':
+            bl = 'a';
+            break;
+        case 'block-C':
+            bl = 'c';
+            break;
+        default:
+            bl = 'b';
+            break;
+    }
+    
+    document.querySelector('.flat-plan-img').innerHTML = `<picture><img src="/images/blocks/${bl}/${model[0].floor_num}/1.jpg" alt=""></picture>`;
+    // document.querySelector('.flat-num-inner .btn').href = `/images/blocks/pdf/${bl}/${floor}/${i}.pdf`;
+    // document.querySelector('.flat-num-inner .btn').href = `http://calligraphy.de/pdf?block=${bl}&floor=${floor}&flat=${i}`;
+    document.querySelector('.flat-num-inner .btn').href = `/pdf?block=${bl}&floor=${model[0].floor_num}&flat=${model[0].num}&img=1`;
+    document.querySelector('.num').innerHTML = model[0].num;
+    document.querySelector('.total').innerHTML = model[0].total_area;
+    document.querySelector('.balcony').innerHTML = model[0].balcony_area;
+    document.querySelector('.living').innerHTML = model[0].living_space;
+    document.querySelector('.view').innerHTML = model[0][currLang];
+
+    document.querySelector('.status').innerHTML = status[0];
 }
 
 function showStatus() {
@@ -503,7 +499,7 @@ function showStatus() {
             document.querySelector('.flat-plan-img').innerHTML = `<picture><img src="/images/blocks/${bl}/${floor}/${i}.jpg" alt=""></picture>`;
             // document.querySelector('.flat-num-inner .btn').href = `/images/blocks/pdf/${bl}/${floor}/${i}.pdf`;
             // document.querySelector('.flat-num-inner .btn').href = `http://calligraphy.de/pdf?block=${bl}&floor=${floor}&flat=${i}`;
-            document.querySelector('.flat-num-inner .btn').href = `http://calligraphy1.mamaevjg.beget.tech/pdf?block=${bl}&floor=${floor}&flat=${i}`;
+            document.querySelector('.flat-num-inner .btn').href = `/pdf?block=${bl}&floor=${floor}&flat=${et.dataset.flat}&img=${i}`;
             document.querySelector('.num').innerHTML = et.dataset.flat;
             document.querySelector('.total').innerHTML = et.dataset.total;
             document.querySelector('.balcony').innerHTML = et.dataset.balcony;
@@ -511,7 +507,6 @@ function showStatus() {
             document.querySelector('.view').innerHTML = et.dataset.view;
             document.querySelector('.status').innerHTML = et.dataset.status;
             document.querySelector('#flat').scrollIntoView()
-
         }
     })
     // let floorDoc = document.querySelector(`#floor${num}`).contentDocument;
@@ -553,21 +548,22 @@ function focuss(test, focus, flat, status) {
     
 }
 
-function fillData(model) {
+function fillData(model, status) {
     let floor = document.querySelector('#test').contentDocument.querySelectorAll('.area');
     
     for (let i = 0; i < floor.length; i++) {
         // const element = array[i];
         floor[i].dataset.flat = model[i].num;
-        if (model[i].status == '0') {
-            floor[i].dataset.status = 'available';
-        }
-        if (model[i].status == '1') {
-            floor[i].dataset.status = 'reserved';
-        }
-        if (model[i].status == '2') {
-            floor[i].dataset.status = 'solded';
-        }
+        // if (model[i].status == '0') {
+        //     floor[i].dataset.status = 'available';
+        // }
+        // if (model[i].status == '1') {
+        //     floor[i].dataset.status = 'reserved';
+        // }
+        // if (model[i].status == '2') {
+        //     floor[i].dataset.status = 'solded';
+        // }
+        floor[i].dataset.status = status[i];
         floor[i].dataset.floor = model[i].floor_num;
         floor[i].dataset.living = model[i].money;
         floor[i].dataset.total = model[i].total_area;
@@ -576,10 +572,10 @@ function fillData(model) {
         floor[i].dataset.view = model[i][currLang];
         
     }
-    model.forEach(model => {
-        // console.log(model.balcony_area);
+    // model.forEach(model => {
+    //     // console.log(model.balcony_area);
         
-    });
+    // });
 }
 
 function changeBlock(block, imgNum) {

@@ -33,7 +33,6 @@ class Feedback extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'email', 'phone'], 'required'],
             [['body'], 'string'],
             [['viewed'], 'integer'],
             [['created_at'], 'safe'],

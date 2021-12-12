@@ -1,18 +1,42 @@
+<?php
+use yii\web\UrlManager;
+use yii\helpers\Html;
+use yii\helpers\Url;
+
+$cookies = Yii::$app->request->cookies;
+$currentLang = $cookies->getValue('_locale', 'en-US');
+
+?>
 <!DOCTYPE html>
-<html lang="<?//= $lang; ?>">
+<html lang="<?= $currentLang; ?>">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title><?=Yii::t('frontend', 'Квартира')?> <?= $flat; ?></title>
 </head>
 <body class="body">
     <div class="container">
         <div class="wrapper"><!-- <a href="/images/blocks/pdf/<?//= $block; ?>/<?//= $floor_num; ?>/1.pdf" alt="" class="contacts-call btn btn-blue"> -->
 
-            <img src="/images/blocks/<?= $block; ?>/<?= $floor; ?>/<?= $flat; ?>.jpg" alt="">
+            <img src="/images/blocks/<?= $block; ?>/<?= $floor; ?>/<?= $img; ?>.jpg" alt="">
             <div class="inner">
-                <p><?=Yii::t('frontend', 'Блок')?> <?= $block; ?></p>
+                <p><?= Url::home(true); ?></p>
+                <p><?=Yii::t('frontend', 'Блок')?> 
+                <?php 
+                switch ($block) {
+                    case 'a':
+                        echo Yii::t('frontend', 'A');
+                        break;
+                    case 'b':
+                        echo Yii::t('frontend', 'B');
+                        break;
+                    case 'c':
+                        echo Yii::t('frontend', 'C');
+                        break;
+                }
+                $block == 'a' ?: Yii::t('frontend', 'A') ; 
+                ?></p>
                 <p><?=Yii::t('frontend', 'Этаж')?> <?= $floor; ?></p>
                 <p><?=Yii::t('frontend', 'Квартира')?> <?= $flat; ?></p>
                 <a class ="print-doc" href="javascript:(print());">

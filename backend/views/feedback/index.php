@@ -30,23 +30,38 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'attribute'=>'lang',
                 'label'=>'Локаль',
-                'headerOptions' => ['width' => '10%'],
+                'headerOptions' => ['width' => '5%'],
             ],
             [
                 'attribute'=>'name',
                 'label'=>'Имя',
-                'headerOptions' => ['width' => '15%'],
+                'headerOptions' => ['width' => '7%'],
             ],
             'email:email',
             'phone',
             'country',
-            'email',
+            [
+                'label' => 'Статус',
+                'attribute'=>'viewed',
+                'value'=>function ($model) {
+                    if($model->viewed == 0){
+                        return 'Просмотрена';
+                    }elseif ($model->viewed == 1) {
+                        return 'Новая';
+                    }
+                },
+            ],
             // 'subject',
-            //'body:ntext',
+            // 'body:ntext',
             //'viewed',
-            //'created_at',
+            'created_at',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'header'=>'Действия', 
+                'headerOptions' => ['width' => '80'],
+                'template' => '{view} {delete}',
+            ],
         ],
     ]); ?>
 

@@ -9,6 +9,7 @@ use common\widgets\Alert;
 use frontend\assets\AppAsset;
 use yii\bootstrap4\Breadcrumbs;
 use yii\bootstrap4\Html;
+use yii\helpers\Url;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
 
@@ -19,6 +20,7 @@ $currentLang = $cookies->getValue('_locale', 'en-US');
 
 $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
 
+// $this->registerJs('var baseUrl = "' . Url::home(true) . '";');
 
 ?>
 <?php $this->beginPage() ?>

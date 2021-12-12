@@ -13,6 +13,7 @@ use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use yii\base\InvalidArgumentException;
 use yii\web\BadRequestHttpException;
+use yii\web\NotFoundHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -170,6 +171,8 @@ class SiteController extends Controller
     public function actionLayouts($id = 1, $slug = null)
     {
         $request = Yii::$app->request;
+        // $cookies = Yii::$app->request->cookies;
+        // $currentLang = $request->cookies->getValue('_locale', 'en-US');
 
         if ($request->isAjax){
             $slug = $request->post('slug');
@@ -227,15 +230,30 @@ class SiteController extends Controller
             $mod = ApartmentsC::find()
                     ->where('floor_num=:floor_num')
                     ->addParams([':floor_num' => $floor->floor]);
+        }
+
+        foreach ($model as $key => $value) {
+            switch ($value["status"]) {
+                case '1':
+                    $status[$key] = Yii::t('frontend', 'зарезервировано');
+                    break;
+                case '2':
+                    $status[$key] = Yii::t('frontend', 'лродано');
+                    break;
+                default:
+                    $status[$key] = Yii::t('frontend', 'доступно');
+                    break;
             }
 
-        $min = $mod->min('money');
+        }
+
+        // $min = $mod->min('money');
         $flats = $mod->count();
         $flats_free = $mod->andWhere(['status' => 0])->count();
 
         // $model = json_encode($model);
         // $blocks = json_encode($blocks);
-        $summ = json_encode(['model'=>$model, 'blocks'=>$blocks, 'min' => $min, 'flats' => $flats, 'flats_free' => $flats_free]);
+        $summ = json_encode(['model'=>$model, 'blocks'=>$blocks, 'flats' => $flats, 'flats_free' => $flats_free, 'status'=>$status]);
 
         if ($request->isAjax){
             // $summ = json_encode(['model'=>$model, 'blocks'=>$blocks]);
@@ -243,15 +261,10 @@ class SiteController extends Controller
         }
 
         $floor_num = $floor->floor;
-        // var_dump('<pre>');
-        // var_dump($summ);
-        // var_dump('</pre>');
-        // die;
-        
 
         $this->bodyClass = 'other bl';
 
-        return $this->render('layouts', compact('model', 'block', 'floor_num', 'summ', 'blocks', 'min', 'flats', 'flats_free'));
+        return $this->render('layouts', compact('model', 'block', 'floor_num', 'summ', 'blocks', 'flats', 'flats_free', 'status'));
     }
 
     public function actionGallery()
@@ -326,10 +339,33 @@ class SiteController extends Controller
         $block = $request->get('block');
         $floor = $request->get('floor');
         $flat = $request->get('flat');
+        $img = $request->get('img');
+
+        // ?block=a&floor=11&flat=1
+        $model='';
+        if ($block === 'a') {
+            $model = ApartmentsA::find();
+        } elseif ($block === 'b') {
+            $model = ApartmentsB::find();
+        } elseif ($block === 'c') {
+            $model = ApartmentsC::find();
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+
+        $model = $model->where('floor_num=:floor_num')
+                        ->addParams([':floor_num' => $floor])
+                        ->andWhere('num=:num')
+                        ->addParams([':num' => $flat])
+                        ->exists();
+
+        if (!$model || $img > 26) {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
 
         $this->bodyClass = 'other bl';
 
-        return $this->renderPartial('pdf', compact('block', 'floor', 'flat'));
+        return $this->renderPartial('pdf', compact('block', 'floor', 'flat', 'img'));
     }
 
     /**

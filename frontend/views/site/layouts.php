@@ -6,21 +6,13 @@ use yii\helpers\Url;
 
 $this->title = Yii::t('frontend', 'Планировки');
 
-// foreach ($blocks as $block):
-//     var_dump('<pre>');
-//     var_dump($block->floor);
-//     var_dump('</pre>');
-    
-// endforeach;
-// var_dump('<pre>');
-// var_dump($model[0]['floor_num']);
-// var_dump('</pre>');
-// die;
-// $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one();
-
+$cookies = Yii::$app->request->cookies;
+$currentLang = $cookies->getValue('_locale', 'en-US');
+$lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one()->code;
 ?>
 <script>
     var summ = <?= json_encode($model); ?>; // Don't forget the extra semicolon!
+    var stt = <?= json_encode($status); ?>; // Don't forget the extra semicolon!
 </script>
 
 <div id="layouts" class="layouts">
@@ -123,10 +115,10 @@ $this->title = Yii::t('frontend', 'Планировки');
                     <dt><?=Yii::t('frontend', 'Этаж')?>:</dt>
                     <dd id="fl">1</dd>
                 </dl>
-                <a href="#" class="contacts-call floor-call btn btn-blue">
+                <p class="contacts-call floor-call btn btn-blue" data-trg="#layouts">
                     <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
                     <span><?=Yii::t('frontend', 'Выбрать блок')?></span>
-                </a>
+                </p>
             </div>
             <div class="block-inner">
               <div class="block-block">
@@ -192,10 +184,14 @@ $this->title = Yii::t('frontend', 'Планировки');
                         </div>
                     </div>
                 </div>
-                <a href="#" class="contacts-call floor-call btn btn-blue">
+                <p class="contacts-call floor-call floor-dt btn btn-blue" data-trg="#blocks">
                     <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
                     <span><?=Yii::t('frontend', 'Выбрать этаж')?></span>
-                </a>
+                </p>
+                <p class="contacts-call floor-call floor-mb btn btn-blue" data-trg="#layouts">
+                    <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
+                    <span><?=Yii::t('frontend', 'Выбрать блок')?></span>
+                </p>
             </div>
             <div class="floor-choose floor-choose-swiper">
                 <!-- Swiper -->
@@ -215,11 +211,11 @@ $this->title = Yii::t('frontend', 'Планировки');
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="flat-wrapper">
             <div class="flat-description">
-                <!-- <div class="breadcrumbs">
-                    <a href="/"><?//=Yii::t('frontend', 'Главная')?></a>
-                    <a href="/"><?//=Yii::t('frontend', 'Планировки')?></a>
-                    <p><?//=Yii::t('frontend', 'Квартира')?></p>
-                </div> -->
+                <div class="breadcrumbs">
+                    <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
+                    <a href="/"><?=Yii::t('frontend', 'Планировки')?></a>
+                    <p><?=Yii::t('frontend', 'Квартира')?></p>
+                </div>
                 <h2><?=Yii::t('frontend', 'Экспликация')?></h2>
                 <div class="flat-description-inner">
                     <dl>
@@ -240,17 +236,17 @@ $this->title = Yii::t('frontend', 'Планировки');
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Вид')?></dt>
-                        <dd><span class="view"><?= $model[0]['en']; ?></span></dd>
+                        <dd><span class="view"><?= $model[0][$lg]; ?></span></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Статус')?></dt>
-                        <dd><span class="status"><?= $model[0]['status']; ?></span></dd>
+                        <dd><span class="status"><?= $status[0]; ?></span></dd>
                     </dl>
                 </div>
-                <a href="#" id="flat-call" class="contacts-call flat-call floor-call btn btn-blue">
+                <p id="flat-call" class="contacts-call flat-call floor-call btn btn-blue" data-trg="#floor">
                     <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
                     <span><?=Yii::t('frontend', 'Выбрать квартиру')?></span>
-                </a>
+                </p>
             </div>
             <div class="flat-plan">
                 <div class="flat-plan-img">
@@ -276,8 +272,7 @@ $this->title = Yii::t('frontend', 'Планировки');
                     </picture>
                 </div>
                 <div class="flat-num-inner">
-                    <a href="<?=Url::toRoute(['/site/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => 1]) ?>" class="contacts-call btn btn-blue">
-     
+                    <a href="<?=Url::toRoute(['/site/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => $model[0]['num'], 'img' => 1]) ?>" class="contacts-call btn btn-blue">
                         <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                         <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                     </a>
