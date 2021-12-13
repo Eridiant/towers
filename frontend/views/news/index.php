@@ -27,9 +27,9 @@ $this->title = Yii::t('frontend', 'Новости');
                     </div>
                     <h2><?= $model->$title; ?></h2>
                     <div class="news-excerpt">
-                        <p>
+                        <div class="news-excerpt-text">
                             <?= $model->$code; ?>
-                        </p>
+                        </div>
                         <a class="news-link" href="<?= Url::toRoute("news/{$model->slug}"); ?>">Подробнее</a>
                     </div>
                 </div>
