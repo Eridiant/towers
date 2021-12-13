@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use backend\modules\language\models\Language;
+use mihaildev\ckeditor\CKEditor;
 // use mihaildev\ckeditor\CKEditor;
 
 $lang = Language::getCurrent()->code;
@@ -22,8 +23,12 @@ $lang = Language::getCurrent()->code;
 
     <?= $form->field($model, 'slug')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, $lang)->textarea(['rows' => 6]) ?>
-    <!-- ->widget(CKEditor::className() -->
+    <?= $form->field($model, $lang)->widget(CKEditor::className(),[
+        'editorOptions' => [
+            'preset' => 'standard', //разработанны стандартные настройки basic, standard, full данную возможность не обязательно использовать
+            'inline' => false, //по умолчанию false
+        ],
+    ]); ?>
 
     <?= $form->field($model, 'image')->fileInput() ?>
 
