@@ -474,7 +474,7 @@ function changeBlockStatus(model, status, block) {
     document.querySelector('.flat-plan-img').innerHTML = `<picture><img src="/images/blocks/${bl}/${model[0].floor_num}/1.jpg" alt=""></picture>`;
     // document.querySelector('.flat-num-inner .btn').href = `/images/blocks/pdf/${bl}/${floor}/${i}.pdf`;
     // document.querySelector('.flat-num-inner .btn').href = `http://calligraphy.de/pdf?block=${bl}&floor=${floor}&flat=${i}`;
-    document.querySelector('.flat-num-inner .btn').href = `/pdf?block=${bl}&floor=${model[0].floor_num}&flat=${model[0].num}&img=1`;
+    document.querySelector('.flat-num-inner .btn').href = `/pdf?block=${bl}&floor=${model[0].floor_num}&flat=${model[0].num}&img=1&view=${model[0].en}`;
     document.querySelector('.num').innerHTML = model[0].num;
     document.querySelector('.total').innerHTML = model[0].total_area;
     document.querySelector('.balcony').innerHTML = model[0].balcony_area;
@@ -499,7 +499,7 @@ function showStatus() {
             document.querySelector('.flat-plan-img').innerHTML = `<picture><img src="/images/blocks/${bl}/${floor}/${i}.jpg" alt=""></picture>`;
             // document.querySelector('.flat-num-inner .btn').href = `/images/blocks/pdf/${bl}/${floor}/${i}.pdf`;
             // document.querySelector('.flat-num-inner .btn').href = `http://calligraphy.de/pdf?block=${bl}&floor=${floor}&flat=${i}`;
-            document.querySelector('.flat-num-inner .btn').href = `/pdf?block=${bl}&floor=${floor}&flat=${et.dataset.flat}&img=${i}`;
+            document.querySelector('.flat-num-inner .btn').href = `/pdf?block=${bl}&floor=${floor}&flat=${et.dataset.flat}&img=${i}&view=${et.dataset.views}`;
             document.querySelector('.num').innerHTML = et.dataset.flat;
             document.querySelector('.total').innerHTML = et.dataset.total;
             document.querySelector('.balcony').innerHTML = et.dataset.balcony;
@@ -570,6 +570,7 @@ function fillData(model, status) {
         floor[i].dataset.living = model[i].living_space;
         floor[i].dataset.balcony = model[i].balcony_area;
         floor[i].dataset.view = model[i][currLang];
+        floor[i].dataset.views = model[i].en;
         
     }
     // model.forEach(model => {

@@ -340,6 +340,7 @@ class SiteController extends Controller
         $floor = $request->get('floor');
         $flat = $request->get('flat');
         $img = $request->get('img');
+        $view = $request->get('view');
 
         // ?block=a&floor=11&flat=1
         $model='';
@@ -365,7 +366,7 @@ class SiteController extends Controller
 
         $this->bodyClass = 'other bl';
 
-        return $this->renderPartial('pdf', compact('block', 'floor', 'flat', 'img'));
+        return $this->renderPartial('pdf', compact('block', 'floor', 'flat', 'img', 'view'));
     }
 
     /**

@@ -18,8 +18,12 @@ $currentLang = $cookies->getValue('_locale', 'en-US');
 <body class="body">
     <div class="container">
         <div class="wrapper"><!-- <a href="/images/blocks/pdf/<?//= $block; ?>/<?//= $floor_num; ?>/1.pdf" alt="" class="contacts-call btn btn-blue"> -->
-
-            <img src="/images/blocks/<?= $block; ?>/<?= $floor; ?>/<?= $img; ?>.jpg" alt="">
+            <img class="svg compass" src="/images/svg/compass.svg" alt="">
+            <div class="wrapper-img"> 
+                <img class="svg<?= $view == 'sea' ? ' show' : ''; ?>" src="/images/svg/mountain.svg" alt="">
+                <img class="img"src="/images/blocks/<?= $block; ?>/<?= $floor; ?>/<?= $img; ?>.jpg" alt="">
+                <img class="svg<?= $view == 'mountain' ? ' show' : ''; ?>" src="/images/svg/seawaves.svg" alt="">
+            </div>
             <div class="inner">
                 <p><?= Url::home(true); ?></p>
                 <p><?=Yii::t('frontend', 'Блок')?> 
@@ -52,6 +56,17 @@ $currentLang = $cookies->getValue('_locale', 'en-US');
     </div>
 </body>
 <style>
+    .svg {
+        display: none;
+        width: 50px;
+        height: 50px;
+    }
+    .compass {
+        display: block;
+    }
+    .show {
+        display: block;
+    }
     .container {
         display: flex;
         justify-content: center;
@@ -66,7 +81,13 @@ $currentLang = $cookies->getValue('_locale', 'en-US');
         width: 79%;
         height: 79%;
     }
-    .wrapper img {
+    .wrapper-img {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .wrapper .img {
         max-width: 70%;
         max-height: 90%;
         /* height: auto; */
@@ -102,9 +123,12 @@ $currentLang = $cookies->getValue('_locale', 'en-US');
         .wrapper {
             flex-direction: column;
         }
-        .wrapper img {
+        .wrapper .img {
             width: 100%;
             height: auto;
+        }
+        .compass {
+            display: none;
         }
         .inner {
             margin-top: 30px;

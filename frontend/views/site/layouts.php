@@ -272,7 +272,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                     </picture>
                 </div>
                 <div class="flat-num-inner">
-                    <a href="<?=Url::toRoute(['/site/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => $model[0]['num'], 'img' => 1]) ?>" class="contacts-call btn btn-blue">
+                    <a href="<?=Url::toRoute(['/site/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => $model[0]['num'], 'img' => 1, 'view' => $model[0]['en']]) ?>" class="contacts-call btn btn-blue">
                         <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                         <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                     </a>
