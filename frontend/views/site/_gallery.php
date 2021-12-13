@@ -50,6 +50,13 @@ use yii\helpers\Url;
                             </picture>
                         </div>
                     <?php endfor; ?>
+                    <?php for($i=30; $i<39; $i++): ?>
+                        <div class="swiper-slide">
+                            <picture>
+                                <img src="/images/dist/gallery/gallery-<?= $i; ?>.jpg" width="1204" height="779" alt="">
+                            </picture>
+                        </div>
+                    <?php endfor; ?>
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -61,6 +68,13 @@ use yii\helpers\Url;
                     <div class="swiper-slide">
                         <picture>
                             <img srcset="/images/dist/gallery/gallery-mb-<?= $i; ?>.jpg, /images/dist/gallery/gallery-mb-<?= $i; ?>-2x.jpg 2x" src="/images/dist/gallery/gallery-<?= $i; ?>.jpg" width="480" height="311" alt="">
+                        </picture>
+                    </div>
+                <?php endfor; ?>
+                <?php for($i=30; $i<39; $i++): ?>
+                    <div class="swiper-slide">
+                        <picture>
+                            <img src="/images/dist/gallery/gallery-<?= $i; ?>.jpg" width="1204" height="779" alt="">
                         </picture>
                     </div>
                 <?php endfor; ?>
