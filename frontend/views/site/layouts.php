@@ -262,9 +262,9 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
             </div>
             <div class="flat-num">
                 <div class="flat-num-wrapper">
-                    <p>
-                        <?=Yii::t('frontend', 'Цены на квартиры по этажам одна, отличия только вида')?>
-                    </p>
+                    <!-- <p>
+                        <?//=Yii::t('frontend', 'Цены на квартиры по этажам одна, отличия только вида')?>
+                    </p> -->
                 </div>
                 <div class="flat-num-img">
                     <picture>
