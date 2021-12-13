@@ -238,7 +238,7 @@ class SiteController extends Controller
                     $status[$key] = Yii::t('frontend', 'зарезервировано');
                     break;
                 case '2':
-                    $status[$key] = Yii::t('frontend', 'лродано');
+                    $status[$key] = Yii::t('frontend', 'продано');
                     break;
                 default:
                     $status[$key] = Yii::t('frontend', 'доступно');
