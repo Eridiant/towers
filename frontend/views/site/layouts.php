@@ -89,8 +89,8 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                     </div>
                 </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next choose-next"></div>
+            <div class="swiper-button-prev choose-prev"></div>
         </div>
     </div>
 </div>
