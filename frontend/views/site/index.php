@@ -35,13 +35,14 @@ use yii\helpers\Url;
 		<div class="header-wrapper">
 			<div class="header-inner">
 				<p class="header-cap cap">
-                    <?=Yii::t('frontend', 'Жилой комплекс')?>
+                    <?//=Yii::t('frontend', 'Жилой комплекс')?>
                 </p>
 				<h1 class="header-title">Calligraphy Towers Batumi</h1>
 				<div class="header-video">
 					<svg width="141" height="141"><use xlink:href="/images/icons.svg#video"></use></svg>
 					<p>
-                        <?=Yii::t('frontend', 'Видео о жилом комплексе')?>
+                        <?=Yii::t('frontend', 'Видео')?>
+                        <?//=Yii::t('frontend', 'Видео о жилом комплексе')?>
                     </p>
 				</div>
 			</div>

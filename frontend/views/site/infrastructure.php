@@ -14,18 +14,45 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 <?=Yii::t('frontend', 'Бассейн')?>
             </div>
             <div class="infr-btn-choose">
-                <p data-num="1"><?=Yii::t('frontend', 'Бассейн')?></p>
-                <p data-num="2"><?=Yii::t('frontend', 'SPA - центр')?></p>
-                <p data-num="3"><?=Yii::t('frontend', 'Фитнес')?></p>
-                <p data-num="4">Lounge Bar</p>
-                <p data-num="5"><?=Yii::t('frontend', 'Кинотеатр')?></p>
+                <p data-num="1">
+                    <img src="/images/svg/swimming.svg" alt="">
+                    <?=Yii::t('frontend', 'Бассейн')?>
+                </p>
+                <p data-num="2">
+                    <img src="/images/svg/spa.svg" alt="">
+                    <?=Yii::t('frontend', 'SPA - центр')?>
+                </p>
+                <p data-num="3">
+                    <img src="/images/svg/fitness.svg" alt="">
+                    <?=Yii::t('frontend', 'Фитнес')?>
+                </p>
+                <p data-num="4">
+                    <img src="/images/svg/lounge.svg" alt="">
+                    Lounge Bar
+                </p>
+                <p data-num="5">
+                    <img src="/images/svg/cinema.svg" alt="">
+                    <?=Yii::t('frontend', 'Кинотеатр')?>
+                </p>
                 <p data-num="6"><?=Yii::t('frontend', 'Собственный пляж')?></p>
                 <p data-num="7"><?=Yii::t('frontend', 'Озелененные террасы')?></p>
                 <p data-num="8"><?=Yii::t('frontend', 'Детская комната')?></p>
-                <p data-num="9">Coworking зона</p>
-                <p data-num="10">Конференц-зал</p>
-                <p data-num="11"><?=Yii::t('frontend', 'Паркинг')?></p>
-                <p data-num="12"><?=Yii::t('frontend', 'Казино')?></p>
+                <p data-num="9">
+                    <img src="/images/svg/work.svg" alt="">
+                    Coworking зона
+                </p>
+                <p data-num="10">
+                    <img src="/images/svg/conference.svg" alt="">
+                    Конференц-зал
+                </p>
+                <p data-num="11">
+                    <img src="/images/svg/parking.svg" alt="">
+                    <?=Yii::t('frontend', 'Паркинг')?>
+                </p>
+                <p data-num="12">
+                    <img src="/images/svg/casino.svg" alt="">
+                    <?=Yii::t('frontend', 'Казино')?>
+                </p>
             </div>
         </div>
     </div>
