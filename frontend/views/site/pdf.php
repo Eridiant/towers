@@ -5,6 +5,7 @@ use yii\helpers\Url;
 
 $cookies = Yii::$app->request->cookies;
 $currentLang = $cookies->getValue('_locale', 'en-US');
+$user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
 
 ?>
 <!DOCTYPE html>
@@ -26,6 +27,7 @@ $currentLang = $cookies->getValue('_locale', 'en-US');
             </div>
             <div class="inner">
                 <p><?= Url::home(true); ?></p>
+                <p><?= preg_replace("/^(\d{3})(\d{3})(\d{2})(\d{2})(\d{2})$/", "+$1($2)-$3-$4-$5", $user_info->phone); ?></p>
                 <p><?=Yii::t('frontend', 'Блок')?> 
                 <?php 
                 switch ($block) {
