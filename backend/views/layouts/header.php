@@ -84,7 +84,7 @@ use backend\modules\language\models\Language;
                     <ul class="dropdown-menu" role="menu">
                         <?php foreach ($languages as $language) : ?>
                             <li>
-                                <a href="<?= Url::to(['language/change', 'id' => $language->id]) ?>"><?= strtoupper($language->key) ?></a>
+                                <a href="<?= Url::to(['/language/change', 'id' => $language->id]) ?>"><?= strtoupper($language->key) ?></a>
                             </li>
                         <?php endforeach; ?>
                     </ul>

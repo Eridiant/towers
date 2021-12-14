@@ -14,7 +14,7 @@ $this->title = Yii::t('frontend', 'Новости');
             <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
             <p><?=Yii::t('frontend', 'Новости')?></p>
         </div>
-        <h1><?=Yii::t('frontend', 'Читайтать больше')?></h1>
+        <h1><?=Yii::t('frontend', 'Читать больше')?></h1>
         <div class="news-wrapper">
             <?php foreach ($model as $model): ?>
                 <div class="news-news">
