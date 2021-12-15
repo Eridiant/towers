@@ -373,14 +373,18 @@ use yii\helpers\Url;
                 <div class="swiper-slide">
                     <div class="aboute-img">
                         <picture>
-                            <img srcset="/images/dist/index/about.jpg, /images/dist/about/about-2x.jpg 2x" src="/images/dist/index/about.jpg" width="1306" height="764" alt="">
+                            <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/index/about-mb-1.jpg, /images/dist/index/about-mb-1-2x.jpg 2x">
+                            <source type="image/jpeg" srcset="/images/dist/index/about-1.jpg, /images/dist/index/about-1-2x.jpg 2x">
+                            <img src="/images/dist/index/about-1.jpg" width="1306" height="872" alt="">
                         </picture>
                     </div>
                 </div>
                 <div class="swiper-slide">
                     <div class="aboute-img">
                         <picture>
-                            <img srcset="/images/dist/index/about-2.jpg, /images/dist/about/about-2-2x.jpg 2x" src="/images/dist/index/about-2.jpg" width="1306" height="764" alt="">
+                            <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/index/about-mb-2.jpg, /images/dist/index/about-mb-2-2x.jpg 2x">
+                            <source type="image/jpeg" srcset="/images/dist/index/about-2.jpg, /images/dist/index/about-2-2x.jpg 2x">
+                            <img src="/images/dist/index/about-2.jpg" width="1306" height="872" alt="">
                         </picture>
                     </div>
                 </div>

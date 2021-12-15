@@ -25,10 +25,38 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'slug',
-            'ru:ntext',
-            'en:ntext',
-            'ge:ntext',
-            'he:ntext',
+            [
+                'attribute' => 'ru',
+                'contentOptions' => ['style' => 'overflow: hidden; text-overflow: ellipsis; max-height: 150px;'],
+                'headerOptions' => ['style' => 'width: 18%;'],
+                'value' => function($model){
+                    return Html::tag('p', $model->title_ru);
+                },
+            ],
+            [
+                'attribute' => 'en',
+                'contentOptions' => ['style' => 'overflow: hidden; text-overflow: ellipsis; max-height: 150px;'],
+                'headerOptions' => ['style' => 'width: 18%;'],
+                'value' => function($model){
+                    return Html::tag('p', $model->title_en);
+                },
+            ],
+            [
+                'attribute' => 'ge',
+                'contentOptions' => ['style' => 'overflow: hidden; text-overflow: ellipsis; max-height: 150px;'],
+                'headerOptions' => ['style' => 'width: 18%;'],
+                'value' => function($model){
+                    return Html::tag('p', $model->title_ge);
+                },
+            ],
+            [
+                'attribute' => 'he',
+                'contentOptions' => ['style' => 'overflow: hidden; text-overflow: ellipsis; max-height: 150px;'],
+                'headerOptions' => ['style' => 'width: 18%;'],
+                'value' => function($model){
+                    return Html::tag('p', $model->title_he);
+                },
+            ],
             'active',
             //'created_at',
             //'updated_at',
