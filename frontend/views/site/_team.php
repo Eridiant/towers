@@ -34,10 +34,7 @@ use yii\helpers\Url;
                         </li>
                     </ul>
                 </div>
-                <a href="#" class="contacts-call btn btn-blue">
-                    <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
-                    <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
-                </a>
+                <?= $this->render('_btn') ?>
             </div>
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper gallery-main">
                 <div class="swiper-wrapper">

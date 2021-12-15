@@ -506,7 +506,7 @@ function showStatus() {
             document.querySelector('.living').innerHTML = et.dataset.living;
             document.querySelector('.view').innerHTML = et.dataset.view;
             document.querySelector('.status').innerHTML = et.dataset.status;
-            document.querySelector('#flat').scrollIntoView()
+            document.querySelector('#flat').scrollIntoView();
         }
     })
     // let floorDoc = document.querySelector(`#floor${num}`).contentDocument;
