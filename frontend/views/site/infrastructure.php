@@ -28,22 +28,31 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </p>
                 <p data-num="4">
                     <img src="/images/svg/lounge.svg" alt="">
-                    Lounge Bar
+                    <?=Yii::t('frontend', 'Lounge Bar')?>
                 </p>
                 <p data-num="5">
                     <img src="/images/svg/cinema.svg" alt="">
                     <?=Yii::t('frontend', 'Кинотеатр')?>
                 </p>
-                <p data-num="6"><?=Yii::t('frontend', 'Собственный пляж')?></p>
-                <p data-num="7"><?=Yii::t('frontend', 'Озелененные террасы')?></p>
-                <p data-num="8"><?=Yii::t('frontend', 'Детская комната')?></p>
+                <p data-num="6">
+                    <img src="/images/svg/beach.svg" alt="">
+                    <?=Yii::t('frontend', 'Собственный пляж')?>
+                </p>
+                <p data-num="7">
+                    <img src="/images/svg/terraces.svg" alt="">
+                    <?=Yii::t('frontend', 'Озелененные террасы')?>
+                </p>
+                <p data-num="8">
+                    <img src="/images/svg/playground.svg" alt="">
+                    <?=Yii::t('frontend', 'Детская комната')?>
+                </p>
                 <p data-num="9">
                     <img src="/images/svg/work.svg" alt="">
-                    Coworking зона
+                    <?=Yii::t('frontend', 'Coworking зона')?>
                 </p>
                 <p data-num="10">
                     <img src="/images/svg/conference.svg" alt="">
-                    Конференц-зал
+                    <?=Yii::t('frontend', 'Конференц-зал')?>
                 </p>
                 <p data-num="11">
                     <img src="/images/svg/parking.svg" alt="">
