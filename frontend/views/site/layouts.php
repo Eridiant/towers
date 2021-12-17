@@ -268,7 +268,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 </div>
                 <div class="flat-num-img">
                     <picture>
-                        <img src="/images/3d.png" alt="">
+                        <img src="/images/blocks/<?= $block; ?>/d/<?= $model[0]['img']; ?>.jpg" alt="">
                     </picture>
                 </div>
                 <div class="flat-num-inner">

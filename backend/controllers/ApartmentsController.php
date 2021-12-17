@@ -88,6 +88,68 @@ class ApartmentsController extends Controller
 
     }
 
+    public function actionDb()
+    {
+        $floor = 0;
+        $j = 1;
+        for ($i=1; $i < 1102; $i++) {
+            $q = ApartmentsB::find()
+                        ->where(['id' => $i])
+                        ->one();
+
+            // var_dump('<pre>');
+            // var_dump($q);
+            // var_dump('</pre>');
+            // die;
+            
+            if ($q->floor_num != $floor) {
+                $floor = $q->floor_num;
+                $j = 1;
+            }
+
+            switch ($j) {
+                case 1:
+                    $q->img = 2;
+                    break;
+                case 2:
+                    $q->img = 3;
+                    break;
+                case 3:
+                    $q->img = 4;
+                    break;
+                case 4:
+                    $q->img = 5;
+                    break;
+                case 19:
+                    $q->img = 25;
+                    break;
+                case 20:
+                    $q->img = 24;
+                    break;
+                case 21:
+                    $q->img = 23;
+                    break;
+                case 22:
+                    $q->img = 6;
+                    break;
+                case 24:
+                    $q->img = 7;
+                    break;
+                case 26:
+                    $q->img = 8;
+                    break;
+                default:
+                    break;
+            }
+            ++$j;
+            $q->save();
+            if ($q->getErrors()) {
+                var_dump($q->getErrors());
+            }
+        }
+        
+    }
+
     /**
      * Displays a single Apartments model.
      * @param int $id ID
