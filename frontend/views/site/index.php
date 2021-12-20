@@ -343,14 +343,14 @@ use yii\helpers\Url;
                             </picture>
                             <div>
                                 <p>
-                                    <strong><?=Yii::t('frontend', 'Паркинг')?></strong> <?=Yii::t('frontend', 'Паркинг на 300 парковочных мест')?>
+                                    <strong></strong> <?=Yii::t('frontend', 'Паркинг на 300 парковочных мест')?>
                                 </p>
                             </div>
                         </div>
                         <div class="infr-title">
                             <h3><?=Yii::t('frontend', 'Паркинг')?></h3>
                             <p>
-                                <strong><?=Yii::t('frontend', 'Паркинг')?></strong> <?=Yii::t('frontend', 'Паркинг на 300 парковочных мест')?>
+                                <strong></strong> <?=Yii::t('frontend', 'Паркинг на 300 парковочных мест')?>
                             </p>
                         </div>
                     </div>
