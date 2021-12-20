@@ -218,6 +218,37 @@ class ApartmentsController extends Controller
         return $num;
     }
 
+    public function actionDbch()
+    {
+        $floor = 0;
+        $j = 1;
+        for ($i=1; $i < 1102; $i++) {
+            $q = ApartmentsB::find()
+                        ->where(['id' => $i])
+                        ->one();
+
+            // var_dump('<pre>');
+            // var_dump($q);
+            // var_dump('</pre>');
+            // die;
+            
+            if ($q->living_space > 30 && $q->img == 1) {
+                $q->img = 2;
+            }
+
+            if ($q->living_space < 30 && $q->img != 1) {
+                $q->img = 1;
+            }
+
+            ++$j;
+            $q->save();
+            if ($q->getErrors()) {
+                var_dump($q->getErrors());
+            }
+        }
+        
+    }
+
     public function actionDb()
     {
         $floor = 0;
