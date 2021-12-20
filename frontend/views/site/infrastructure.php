@@ -135,12 +135,10 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-text">
-                            Разнообразный и богатый опыт начало повседневной работы по формированию позиции позволяет.
-                        </p>
+                        <p class="infrastructure-item-text"></p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Piano & Lounge Bar с живой музыкой
+                        <?=Yii::t('frontend', 'Проведите вечер в пиано-баре с близкими в сопровождении живой музыки и любуйтесь видом на море в разнообразной и изысканной обстановке.')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -160,7 +158,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        <?=Yii::t('frontend', 'Кинотеатр')?> “Calligraphy Cinema”
+                        <?=Yii::t('frontend', 'Кинотеатр')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -216,7 +214,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
                         <p class="infrastructure-item-text">
-                            <?=Yii::t('frontend', 'концепция отеля имеет детский клуб и анимацию для детей от 2 до 10 лет,  мы ценим ваш отдых и заботимся о ваших детях.')?>
+                            <?=Yii::t('frontend', 'Для детей от 2 до 10 лет в комплексе есть место для отдыха и развлечений с аниматом. Мы заботимся о хорошем настроении ваших детей.')?>
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
@@ -236,11 +234,11 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
                         <p class="infrastructure-item-text">
-                            Разнообразный и богатый опыт начало повседневной работы по формированию позиции позволяет.
+                            <?=Yii::t('frontend', 'Мы предлагаем не только места для отдыха, но и комфортную рабочую среду, оборудованную интернетом и всем необходимым инвентарем.')?>
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Coworking зона
+                        <?=Yii::t('frontend', 'Coworking зона')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -256,11 +254,11 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
                         <p class="infrastructure-item-text">
-                            Разнообразный и богатый опыт начало повседневной работы по формированию позиции позволяет.
+                            <?=Yii::t('frontend', 'Планируйте деловые встречи и мероприятия в конференц-зале Calligraphy вместимостью до 70 человек.')?>
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        Конференц-зал
+                        <?=Yii::t('frontend', 'Конференц-зал')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -280,7 +278,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                        <?=Yii::t('frontend', 'Паркинг')?> на 300 парковочных мест
+                        <?=Yii::t('frontend', 'Паркинг на 300 парковочных мест')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
