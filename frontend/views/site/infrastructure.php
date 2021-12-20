@@ -75,9 +75,8 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        
                         <p class="infrastructure-item-text">
-                            <?=Yii::t('frontend', 'входит в концепцию - подогреваемый бассейн. входит в концепцию - подогреваемый бассейн.')?>
+                            <?=Yii::t('frontend', 'входит в концепцию - подогреваемый бассейн.')?>
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
