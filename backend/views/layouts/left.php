@@ -48,7 +48,7 @@
                                 'url' => '#',
                                 'items' => [
                                     ['label' => 'Этажи', 'icon' => 'building', 'url' => ['/floor/index', 'block' => 'a'],],
-                                    ['label' => 'Этажи', 'icon' => 'building', 'url' => ['/floor/multy', 'block' => 'a'],],
+                                    // ['label' => 'Этажи', 'icon' => 'building', 'url' => ['/floor/multy', 'block' => 'a'],],
                                     ['label' => 'Квартиры', 'icon' => 'wpforms', 'url' => ['/apartments/index', 'block' => 'a'],],
                                 ],
                             ],
@@ -58,7 +58,7 @@
                                 'url' => '#',
                                 'items' => [
                                     ['label' => 'Этажи', 'icon' => 'building', 'url' => ['/floor/index', 'block' => 'b'],],
-                                    ['label' => 'Этажи', 'icon' => 'building', 'url' => ['/floor/multy', 'block' => 'b'],],
+                                    // ['label' => 'Этажи', 'icon' => 'building', 'url' => ['/floor/multy', 'block' => 'b'],],
                                     ['label' => 'Квартиры', 'icon' => 'wpforms', 'url' => ['/apartments/index', 'block' => 'b'],],
                                 ],
                             ],
@@ -68,7 +68,7 @@
                                 'url' => '#',
                                 'items' => [
                                     ['label' => 'Этажи', 'icon' => 'building', 'url' => ['/floor/index', 'block' => 'c'],],
-                                    ['label' => 'Этажи', 'icon' => 'building', 'url' => ['/floor/multy', 'block' => 'c'],],
+                                    // ['label' => 'Этажи', 'icon' => 'building', 'url' => ['/floor/multy', 'block' => 'c'],],
                                     ['label' => 'Квартиры', 'icon' => 'wpforms', 'url' => ['/apartments/index', 'block' => 'c'],],
                                 ],
                             ],

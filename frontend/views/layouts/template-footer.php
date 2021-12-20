@@ -110,7 +110,7 @@ use yii\helpers\Url;
 
 
 
-
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 <!-- Swiper JS -->
 <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
