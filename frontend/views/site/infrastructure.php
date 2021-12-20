@@ -135,10 +135,10 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </div>
                 <div class="infrastructure-item-inf">
                     <div class="infrastructure-item-desc">
-                        <p class="infrastructure-item-text"></p>
+                        <p class="infrastructure-item-text">
+                        <?=Yii::t('frontend', 'Проведите вечер в пиано-баре с близкими в сопровождении живой музыки и любуйтесь видом на море в разнообразной и изысканной обстановке.')?></p>
                     </div>
                     <div class="infrastructure-item-title">
-                        <?=Yii::t('frontend', 'Проведите вечер в пиано-баре с близкими в сопровождении живой музыки и любуйтесь видом на море в разнообразной и изысканной обстановке.')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
