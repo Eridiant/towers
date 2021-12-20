@@ -139,6 +139,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                         <?=Yii::t('frontend', 'Проведите вечер в пиано-баре с близкими в сопровождении живой музыки и любуйтесь видом на море в разнообразной и изысканной обстановке.')?></p>
                     </div>
                     <div class="infrastructure-item-title">
+                        <?=Yii::t('frontend', 'Piano & Lounge Bar')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
