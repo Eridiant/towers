@@ -15,8 +15,7 @@ use yii\bootstrap4\NavBar;
 
 AppAsset::register($this);
 
-$cookies = Yii::$app->request->cookies;
-$currentLang = $cookies->getValue('_locale', 'en-US');
+$currentLang = Yii::$app->language;
 
 $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
 

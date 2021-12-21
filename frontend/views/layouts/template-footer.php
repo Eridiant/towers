@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
+$lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one()->code;
 
 ?>
 
@@ -59,6 +60,10 @@ use yii\helpers\Url;
 						</a>
 					</div>
 				</div>
+                <a href="/presentation/Calligraphy_Towers_Presentation_<?= $lg; ?>.pdf" class="" download>
+                    <span><?=Yii::t('frontend', 'Скачать презентацию')?></span>
+                    <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
+                </a>
 			</div>
 			<div class="footer-phone">
 			<a href="tel:<?= $user_info->phone; ?>" class="top-phone phone"><?= preg_replace("/^(\d{3})(\d{3})(\d{2})(\d{2})(\d{2})$/", "+$1($2)-$3-$4-$5", $user_info->phone); ?></a>

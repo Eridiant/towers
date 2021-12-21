@@ -38,18 +38,27 @@ $this->title = 'My Yii Application';
                             <?=Yii::t('frontend', 'Смотрите информацию о завершенных и текущих тендерах')?>
                         </li>
                     </ul>
+                    <?= $this->render('_btn') ?>
                 </div>
             </div>
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper aboute-swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="about-img">
-                            <img src="/images/dist/about/about.jpg" alt="">
+                            <picture>
+                                <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/index/about-mb-1.jpg, /images/dist/index/about-mb-1-2x.jpg 2x">
+                                <source type="image/jpeg" srcset="/images/dist/index/about-1.jpg, /images/dist/index/about-1-2x.jpg 2x">
+                                <img src="/images/dist/index/about-1.jpg" width="1306" height="872" alt="">
+                            </picture>
                         </div>
                     </div>
                     <div class="swiper-slide">
                         <div class="about-img">
-                            <img src="/images/dist/about/about.jpg" alt="">
+                            <picture>
+                                <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/index/about-mb-2.jpg, /images/dist/index/about-mb-2-2x.jpg 2x">
+                                <source type="image/jpeg" srcset="/images/dist/index/about-2.jpg, /images/dist/index/about-2-2x.jpg 2x">
+                                <img src="/images/dist/index/about-2.jpg" width="1306" height="872" alt="">
+                            </picture>
                         </div>
                     </div>
                     <div class="swiper-button-next"></div>
