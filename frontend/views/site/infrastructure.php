@@ -28,7 +28,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
                 </p>
                 <p data-num="4">
                     <img src="/images/svg/lounge.svg" alt="">
-                    <?=Yii::t('frontend', 'Lounge Bar')?>
+                    <?=Yii::t('frontend', 'Piano & Lounge Bar')?>
                 </p>
                 <p data-num="5">
                     <img src="/images/svg/cinema.svg" alt="">
