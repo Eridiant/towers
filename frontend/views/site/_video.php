@@ -34,7 +34,7 @@ use yii\helpers\Url;
                         </li>
                     </ul>
                 </div>
-                <a href="#" class="contacts-call btn btn-blue">
+                <a href="#" class="contacts-call btn btn-blue" download>
                     <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                     <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                 </a>

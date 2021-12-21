@@ -27,3 +27,14 @@
 body {
     font-family: "HelveticaNeue", sans-serif;
 }
+.breadcrumbs a, .breadcrumbs p {
+    font-size: 15px;
+    letter-spacing: -.5px;
+    font-stretch: condensed
+}
+.breadcrumbs a {
+    padding-right: 20px;
+}
+.breadcrumbs a::after {
+    right: 5px;
+}
