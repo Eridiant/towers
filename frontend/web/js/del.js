@@ -449,10 +449,11 @@ function changeModule(arr) {
     if (checkFloor.dataset.block == block && checkFloor.dataset.floor == fl) return;
     // console.log(block,fl);
     
-    document.querySelector('#floor .floor-choose-img').innerHTML = `<picture><img src="/images/blocks/img/${block}/${fl}.jpg" alt=""></picture>`;
     let svg = document.querySelector('#floor .floor-choose-fig');
 
     svg.innerHTML = `<object id="test" data-floor="${fl}" data-block="${block}" data="/images/blocks/svg/${block}/${fl}.svg" type="image/svg+xml"></object>`;
+    
+    document.querySelector('#floor .floor-choose-img').innerHTML = `<picture><img src="/images/blocks/img/${block}/${fl}.jpg" alt=""></picture>`;
     
     setTimeout(showStatus, 2000);
 }
