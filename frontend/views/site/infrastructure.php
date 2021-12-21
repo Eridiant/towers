@@ -169,7 +169,7 @@ $this->title = Yii::t('frontend', 'Инфраструктур');
             <div class="infrastructure-item" data-item="6">
                 <div class="infrastructure-item-img">
                     <picture>
-                        <img srcset="/images/dist/infrastructure/infrs-6.jpg, /images/dist/infrastructure/infrs-6-2x.jpg 2x" src="/images/dist/infrastructure/infrs-6.jpg" width="480" height="840" alt="">
+                        <img srcset="/images/dist/infrastructure/intr-6.jpg, /images/dist/infrastructure/intr-6-2x.jpg 2x" src="/images/dist/infrastructure/intr-6.jpg" width="480" height="840" alt="">
                     </picture>
                 </div>
                 <div class="infrastructure-item-inf">
