@@ -199,7 +199,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-11.jpg, /images/dist/infrastructure/inf-11-2x.jpg 2x" src="/images/dist/infrastructure/inf-11.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-3.jpg, /images/dist/infrastructure/inf-3-2x.jpg 2x" src="/images/dist/infrastructure/inf-3.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
@@ -279,7 +279,7 @@ use yii\helpers\Url;
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-1.jpg, /images/dist/infrastructure/inf-1-2x.jpg 2x" src="/images/dist/infrastructure/inf-1.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-31.jpg, /images/dist/infrastructure/inf-31-2x.jpg 2x" src="/images/dist/infrastructure/inf-31.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
                                 <p>
