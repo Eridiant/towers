@@ -351,6 +351,106 @@ window.addEventListener('load', () => {
         }
         
 	}
+
+    if (document.querySelector('.news')) {
+        let news_container = document.querySelector('.news-wrapper');
+        let more_games = document.querySelector('.news-next');
+
+        more_games.addEventListener('click', (e) => {
+            let add = news_container.childElementCount;
+            console.log(add);
+            
+            sender(add);
+        })
+
+        function sender(add = 0) {
+            more_games.classList.add('news-next-load');
+            setTimeout(()=>{
+                $.ajax({
+                    url: '/news',
+                    type: 'POST',
+                    data: {add: add},
+                    success: function(response){
+                        response = JSON.parse(response);
+
+                        if (!response[0]) {
+                            more_games.classList.add('hide');
+                        } else {
+                            more_games.classList.remove('hide');
+                        }
+                        addGames(response[1]);
+                    },
+                    complete: function() {
+                        more_games.classList.remove('news-next-load');
+                    }
+                })
+            }, 500);
+        };
+        
+        function addGames(games){
+            // console.log(games);
+            // let div = document.createElement('div');
+            // div.innerHTML = games;
+            news_container.innerHTML += games;
+        };
+    }
+
+
+	if (document.querySelector('.gallery-main')) {
+		var gallery = new Swiper(".gallery-thumb", {
+			loop: true,
+			spaceBetween: 40,
+			slidesPerView: 4,
+			watchSlidesProgress: true,
+			breakpoints: {
+				1200: {
+					slidesPerView: 4,
+				},
+				768: {
+					slidesPerView: 3,
+				},
+				540: {
+					slidesPerView: 2,
+				},
+				240: {
+					slidesPerView: 1,
+				},
+			},
+			
+		});
+		var gallery2 = new Swiper(".gallery-main", {
+			loop: true,
+			// spaceBetween: 10,
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+			thumbs: {
+				swiper: gallery,
+			},
+		});
+
+        if (document.querySelector('.youtube')) {
+
+            gallery.on('slideChange', () => {
+                console.log('qqq');
+                
+                stopVideo();
+            })
+
+            function stopVideo() {
+                document.querySelectorAll('iframe').forEach(el => {
+
+                    let iframe = el.contentWindow;
+                    iframe.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+
+                })
+
+            }
+        }
+	}
+
+    
 })
 
 function checkModule(block, floor = 0) {

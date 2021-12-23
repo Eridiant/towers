@@ -16,7 +16,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Feedback;
-use backend\models\News;
+use frontend\models\News;
 
 /**
  * News controller
@@ -35,10 +35,10 @@ class NewsController extends Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
+            // 'captcha' => [
+            //     'class' => 'yii\captcha\CaptchaAction',
+            //     'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            // ],
             'set-locale' => [
                 'class' => 'common\actions\SetLocaleAction',
                 'locales'=> \yii\helpers\ArrayHelper::getColumn(\backend\modules\language\models\Language::find()->select('key')->asArray()->all(), 'key'),
@@ -68,15 +68,35 @@ class NewsController extends Controller
         $code = $lang->code;
         $title = "title_{$code}";
 
-        $model = News::find()
-            // ->where(['IS NOT', $title, null])
-            ->where(['active' => 1])
-            ->andWhere(['not', [$title => null]])
-            ->all();
+        $request = Yii::$app->request;
+        if ($request->isPost) {
+
+            $add = $request->post("add") / 4;
+
+            $model = News::find()
+                ->where(['active' => 1])
+                ->andWhere(['not', [$title => null]]);
+
+            $count = floor($model->count() / (($add + 1) * 4));
+
+            $model = $model->limit(4)->offset(4*$add)->all();
+
+            return json_encode([$count, $this->renderPartial('_news', compact('model', 'code', 'title'))]);
+
+        } else {
+
+            $model = News::find()
+                ->where(['active' => 1])
+                ->andWhere(['not', [$title => null]]);
+
+            $count = floor($model->count() - 4) > 0 ? 1 : 0 ;
+
+            $model = $model->limit(4)->all();
+        }
 
         $this->bodyClass = 'other bl';
 
-        return $this->render('index', compact('model', 'code', 'title'));
+        return $this->render('index', compact('model', 'code', 'title', 'count'));
     }
 
     public function actionView($slug)
