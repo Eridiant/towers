@@ -30,6 +30,10 @@ $lang = Language::getCurrent()->code;
         ],
     ]); ?>
 
+    <?php if (!is_null($model->image)): ?>
+        <?= Html::img("../../../frontend/web/uploads/{$model->image}", ['alt' => $model->title_ru, 'style' => 'width: 10%'])?>
+    <?php endif; ?>
+
     <?= $form->field($model, 'image')->fileInput() ?>
 
     <?= $form->field($model, 'active')->checkbox(['checked'=>true])?>
