@@ -38,7 +38,10 @@ $this->title = 'My Yii Application';
                             <?=Yii::t('frontend', 'Смотрите информацию о завершенных и текущих тендерах')?>
                         </li>
                     </ul>
-                    <?= $this->render('_btn') ?>
+                    <a href="/presentation/Grand_Maison_პრეზენტაცია.pdf" class="btn btn-blue" download>
+                        <span><?=Yii::t('frontend', 'Скачать презентацию')?></span>
+                        <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
+                    </a>
                 </div>
             </div>
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper aboute-swiper">
