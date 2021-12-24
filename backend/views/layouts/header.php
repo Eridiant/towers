@@ -38,7 +38,7 @@ use backend\modules\language\models\Language;
                             <?php foreach ($messages as $message): ?>
                                 <ul class="menu">
                                     <li><!-- start message -->
-                                    <a href="#">
+                                    <a href="<?=Url::toRoute(['/feedback/views', 'id' => $message->id]) ?>">
                                         <h4>
                                             Имя <?= $message->name; ?>
                                             <small><i class="fa fa-clock-o"></i><?= Yii::$app->formatter->asRelativeTime($message->created_at); ?></small>

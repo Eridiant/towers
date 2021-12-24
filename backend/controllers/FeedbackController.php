@@ -30,7 +30,7 @@ class FeedbackController extends Controller
                             'allow' => true,
                         ],
                         [
-                            'actions' => ['logout', 'index', 'delete', 'view'],
+                            'actions' => ['logout', 'index', 'delete', 'view', 'views'],
                             'allow' => true,
                             'roles' => ['@'],
                         ],
@@ -78,16 +78,30 @@ class FeedbackController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+    public function actionViews($id)
+    {
+        $model = Feedback::find()->where(['id' => $id])->one();
+        $model->viewed = 0;
+        $model->save();
+
+        return $this->render('view', compact('model'));
+    }
     public function actionView($id)
     {
-        $msg = Feedback::find($id)->one();
-        if (true) {
-            $msg->viewed = 0;
-            $msg->save();
-            if ($msg->getErrors()) {
-                var_dump($msg->getErrors());
-            }
+        $msg = Feedback::find()->where(['id' => $id])->one();
+        // if (true) {
 
+        // }
+
+        $msg->viewed = 0;
+        // var_dump('<pre>');
+        // var_dump($msg->save());
+        // var_dump('</pre>');
+        // die;
+        
+        $msg->save();
+        if ($msg->getErrors()) {
+            var_dump($msg->getErrors());die;
         }
 
 
