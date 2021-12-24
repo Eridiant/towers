@@ -48,6 +48,7 @@ class FeedbackSearch extends Feedback
             'query' => $query,
             'sort' => [
                 'defaultOrder' => [
+                    'viewed' => SORT_DESC,
                     'created_at' => SORT_DESC,
                 ],
             ],
