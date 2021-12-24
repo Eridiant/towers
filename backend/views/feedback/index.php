@@ -41,11 +41,12 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'label' => 'Статус',
                 'attribute'=>'viewed',
+                'format' => 'raw',
                 'value'=>function ($model) {
                     if($model->viewed == 0){
-                        return 'Просмотрена';
+                        return '<p style="color:green">Просмотрена</p>';
                     }elseif ($model->viewed == 1) {
-                        return 'Новая';
+                        return '<p style="color:red">Новая</p>';
                     }
                 },
             ],
