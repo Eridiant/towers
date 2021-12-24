@@ -615,49 +615,47 @@ use yii\helpers\Url;
     </div>
 </div>
 
-<main>
-    <div class="contact">
-        <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
-            <div class="contact-wrapper">
-                <!-- <div id="map" class="map"></div>    -->
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.574059231447!2d41.61839171541153!3d41.6433373792416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40678672f2beb8cb%3A0x33e0f1c9145ee33!2zMTE2IFp1cmFiIEdvcmdpbGFkemUgU3QsIEJhdHVtaSwg0JPRgNGD0LfQuNGP!5e0!3m2!1sru!2sru!4v1621084648113!5m2!1sru!2sru" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-            
-            <div class="contact-wrapper">
-                <!-- <div class="contact-bg">
-                    <picture>
-                        <img src="/images/contact-team.jpg" alt="">
-                    </picture>
-                </div> -->
-                <div class="contact-form">
-                    <p class="title"><?=Yii::t('frontend', 'Поможем в выборе!')?></p>
-                    <p>
-                        <?=Yii::t('frontend', 'Разнообразный и богатый опыт начало повседневной работы по формированию.')?>
-                    </p>
+<div class="contact">
+    <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
+        <div class="contact-wrapper">
+            <!-- <div id="map" class="map"></div>    -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2981.574059231447!2d41.61839171541153!3d41.6433373792416!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40678672f2beb8cb%3A0x33e0f1c9145ee33!2zMTE2IFp1cmFiIEdvcmdpbGFkemUgU3QsIEJhdHVtaSwg0JPRgNGD0LfQuNGP!5e0!3m2!1sru!2sru!4v1621084648113!5m2!1sru!2sru" width="100%" height="100%" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        
+        <div class="contact-wrapper">
+            <!-- <div class="contact-bg">
+                <picture>
+                    <img src="/images/contact-team.jpg" alt="">
+                </picture>
+            </div> -->
+            <div class="contact-form">
+                <p class="title"><?=Yii::t('frontend', 'Поможем в выборе!')?></p>
+                <p>
+                    <?=Yii::t('frontend', 'Разнообразный и богатый опыт начало повседневной работы по формированию.')?>
+                </p>
 
-                    <?= $this->render('_form', [
-                        'model' => $model,
-                    ]) ?>
-                </div>
-                <div class="contact-bg">
-                    <div class="contact-cam">
-                        <div class="contact-cam-inner">
-                            <p>live cam</p>
-                            <p><?=Yii::t('frontend', 'Посмотреть')?></p>
-                        </div>
-                        <div class="contact-cam-wrap">
-                            <svg width="28" height="26"><use xlink:href="/images/icons.svg#cam"></use></svg>
-                        </div>
+                <?= $this->render('_form', [
+                    'model' => $model,
+                ]) ?>
+            </div>
+            <div class="contact-bg">
+                <div class="contact-cam">
+                    <div class="contact-cam-inner">
+                        <p>live cam</p>
+                        <p><?=Yii::t('frontend', 'Посмотреть')?></p>
                     </div>
-                    <div class="contact-video contact-cam">
-                        <p><?=Yii::t('frontend', 'Видео')?></p>
-                        <div class="contact-video-inner">
-                            <p>3D</p>
-                            <svg width="36" height="34"><use xlink:href="/images/icons.svg#3d"></use></svg>
-                        </div>
+                    <div class="contact-cam-wrap">
+                        <svg width="28" height="26"><use xlink:href="/images/icons.svg#cam"></use></svg>
+                    </div>
+                </div>
+                <div class="contact-video contact-cam">
+                    <p><?=Yii::t('frontend', 'Видео')?></p>
+                    <div class="contact-video-inner">
+                        <p>3D</p>
+                        <svg width="36" height="34"><use xlink:href="/images/icons.svg#3d"></use></svg>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</main>
+</div>

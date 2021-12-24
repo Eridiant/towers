@@ -433,6 +433,7 @@ window.addEventListener('load', () => {
         if (document.querySelector('.youtube')) {
 
             gallery.on('slideChange', () => {
+                console.log('slideChange');
                 stopVideo();
             })
 

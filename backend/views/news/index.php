@@ -30,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['style' => 'overflow: hidden; text-overflow: ellipsis; max-height: 150px;'],
                 'headerOptions' => ['style' => 'width: 18%;'],
                 'value' => function($model){
-                    return Html::tag('p', $model->title_ru);
+                    return $model->title_ru;
                 },
             ],
             [
@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['style' => 'overflow: hidden; text-overflow: ellipsis; max-height: 150px;'],
                 'headerOptions' => ['style' => 'width: 18%;'],
                 'value' => function($model){
-                    return Html::tag('p', $model->title_en);
+                    return $model->title_en;
                 },
             ],
             [
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['style' => 'overflow: hidden; text-overflow: ellipsis; max-height: 150px;'],
                 'headerOptions' => ['style' => 'width: 18%;'],
                 'value' => function($model){
-                    return Html::tag('p', $model->title_ge);
+                    return $model->title_ge;
                 },
             ],
             [
@@ -54,10 +54,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['style' => 'overflow: hidden; text-overflow: ellipsis; max-height: 150px;'],
                 'headerOptions' => ['style' => 'width: 18%;'],
                 'value' => function($model){
-                    return Html::tag('p', $model->title_he);
+                    return $model->title_he;
                 },
             ],
-            'active',
+            [
+                'attribute' => 'active',
+                'value'=>function ($model) {
+                    if($model->active == 0){
+                        return 'Скрыта';
+                    }elseif ($model->active == 1) {
+                        return 'Активна';
+                    }
+                },
+            ],
             //'created_at',
             //'updated_at',
 
