@@ -75,7 +75,8 @@ class NewsController extends Controller
 
             $model = News::find()
                 ->where(['active' => 1])
-                ->andWhere(['not', [$title => null]]);
+                ->andWhere(['not', [$title => null]])
+                ->orderBy(['id' => SORT_DESC]);
 
             $count = floor($model->count() / (($add + 1) * 4));
 
@@ -87,7 +88,8 @@ class NewsController extends Controller
 
             $model = News::find()
                 ->where(['active' => 1])
-                ->andWhere(['not', [$title => null]]);
+                ->andWhere(['not', [$title => null]])
+                ->orderBy(['id' => SORT_DESC]);
 
             $count = floor($model->count() - 4) > 0 ? 1 : 0 ;
 

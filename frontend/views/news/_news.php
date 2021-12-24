@@ -19,7 +19,7 @@ use yii\helpers\Url;
             <div class="news-excerpt-text">
                 <?= $model->$code; ?>
             </div>
-            <a class="news-link" href="<?= Url::toRoute("news/{$model->slug}"); ?>">Подробнее</a>
+            <a class="news-link" href="<?= Url::toRoute("news/{$model->slug}"); ?>"><?=Yii::t('frontend', 'Подробнее')?></a>
         </div>
     </div>
 <?php endforeach; ?>
