@@ -17,6 +17,7 @@ use yii\helpers\Url;
         <h2><?= $model->$title; ?></h2>
         <div class="news-excerpt">
             <div class="news-excerpt-text">
+                <?php $model->$code = strip_tags($model->$code); ?>
                 <?= $model->$code; ?>
             </div>
             <a class="news-link" href="<?= Url::toRoute("news/{$model->slug}"); ?>"><?=Yii::t('frontend', 'Подробнее')?></a>
