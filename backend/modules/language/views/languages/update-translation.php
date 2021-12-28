@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <h3>Оригинал: <?=$translation->message ?></h3>
             <?php $form = ActiveForm::begin(); ?>
             
-            <?= $form->field($model, 'translation')->textInput() ?>
+            <?= $form->field($model, 'translation')->textarea(['rows' => '6']) ?>
 
             <div class="form-group">
                 <?= Html::submitButton('Сохранить', ['class' => 'btn btn-success btn-admin']) ?>
