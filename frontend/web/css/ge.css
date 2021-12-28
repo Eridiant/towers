@@ -38,3 +38,9 @@ body {
 .breadcrumbs a::after {
     right: 5px;
 }
+
+@media screen and (max-width: 500px) {
+    .footer-phone span {
+        max-width: 250px;
+    }
+}
