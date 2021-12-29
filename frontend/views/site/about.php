@@ -46,11 +46,11 @@ $this->title = 'My Yii Application';
                             </li>
                         <?php endif; ?>
                     </ul>
-                    <a href="/presentation/Grand_Maison_პრეზენტაცია.pdf" class="btn btn-blue" download>
-                        <span><?=Yii::t('frontend', 'Скачать презентацию')?></span>
-                        <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
-                    </a>
                 </div>
+                <a href="/presentation/Grand_Maison_პრეზენტაცია.pdf" class="btn btn-blue" download>
+                    <span><?=Yii::t('frontend', 'Скачать презентацию')?></span>
+                    <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
+                </a>
             </div>
             <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper aboute-swiper">
                 <div class="swiper-wrapper">
