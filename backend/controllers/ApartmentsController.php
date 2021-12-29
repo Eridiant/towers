@@ -218,6 +218,30 @@ class ApartmentsController extends Controller
         return $num;
     }
 
+    public function actionDbch24()
+    {
+        $floor = 0;
+        $j = 1;
+        for ($i=2; $i < 45; $i++) {
+            $floor = ApartmentsB::find()
+                        ->where(['floor_num' => $i])
+                        ->all();
+
+            $id = end($floor)->id-2;
+
+            $flat = ApartmentsB::find()
+                        ->where(['id' => $id])
+                        ->one();
+
+            $flat->img = 44;
+            $flat->save();
+            if ($flat->getErrors()) {
+                var_dump($flat->getErrors());
+            }
+        }
+        
+    }
+
     public function actionDbch25()
     {
         $floor = 0;
