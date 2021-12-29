@@ -34,9 +34,11 @@ $this->title = 'My Yii Application';
                         <li>
                             <?=Yii::t('frontend', 'Строительство жилых комплексов')?>
                         </li>
-                        <li>
-                            <?=Yii::t('frontend', 'Смотрите информацию о завершенных и текущих тендерах')?>
-                        </li>
+                        <?php if (Yii::t('frontend', 'Смотрите информацию о завершенных и текущих тендерах') != null): ?>
+                            <li>
+                                <?=Yii::t('frontend', 'Смотрите информацию о завершенных и текущих тендерах')?>
+                            </li>
+                        <?php endif; ?>
                     </ul>
                     <a href="/presentation/Grand_Maison_პრეზენტაცია.pdf" class="btn btn-blue" download>
                         <span><?=Yii::t('frontend', 'Скачать презентацию')?></span>
