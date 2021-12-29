@@ -222,6 +222,30 @@ class ApartmentsController extends Controller
     {
         $floor = 0;
         $j = 1;
+        for ($i=2; $i < 45; $i++) {
+            $floor = ApartmentsB::find()
+                        ->where(['floor_num' => $i])
+                        ->all();
+
+            $id = end($floor)->id;
+
+            $flat = ApartmentsB::find()
+                        ->where(['id' => $id])
+                        ->one();
+
+            $flat->img = 46;
+            $flat->save();
+            if ($flat->getErrors()) {
+                var_dump($flat->getErrors());
+            }
+        }
+        
+    }
+
+    public function actionDbfix()
+    {
+        $floor = 0;
+        $j = 1;
         for ($i=1; $i < 1102; $i++) {
             $q = ApartmentsB::find()
                         ->where(['id' => $i])
@@ -232,12 +256,9 @@ class ApartmentsController extends Controller
             // var_dump('</pre>');
             // die;
             
-            if ($q->living_space > 30 && $q->img == 1) {
-                $q->img = 2;
-            }
-
-            if ($q->living_space < 30 && $q->img != 1) {
-                $q->img = 1;
+            if ($q->floor_num != $floor) {
+                $floor = $q->floor_num;
+                $j = 1;
             }
 
             ++$j;
