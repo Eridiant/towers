@@ -233,11 +233,7 @@ class ApartmentsController extends Controller
             $flat = ApartmentsB::find()
                         ->where(['id' => $id])
                         ->one();
-            var_dump('<pre>');
-            var_dump($flat->total_area);
-            var_dump('</pre>');
-            die;
-            
+
             if ($flat->total_area > 40) {
                 $flat->img = 34;
                 $flat->save();
