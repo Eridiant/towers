@@ -224,11 +224,20 @@ class ApartmentsController extends Controller
         $j = 1;
         for ($i=3; $i < 45; $i++) {
 
-            $flat = ApartmentsB::find()
-                        ->where(['id' => 19])
+            $floor = ApartmentsB::find()
+                        ->where(['floor_num' => $i])
                         ->one();
 
-            // $flat->img = 34;
+            $id = $floor->id+18;
+
+            $flat = ApartmentsB::find()
+                        ->where(['id' => $id])
+                        ->one();
+            var_dump('<pre>');
+            var_dump($flat->total_area);
+            var_dump('</pre>');
+            die;
+            
             if ($flat->total_area > 40) {
                 $flat->img = 34;
                 $flat->save();
@@ -246,10 +255,15 @@ class ApartmentsController extends Controller
         $j = 1;
         for ($i=2; $i < 45; $i++) {
 
-            $flat = ApartmentsB::find()
-                        ->where(['id' => 4])
+            $floor = ApartmentsB::find()
+                        ->where(['floor_num' => $i])
                         ->one();
 
+            $id = $floor->id+3;
+
+            $flat = ApartmentsB::find()
+                        ->where(['id' => $id])
+                        ->one();
             $flat->img = 34;
             $flat->save();
             if ($flat->getErrors()) {
