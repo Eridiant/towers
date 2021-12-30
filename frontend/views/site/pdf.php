@@ -21,9 +21,9 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
         <div class="wrapper"><!-- <a href="/images/blocks/pdf/<?//= $block; ?>/<?//= $floor_num; ?>/1.pdf" alt="" class="contacts-call btn btn-blue"> -->
             <img class="svg compass" src="/images/svg/compass.svg" alt="">
             <div class="wrapper-img"> 
-                <img class="svg<?= $view == 'sea' ? ' show' : ''; ?>" src="/images/svg/mountain.svg" alt="">
+                <img class="svg<?= $view == 'mountain' ? ' show' : ''; ?>" src="/images/svg/mountain.svg" alt="">
                 <img class="img"src="/images/blocks/<?= $block; ?>/<?= $floor; ?>/<?= $img; ?>.jpg" alt="">
-                <img class="svg<?= $view == 'mountain' ? ' show' : ''; ?>" src="/images/svg/seawaves.svg" alt="">
+                <img class="svg<?= $view == 'sea' ? ' show' : ''; ?>" src="/images/svg/seawaves.svg" alt="">
             </div>
             <div class="inner">
                 <p><?= Url::home(true); ?></p>
