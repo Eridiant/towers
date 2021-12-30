@@ -115,7 +115,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
 
 
 
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCabbDzORGtAU9PwXxSc4YG0fSM7YyVEPw"></script>
 <!-- Swiper JS -->
 <!-- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
