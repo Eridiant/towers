@@ -79,6 +79,27 @@ window.addEventListener('load', () => {
                 prevEl: ".choose-prev",
             },
         });
+
+        console.log(window.location.href.slice(-1));
+        
+
+        switch (window.location.href.slice(-1)) {
+            case 'A':
+                choose.slideTo(0);
+                break;
+            case 'B':
+                choose.slideTo(1);
+                break;
+            case 'C':
+                choose.slideTo(2);
+                // ltrs('C');
+                fordelc();
+                break;
+            default:
+                break;
+        }
+
+        // let ch = choose.()
     }
 
     if (document.querySelector('#layouts')) {
@@ -449,7 +470,7 @@ window.addEventListener('load', () => {
         }
 	}
 
-    if (document.querySelector('.contact')) {
+    if (document.querySelector('.contact-cam')) {
         document.querySelector('.contact-cam').addEventListener('click', (e)=>{
 			e.preventDefault();
             document.querySelector('.video').classList.add('popup-show');

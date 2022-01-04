@@ -556,7 +556,7 @@ use yii\helpers\Url;
                     <a href="<?=Url::toRoute('/layouts/block-B') ?>" class="choose-button" data-choose="2">
                         <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'б')?></span>
                     </a>
-                    <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button" data-choose="3" data-inf="<?=Yii::t('frontend', 'скоро в продаже')?>">
+                    <a href="<?=Url::toRoute('/layouts/block-C') ?>" class="choose-button" data-choose="3" data-inf="<?=Yii::t('frontend', 'скоро в продаже')?>">
                         <?//=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
                     </a>
                 </div>
@@ -572,7 +572,7 @@ use yii\helpers\Url;
             <a href="<?=Url::toRoute('/layouts/block-B') ?>" class="choose-button-mob" data-choose="2">
                 <?=Yii::t('frontend', 'б')?>
             </a>
-            <a href="<?=Url::toRoute('/layouts') ?>" class="choose-button-mob" data-choose="3">
+            <a href="<?=Url::toRoute('/layouts/block-C') ?>" class="choose-button-mob" data-choose="3">
                 <?=Yii::t('frontend', 'с')?>
             </a>
         </div>

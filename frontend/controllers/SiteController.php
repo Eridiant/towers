@@ -217,19 +217,34 @@ class SiteController extends Controller
 
         if ($slug === 'block-C') {
             $block = 'c';
-            $blocks = FloorC::find()->all();
-            $floor = FloorC::find()
+            // for del
+            $block = 'b';
+            $blocks = FloorB::find()->all();
+            $floor = FloorB::find()
                     ->where('id=:id')
                     ->addParams([':id' => $id])
                     ->one();
-            $model = ApartmentsC::find()
+            $model = ApartmentsB::find()
                     ->where('floor_num=:floor_num')
                     ->addParams([':floor_num' => $floor->floor])
                     ->asArray()
                     ->all();
-            $mod = ApartmentsC::find()
+            $mod = ApartmentsB::find()
                     ->where('floor_num=:floor_num')
                     ->addParams([':floor_num' => $floor->floor]);
+            // $blocks = FloorC::find()->all();
+            // $floor = FloorC::find()
+            //         ->where('id=:id')
+            //         ->addParams([':id' => $id])
+            //         ->one();
+            // $model = ApartmentsC::find()
+            //         ->where('floor_num=:floor_num')
+            //         ->addParams([':floor_num' => $floor->floor])
+            //         ->asArray()
+            //         ->all();
+            // $mod = ApartmentsC::find()
+            //         ->where('floor_num=:floor_num')
+            //         ->addParams([':floor_num' => $floor->floor]);
         }
 
         foreach ($model as $key => $value) {
