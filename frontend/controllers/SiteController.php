@@ -124,7 +124,7 @@ class SiteController extends Controller
             return ['data' => ['success' => true]];
         }
 
-        $this->bodyClass = 'wh';
+        $this->bodyClass = 'wh index';
 
         return $this->render('index', compact('model'));
     }
