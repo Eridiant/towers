@@ -11,7 +11,7 @@ window.addEventListener('load', () => {
         s0.parentNode.insertBefore(s1,s0);
         })();
         
-    }, 10000);
+    }, 6000);
 
     document.addEventListener('click', (e) => {
         let target = e.target;
