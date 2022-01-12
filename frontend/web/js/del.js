@@ -1,17 +1,17 @@
 window.addEventListener('load', () => {
 
-    // setTimeout(() => {
-    //     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-    //     (function(){
-    //     var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    //     s1.async=true;
-    //     s1.src='https://embed.tawk.to/61a67a909099530957f761a7/1flp4thvt';
-    //     s1.charset='UTF-8';
-    //     s1.setAttribute('crossorigin','*');
-    //     s0.parentNode.insertBefore(s1,s0);
-    //     })();
+    setTimeout(() => {
+        var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+        (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/61a67a909099530957f761a7/1flp4thvt';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+        })();
         
-    // }, 10000);
+    }, 10000);
 
     document.addEventListener('click', (e) => {
         let target = e.target;
