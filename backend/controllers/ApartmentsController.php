@@ -245,7 +245,77 @@ class ApartmentsController extends Controller
         
     // }
 
+    public function actionDbch1()
+    {
+        $floor = 0;
+        $j = 1;
+        for ($i=2; $i < 45; $i++) {
 
+            $floor = ApartmentsB::find()
+                        ->where(['floor_num' => $i])
+                        ->one();
+
+            $id = $floor->id;
+
+            $flat = ApartmentsB::find()
+                        ->where(['id' => $id])
+                        ->one();
+            $flat->img = 33;
+            $flat->save();
+            if ($flat->getErrors()) {
+                var_dump($flat->getErrors());
+            }
+        }
+        
+    }
+
+    public function actionDbch3()
+    {
+        $floor = 0;
+        $j = 1;
+        for ($i=2; $i < 45; $i++) {
+
+            $floor = ApartmentsB::find()
+                        ->where(['floor_num' => $i])
+                        ->one();
+
+            $id = $floor->id+2;
+
+            $flat = ApartmentsB::find()
+                        ->where(['id' => $id])
+                        ->one();
+            $flat->img = 2;
+            $flat->save();
+            if ($flat->getErrors()) {
+                var_dump($flat->getErrors());
+            }
+        }
+        
+    }
+
+    public function actionDbch20()
+    {
+        $floor = 0;
+        $j = 1;
+        for ($i=4; $i < 45; $i++) {
+            $floor = ApartmentsB::find()
+                        ->where(['floor_num' => $i])
+                        ->all();
+
+            $id = end($floor)->id-6;
+
+            $flat = ApartmentsB::find()
+                        ->where(['id' => $id])
+                        ->one();
+
+            $flat->img = 33;
+            $flat->save();
+            if ($flat->getErrors()) {
+                var_dump($flat->getErrors());
+            }
+        }
+        
+    }
 
     // public function actionDbch4()
     // {
