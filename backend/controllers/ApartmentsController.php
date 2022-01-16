@@ -308,7 +308,7 @@ class ApartmentsController extends Controller
                         ->where(['id' => $id])
                         ->one();
 
-            $flat->img = 33;
+            $flat->img = 2;
             $flat->save();
             if ($flat->getErrors()) {
                 var_dump($flat->getErrors());
