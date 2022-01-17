@@ -513,9 +513,11 @@ function checkModule(block, floor = 0) {
             case 3:
                 fls = 4;
                 break;
-            case 4:
             case 8:
             case 15:
+                fls = 9;
+                break;
+            case 4:
                 fls = 5;
                 break;
             case 29:
