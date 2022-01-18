@@ -80,9 +80,6 @@ window.addEventListener('load', () => {
             },
         });
 
-        console.log(window.location.href.slice(-1));
-        
-
         switch (window.location.href.slice(-1)) {
             case 'A':
                 choose.slideTo(0);
@@ -99,7 +96,6 @@ window.addEventListener('load', () => {
                 break;
         }
 
-        // let ch = choose.()
     }
 
     if (document.querySelector('#layouts')) {
@@ -127,6 +123,7 @@ window.addEventListener('load', () => {
             let fncCall = () => {
                 if (choose.activeIndex == 0) {
                     ajaxBlock('block-A');
+                    ltrs('A');
                     document.querySelector('#floor').dataset.floor = 'block-A';
                     if (window.history.replaceState) {
                         window.history.replaceState('blockA', 'Title', '/layouts/block-A');
@@ -136,6 +133,7 @@ window.addEventListener('load', () => {
                 }
                 if (choose.activeIndex == 1) {
                     ajaxBlock('block-B');
+                    ltrs('B');
                     document.querySelector('#floor').dataset.floor = 'block-B';
                     if (window.history.replaceState) {
                         window.history.replaceState('blockB', 'Title', '/layouts/block-B');
@@ -287,12 +285,12 @@ window.addEventListener('load', () => {
         chbtn.addEventListener('click', (e) => {
 
             let button = e.target.closest('.choose-button');
-            let letters = document.querySelectorAll('.blocks');
-            function ltrs(ltr) {
-                letters.forEach(el=> {
-                    el.innerHTML = ltr;
-                });
-            }
+            // let letters = document.querySelectorAll('.blocks');
+            // function ltrs(ltr) {
+            //     letters.forEach(el=> {
+            //         el.innerHTML = ltr;
+            //     });
+            // }
             
 
             // document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont();
@@ -478,6 +476,17 @@ window.addEventListener('load', () => {
 		})
     }
 })
+
+
+function ltrs(ltr) {
+    if (document.querySelector('.blocks')) {
+        let letters = document.querySelectorAll('.blocks');
+
+        letters.forEach(el=> {
+            el.innerHTML = ltr;
+        });
+    }
+}
 
 function checkModule(block, floor = 0) {
     let fls = 0;
