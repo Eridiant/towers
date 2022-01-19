@@ -98,9 +98,10 @@ require_once('SxGeo.php');
 $ip = getIp();
 
 
-$SxGeo = new SxGeo(Yii::getAlias('@webroot') . '/SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
-var_dump($SxGeo->getCountry($ip));
-
+$SxGeo = new SxGeo(Yii::getAlias('@webroot') . '/dat/SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
+// var_dump($SxGeo->getCountry($ip));
+$fLog = fopen(Yii::getAlias('@webroot') . "/dat/ip.log",'a');
+fwrite($fLog, date("d.m.Y H:i:s") . "|| country = " . $SxGeo->getCountry($ip) . " || ip = " . $ip . "\r\n");
 // $country = $SxGeo->getCountry($ip); // возвращает двухзначный ISO-код страны
 // // $SxGeo->getCountryId($ip); 
 // var_dump('<pre>');

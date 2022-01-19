@@ -43,3 +43,4 @@ phpunit.phar
 /backend/web/robots.txt
 
 /frontend/web/images/blocks
+ip.log
