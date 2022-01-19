@@ -86,8 +86,10 @@ function getIp() {
 
     foreach ($keys as $key) {
         if (!empty($_SERVER[$key])) {
-            // $ip = trim(end(explode(',', $_SERVER[$key])));
-            $ip = $_SERVER[$key];
+            $ip = explode(',', $_SERVER[$key]);
+            $ip = end($ip);
+            $ip = trim($ip);
+            // $ip = $_SERVER[$key];
             if (filter_var($ip, FILTER_VALIDATE_IP)) {
                 return $ip;
             }
@@ -100,8 +102,17 @@ $ip = getIp();
 
 $SxGeo = new SxGeo(Yii::getAlias('@webroot') . '/dat/SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
 // var_dump($SxGeo->getCountry($ip));
-$fLog = fopen(Yii::getAlias('@webroot') . "/dat/ip.log",'a');
-fwrite($fLog, date("d.m.Y H:i:s") . "|| country = " . $SxGeo->getCountry($ip) . " || ip = " . $ip . "\r\n");
+
+var_dump($_SERVER['REQUEST_URI']);
+
+$fileName = Yii::getAlias('@webroot') . "/dat/ip.log";
+if ( file_exists($fileName) && ($fp = fopen($fileName, "a"))!==false ) {
+
+    $fLog = fopen($fileName,'a');
+    fwrite($fLog, date("d.m.Y H:i:s") . "|| country = " . $SxGeo->getCountry($ip) . " || ip = " . $ip . " || роут = " . $_SERVER['REQUEST_URI'] . "\r\n");
+    fclose($fLog);
+
+}
 // $country = $SxGeo->getCountry($ip); // возвращает двухзначный ISO-код страны
 // // $SxGeo->getCountryId($ip); 
 // var_dump('<pre>');
