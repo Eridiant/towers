@@ -76,3 +76,36 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
 </body>
 </html>
 <?php $this->endPage();
+
+function getIp() {
+    $keys = [
+        'HTTP_CLIENT_IP',
+        'HTTP_X_FORWARDED_FOR',
+        'REMOTE_ADDR'
+    ];
+
+    foreach ($keys as $key) {
+        if (!empty($_SERVER[$key])) {
+            return $_SERVER[$key];
+            // $ip = trim(end(explode(',', $_SERVER[$key])));
+            // if (filter_var($ip, FILTER_VALIDATE_IP)) {
+            //     return $ip;
+            // }
+        }
+    }
+}
+require_once('SxGeo.php');
+$ip = getIp();
+var_dump('<pre>');
+var_dump();
+var_dump('</pre>');
+die;
+
+// $SxGeo = new SxGeo('SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
+
+// $country = $SxGeo->getCountry($ip); // возвращает двухзначный ISO-код страны
+// // $SxGeo->getCountryId($ip); 
+// var_dump('<pre>');
+// var_dump($SxGeo->getCountry($ip), $SxGeo->getCountryId($ip));
+// var_dump('</pre>');
+
