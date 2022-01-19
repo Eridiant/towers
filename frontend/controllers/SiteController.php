@@ -148,8 +148,9 @@ class SiteController extends Controller
             if($model->save()){
                 Yii::$app->mailer->compose()
                     // ->setTo($mail['email'])
-                    ->setTo('info@calligraphy-towers.com')
-                    ->setFrom('mali@seamarble.ge')
+                    // ->setTo('info@calligraphy-towers.com')
+                    ->setTo('zdvxfb@mail.ru')
+                    ->setFrom('calligraphy@calligraphy-batumi.com')
                     ->setSubject('заявка')
                     ->setTextBody('Имя: ' . $request->post("name") . ' Телефон ' . $request->post("phone") . ' Страна ' . $request->post("country") . ' Почтаы ' . $request->post("email"))
                     ->send();
