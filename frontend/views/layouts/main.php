@@ -103,8 +103,6 @@ $ip = getIp();
 $SxGeo = new SxGeo(Yii::getAlias('@webroot') . '/dat/SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
 // var_dump($SxGeo->getCountry($ip));
 
-var_dump($_SERVER['REQUEST_URI']);
-
 $fileName = Yii::getAlias('@webroot') . "/dat/ip.log";
 if ( file_exists($fileName) && ($fp = fopen($fileName, "a"))!==false ) {
 
