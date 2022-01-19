@@ -86,11 +86,10 @@ function getIp() {
 
     foreach ($keys as $key) {
         if (!empty($_SERVER[$key])) {
-            return $_SERVER[$key];
-            // $ip = trim(end(explode(',', $_SERVER[$key])));
-            // if (filter_var($ip, FILTER_VALIDATE_IP)) {
-            //     return $ip;
-            // }
+            $ip = trim(end(explode(',', $_SERVER[$key])));
+            if (filter_var($ip, FILTER_VALIDATE_IP)) {
+                return $ip;
+            }
         }
     }
 }
@@ -99,7 +98,7 @@ $ip = getIp();
 var_dump('<pre>');
 var_dump($ip);
 var_dump('</pre>');
-die;
+
 
 // $SxGeo = new SxGeo('SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
 
