@@ -95,12 +95,10 @@ function getIp() {
 }
 require_once('SxGeo.php');
 $ip = getIp();
-var_dump('<pre>');
-var_dump($ip);
-var_dump('</pre>');
 
 
-// $SxGeo = new SxGeo('SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
+$SxGeo = new SxGeo('SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
+var_dump($country);
 
 // $country = $SxGeo->getCountry($ip); // возвращает двухзначный ISO-код страны
 // // $SxGeo->getCountryId($ip); 
