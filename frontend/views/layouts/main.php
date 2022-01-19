@@ -107,7 +107,7 @@ $fileName = Yii::getAlias('@webroot') . "/dat/ip.log";
 if ( file_exists($fileName) && ($fp = fopen($fileName, "a"))!==false ) {
 
     $fLog = fopen($fileName,'a');
-    fwrite($fLog, date("d.m.Y H:i:s") . " | " . $SxGeo->getCountry($ip) . " | " . $ip . " | роут=" . $_SERVER['REQUEST_URI'] . " | ref=" . $_SERVER['HTTP_REFERER'] . "\r\n");
+    fwrite($fLog, date("d.m.Y H:i:s") . " | " . $SxGeo->getCountry($ip) . " | " . $ip . " | " . trim($_SERVER['HTTP_USER_AGENT']) . " | роут=" . $_SERVER['REQUEST_URI'] . " | ref=" . $_SERVER['HTTP_REFERER'] . "\r\n");
     fclose($fLog);
 
 }
