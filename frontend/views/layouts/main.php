@@ -97,7 +97,7 @@ function getIp() {
 require_once('SxGeo.php');
 $ip = getIp();
 var_dump('<pre>');
-var_dump();
+var_dump($ip);
 var_dump('</pre>');
 die;
 
