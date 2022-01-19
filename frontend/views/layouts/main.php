@@ -86,7 +86,8 @@ function getIp() {
 
     foreach ($keys as $key) {
         if (!empty($_SERVER[$key])) {
-            $ip = trim(end(explode(',', $_SERVER[$key])));
+            // $ip = trim(end(explode(',', $_SERVER[$key])));
+            $ip = $_SERVER[$key];
             if (filter_var($ip, FILTER_VALIDATE_IP)) {
                 return $ip;
             }
@@ -97,8 +98,8 @@ require_once('SxGeo.php');
 $ip = getIp();
 
 
-$SxGeo = new SxGeo('SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
-var_dump($country);
+$SxGeo = new SxGeo(Yii::getAlias('@webroot') . '/SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
+var_dump($SxGeo->getCountry($ip));
 
 // $country = $SxGeo->getCountry($ip); // возвращает двухзначный ISO-код страны
 // // $SxGeo->getCountryId($ip); 
