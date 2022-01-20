@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 /* @var $this yii\web\View */
 
-$this->title = Yii::t('frontend', 'Галлерея');
+$this->title = Yii::t('frontend', 'Галерея');
 
 ?>
 

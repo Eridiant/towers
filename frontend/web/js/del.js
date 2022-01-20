@@ -15,10 +15,11 @@ window.addEventListener('load', () => {
 
     document.addEventListener('click', (e) => {
         let target = e.target;
-        if (target.closest('.btn')) {
+        if (target.closest('.btn[data-trg]')) {
             document.querySelector(`${target.closest('.btn').dataset.trg}`).scrollIntoView();
         }
     })
+
     // alert(JSON.parse(dato));
     // alert(dato);
     // let arr = JSON.parse(dato);
@@ -43,6 +44,8 @@ window.addEventListener('load', () => {
         e.preventDefault();
 
         let data = $(this).serializeArray();
+        console.log(data);
+        
         $.ajax({
             url: '/site/ajax',
             type: 'POST',

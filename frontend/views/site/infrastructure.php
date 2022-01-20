@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 /* @var $this yii\web\View */
 
-$this->title = Yii::t('frontend', 'Инфраструктур');
+$this->title = Yii::t('frontend', 'Инфраструктура');
 
 ?>
 <div id="infrastructure" class="infrastructure">

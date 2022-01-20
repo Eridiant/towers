@@ -66,8 +66,8 @@ $this->title = Yii::t('frontend', 'Контакты');
                 <div class="contacts-wrap">
                     <button class="btn btn-blue"><?=Yii::t('frontend', 'Отправить')?></button>
                     <div class="contacts-check">
-                        <label for="contacts-check"><?=Yii::t('frontend', 'Я согласен с условиями обработки персональных данных')?></label>
-                        <input id="contacts-check" class="contacts-checkbox" type="checkbox">
+                        <label for="contact-check"><?=Yii::t('frontend', 'Я согласен с условиями обработки персональных данных')?></label>
+                        <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed">
                     </div>
                 </div>
             </form>

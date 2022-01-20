@@ -5,7 +5,7 @@
         <input type="hidden" name="_csrf-frontend" value="<?= Yii::$app->request->csrfToken; ?>">
         <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" required>
         <input type="text" name="email" placeholder="<?=Yii::t('frontend', 'Почта')?>" required>
-        <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>" required>
+        <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>">
         <input type="text" name="country" placeholder="<?=Yii::t('frontend', 'Страна')?>">
     </div>
     <div class="contact-wrap">

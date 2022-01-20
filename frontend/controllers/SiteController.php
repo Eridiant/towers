@@ -144,7 +144,7 @@ class SiteController extends Controller
             $model->country = $request->post("country");
             $model->viewed = $request->post("viewed") == "on" ? 1 : 0;
             $model->lang = Yii::$app->language;
-            
+
             if($model->save()){
                 Yii::$app->mailer->compose()
                     // ->setTo($mail['email'])
