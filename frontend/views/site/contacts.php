@@ -60,14 +60,14 @@ $this->title = Yii::t('frontend', 'Контакты');
 				<?=Yii::t('frontend', 'Введите ваши данные и мы Вам перезвоним')?>
             </p>
             <form id="form" action="/" method="post"> 
-                <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>">
-                <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>">
+                <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" required>
+                <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>" pattern="\+?[0-9\s\-\(\)]+" title="<?=Yii::t('frontend', 'только цифры')?>" required>
                 <input type="text" name="country" placeholder="<?=Yii::t('frontend', 'Страна')?>">
                 <div class="contacts-wrap">
                     <button class="btn btn-blue"><?=Yii::t('frontend', 'Отправить')?></button>
                     <div class="contacts-check">
                         <label for="contact-check"><?=Yii::t('frontend', 'Я согласен с условиями обработки персональных данных')?></label>
-                        <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed">
+                        <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed" required>
                     </div>
                 </div>
             </form>
