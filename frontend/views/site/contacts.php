@@ -35,7 +35,7 @@ $this->title = Yii::t('frontend', 'Контакты');
                         <div class="contacts-inner-svg">
                             <svg width="17" height="24"><use xlink:href="images/icons.svg#address"></use></svg>
                         </div>
-                        <p><?=Yii::t('frontend', 'г. Баутми ул. Шартава 18')?></p>
+                        <p><?=Yii::t('frontend', 'г. Батуми ул. Шартава 18')?></p>
                     </div>
                 </div>
                 <a href="#" class="contacts-call btn btn-blue">
