@@ -20,26 +20,6 @@ window.addEventListener('load', () => {
         }
     })
 
-    // alert(JSON.parse(dato));
-    // alert(dato);
-    // let arr = JSON.parse(dato);
-    // arr.forEach(el => {
-    //     console.log(el);
-        
-    // });
-    // balcony_area: "4.1"
-    // en: null
-    // floor_num: "11"
-    // ge: null
-    // he: null
-    // id: "1"
-    // living_space: "24.5"
-    // money: "40040.0000"
-    // num: "1101"
-    // ru: "sea view"
-    // status: "0"
-    // total_area: "28.6"
-    // document.querySelector('#form').addEventListener('submit', (e) => {
     $("#form").submit(function(e) {
         e.preventDefault();
 
@@ -532,15 +512,17 @@ function checkModule(block, floor = 0) {
             case 4:
                 fls = 5;
                 break;
-            case 29:
-                fls = 30;
+            case 27:
+            case 28:
+                fls = 29;
                 break;
+            case 29:
             case 30:
             case 31:
             case 32:
             case 33:
             case 34:
-                fls = 31;
+                fls = 30;
                 break;
             case 35:
                 fls = 36;
@@ -776,7 +758,7 @@ function init() {
         zoom: 18,
 
         // The latitude and longitude to center the map (always required)
-        center: new google.maps.LatLng(41.63658205509769, 41.621193980941854), // New York
+        center: new google.maps.LatLng(41.63658205509769, 41.621193980941854),
 
         // How you would like to style the map. 
         // This is where you would paste any style found on Snazzy Maps.
@@ -790,10 +772,11 @@ function init() {
     // Create the Google Map using our element and options defined above
     let map = new google.maps.Map(mapElement, mapOptions);
 
-    // Let's also add a marker while we're at it //41.628670740485354, 41.465683318753136
+    // Let's also add a marker while we're at it 
     let marker = new google.maps.Marker({
         position: new google.maps.LatLng(41.63658205509769, 41.621193980941854),
         map: map,
-        title: 'Snazzy!'
+        title: 'Snazzy!',
+        loading: 'lazy'
     });
 }
