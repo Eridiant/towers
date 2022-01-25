@@ -43,15 +43,7 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
     <?= Yii::$app->language == 'ka-GE' ? '<link rel="stylesheet" href="/css/ge.css">' : '' ; ?>
     <?= Yii::$app->language == 'en-US' ? '<link rel="stylesheet" href="/css/en.css">' : '' ; ?>
 
-<!-- Global site tag (gtag.js) - Google Ads: 307879312 -->
-<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=psKiCSyAJRRyMfpfph_knyKpDjWU61SszNIFomAvNwX64hpK_5PoNpRBQFyF01ZlyeMTVytr1xmk5ol7n2zvay0PSvDTLiYajOLZWlktzt6W8tOK_d7o7I9jzlLsiWiZwHytT_fEjx9_PXwfPfHVvhpHbcxzV4642ofkv3AVL2sOm7j1M-ySemyHFQPad4vDcc89gepO-10sH9nEdGbF6aI1mboOZZ-Z-ARQ-H7VUIXIaGpe8_Zk9N8ucHVuqXhePutyaUcIrWvhnUo3wIqF1g4n-KtEiope4ASDe9j5_jKJILJiAY6WRhKon_jZ49BD4KH5pvkjUn_JxfjdMKQgEQ1k1F2a4S9YUOdj4jHILJgItK9hXTAjdzMn9YA54Phh0JCxZ2YoBl7uGpUoKv-Od_7yh4PwZvtl9Ec4uQC70p5yd5BIpIpKNpH9Ve0xMluok-ry7Xqm2vLctY-r4JDMksY2XviiYbr9qDyZsAEIrwKleMZ20wHMERWPXlQ_aQEGQk5rlQwggGOAB4RnVFFCD-zxef42tduin_q76yxyX8ZxSwFtNCJGvju2ETh3d0y9yppSKUSofWeEc9A0BSP4E5sBZ7GQPaVlreWvpveCnmhhxDnK0QhxmZAGmd7NmNXhgn56fAvveL-S1vpgES4okiCUMM1aK2hhT14jtR0ZcSRXUbB7Wisp_aKj67Tmm2XWL5RIWnboIeuZow8dODyDAw" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly93ZWJhdHRhY2gubWFpbC55YW5kZXgubmV0L21lc3NhZ2VfcGFydF9yZWFsL0dsb2JhbCUyMHNpdGUlMjB0YWcudHh0P25hbWU9R2xvYmFsJTIwc2l0ZSUyMHRhZy50eHQmc2lkPVlXVnpYM05wWkRwN0ltRmxjMHRsZVVsa0lqb2lNVGM0SWl3aWFHMWhZMHRsZVVsa0lqb2lNVGM0SWl3aWFYWkNZWE5sTmpRaU9pSldTRGh0U20xaFVGQm9OSHAxTUcxb1N6aHJSVUozUFQwaUxDSnphV1JDWVhObE5qUWlPaUl4U2xWNkwzTm5Rak54Y0M4M1dtdEVNMUJNWlZCd2VEZHNZMFZMUVRsR09FbEpiMHhhVlRCcmMzQk9NVzEyZFRKSWVTOHZjSGg0TW1WRVZGRlBNVTlaTkZKNVF6WXhPV3R4YkZOa1FXUkliWFJNUlhWdWFubHVjRlpPVVdWaFNsZzVXV0kyZUhGNGRGazBkaTlKTmxSS1prNUpjMFZMVjNJM00wMUhTMGRKWjFkSk1qUm5Relo1VlZKNWVGZEJZalZJYjBWNVMzYzlQU0lzSW1odFlXTkNZWE5sTmpRaU9pSlhWVlp0VFUxWVFUQkxlVEZIUml0elNtcGlNak5oZG00eFRrVkdjbm93VmtORldVbG5VVGxXUjFOTlBTSjk"/><script async src="https://www.googletagmanager.com/gtag/js?id=AW-307879312"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-307879312');
-</script>
 </head>
 <body class="<?= $this->context->bodyClass; ?>">
 <?php $this->beginBody() ?>
