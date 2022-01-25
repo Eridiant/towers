@@ -24,7 +24,7 @@ window.addEventListener('load', () => {
         e.preventDefault();
 
         let data = $(this).serializeArray();
-        gtag_report_conversion();
+        // gtag_report_conversion();
         
         $.ajax({
             url: '/site/ajax',
