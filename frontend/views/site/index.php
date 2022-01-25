@@ -375,7 +375,7 @@ $this->title = 'Calligraphy Towers';
                         <picture>
                             <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/index/about-mb-1.jpg, /images/dist/index/about-mb-1-2x.jpg 2x">
                             <source type="image/jpeg" srcset="/images/dist/index/about-1.jpg, /images/dist/index/about-1-2x.jpg 2x">
-                            <img src="/images/dist/index/about-1.jpg" width="1306" height="872" alt="">
+                            <img src="/images/dist/index/about-1.jpg" width="1306" height="872" loading="lazy" alt="">
                         </picture>
                     </div>
                 </div>
@@ -384,7 +384,7 @@ $this->title = 'Calligraphy Towers';
                         <picture>
                             <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/index/about-mb-2.jpg, /images/dist/index/about-mb-2-2x.jpg 2x">
                             <source type="image/jpeg" srcset="/images/dist/index/about-2.jpg, /images/dist/index/about-2-2x.jpg 2x">
-                            <img src="/images/dist/index/about-2.jpg" width="1306" height="872" alt="">
+                            <img src="/images/dist/index/about-2.jpg" width="1306" height="872" loading="lazy" alt="">
                         </picture>
                     </div>
                 </div>
@@ -401,27 +401,27 @@ $this->title = 'Calligraphy Towers';
             <div class="project-img">
                 <div class="project-img-hide project-show" id="project-1">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" alt="">
+                        <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" loading="lazy" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-2">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" alt="">
+                        <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" loading="lazy" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-3">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" alt="">
+                        <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" loading="lazy" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-4">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" alt="">
+                        <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" loading="lazy" alt="">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-5">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" alt="">
+                        <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" loading="lazy" alt="">
                     </picture>
                 </div>
             </div>
@@ -468,7 +468,7 @@ $this->title = 'Calligraphy Towers';
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" alt="">
+                                    <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" loading="lazy" alt="">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Лето')?>, 2019</p>
@@ -479,7 +479,7 @@ $this->title = 'Calligraphy Towers';
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" alt="">
+                                    <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" loading="lazy" alt="">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Лето')?>, 2020</p>
@@ -490,7 +490,7 @@ $this->title = 'Calligraphy Towers';
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" alt="">
+                                    <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" loading="lazy" alt="">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Лето')?>, 2023</p>
@@ -501,7 +501,7 @@ $this->title = 'Calligraphy Towers';
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" alt="">
+                                    <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" loading="lazy" alt="">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Лето')?>, 2024</p>
@@ -512,7 +512,7 @@ $this->title = 'Calligraphy Towers';
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" alt="">
+                                    <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" loading="lazy" alt="">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Лето')?>, 2025</p>
@@ -583,7 +583,7 @@ $this->title = 'Calligraphy Towers';
                         <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'A')?></h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="/images/dist/index/choose/block-a.png" alt="">
+                                <img src="/images/dist/index/choose/block-a.png" loading="lazy" alt="">
                             </picture>
                         </div>
                     </div>
@@ -593,7 +593,7 @@ $this->title = 'Calligraphy Towers';
                         <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'Б')?></h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="/images/dist/index/choose/block-b.png" alt="">
+                                <img src="/images/dist/index/choose/block-b.png" loading="lazy" alt="">
                             </picture>
                         </div>
                     </div>
@@ -603,7 +603,7 @@ $this->title = 'Calligraphy Towers';
                         <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'С')?></h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="/images/dist/index/choose/block-c.png" alt="">
+                                <img src="/images/dist/index/choose/block-c.png" loading="lazy" alt="">
                             </picture>
                         </div>
                     </div>
