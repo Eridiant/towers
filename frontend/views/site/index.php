@@ -339,6 +339,21 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
+                                <img srcset="/images/dist/infrastructure/inf-32.jpg, /images/dist/infrastructure/inf-32-2x.jpg 2x" src="/images/dist/infrastructure/inf-32.jpg" width="450" height="544" alt="">
+                            </picture>
+                            <div>
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="infr-title">
+                            <h3><?=Yii::t('frontend', 'Бассейн')?></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="infr-slider">
+                        <div class="infr-img">
+                            <picture>
                                 <img srcset="/images/dist/infrastructure/inf-11.jpg, /images/dist/infrastructure/inf-11-2x.jpg 2x" src="/images/dist/infrastructure/inf-11.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
