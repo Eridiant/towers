@@ -527,8 +527,10 @@ function checkModule(block, floor = 0) {
                 fls = 36;
                 break;
             case 35:
-            case 36:
                 fls = 37;
+                break;
+            case 36:
+                fls = 38;
                 break;
             // case 37:
                 // fls = 38;
@@ -564,6 +566,7 @@ function checkModule(block, floor = 0) {
                 break;
         }
     }
+
     return [block, fls];
 }
 
