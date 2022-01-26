@@ -521,21 +521,26 @@ function checkModule(block, floor = 0) {
             case 31:
             case 32:
             case 33:
-            case 34:
                 fls = 30;
                 break;
-            case 35:
+            case 34:
                 fls = 36;
                 break;
+            case 35:
             case 36:
                 fls = 37;
                 break;
+            // case 37:
+                // fls = 38;
+                // break;
+            case 23:
+            case 24:
+            case 25:
+            case 26:
             case 37:
-                fls = 38;
-                break;
-            case 38:
                 fls = 39;
                 break;
+            case 38:
             case 39:
             case 40:
             case 41:
