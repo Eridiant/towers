@@ -105,9 +105,6 @@ $this->title = 'Calligraphy Towers';
                 <p data-num="11">
                     <?=Yii::t('frontend', 'Бассейн')?>
                 </p>
-                <p data-num="12">
-                    <?=Yii::t('frontend', 'Бассейн')?>
-                </p>
                 <p data-num="13">
                     <?=Yii::t('frontend', 'Фитнес')?>
                 </p>
