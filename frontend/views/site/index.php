@@ -354,6 +354,26 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
+                                <img srcset="/images/dist/infrastructure/inf-3.jpg, /images/dist/infrastructure/inf-3-2x.jpg 2x" src="/images/dist/infrastructure/inf-3.jpg" width="450" height="544" alt="">
+                            </picture>
+                            <div>
+                                <p>
+                                    <?//=Yii::t('frontend', 'Фитнес')?> <?=Yii::t('frontend', 'наша задача — создать все условия, чтобы спорт приносил не только пользу, но и удовольствие оснащенный новейшим спортивным оборудованием и всеми необходимыми тренажерами для профессионального спорта и любительских занятий')?>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="infr-title">
+                            <h3><?=Yii::t('frontend', 'Фитнес')?></h3>
+                            <p>
+                                <?//=Yii::t('frontend', 'Фитнес')?> <?=Yii::t('frontend', 'наша задача — создать все условия, чтобы спорт приносил не только пользу, но и удовольствие оснащенный новейшим спортивным оборудованием и всеми необходимыми тренажерами для профессионального спорта и любительских занятий')?>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="infr-slider">
+                        <div class="infr-img">
+                            <picture>
                                 <img srcset="/images/dist/infrastructure/inf-11.jpg, /images/dist/infrastructure/inf-11-2x.jpg 2x" src="/images/dist/infrastructure/inf-11.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
