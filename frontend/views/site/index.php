@@ -103,7 +103,7 @@ $this->title = 'Calligraphy Towers';
                     <?=Yii::t('frontend', 'Озелененные террасы')?>
                 </p>
                 <p data-num="11">
-                    <?=Yii::t('frontend', 'Бассейн')?>
+                    <?=Yii::t('frontend', 'Открытый бассейн')?>
                 </p>
                 <p data-num="12">
                     <?=Yii::t('frontend', 'Закрытый бассейн')?>
@@ -334,7 +334,7 @@ $this->title = 'Calligraphy Towers';
                             </div>
                         </div>
                         <div class="infr-title">
-                            <h3><?=Yii::t('frontend', 'Бассейн')?></h3>
+                            <h3><?=Yii::t('frontend', 'Открытый бассейн')?></h3>
                             <p>
                                 <?//=Yii::t('frontend', 'Бассейн')?> <?=Yii::t('frontend', 'входит в концепцию - подогреваемый бассейн.')?>
                             </p>
