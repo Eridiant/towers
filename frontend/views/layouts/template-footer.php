@@ -78,7 +78,28 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
 	</div>
 </footer>
 
-
+<div class="popup-wrapper form form-popup">
+    <div class="popup">
+        <div class="contacts-form">
+            <h2><?=Yii::t('frontend', 'Поможем в выборе!')?></h2>
+            <p>
+				<?=Yii::t('frontend', 'Введите ваши данные и мы Вам перезвоним')?>
+            </p>
+            <form id="form-popup" action="/" method="post"> 
+                <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" title="<?=Yii::t('frontend', 'только буквы')?>" required>
+                <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>" pattern="\+?[0-9\s\-\(\)]+" title="<?=Yii::t('frontend', 'только цифры')?>" required>
+                <input type="text" name="email" placeholder="<?=Yii::t('frontend', 'Почта')?>" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" title="<?=Yii::t('frontend', 'your_mail@mail')?>" required>
+                <div class="contacts-wrap">
+                    <button class="btn btn-blue"><?=Yii::t('frontend', 'Отправить')?></button>
+                    <div class="contacts-check">
+                        <label for="contact-check"><?=Yii::t('frontend', 'Я согласен с условиями обработки персональных данных')?></label>
+                        <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <div class="popup-wrapper success">
     <div class="popup">
@@ -112,6 +133,14 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
 <div class="popup-wrapper video">
     <div class="popup"></div>
 </div>
+
+<div class="cont-wrapper">
+    <div class="cont-inner">
+        <svg width="24" height="24"><use xlink:href="images/icons.svg#contact"></use></svg>
+    </div>
+</div>
+
+
 
 <!--Start of Tawk.to Script-->
 <script type="text/javascript">

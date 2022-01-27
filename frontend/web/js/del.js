@@ -22,7 +22,31 @@ window.addEventListener('load', () => {
 
     $("#form").submit(function(e) {
         e.preventDefault();
+        
+        let data = $(this).serializeArray();
+        // gtag_report_conversion();
+        
+        $.ajax({
+            url: '/site/ajax',
+            type: 'POST',
+            data: data,
+            success: function(response){
 
+                if (response.data.success == true) {
+                    document.querySelector('.success').classList.add('popup-show');
+                } else {
+                    document.querySelector('.error').classList.add('popup-show');
+                }
+            },
+            error: function(response) {
+                document.querySelector('.error').classList.add('popup-show');
+            }
+        })
+    });
+
+    $("#form-popup").submit(function(e) {
+        e.preventDefault();
+        
         let data = $(this).serializeArray();
         // gtag_report_conversion();
         
