@@ -11,12 +11,12 @@ $this->title = Yii::t('frontend', 'Инфраструктура');
     <div class="container" style="max-width: 1306px; margin-left: auto; margin-right: auto">
         <div class="infr-btn">
             <div class="infr-btn-choosed btn btn-blue">
-                <?=Yii::t('frontend', 'Бассейн')?>
+                <?=Yii::t('frontend', 'Открытый бассейн')?>
             </div>
             <div class="infr-btn-choose">
                 <p data-num="1">
                     <img src="/images/svg/swimming.svg" alt="">
-                    <?=Yii::t('frontend', 'Бассейн')?>
+                    <?=Yii::t('frontend', 'Открытый бассейн')?>
                 </p>
                 <p data-num="2">
                     <img src="/images/svg/spa.svg" alt="">

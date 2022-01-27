@@ -480,23 +480,23 @@ $this->title = 'Calligraphy Towers';
                     </figure>
                     <div class="project-desc">
                     <div class="project-desc-1">
-                            <p><?=Yii::t('frontend', 'Лето')?>, 2019</p>
+                            <p><?=Yii::t('frontend', 'Зима')?>, 2019</p>
                             <p><?=Yii::t('frontend', 'согласование работ')?></p>
                         </div>
                         <div class="project-desc-2">
-                            <p><?=Yii::t('frontend', 'Лето')?>, 2020</p>
+                            <p><?=Yii::t('frontend', 'Зима')?>, 2020</p>
                             <p><?=Yii::t('frontend', 'контракт с отелем Хемптон')?></p>
                         </div>
                         <div class="project-desc-3">
-                            <p><?=Yii::t('frontend', 'Лето')?>, 2023</p>
+                            <p><?=Yii::t('frontend', 'Зима')?>, 2023</p>
                             <p><?=Yii::t('frontend', 'завершение строительства блока Б')?></p>
                         </div>
                         <div class="project-desc-4">
-                            <p><?=Yii::t('frontend', 'Лето')?>, 2024</p>
+                            <p><?=Yii::t('frontend', 'Зима')?>, 2024</p>
                             <p><?=Yii::t('frontend', 'завершение строительства блока А  и  открытие гостиницы Hampton')?></p>
                         </div>
                         <div class="project-desc-5">
-                            <p><?=Yii::t('frontend', 'Лето')?>, 2025</p>
+                            <p><?=Yii::t('frontend', 'Зима')?>, 2025</p>
                             <p><?=Yii::t('frontend', 'завершение строительства блока С')?></p>
                         </div>
                     </div>
@@ -513,7 +513,7 @@ $this->title = 'Calligraphy Towers';
                                     <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" loading="lazy" alt="">
                                 </picture>
                             </div>
-                            <p><?=Yii::t('frontend', 'Лето')?>, 2019</p>
+                            <p><?=Yii::t('frontend', 'Зима')?>, 2019</p>
                             <p><?=Yii::t('frontend', 'согласование работ')?></p>
                         </div>
                     </div>
@@ -524,7 +524,7 @@ $this->title = 'Calligraphy Towers';
                                     <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" loading="lazy" alt="">
                                 </picture>
                             </div>
-                            <p><?=Yii::t('frontend', 'Лето')?>, 2020</p>
+                            <p><?=Yii::t('frontend', 'Зима')?>, 2020</p>
                             <p><?=Yii::t('frontend', 'контракт с отелем Хемптон')?></p>
                         </div>
                     </div>
@@ -535,7 +535,7 @@ $this->title = 'Calligraphy Towers';
                                     <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" loading="lazy" alt="">
                                 </picture>
                             </div>
-                            <p><?=Yii::t('frontend', 'Лето')?>, 2023</p>
+                            <p><?=Yii::t('frontend', 'Зима')?>, 2023</p>
                             <p><?=Yii::t('frontend', 'завершение строительства блока Б')?></p>
                         </div>
                     </div>
@@ -546,7 +546,7 @@ $this->title = 'Calligraphy Towers';
                                     <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" loading="lazy" alt="">
                                 </picture>
                             </div>
-                            <p><?=Yii::t('frontend', 'Лето')?>, 2024</p>
+                            <p><?=Yii::t('frontend', 'Зима')?>, 2024</p>
                             <p><?=Yii::t('frontend', 'завершение строительства блока А  и  открытие гостиницы Hampton')?></p>
                         </div>
                     </div>
@@ -557,7 +557,7 @@ $this->title = 'Calligraphy Towers';
                                     <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" loading="lazy" alt="">
                                 </picture>
                             </div>
-                            <p><?=Yii::t('frontend', 'Лето')?>, 2025</p>
+                            <p><?=Yii::t('frontend', 'Зима')?>, 2025</p>
                             <p><?=Yii::t('frontend', 'завершение строительства блока С')?></p>
                         </div>
                     </div>
