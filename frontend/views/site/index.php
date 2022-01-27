@@ -105,6 +105,9 @@ $this->title = 'Calligraphy Towers';
                 <p data-num="11">
                     <?=Yii::t('frontend', 'Бассейн')?>
                 </p>
+                <p data-num="12">
+                    <?=Yii::t('frontend', 'Закрытый бассейн')?>
+                </p>
                 <p data-num="13">
                     <?=Yii::t('frontend', 'Фитнес')?>
                 </p>
@@ -345,11 +348,12 @@ $this->title = 'Calligraphy Towers';
                                 <img srcset="/images/dist/infrastructure/inf-32.jpg, /images/dist/infrastructure/inf-32-2x.jpg 2x" src="/images/dist/infrastructure/inf-32.jpg" width="450" height="544" alt="">
                             </picture>
                             <div>
-                                <p></p>
+                                <p><?=Yii::t('frontend', 'Нашим отдыхающим мы предлагаем открытый и закрытый бассейн в комплексе, в любое время года.')?></p>
                             </div>
                         </div>
                         <div class="infr-title">
-                            <h3><?=Yii::t('frontend', 'Бассейн')?></h3>
+                            <h3><?=Yii::t('frontend', 'Закрытый бассейн')?></h3>
+                            <p><?=Yii::t('frontend', 'Нашим отдыхающим мы предлагаем открытый и закрытый бассейн в комплексе, в любое время года.')?></p>
                         </div>
                     </div>
                 </div>
