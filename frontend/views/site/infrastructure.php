@@ -62,6 +62,10 @@ $this->title = Yii::t('frontend', 'Инфраструктура');
                     <img src="/images/svg/casino.svg" alt="">
                     <?=Yii::t('frontend', 'Казино')?>
                 </p>
+                <p data-num="13">
+                    <img src="/images/svg/casino.svg" alt="">
+                    <?=Yii::t('frontend', 'Закрытый бассейн')?>
+                </p>
             </div>
         </div>
     </div>
@@ -80,7 +84,7 @@ $this->title = Yii::t('frontend', 'Инфраструктура');
                         </p>
                     </div>
                     <div class="infrastructure-item-title">
-                    <?=Yii::t('frontend', 'Открытый и закрытый')?> <?=Yii::t('frontend', 'Бассейн')?>
+                        <?=Yii::t('frontend', 'Открытый бассейн')?>
                     </div>
                 </div>
                 <div class="infrastructure-item-btn">
@@ -306,6 +310,28 @@ $this->title = Yii::t('frontend', 'Инфраструктура');
                     <svg width="31" height="31"><use xlink:href="/images/icons.svg#btn"></use></svg>
                 </div>
             </div>
+
+            <div class="infrastructure-item" data-item="13">
+                <div class="infrastructure-item-img">
+                    <picture>
+                        <img srcset="/images/dist/infrastructure/intr-13.jpg, /images/dist/infrastructure/intr-13-2x.jpg 2x" src="/images/dist/infrastructure/intr-13.jpg" width="480" height="840" alt="">
+                    </picture>
+                </div>
+                <div class="infrastructure-item-inf">
+                    <div class="infrastructure-item-desc">
+                        <p class="infrastructure-item-text">
+                            <?=Yii::t('frontend', 'Нашим отдыхающим мы предлагаем открытый и закрытый бассейн в комплексе, в любое время года.')?>
+                        </p>
+                    </div>
+                    <div class="infrastructure-item-title">
+                        <?=Yii::t('frontend', 'Закрытый бассейн')?>
+                    </div>
+                </div>
+                <div class="infrastructure-item-btn">
+                    <svg width="31" height="31"><use xlink:href="/images/icons.svg#btn"></use></svg>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
