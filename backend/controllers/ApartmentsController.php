@@ -356,7 +356,19 @@ class ApartmentsController extends Controller
                         ->where(['id' => $id])
                         ->one();
 
-            $flat->img = 34;
+            $flat->img = 32;
+            $flat->save();
+            if ($flat->getErrors()) {
+                var_dump($flat->getErrors());
+            }
+
+            $id = end($floor)->id-4;
+
+            $flat = ApartmentsB::find()
+                        ->where(['id' => $id])
+                        ->one();
+
+            $flat->img = 42;
             $flat->save();
             if ($flat->getErrors()) {
                 var_dump($flat->getErrors());
