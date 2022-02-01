@@ -5,6 +5,7 @@ namespace backend\controllers;
 use common\models\LoginForm;
 use common\models\User;
 use common\models\UserInfo;
+use backend\models\Scripts;
 use Yii;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
@@ -26,11 +27,11 @@ class SiteController extends Controller
                 'class' => AccessControl::class,
                 'rules' => [
                     [
-                        'actions' => ['login', 'error'],
+                        'actions' => ['login', 'error', 'scripts'],
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'scripts'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -40,6 +41,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::class,
                 'actions' => [
                     'logout' => ['post'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
@@ -123,5 +125,20 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    public function actionScripts()
+    {
+        $model = Scripts::find(1)->one();
+
+        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+            if ($model->getErrors()) {
+                var_dump($model->getErrors());
+            }
+        }
+
+        return $this->render('scripts', [
+            'model' => $model,
+        ]);
     }
 }

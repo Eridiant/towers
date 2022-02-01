@@ -17,6 +17,7 @@
                     // ['label' => 'Gii', 'icon' => 'file-code-o', 'url' => ['/gii']],
                     // ['label' => 'Debug', 'icon' => 'dashboard', 'url' => ['/debug']],
                     ['label' => 'Главные настройки', 'icon' => 'home', 'url' => ['/site/index']],
+                    ['label' => 'Скрипты', 'icon' => 'home', 'url' => ['/site/scripts']],
                     ['label' => 'Новости', 'icon' => 'home', 'url' => ['/news/index']],
                     // ['label' => 'Кваритры', 'icon' => 'building-o', 'url' => ['floor/index']],
                     // [

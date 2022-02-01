@@ -156,6 +156,12 @@ s1.setAttribute('crossorigin','*');
 s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+
+
+<?= $scripts->footer; ?>
+
+
+
 <!--End of Tawk.to Script-->
 
 <!-- Event snippet for Page view conversion page -->

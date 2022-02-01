@@ -18,6 +18,8 @@ AppAsset::register($this);
 $currentLang = Yii::$app->language;
 
 $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
+$scripts = \frontend\models\Scripts::find(1)->one();
+
 
 // $this->registerJs('var baseUrl = "' . Url::home(true) . '";');
 
@@ -43,20 +45,11 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
     <?= Yii::$app->language == 'ka-GE' ? '<link rel="stylesheet" href="/css/ge.css">' : '' ; ?>
     <?= Yii::$app->language == 'en-US' ? '<link rel="stylesheet" href="/css/en.css">' : '' ; ?>
 
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WH5KNRK');</script>
-    <!-- End Google Tag Manager -->
+    <?= $scripts->header; ?>
 
 </head>
 <body class="<?= $this->context->bodyClass; ?>">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH5KNRK"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<?= $scripts->body; ?>
 <?php $this->beginBody() ?>
 <?php require_once('template-header.php'); ?>
 <!-- <header class="header"> -->
