@@ -44,6 +44,10 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
     <?= Yii::$app->language == 'en-US' ? '<link rel="stylesheet" href="/css/en.css">' : '' ; ?>
 </head>
 <body class="<?= $this->context->bodyClass; ?>">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH5KNRK"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <?php $this->beginBody() ?>
 <?php require_once('template-header.php'); ?>
 <!-- <header class="header"> -->
