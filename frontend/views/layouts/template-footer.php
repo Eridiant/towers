@@ -158,6 +158,36 @@ s0.parentNode.insertBefore(s1,s0);
 </script>
 <!--End of Tawk.to Script-->
 
+<!-- Event snippet for Page view conversion page -->
+<!-- <script>
+gtag('event', 'conversion', {'send_to': 'AW-307879312/8pVBCO7ohZMDEJC755IB'});
+</script> -->
+
+<!-- <script>
+function gtag_report_conversion(url) {
+    var callback = function () {
+        if (typeof(url) != 'undefined') {
+            window.location = url;
+        }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-307879312/6s-kCOa1__ICEJC755IB',
+        'event_callback': callback
+    });
+return false;
+}
+</script> -->
+
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-307879312"></script> -->
+
+<!-- <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-307879312');
+</script> -->
+
+
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCabbDzORGtAU9PwXxSc4YG0fSM7YyVEPw&region=EN&language=en"></script>
 <!-- Swiper JS -->
 
