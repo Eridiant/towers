@@ -115,7 +115,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                     <dt><?=Yii::t('frontend', 'Этаж')?>:</dt>
                     <dd id="fl">1</dd>
                 </dl>
-                <p class="contacts-call floor-call btn btn-blue" data-trg="#layouts">
+                <p class="floor-call btn btn-blue" data-trg="#layouts">
                     <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
                     <span><?=Yii::t('frontend', 'Выбрать блок')?></span>
                 </p>
