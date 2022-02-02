@@ -751,7 +751,7 @@ function changeBlock(block, imgNum) {
     let bl = document.querySelector(`#blocks [data-block="${block}"]`);
     document.querySelector('.block-svg-active').classList.remove('block-svg-active');
     bl.classList.add('block-svg-active');
-    document.querySelector("#blocks .block-img").innerHTML = `<picture><img src="/images/src/layouts/block/block-${imgNum}-x1.png" alt=""></picture>`;
+    document.querySelector("#blocks .block-img").innerHTML = `<picture><img src="/images/dist/layouts/block-${imgNum}-x1.png" alt=""></picture>`;
 }
 
 function cont(lg, num) {
