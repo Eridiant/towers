@@ -39,7 +39,7 @@ class Scripts extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'header' => 'Header',
+            'header' => 'Head',
             'body' => 'Body',
             'footer' => 'Footer',
         ];
