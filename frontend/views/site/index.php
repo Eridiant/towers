@@ -14,8 +14,8 @@ $this->title = 'Calligraphy Towers';
 			<picture>
 				<!-- <source srcset="/images/del/bg14.jpg" media="(max-width: 420px)">
 				<source srcset="/images/del/bg13.jpg" media="(max-width: 1280px)">
-				<source srcset="/images/del/bg12.jpg" media="(max-width: 1500px)">
-				<source srcset="/images/del/bg11.jpg" media="(min-width: 1501px)"> -->
+				<source srcset="/images/del/bg12.jpg" media="(max-width: 1500px)"> -->
+				<source srcset="/images/dist/header/header_mb_bg.jpg, /images/dist/header/header_mb_bg-2x.jpg 2x, /images/dist/header/header_mb_bg-4x.jpg 4x" media="(max-width: 480px)">
                 <source type="image/jpeg" srcset="/images/dist/header/header_bg.jpg, /images/dist/header/header_bg-2x.jpg 2x, /images/dist/header/header_bg-3x.jpg 3x">
 				<img src="/images/dist/header/header_bg.jpg" alt="">
 			</picture>
@@ -26,6 +26,7 @@ $this->title = 'Calligraphy Towers';
 				<source srcset="/images/del/bg13.jpg" media="(max-width: 1280px)">
 				<source srcset="/images/del/bg12.jpg" media="(max-width: 1500px)">
 				<source srcset="/images/del/bg11.jpg" media="(min-width: 1501px)"> -->
+				<source srcset="/images/dist/header/header_mb_bg_night.jpg, /images/dist/header/header_mb_bg_night-2x.jpg 2x, /images/dist/header/header_mb_bg_night-4x.jpg 4x" media="(max-width: 480px)">
 				<source type="image/jpeg" srcset="/images/dist/header/header_bg_night.jpg, /images/dist/header/header_bg_night-2x.jpg 2x, /images/dist/header/header_bg_night-3x.jpg 3x">
 				<img src="/images/dist/header/header_bg_night.jpg" alt="">
 			</picture>
