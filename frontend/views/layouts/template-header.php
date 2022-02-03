@@ -158,6 +158,6 @@ $this->title = 'Calligraphy';
                 </a></li>
             </ul>
         </div>
-        <a class="content-footer trsp" href="#"><?=Yii::t('frontend', 'Политика конфиденциальности')?></a>
+        <p class="content-footer">official website</p>
     </div>
 </div>

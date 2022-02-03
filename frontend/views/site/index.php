@@ -36,7 +36,7 @@ $this->title = 'Calligraphy Towers';
 		<div class="header-wrapper">
 			<div class="header-inner">
 				<p class="header-cap cap">
-                    <?//=Yii::t('frontend', 'Жилой комплекс')?>
+                    official website
                 </p>
 				<h1 class="header-title">Calligraphy Towers Batumi</h1>
 				<div class="header-video">
