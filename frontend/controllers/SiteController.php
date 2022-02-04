@@ -158,7 +158,7 @@ class SiteController extends Controller
                     ->setTo($mail['email'])
                     ->setFrom('calligraphy@calligraphy-batumi.com')
                     ->setSubject('заявка')
-                    ->setTextBody('Имя: ' . $request->post("name") . ' Телефон ' . $request->post("phone") . ' Страна ' . $request->post("country") . ' Почтаы ' . $request->post("email"))
+                    ->setTextBody('Имя: ' . $request->post("name") . '<br>Телефон: ' . $request->post("phone") . '<br>Страна: ' . $request->post("country") . '<br>Почта: ' . $request->post("email"))
                     ->send();
                 return ['data' => ['success' => true]];
             }
