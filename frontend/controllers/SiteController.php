@@ -3,6 +3,7 @@
 namespace frontend\controllers;
 
 use Yii;
+use common\models\User;
 use backend\models\FloorA;
 use backend\models\FloorB;
 use backend\models\FloorC;
@@ -111,6 +112,7 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+
         $model = new Feedback();
 
         $request = Yii::$app->request;
@@ -131,6 +133,11 @@ class SiteController extends Controller
 
     public function actionAjax()
     {
+
+        $mail = User::find(1)
+            ->select(['email'])
+            ->one();
+
         $model = new Feedback();
 
         $request = Yii::$app->request;
