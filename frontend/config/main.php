@@ -53,7 +53,7 @@ return [
                 'our-team' => 'site/our-team',
                 'video-report' => 'site/video-report',
                 'contacts' => 'site/contacts',
-                'scripts' => 'site/scripts',
+                'about' => 'site/about',
                 'news' => 'news/index',
                 '<url:\w+>' => 'page/index',
                 'site/set-locale' => 'site/set-locale',
