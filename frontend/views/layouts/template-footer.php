@@ -109,7 +109,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
         <div class="popup-desc">
             <h2><?=Yii::t('frontend', 'Спасибо')?></h2>
             <p>
-				<?=Yii::t('frontend', 'Ваша заявка отправлена, мы перезвоним')?>
+				<?=Yii::t('frontend', 'Ваша заявка отправлена. Наш менеджер по продажам очень скоро свяжется с Вами.')?>
             </p>
         </div>
     </div>

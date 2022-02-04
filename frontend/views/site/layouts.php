@@ -289,7 +289,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 <div class="contact-form">
                     <p class="title"><?=Yii::t('frontend', 'Поможем в выборе!')?></p>
                     <p>
-                        <?=Yii::t('frontend', 'Разнообразный и богатый опыт начало повседневной работы по формированию.')?>
+                        <?=Yii::t('frontend', 'Пожалуйста, заполните Вашу контактную информацию.')?>
                     </p>
                     <?= $this->render('_form', [
                         'model' => $model,
