@@ -158,7 +158,7 @@ class SiteController extends Controller
                     ->setTo($mail['email'])
                     ->setFrom('calligraphy@calligraphy-batumi.com')
                     ->setSubject('заявка')
-                    ->setTextBody(
+                    ->setHtmlBody(
                         "<table style='width: 100%;'>
                             <tr style='background-color: #f8f8f8;'>
                                 <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Имя:</b></td>
