@@ -158,7 +158,26 @@ class SiteController extends Controller
                     ->setTo($mail['email'])
                     ->setFrom('calligraphy@calligraphy-batumi.com')
                     ->setSubject('заявка')
-                    ->setTextBody('Имя: ' . $request->post("name") . ' Телефон: ' . $request->post("phone") . ' Страна: ' . $request->post("country") . ' Почта: ' . $request->post("email"))
+                    ->setTextBody(
+                        "<table style='width: 100%;'>
+                            <tr style='background-color: #f8f8f8;'>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Имя:</b></td>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>$request->post('name')</td>
+                            </tr>
+                            <tr style='background-color: #f8f8f8;'>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Телефон:</b></td>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>$request->post('phone')</td>
+                            </tr>
+                            <tr style='background-color: #f8f8f8;'>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Страна:</b></td>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>$request->post('country')</td>
+                            </tr>
+                            <tr style='background-color: #f8f8f8;'>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Почта:</b></td>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>$request->post('email')</td>
+                            </tr>
+                        </table>")
+                        // 'Имя: ' . $request->post("name") . ' Телефон: ' . $request->post("phone") . ' Страна: ' . $request->post("country") . ' Почта: ' . $request->post("email"))
                     ->send();
                 return ['data' => ['success' => true]];
             }
