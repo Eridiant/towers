@@ -29,7 +29,7 @@ window.addEventListener('load', () => {
 
     $("#form").submit(function(e) {
         e.preventDefault();
-        gtag_report_conversion()
+        // gtag_report_conversion();
         let data = $(this).serializeArray();
         // gtag_report_conversion();
         
@@ -53,7 +53,7 @@ window.addEventListener('load', () => {
 
     $("#form-popup").submit(function(e) {
         e.preventDefault();
-        gtag_report_conversion()
+        // gtag_report_conversion();
         let data = $(this).serializeArray();
         // gtag_report_conversion();
         
