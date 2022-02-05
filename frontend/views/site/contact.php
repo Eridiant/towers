@@ -9,6 +9,9 @@ use yii\bootstrap4\ActiveForm;
 use yii\captcha\Captcha;
 
 $this->title = Yii::t('frontend', 'Контакты');
+$this->registerMetaTag(['name' => 'title', 'content' => Yii::t('frontend', 'Недвижимость')]);
+$this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend', 'Недвижимость')]);
+
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">

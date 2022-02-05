@@ -5,6 +5,8 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = Yii::t('frontend', 'О компании');
+$this->registerMetaTag(['name' => 'title', 'content' => Yii::t('frontend', 'О компании. Calligraphy Towers.')]);
+$this->registerMetaTag(['name' => 'description', 'content' => "Calligraphy Towers. " . Yii::t('frontend', 'Застройщики батуми. Недвижимость Батуми')]);
 
 ?>
 

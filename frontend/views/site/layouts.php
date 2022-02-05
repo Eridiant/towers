@@ -5,6 +5,8 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = Yii::t('frontend', 'Планировки');
+$this->registerMetaTag(['name' => 'title', 'content' => Yii::t('frontend', 'Планировки Недвижимость в Батуми')]);
+$this->registerMetaTag(['name' => 'description', 'content' => "Calligraphy Towers. " . Yii::t('frontend', 'Недвижимость в Батуми')]);
 
 $cookies = Yii::$app->request->cookies;
 $currentLang = $cookies->getValue('_locale', 'en-US');
