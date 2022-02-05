@@ -59,7 +59,7 @@ $this->title = Yii::t('frontend', 'О компании');
                             <picture>
                                 <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/index/about-mb-1.jpg, /images/dist/index/about-mb-1-2x.jpg 2x">
                                 <source type="image/jpeg" srcset="/images/dist/index/about-1.jpg, /images/dist/index/about-1-2x.jpg 2x">
-                                <img src="/images/dist/index/about-1.jpg" width="1306" height="872" alt="">
+                                <img src="/images/dist/index/about-1.jpg" width="1306" height="872" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                             </picture>
                         </div>
                     </div>
@@ -68,7 +68,7 @@ $this->title = Yii::t('frontend', 'О компании');
                             <picture>
                                 <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/index/about-mb-2.jpg, /images/dist/index/about-mb-2-2x.jpg 2x">
                                 <source type="image/jpeg" srcset="/images/dist/index/about-2.jpg, /images/dist/index/about-2-2x.jpg 2x">
-                                <img src="/images/dist/index/about-2.jpg" width="1306" height="872" alt="">
+                                <img src="/images/dist/index/about-2.jpg" width="1306" height="872" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                             </picture>
                         </div>
                     </div>

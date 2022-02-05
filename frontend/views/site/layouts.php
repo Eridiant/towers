@@ -18,20 +18,20 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
 <div id="layouts" class="layouts">
     <div class="layouts-bg">
         <picture>
-            <img src="/images/dist/layouts/layouts-bg.jpg" alt="">
+            <img src="/images/dist/layouts/layouts-bg.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
         </picture>
     </div>
     <div class="layouts-bg-svg">
         <figure class="layouts-bg-fig">
             <object id="block" data="/images/svg/layouts-bg.svg" type="image/svg+xml">
-                <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
+                <!-- <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>"> -->
             </object>
         </figure>
     </div>
     <!-- <div class="layouts-bg-svg">
         <figure class="layouts-bg-fig">
             <object id="floors" data="/images/svg/layout-flats.svg" type="image/svg+xml">
-                <img src="/images/dist/bg-1920x1450.jpg" alt="">
+                <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
             </object>
         </figure>
     </div> -->
@@ -63,7 +63,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                         <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'A')?></h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="/images/dist/index/choose/block-a.png" alt="">
+                                <img src="/images/dist/index/choose/block-a.png" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                             </picture>
                         </div>
                     </div>
@@ -73,7 +73,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                         <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'Б')?></h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="/images/dist/index/choose/block-b.png" alt="">
+                                <img src="/images/dist/index/choose/block-b.png" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                             </picture>
                         </div>
                     </div>
@@ -83,7 +83,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                         <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'С')?></h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="/images/dist/index/choose/block-c.png" alt="">
+                                <img src="/images/dist/index/choose/block-c.png" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                             </picture>
                         </div>
                     </div>
@@ -124,18 +124,18 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 <div class="block-block">
                     <div class="block-img">
                         <picture> 
-                            <img src="/images/dist/layouts/block-<?= $block; ?>-x1.png" alt="">
+                            <img src="/images/dist/layouts/block-<?= $block; ?>-x1.png" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                         </picture>
                     </div>
                     <div class="block-svg block-svg-a<?= $block == 'a' ? ' block-svg-active' : ''; ?>" data-block="1">
                         <object id="buildA" data="/images/svg/layouts/block/a.svg" type="image/svg+xml">
-                            <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
+                            <!-- <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>"> -->
                         </object>
                         <div class="focus"></div>
                     </div>
                     <div class="block-svg block-svg-b<?= $block == 'b' ? ' block-svg-active' : ''; ?>" data-block="2">
                         <object id="buildB" data="/images/svg/layouts/block/b.svg" type="image/svg+xml">
-                            <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
+                            <!-- <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>"> -->
                         </object>
                         <div class="focus"></div>
                     </div>
@@ -160,13 +160,13 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                     <div class="floor-choose-inner floor-show">
                         <div class="floor-choose-img">
                             <picture>
-                                <img src="/images/blocks/img/<?= $block; ?>/<?= $floor_num; ?>.jpg" alt="">
+                                <img src="/images/blocks/img/<?= $block; ?>/<?= $floor_num; ?>.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                             </picture>
                         </div>
                         <div class="floor-choose-svg">
                             <figure class="floor-choose-fig">
                                 <object id="test" data-floor="<?= $floor_num; ?>" data-block="<?= $block; ?>" data="/images/blocks/svg/<?= $block; ?>/<?= $floor_num; ?>.svg" type="image/svg+xml">
-                                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
+                                    <!-- <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>"> -->
                                 </object>
                             </figure>
                             <div class="focus">
@@ -251,7 +251,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
             <div class="flat-plan">
                 <div class="flat-plan-img">
                     <picture> 
-                        <img src="/images/blocks/<?= $block; ?>/<?= $floor_num; ?>/1.jpg" alt="">
+                        <img src="/images/blocks/<?= $block; ?>/<?= $floor_num; ?>/1.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                     </picture>
                 </div>
                 <!-- <div class="flat-plan-floor">
@@ -268,7 +268,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 </div>
                 <div class="flat-num-img">
                     <picture>
-                        <img src="/images/blocks/<?= $block; ?>/d/<?= $model[0]['img']; ?>.jpg" alt="">
+                        <img src="/images/blocks/<?= $block; ?>/d/<?= $model[0]['img']; ?>.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                     </picture>
                 </div>
                 <div class="flat-num-inner">

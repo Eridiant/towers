@@ -43,7 +43,7 @@ use yii\helpers\Url;
                             <picture>
                                 <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/gallery/construction-mb-<?= $i; ?>.jpg, /images/dist/gallery/construction-mb-<?= $i; ?>-2x.jpg 2x">
                                 <source type="image/jpeg" srcset="/images/dist/gallery/construction-<?= $i; ?>.jpg, /images/dist/gallery/construction-<?= $i; ?>-2x.jpg 2x">
-                                <img src="/images/dist/gallery/construction-<?= $i; ?>.jpg" width="1204" height="779" alt="">
+                                <img src="/images/dist/gallery/construction-<?= $i; ?>.jpg" width="1204" height="779" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                             </picture>
                         </div>
                     <?php endfor; ?>
@@ -57,7 +57,7 @@ use yii\helpers\Url;
                 <?php for($i=1; $i<9; $i++): ?>
                     <div class="swiper-slide">
                         <picture>
-                            <img srcset="/images/dist/gallery/construction-mb-<?= $i; ?>.jpg, /images/dist/gallery/construction-mb-<?= $i; ?>-2x.jpg 2x" src="/images/dist/gallery/construction-<?= $i; ?>.jpg" width="480" height="311" alt="">
+                            <img srcset="/images/dist/gallery/construction-mb-<?= $i; ?>.jpg, /images/dist/gallery/construction-mb-<?= $i; ?>-2x.jpg 2x" src="/images/dist/gallery/construction-<?= $i; ?>.jpg" width="480" height="311" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                         </picture>
                     </div>
                 <?php endfor; ?>

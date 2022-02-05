@@ -17,7 +17,7 @@ $this->title = 'Calligraphy Towers';
 				<source srcset="/images/del/bg12.jpg" media="(max-width: 1500px)"> -->
 				<source srcset="/images/dist/header/header_mb_bg.jpg, /images/dist/header/header_mb_bg-2x.jpg 2x, /images/dist/header/header_mb_bg-4x.jpg 4x" media="(max-width: 480px)">
                 <source type="image/jpeg" srcset="/images/dist/header/header_bg.jpg, /images/dist/header/header_bg-2x.jpg 2x, /images/dist/header/header_bg-3x.jpg 3x">
-				<img src="/images/dist/header/header_bg.jpg" alt="">
+				<img src="/images/dist/header/header_bg.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
 			</picture>
 		</div>
 		<div class="header-bg-wrap">
@@ -28,7 +28,7 @@ $this->title = 'Calligraphy Towers';
 				<source srcset="/images/del/bg11.jpg" media="(min-width: 1501px)"> -->
 				<source srcset="/images/dist/header/header_mb_bg_night.jpg, /images/dist/header/header_mb_bg_night-2x.jpg 2x, /images/dist/header/header_mb_bg_night-4x.jpg 4x" media="(max-width: 480px)">
 				<source type="image/jpeg" srcset="/images/dist/header/header_bg_night.jpg, /images/dist/header/header_bg_night-2x.jpg 2x, /images/dist/header/header_bg_night-3x.jpg 3x">
-				<img src="/images/dist/header/header_bg_night.jpg" alt="">
+				<img src="/images/dist/header/header_bg_night.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
 			</picture>
 		</div>
 	</div>
@@ -126,7 +126,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-20.jpg, /images/dist/infrastructure/inf-20-2x.jpg 2x" src="/images/dist/infrastructure/inf-20.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-20.jpg, /images/dist/infrastructure/inf-20-2x.jpg 2x" src="/images/dist/infrastructure/inf-20.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -146,7 +146,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-2.jpg, /images/dist/infrastructure/inf-2-2x.jpg 2x" src="/images/dist/infrastructure/inf-2.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-2.jpg, /images/dist/infrastructure/inf-2-2x.jpg 2x" src="/images/dist/infrastructure/inf-2.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -166,7 +166,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-5.jpg, /images/dist/infrastructure/inf-5-2x.jpg 2x" src="/images/dist/infrastructure/inf-5.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-5.jpg, /images/dist/infrastructure/inf-5-2x.jpg 2x" src="/images/dist/infrastructure/inf-5.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -186,7 +186,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-12.jpg, /images/dist/infrastructure/inf-12-2x.jpg 2x" src="/images/dist/infrastructure/inf-12.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-12.jpg, /images/dist/infrastructure/inf-12-2x.jpg 2x" src="/images/dist/infrastructure/inf-12.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -206,7 +206,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-3.jpg, /images/dist/infrastructure/inf-3-2x.jpg 2x" src="/images/dist/infrastructure/inf-3.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-3.jpg, /images/dist/infrastructure/inf-3-2x.jpg 2x" src="/images/dist/infrastructure/inf-3.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -226,7 +226,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-9.jpg, /images/dist/infrastructure/inf-9-2x.jpg 2x" src="/images/dist/infrastructure/inf-9.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-9.jpg, /images/dist/infrastructure/inf-9-2x.jpg 2x" src="/images/dist/infrastructure/inf-9.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -246,7 +246,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-21.jpg, /images/dist/infrastructure/inf-21-2x.jpg 2x" src="/images/dist/infrastructure/inf-21.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-21.jpg, /images/dist/infrastructure/inf-21-2x.jpg 2x" src="/images/dist/infrastructure/inf-21.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -266,7 +266,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-8.jpg, /images/dist/infrastructure/inf-8-2x.jpg 2x" src="/images/dist/infrastructure/inf-8.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-8.jpg, /images/dist/infrastructure/inf-8-2x.jpg 2x" src="/images/dist/infrastructure/inf-8.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -286,7 +286,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-31.jpg, /images/dist/infrastructure/inf-31-2x.jpg 2x" src="/images/dist/infrastructure/inf-31.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-31.jpg, /images/dist/infrastructure/inf-31-2x.jpg 2x" src="/images/dist/infrastructure/inf-31.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -306,7 +306,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-7.jpg, /images/dist/infrastructure/inf-7-2x.jpg 2x" src="/images/dist/infrastructure/inf-7.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-7.jpg, /images/dist/infrastructure/inf-7-2x.jpg 2x" src="/images/dist/infrastructure/inf-7.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -326,7 +326,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-1.jpg, /images/dist/infrastructure/inf-1-2x.jpg 2x" src="/images/dist/infrastructure/inf-1.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-1.jpg, /images/dist/infrastructure/inf-1-2x.jpg 2x" src="/images/dist/infrastructure/inf-1.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -346,7 +346,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-32.jpg, /images/dist/infrastructure/inf-32-2x.jpg 2x" src="/images/dist/infrastructure/inf-32.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-32.jpg, /images/dist/infrastructure/inf-32-2x.jpg 2x" src="/images/dist/infrastructure/inf-32.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                             </picture>
                             <div>
                                 <p><?=Yii::t('frontend', 'Нашим отдыхающим мы предлагаем открытый и закрытый бассейн в комплексе, в любое время года.')?></p>
@@ -362,7 +362,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-3.jpg, /images/dist/infrastructure/inf-3-2x.jpg 2x" src="/images/dist/infrastructure/inf-3.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-3.jpg, /images/dist/infrastructure/inf-3-2x.jpg 2x" src="/images/dist/infrastructure/inf-3.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -382,7 +382,7 @@ $this->title = 'Calligraphy Towers';
                     <div class="infr-slider">
                         <div class="infr-img">
                             <picture>
-                                <img srcset="/images/dist/infrastructure/inf-11.jpg, /images/dist/infrastructure/inf-11-2x.jpg 2x" src="/images/dist/infrastructure/inf-11.jpg" width="450" height="544" alt="">
+                                <img srcset="/images/dist/infrastructure/inf-11.jpg, /images/dist/infrastructure/inf-11-2x.jpg 2x" src="/images/dist/infrastructure/inf-11.jpg" width="450" height="544" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                             </picture>
                             <div>
                                 <p>
@@ -418,7 +418,7 @@ $this->title = 'Calligraphy Towers';
                         <picture>
                             <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/index/about-mb-1.jpg, /images/dist/index/about-mb-1-2x.jpg 2x">
                             <source type="image/jpeg" srcset="/images/dist/index/about-1.jpg, /images/dist/index/about-1-2x.jpg 2x">
-                            <img src="/images/dist/index/about-1.jpg" width="1306" height="872" loading="lazy" alt="">
+                            <img src="/images/dist/index/about-1.jpg" width="1306" height="872" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                         </picture>
                     </div>
                 </div>
@@ -427,7 +427,7 @@ $this->title = 'Calligraphy Towers';
                         <picture>
                             <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/index/about-mb-2.jpg, /images/dist/index/about-mb-2-2x.jpg 2x">
                             <source type="image/jpeg" srcset="/images/dist/index/about-2.jpg, /images/dist/index/about-2-2x.jpg 2x">
-                            <img src="/images/dist/index/about-2.jpg" width="1306" height="872" loading="lazy" alt="">
+                            <img src="/images/dist/index/about-2.jpg" width="1306" height="872" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                         </picture>
                     </div>
                 </div>
@@ -444,27 +444,27 @@ $this->title = 'Calligraphy Towers';
             <div class="project-img">
                 <div class="project-img-hide project-show" id="project-1">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" loading="lazy" alt="">
+                        <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-2">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" loading="lazy" alt="">
+                        <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-3">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" loading="lazy" alt="">
+                        <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-4">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" loading="lazy" alt="">
+                        <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-5">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" loading="lazy" alt="">
+                        <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                     </picture>
                 </div>
             </div>
@@ -476,7 +476,7 @@ $this->title = 'Calligraphy Towers';
                 <div class="project-svg">
                     <figure class="project-fig">
                         <object id="project" data="/images/svg/project.svg" type="image/svg+xml">
-                            <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
+                            <!-- <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>"> -->
                         </object>
                     </figure>
                     <div class="project-desc">
@@ -511,7 +511,7 @@ $this->title = 'Calligraphy Towers';
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" loading="lazy" alt="">
+                                    <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Зима')?>, 2019</p>
@@ -522,7 +522,7 @@ $this->title = 'Calligraphy Towers';
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" loading="lazy" alt="">
+                                    <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Зима')?>, 2020</p>
@@ -533,7 +533,7 @@ $this->title = 'Calligraphy Towers';
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" loading="lazy" alt="">
+                                    <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Зима')?>, 2023</p>
@@ -544,7 +544,7 @@ $this->title = 'Calligraphy Towers';
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" loading="lazy" alt="">
+                                    <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Зима')?>, 2024</p>
@@ -555,7 +555,7 @@ $this->title = 'Calligraphy Towers';
                         <div class="choose-inner">
                             <div class="choose-img">
                                 <picture>
-                                    <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" loading="lazy" alt="">
+                                    <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                                 </picture>
                             </div>
                             <p><?=Yii::t('frontend', 'Зима')?>, 2025</p>
@@ -575,13 +575,13 @@ $this->title = 'Calligraphy Towers';
         <div class="choose-bg">
             <div class="choose-bg-img">
                 <picture>
-                    <img srcset="/images/dist/index/choose-bg.jpg, /images/dist/index/choose-bg-1_5x.jpg 1.5x" src="/images/dist/index/choose-bg.jpg" alt="">
+                    <img srcset="/images/dist/index/choose-bg.jpg, /images/dist/index/choose-bg-1_5x.jpg 1.5x" src="/images/dist/index/choose-bg.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                 </picture>
             </div>
             <div class="choose-bg-svg">
                 <figure class="choose-bg-fig">
                     <object id="choosed" data="/images/svg/choose-bg.svg" type="image/svg+xml">
-                        <!-- <img src="/images/dist/bg-1920x1450.jpg" alt=""> -->
+                        <!-- <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>"> -->
                     </object>
                 </figure>
             </div>
@@ -626,7 +626,7 @@ $this->title = 'Calligraphy Towers';
                         <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'A')?></h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="/images/dist/index/choose/block-a.png" loading="lazy" alt="">
+                                <img src="/images/dist/index/choose/block-a.png" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                             </picture>
                         </div>
                     </div>
@@ -636,7 +636,7 @@ $this->title = 'Calligraphy Towers';
                         <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'Б')?></h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="/images/dist/index/choose/block-b.png" loading="lazy" alt="">
+                                <img src="/images/dist/index/choose/block-b.png" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                             </picture>
                         </div>
                     </div>
@@ -646,7 +646,7 @@ $this->title = 'Calligraphy Towers';
                         <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'С')?></h2>
                         <div class="choose-img">
                             <picture>
-                                <img src="/images/dist/index/choose/block-c.png" loading="lazy" alt="">
+                                <img src="/images/dist/index/choose/block-c.png" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                             </picture>
                         </div>
                     </div>
@@ -668,7 +668,7 @@ $this->title = 'Calligraphy Towers';
         <div class="contact-wrapper">
             <!-- <div class="contact-bg">
                 <picture>
-                    <img src="/images/contact-team.jpg" alt="">
+                    <img src="/images/contact-team.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                 </picture>
             </div> -->
             <div class="contact-form">
