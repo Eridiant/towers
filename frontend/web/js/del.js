@@ -22,10 +22,11 @@ window.addEventListener('load', () => {
 
     window.dataLayer = window.dataLayer || [];
     
-    gtag('js', new Date());
-    gtag('config', 'AW-307879312');
+    
 
     setTimeout(() => {
+        gtag('js', new Date());
+        gtag('config', 'AW-307879312');
         gtag('event', 'conversion', {'send_to': 'AW-307879312/8pVBCO7ohZMDEJC755IB'});
     }, 6000);
 
