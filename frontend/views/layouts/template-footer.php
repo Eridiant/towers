@@ -162,7 +162,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
 <?php
 $this->registerJsFile(
     '//www.googletagmanager.com/gtag/js?id=AW-307879312',
-    ['position' => $this::POS_END, 'async'=>true]
+    ['position' => $this::POS_HEAD, 'async'=>true]
 );
 ?>
 

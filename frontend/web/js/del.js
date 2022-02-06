@@ -18,16 +18,17 @@ window.addEventListener('load', () => {
 
     // src="https://www.googletagmanager.com/gtag/js?id=AW-307879312";
 
-    
-
-    window.dataLayer = window.dataLayer || [];
-    
-    
-
     setTimeout(() => {
+        
+        window.dataLayer = window.dataLayer || [];
+        
         gtag('js', new Date());
         gtag('config', 'AW-307879312');
+
+        gtag('event', 'conversion', {'send_to': 'AW-307879312/8pVBCO7ohZMDEJC755IB'});
+        
     }, 6000);
+
 
     document.addEventListener('click', (e) => {
         let target = e.target;
