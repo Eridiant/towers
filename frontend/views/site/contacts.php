@@ -75,3 +75,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
         </div>
     </div>
 </div>
+<?php
+    $this->registerJsFile(
+        '//maps.googleapis.com/maps/api/js?key=AIzaSyCabbDzORGtAU9PwXxSc4YG0fSM7YyVEPw&region=EN&language=en',
+);

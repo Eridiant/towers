@@ -12,6 +12,7 @@ use yii\bootstrap4\Html;
 use yii\helpers\Url;
 use yii\bootstrap4\Nav;
 use yii\bootstrap4\NavBar;
+use yii\web\View;
 
 AppAsset::register($this);
 
@@ -44,21 +45,12 @@ $scripts = \frontend\models\Scripts::find(1)->one();
     
     <?= Yii::$app->language == 'ka-GE' ? '<link rel="stylesheet" href="/css/ge.css">' : '' ; ?>
     <?= Yii::$app->language == 'en-US' ? '<link rel="stylesheet" href="/css/en.css">' : '' ; ?>
-<?php if (!YII_ENV_DEV){
-    $this->registerJs(
-        preg_replace('<!--(.*?)-->', '', preg_replace('<script[^>]*?>', '', preg_replace('<\/script>\s?', '', $scripts->header))),
-        View::POS_HEAD,
-    );
-} ?>
+
+    <?= $scripts->header; ?>
 
 </head>
 <body class="<?= $this->context->bodyClass; ?>">
-<?php if (!YII_ENV_DEV){
-    $this->registerJs(
-        preg_replace('<!--(.*?)-->', '', preg_replace('<script[^>]*?>', '', preg_replace('<\/script>\s?', '', $scripts->body))),
-        View::POS_BEGIN,
-    );
-} ?>
+<?= $scripts->body; ?>
 <?php $this->beginBody() ?>
 <?php require_once('template-header.php'); ?>
 <!-- <header class="header"> -->

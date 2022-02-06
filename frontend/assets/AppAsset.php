@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
         // 'js/jquery.fancybox.min.js',
         'js/app.min.js',
         'js/del.js',
+        // '//www.googletagmanager.com/gtag/js?id=AW-307879312',
     ];
     public $depends = [
         'yii\web\YiiAsset',

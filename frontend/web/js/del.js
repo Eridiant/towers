@@ -12,13 +12,18 @@ window.addEventListener('load', () => {
     //     })();
         
     // }, 6000);
+// 
 
-    // gtag('event', 'conversion', {'send_to': 'AW-307879312/8pVBCO7ohZMDEJC755IB'});
+    // src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCabbDzORGtAU9PwXxSc4YG0fSM7YyVEPw&region=EN&language=en";
 
-    // window.dataLayer = window.dataLayer || [];
+    // src="https://www.googletagmanager.com/gtag/js?id=AW-307879312";
+
+    gtag('event', 'conversion', {'send_to': 'AW-307879312/8pVBCO7ohZMDEJC755IB'});
+
+    window.dataLayer = window.dataLayer || [];
     
-    // gtag('js', new Date());
-    // gtag('config', 'AW-307879312');
+    gtag('js', new Date());
+    gtag('config', 'AW-307879312');
 
     document.addEventListener('click', (e) => {
         let target = e.target;
@@ -31,7 +36,7 @@ window.addEventListener('load', () => {
         e.preventDefault();
         // gtag_report_conversion();
         let data = $(this).serializeArray();
-        // gtag_report_conversion();
+        try {gtag_report_conversion();} catch(err) {console.log(err);};
         
         $.ajax({
             url: '/site/ajax',
@@ -55,7 +60,7 @@ window.addEventListener('load', () => {
         e.preventDefault();
         // gtag_report_conversion();
         let data = $(this).serializeArray();
-        // gtag_report_conversion();
+        try {gtag_report_conversion();} catch(err) {console.log(err);};
         
         $.ajax({
             url: '/site/ajax',
@@ -820,18 +825,17 @@ function init() {
     });
 }
 
-// function gtag_report_conversion(url) {
-//     var callback = function () {
-//         if (typeof(url) != 'undefined') {
-//             window.location = url;
-//         }
-//     };
-//     console.log(gtag());
-    
-//     gtag('event', 'conversion', {
-//         'send_to': 'AW-307879312/6s-kCOa1__ICEJC755IB',
-//         'event_callback': callback
-//     });
-//     return false;
-// }
-// function gtag(){dataLayer.push(arguments);}
+function gtag_report_conversion(url) {
+    var callback = function () {
+        if (typeof(url) != 'undefined') {
+            window.location = url;
+        }
+    };
+
+    gtag('event', 'conversion', {
+        'send_to': 'AW-307879312/6s-kCOa1__ICEJC755IB',
+        'event_callback': callback
+    });
+    return false;
+}
+function gtag(){dataLayer.push(arguments);}
