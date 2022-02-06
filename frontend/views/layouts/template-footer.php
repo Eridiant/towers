@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\web\View;
 
 $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one()->code;
 
