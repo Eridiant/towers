@@ -44,12 +44,21 @@ $scripts = \frontend\models\Scripts::find(1)->one();
     
     <?= Yii::$app->language == 'ka-GE' ? '<link rel="stylesheet" href="/css/ge.css">' : '' ; ?>
     <?= Yii::$app->language == 'en-US' ? '<link rel="stylesheet" href="/css/en.css">' : '' ; ?>
-
-    <?= $scripts->header; ?>
+<?php if (!YII_ENV_DEV){
+    $this->registerJs(
+        preg_replace('<!--(.*?)-->', '', preg_replace('<script[^>]*?>', '', preg_replace('<\/script>\s?', '', $scripts->header))),
+        View::POS_HEAD,
+    );
+} ?>
 
 </head>
 <body class="<?= $this->context->bodyClass; ?>">
-<?= $scripts->body; ?>
+<?php if (!YII_ENV_DEV){
+    $this->registerJs(
+        preg_replace('<!--(.*?)-->', '', preg_replace('<script[^>]*?>', '', preg_replace('<\/script>\s?', '', $scripts->body))),
+        View::POS_BEGIN,
+    );
+} ?>
 <?php $this->beginBody() ?>
 <?php require_once('template-header.php'); ?>
 <!-- <header class="header"> -->
