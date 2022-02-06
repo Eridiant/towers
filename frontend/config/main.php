@@ -54,6 +54,7 @@ return [
                 'video-report' => 'site/video-report',
                 'contacts' => 'site/contacts',
                 'about' => 'site/about',
+                'scripts' => 'site/scripts',
                 'news' => 'news/index',
                 '<url:\w+>' => 'page/index',
                 'site/set-locale' => 'site/set-locale',

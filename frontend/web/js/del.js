@@ -831,7 +831,7 @@ function gtag_report_conversion(url) {
             window.location = url;
         }
     };
-
+    
     gtag('event', 'conversion', {
         'send_to': 'AW-307879312/6s-kCOa1__ICEJC755IB',
         'event_callback': callback
