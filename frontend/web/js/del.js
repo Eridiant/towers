@@ -33,7 +33,7 @@ window.addEventListener('load', () => {
         }
     })
 
-    z.submit(function(e) {
+    $("#form").submit(function(e) {
         e.preventDefault();
         // gtag_report_conversion();
         let data = $(this).serializeArray();
