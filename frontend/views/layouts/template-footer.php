@@ -159,12 +159,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
         View::POS_END,
     );
 } ?>
-<?php
-$this->registerJsFile(
-    '//www.googletagmanager.com/gtag/js?id=AW-307879312',
-    ['position' => $this::POS_HEAD, 'defer'=>true]
-);
-?>
+
 
 <?= $scripts->footer; ?>
 

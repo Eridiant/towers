@@ -47,7 +47,21 @@ $scripts = \frontend\models\Scripts::find(1)->one();
     <?= Yii::$app->language == 'en-US' ? '<link rel="stylesheet" href="/css/en.css">' : '' ; ?>
 
     <?= $scripts->header; ?>
-
+    <?php
+        if (!YII_ENV_DEV) {
+            $this->registerJsFile(
+                '//www.googletagmanager.com/gtag/js?id=AW-307879312',
+                ['position' => $this::POS_HEAD, 'async'=>true]
+            );
+            $this->registerJs(
+                "window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'AW-307879312');",
+                View::POS_HEAD,
+            );
+        }
+    ?>
 </head>
 <body class="<?= $this->context->bodyClass; ?>">
 <?= $scripts->body; ?>
