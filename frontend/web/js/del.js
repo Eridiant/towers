@@ -18,16 +18,12 @@ window.addEventListener('load', () => {
 
     // src="https://www.googletagmanager.com/gtag/js?id=AW-307879312";
 
-    setTimeout(() => {
+    window.dataLayer = window.dataLayer || [];
         
-        window.dataLayer = window.dataLayer || [];
-        
-        gtag('js', new Date());
-        gtag('config', 'AW-307879312');
+    gtag('js', new Date());
+    gtag('config', 'AW-307879312');
 
-        gtag('event', 'conversion', {'send_to': 'AW-307879312/8pVBCO7ohZMDEJC755IB'});
-        
-    }, 6000);
+    gtag('event', 'conversion', {'send_to': 'AW-307879312/8pVBCO7ohZMDEJC755IB'});
 
 
     document.addEventListener('click', (e) => {
@@ -37,7 +33,7 @@ window.addEventListener('load', () => {
         }
     })
 
-    $("#form").submit(function(e) {
+    z.submit(function(e) {
         e.preventDefault();
         // gtag_report_conversion();
         let data = $(this).serializeArray();
@@ -51,6 +47,9 @@ window.addEventListener('load', () => {
 
                 if (response.data.success == true) {
                     document.querySelector('.success').classList.add('popup-show');
+                    document.querySelectorAll(input).forEach(el => {
+                        el.value = '';
+                    })
                 } else {
                     document.querySelector('.error').classList.add('popup-show');
                 }
