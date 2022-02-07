@@ -47,7 +47,7 @@ window.addEventListener('load', () => {
 
                 if (response.data.success == true) {
                     document.querySelector('.success').classList.add('popup-show');
-                    document.querySelectorAll(input).forEach(el => {
+                    document.querySelectorAll('input').forEach(el => {
                         el.value = '';
                     })
                 } else {
