@@ -3,6 +3,8 @@
    RewriteEngine On
 </IfModule>
 <IfModule mod_rewrite.c>
+   RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+   RewriteRule ^(.*)$ http://%1/$1 [L,NE,R=301]
    # если /admin, то в backend
    RewriteRule ^sitemap.xml sitemap.xml [L]
    RewriteCond %{REQUEST_URI} ^/(admin)
