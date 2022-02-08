@@ -45,6 +45,4 @@ phpunit.phar
 /frontend/web/images/blocks
 ip.log
 
-.htaccess
-
 sitemap.xml
