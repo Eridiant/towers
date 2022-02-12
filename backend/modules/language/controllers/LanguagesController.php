@@ -67,12 +67,15 @@ class LanguagesController extends Controller
         $old_lang = Language::find()->where('id = :id', [':id' => Language::getCurrent()->id])->one();
         $old_lang->default = 0;
         $new_lang->default = 1;
+        $transaction = Yii::$app->db->beginTransaction();
         if($new_lang->save() && $old_lang->save())
         {
+            $transaction->commit();
             Yii::$app->session->setFlash('success', 'Lang successfully changed.');
             return $this->redirect(Yii::$app->request->referrer);
         }
         else{
+            $transaction->rollback();
             Yii::$app->session->setFlash('error', 'Changes were not saved, error.');
             return $this->redirect(Yii::$app->request->referrer);
         }
