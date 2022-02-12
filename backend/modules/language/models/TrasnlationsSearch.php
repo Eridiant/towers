@@ -11,6 +11,8 @@ use backend\modules\language\models\Trasnlations;
  */
 class TrasnlationsSearch extends Trasnlations
 {
+
+    public $translation;
     /**
      * {@inheritdoc}
      */
@@ -18,7 +20,7 @@ class TrasnlationsSearch extends Trasnlations
     {
         return [
             [['id'], 'integer'],
-            [['category', 'message'], 'safe'],
+            [['category', 'message', 'translation'], 'safe'],
         ];
     }
 
@@ -40,7 +42,7 @@ class TrasnlationsSearch extends Trasnlations
      */
     public function search($params)
     {
-        $query = Trasnlations::find();
+        $query = Trasnlations::find()->joinWith('translait');
 
         // add conditions that should always apply here
 
@@ -62,7 +64,8 @@ class TrasnlationsSearch extends Trasnlations
         ]);
 
         $query->andFilterWhere(['like', 'category', $this->category])
-            ->andFilterWhere(['like', 'message', $this->message]);
+            ->andFilterWhere(['like', 'message', $this->message])
+            ->andFilterWhere(['like', 'translation', $this->translation]);
 
         return $dataProvider;
     }

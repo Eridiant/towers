@@ -32,10 +32,10 @@ class Trasnlations extends ActiveRecord
     }
     
     public function getTranslaits() {
-        return $this->hasMany(TrasnlationsMessage::className(), ['id'=>'id']);
+        return $this->hasMany(TrasnlationsMessage::class, ['id'=>'id']);
     }
     
     public function getTranslait() {
-        return $this->hasOne(TrasnlationsMessage::className(), ['id'=>'id'])->where(['language'=>\Yii::$app->language]);
+        return $this->hasOne(TrasnlationsMessage::class, ['id'=>'id'])->where(['language'=>\Yii::$app->language]);
     }
 }

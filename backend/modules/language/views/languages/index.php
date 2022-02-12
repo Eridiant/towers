@@ -94,13 +94,17 @@ use yii\widgets\Pjax;
                         'attribute' => 'message',
                     ],
                     [
-                        'attribute' => 'translait',
+                        // 'attribute' => 'translait',
                         'label'     => 'Перевод',
-                        'format'    => 'raw',
-                        'value'     => function($data) {
-                            if ($data->translait)
-                                return $data->translait->translation;
-                        }
+                        // 'attribute' => 'translaitTranslation',
+                        // 'attribute' => 'translait',
+                        'attribute' => 'translation',
+                        // 'format'    => 'raw',
+                        // 'value'     => function($data) {
+                        //     if ($data->translait)
+                        //         return $data->translait->translation;
+                        // }
+                        'value' => 'translait.translation',
                     ],
                     [
                         'class' => 'yii\grid\ActionColumn',
