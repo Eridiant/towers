@@ -20,6 +20,12 @@ $this->registerMetaTag(['name' => 'description', 'content' => "Calligraphy Tower
             </picture>
         </div>
         <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
+            <div class="hotel-letter">
+                <a href="/presentation/HiltonLetter.pdf" class="" download>
+                    <span>Hilton Letter</span>
+                    <svg width="28" height="32"><use xlink:href="/images/icons.svg#pdf"></use></svg>
+                </a>
+            </div>
             <div class="hotel-desc">
                 <p class=""><?=Yii::t('frontend', 'Скоро')?></p>
                 <h2><?=Yii::t('frontend', 'Отель Хилтон')?></h2>
