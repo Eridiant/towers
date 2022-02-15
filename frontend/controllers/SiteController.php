@@ -412,11 +412,6 @@ class SiteController extends Controller
         return $this->renderPartial('pdf', compact('block', 'floor', 'flat', 'img', 'view'));
     }
 
-    public function actionScripts()
-    {
-        return $this->renderPartial('scripts');
-    }
-
     /**
      * Logs in a user.
      *

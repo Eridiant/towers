@@ -33,12 +33,41 @@ window.addEventListener('load', () => {
         }
     })
 
+    $("#form-call-back").submit(function(e) {
+        e.preventDefault();
+        // gtag_report_conversion();
+        let data = $(this).serializeArray();
+
+        // try {gtag_report_conversion();} catch(err) {console.log(err);};
+        
+        $.ajax({
+            url: '/site/ajax',
+            type: 'POST',
+            data: data,
+            success: function(response){
+
+                if (response.data.success == true) {
+                    document.querySelector('.success').classList.add('popup-show');
+                    document.querySelectorAll('input').forEach(el => {
+                        el.value = '';
+                    })
+                } else {
+                    document.querySelector('.error').classList.add('popup-show');
+                }
+            },
+            error: function(response) {
+                document.querySelector('.error').classList.add('popup-show');
+            }
+        })
+    });
+
+
     $("#form").submit(function(e) {
         e.preventDefault();
         // gtag_report_conversion();
         let data = $(this).serializeArray();
 
-        try {gtag_report_conversion();} catch(err) {console.log(err);};
+        // try {gtag_report_conversion();} catch(err) {console.log(err);};
         
         $.ajax({
             url: '/site/ajax',
