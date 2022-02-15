@@ -19,9 +19,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                     <p>
                         <?=Yii::t('frontend', 'Пожалуйста, заполните Вашу контактную информацию.')?>
                     </p>
-                    <?= $this->render('_form', [
-                        'model' => $model,
-                    ]) ?>
+                    <?= $this->render('_form', compact('model')) ?>
                 </div>
             </div>
         </div>
