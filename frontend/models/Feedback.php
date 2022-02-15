@@ -37,10 +37,10 @@ class Feedback extends ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'phone', 'viewed'], 'required'],
+            [['name', 'phone'], 'required'],
             [['body'], 'string'],
             [['created_at'], 'safe'],
-            ['viewed', 'compare', 'compareValue' => 1, 'operator' => '===', 'type' => 'number', 'message'=>'Необходимо принять условия пользовательского соглашения'],
+            // ['viewed', 'compare', 'compareValue' => 1, 'operator' => '===', 'type' => 'number', 'message'=>'Необходимо принять условия пользовательского соглашения'],
             [['name', 'subject', 'country'], 'string', 'max' => 255],
             [['email', 'phone', 'lang'], 'string', 'max' => 32],
         ];
