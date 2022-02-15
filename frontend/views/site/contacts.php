@@ -10,6 +10,24 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
 
 ?>
 
+<div class="contacts-form">
+    <div class="contact">
+        <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
+            <div class="contact-wrapper">
+                <div class="contact-form">
+                    <p class="title"><?=Yii::t('frontend', 'Поможем в выборе!')?></p>
+                    <p>
+                        <?=Yii::t('frontend', 'Пожалуйста, заполните Вашу контактную информацию.')?>
+                    </p>
+                    <?= $this->render('_form', [
+                        'model' => $model,
+                    ]) ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="contacts">
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="contacts-wrapper">

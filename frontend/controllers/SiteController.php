@@ -369,9 +369,11 @@ class SiteController extends Controller
     public function actionContacts()
     {
 
+        $model = new Feedback();
+
         $this->bodyClass = 'other bl';
 
-        return $this->render('contacts');
+        return $this->render('contacts', compact('model'));
     }
 
     public function actionPdf()

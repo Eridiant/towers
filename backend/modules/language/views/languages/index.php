@@ -100,11 +100,11 @@ use yii\widgets\Pjax;
                         // 'attribute' => 'translait',
                         'attribute' => 'translation',
                         // 'format'    => 'raw',
-                        // 'value'     => function($data) {
-                        //     if ($data->translait)
-                        //         return $data->translait->translation;
-                        // }
-                        'value' => 'translait.translation',
+                        'value'     => function($data) {
+                            if ($data->translait)
+                                return $data->translait->translation;
+                        }
+                        // 'value' => 'translait.translation',
                     ],
                     [
                         'class' => 'yii\grid\ActionColumn',

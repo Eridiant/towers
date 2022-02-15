@@ -37,6 +37,7 @@ window.addEventListener('load', () => {
         e.preventDefault();
         // gtag_report_conversion();
         let data = $(this).serializeArray();
+
         try {gtag_report_conversion();} catch(err) {console.log(err);};
         
         $.ajax({
@@ -64,6 +65,7 @@ window.addEventListener('load', () => {
         e.preventDefault();
         // gtag_report_conversion();
         let data = $(this).serializeArray();
+
         try {gtag_report_conversion();} catch(err) {console.log(err);};
         
         $.ajax({
@@ -82,6 +84,13 @@ window.addEventListener('load', () => {
                 document.querySelector('.error').classList.add('popup-show');
             }
         })
+    });
+
+    document.querySelector("#privacy-policy").addEventListener('click', (e) => {
+        e.preventDefault();
+        console.log("#privacy-policy");
+        
+        document.querySelector('.privacy-policy').classList.add('popup-show');
     });
 
     if (document.querySelector('.project-swiper')) {
