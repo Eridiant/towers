@@ -5,8 +5,8 @@ use yii\helpers\Url;
 /* @var $this yii\web\View */
 
 $this->title = Yii::t('frontend', 'Галерея');
-$this->registerMetaTag(['name' => 'title', 'content' => Yii::t('frontend', 'Галерея. Апартаменты в Батуми')]);
-$this->registerMetaTag(['name' => 'description', 'content' => "Calligraphy Towers. " . Yii::t('frontend', 'Апартаменты в Батуми')]);
+$this->registerMetaTag(['name' => 'title', 'content' => Yii::t('frontend', 'Галерея. Апартаменты у моря в Батуми')]);
+$this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend', 'Калиграфи Тауерс. Апартаменты в Батуми. Новостройка в центре Батуми')]);
 
 ?>
 
@@ -16,7 +16,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => "Calligraphy Tower
     <div class="container-lg" style="max-width: 1920px; margin-left: auto; margin-right: auto">
         <div class="hotel-bg">
             <picture>
-                <img src="/images/dist/gallery/hotel-bg.jpg">
+                <img src="/images/dist/gallery/hotel-bg.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
             </picture>
         </div>
         <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
