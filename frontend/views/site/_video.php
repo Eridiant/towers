@@ -63,20 +63,20 @@ use yii\helpers\Url;
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
                     <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xG4LV0k0U48" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                    <img src="//img.youtube.com/vi/xG4LV0k0U48/3.jpg" width="120" height="90">
+                    <img src="//img.youtube.com/vi/xG4LV0k0U48/3.jpg" width="120" height="90" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                 </div>
                 <div class="swiper-slide">
                     <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/FjEMcj4C3eY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                    <img src="//img.youtube.com/vi/FjEMcj4C3eY/3.jpg" width="120" height="90">
+                    <img src="//img.youtube.com/vi/FjEMcj4C3eY/3.jpg" width="120" height="90" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                 </div>
                 <div class="swiper-slide">
                     <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/uWKYislMfbw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                    <img src="//img.youtube.com/vi/uWKYislMfbw/3.jpg" width="120" height="90">
+                    <img src="//img.youtube.com/vi/uWKYislMfbw/3.jpg" width="120" height="90" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                 </div>
                 <?php if (Yii::$app->language == 'ka-GE'): ?>
                     <div class="swiper-slide">
                         <!-- <iframe width="100%" height="100%" src="https://www.youtube.com/embed/nVX45I6vDns" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-                        <img src="//img.youtube.com/vi/nVX45I6vDns/3.jpg" width="120" height="90">
+                        <img src="//img.youtube.com/vi/nVX45I6vDns/3.jpg" width="120" height="90" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                     </div>
                 <?php endif; ?>
             </div>
