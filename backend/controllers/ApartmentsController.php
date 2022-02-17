@@ -88,119 +88,159 @@ class ApartmentsController extends Controller
 
     }
     // https://docs.google.com/spreadsheets/d/1cOh7Q3F5-ac-HZ2BaGXs4fWV66EFAQQ7xt52FjB9F8s/edit#gid=1115666623ss
-    // public function actionDba()
-    // {
-    //     $id = '1cOh7Q3F5-ac-HZ2BaGXs4fWV66EFAQQ7xt52FjB9F8s';
-    //     $list = 0;
-    //     $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
-    //     $csv = explode(PHP_EOL, $csv);
-    //     $arr = array_map('str_getcsv', $csv);
-    //     // var_dump('<pre>');
-    //     // var_dump($arr);
-    //     // var_dump('</pre>');
-    //     // die;
-    //     foreach ($arr as $key => $value) {
-    //         // var_dump('<pre>');
-    //         // var_dump(strripos($value[0], 'აპარტამენტი') !== false);
-    //         // var_dump('</pre>');
-    //         if (strripos($value[0], 'აპარტამენტი') !== false) {
-    //             // var_dump('<pre>');
-    //             // // var_dump($value);
-    //             // var_dump(intval(preg_replace('/[^0-9]/', '', $value[0])));
+    // https://docs.google.com/spreadsheets/d/1eGLzNYOQlgtJegIYCZiJdjKFEeo6TKVe/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+    // 1резерв 2 продано
+    public function actionDba()
+    {
+        $id = '1eGLzNYOQlgtJegIYCZiJdjKFEeo6TKVe';
+        $list = 0;
+        $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
+        $csv = explode(PHP_EOL, $csv);
+        $arr = array_map('str_getcsv', $csv);
+        // var_dump('<pre>');
+        // var_dump($arr);
+        // var_dump('</pre>');
+        // die;
+        foreach ($arr as $key => $value) {
+            // var_dump('<pre>');
+            // var_dump($value[0]);
+            // var_dump(strripos($value[0], 'აპარტამენტი') !== false);
+            // var_dump('</pre>');
+            if (strripos($value[0], 'აპარტამენტი') !== false) {
+            // if (false) {
+                // var_dump('<pre>');
+                // var_dump($value[7]);
+                // var_dump(intval(preg_replace('/[^0-9]/', '', $value[0])));
                 
-    //             // // var_dump(!strcasecmp(trim($value[6]), 'mountain view'));
-    //             // // var_dump(!strcasecmp(trim($value[8]), 'sea view'));
-    //             // var_dump('</pre>');
+                // // var_dump(!strcasecmp(trim($value[6]), 'mountain view'));
+                // // var_dump(!strcasecmp(trim($value[8]), 'sea view'));
+                // var_dump('</pre>');
+                if (true) {
+                    if ($value[7] == 1) {
+                        $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
+
+                        $q = ApartmentsA::find()
+                            ->where(['num' => $d])
+                            ->one();
+                        $q->status = 1;
+                        $q->save();
+                    } elseif ($value[7] == 2) {
+                        $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
+
+                        $q = ApartmentsA::find()
+                                ->where(['num' => $d])
+                                ->one();
+                        $q->status = 2;
+                        $q->save();
+                    }
+                    
+                }
+                if (false) {
+                    $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
+
+                    $q = ApartmentsA::find()
+                            ->where(['num' => $d])
+                            ->one();
+
+                    $q->money = $this->numint($value[8]);
+                    $q->money_m = $this->numint($value[7]);
+
+                    $q->balcony_area = $this->numfl($value[2]);
+                    $q->living_space = $this->numfl($value[1]);
+                    $q->total_area = $this->numfl($value[3]);
+
+                    if (!strcasecmp(trim($value[6]), 'mountain view')) {
+                        $q->ru = 'горы';
+                        $q->ge = 'მთები';
+                        $q->en = 'mountain';
+                        $q->he = 'ההרים';
+                    }
+                    if (!strcasecmp(trim($value[6]), 'sea view')) {
+                        $q->ru = 'море';
+                        $q->ge = 'ზღვის';
+                        $q->en = 'sea';
+                        $q->he = 'יָם';
+                    }
+
+                    $q->save();
+                }
                 
-    //             if (true) {
-    //                 $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
+            }
+        }die;
+    }
 
-    //                 $q = ApartmentsA::find()
-    //                         ->where(['num' => $d])
-    //                         ->one();
+    // https://docs.google.com/spreadsheets/d/15jqz5NC8l40MfnMDrdMOg-sU4go1E61N/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+    public function actionDbb()
+    {
+        $id = '15jqz5NC8l40MfnMDrdMOg-sU4go1E61N';
+        $list = 0;
+        $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
+        $csv = explode(PHP_EOL, $csv);
+        $arr = array_map('str_getcsv', $csv);
+        // var_dump('<pre>');
+        // var_dump($arr);
+        // var_dump('</pre>');
+        // die;
+        foreach ($arr as $key => $value) {
+            // var_dump('<pre>');
+            // var_dump($value[0]);
+            // var_dump('</pre>');
+            if (intval($value[0])) {
+                // var_dump('<pre>');
+                // var_dump($value);
+                // var_dump(!strcasecmp(trim($value[8]), 'sea view'));
+                // var_dump('</pre>');
+                if (true) {
+                    if ($value[9] == 1) {
 
-    //                 $q->money = $this->numint($value[8]);
-    //                 $q->money_m = $this->numint($value[7]);
+                        $q = ApartmentsB::find()
+                            ->where(['id' => $value[0]])
+                            ->one();
+                        $q->status = 1;
+                        $q->save();
+                    } elseif ($value[9] == 2) {
 
-    //                 $q->balcony_area = $this->numfl($value[2]);
-    //                 $q->living_space = $this->numfl($value[1]);
-    //                 $q->total_area = $this->numfl($value[3]);
-
-    //                 if (!strcasecmp(trim($value[6]), 'mountain view')) {
-    //                     $q->ru = 'горы';
-    //                     $q->ge = 'მთები';
-    //                     $q->en = 'mountain';
-    //                     $q->he = 'ההרים';
-    //                 }
-    //                 if (!strcasecmp(trim($value[6]), 'sea view')) {
-    //                     $q->ru = 'море';
-    //                     $q->ge = 'ზღვის';
-    //                     $q->en = 'sea';
-    //                     $q->he = 'יָם';
-    //                 }
-
-    //                 $q->save();
-    //             }
-
-    //         }
-    //     }
-    // }
-
-
-    // public function actionDbb()
-    // {
-    //     $id = '1VKUJXEW4TuuIDaY_KWfK-A7wzsTiHCFB';
-    //     $list = 0;
-    //     $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
-    //     $csv = explode(PHP_EOL, $csv);
-    //     $arr = array_map('str_getcsv', $csv);
-    //     // var_dump('<pre>');
-    //     // var_dump($arr);
-    //     // var_dump('</pre>');
-    //     // die;
-    //     foreach ($arr as $key => $value) {
-    //         // var_dump('<pre>');
-    //         // var_dump($value[0]);
-    //         // var_dump('</pre>');
-    //         if (intval($value[0])) {
-    //             // var_dump('<pre>');
-    //             // // var_dump($value);
-    //             // var_dump(!strcasecmp(trim($value[8]), 'sea view'));
-    //             // var_dump('</pre>');
-                
-    //             if (true) {
-    //                 $q = ApartmentsB::find()
-    //                         ->where(['id' => $value[0]])
-    //                         ->one();
+                        $q = ApartmentsB::find()
+                                ->where(['id' => $value[0]])
+                                ->one();
+                        $q->status = 2;
+                        $q->save();
+                    }
+                    
+                }
+                if (false) {
+                    $q = ApartmentsB::find()
+                            ->where(['id' => $value[0]])
+                            ->one();
                             
-    //                 $q->money = $this->numint($value[13]);
-    //                 $q->money_m = $this->numint($value[12]);
-    //                 $q->money_wh = $this->numint($value[11]);
-    //                 $q->money_wh_m = $this->numint($value[10]);
+                    $q->money = $this->numint($value[13]);
+                    $q->money_m = $this->numint($value[12]);
+                    $q->money_wh = $this->numint($value[11]);
+                    $q->money_wh_m = $this->numint($value[10]);
 
-    //                 $q->balcony_area = $this->numfl($value[2]);
-    //                 $q->living_space = $this->numfl($value[1]);
-    //                 $q->total_area = $this->numfl($value[3]);
+                    $q->balcony_area = $this->numfl($value[2]);
+                    $q->living_space = $this->numfl($value[1]);
+                    $q->total_area = $this->numfl($value[3]);
 
-    //                 if (!strcasecmp(trim($value[8]), 'mountain view')) {
-    //                     $q->ru = 'горы';
-    //                     $q->ge = 'მთები';
-    //                     $q->en = 'mountain';
-    //                     $q->he = 'ההרים';
-    //                 }
-    //                 if (!strcasecmp(trim($value[8]), 'sea view')) {
-    //                     $q->ru = 'море';
-    //                     $q->ge = 'ზღვის';
-    //                     $q->en = 'sea';
-    //                     $q->he = 'יָם';
-    //                 }
+                    if (!strcasecmp(trim($value[8]), 'mountain view')) {
+                        $q->ru = 'горы';
+                        $q->ge = 'მთები';
+                        $q->en = 'mountain';
+                        $q->he = 'ההרים';
+                    }
+                    if (!strcasecmp(trim($value[8]), 'sea view')) {
+                        $q->ru = 'море';
+                        $q->ge = 'ზღვის';
+                        $q->en = 'sea';
+                        $q->he = 'יָם';
+                    }
 
-    //                 $q->save();
-    //             }
+                    $q->save();
+                }
 
-    //         }
-    //     }
-    // }
+            }
+        }
+    }
 
     public function numint($num)
     {
