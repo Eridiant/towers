@@ -22,20 +22,15 @@ class NewsController extends Controller
     public function behaviors()
     {
         return array_merge(
-            parent::behaviors(),
             [
                 'access' => [
                     'class' => AccessControl::class,
                     'rules' => [
                         [
-                            'actions' => ['login', 'error'],
                             'allow' => true,
+                            'roles' => ['@']
                         ],
-                        [
-                            'actions' => ['logout', 'index', 'delete', 'view', 'views'],
-                            'allow' => true,
-                            'roles' => ['@'],
-                        ],
+    
                     ],
                 ],
                 'verbs' => [

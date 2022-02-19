@@ -25,14 +25,10 @@ class FeedbackController extends Controller
                     'class' => AccessControl::class,
                     'rules' => [
                         [
-                            'actions' => ['login', 'error'],
                             'allow' => true,
+                            'roles' => ['@']
                         ],
-                        [
-                            'actions' => ['logout', 'index', 'delete', 'view', 'views'],
-                            'allow' => true,
-                            'roles' => ['@'],
-                        ],
+    
                     ],
                 ],
                 'verbs' => [
