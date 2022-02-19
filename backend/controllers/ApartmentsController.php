@@ -30,7 +30,6 @@ class ApartmentsController extends Controller
     public function behaviors()
     {
         return array_merge(
-            parent::behaviors(),
             [
                 'access' => [
                     'class' => AccessControl::class,
