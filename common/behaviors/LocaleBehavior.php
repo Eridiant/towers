@@ -44,7 +44,25 @@ class LocaleBehavior extends Behavior
         } else {
             $locale = $this->resolveLocale();
         }
-        Yii::$app->language = $locale;
+        $request = Yii::$app->request;
+        $langerhans = explode("/", $request->url)[1];
+        if ($langerhans != explode("-", $locale)[0]) {
+            switch ($langerhans) {
+                case 'ru':
+                    Yii::$app->language = 'ru-RU';
+                    break;
+                case 'en':
+                    Yii::$app->language = 'en-US';
+                    break;
+                default:
+                    Yii::$app->language = 'ka-GE';
+                    break;
+            }
+        } else {
+            Yii::$app->language = $locale;
+        }
+        
+        
     }
 
     public function resolveLocale()

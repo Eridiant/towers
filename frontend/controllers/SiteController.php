@@ -69,6 +69,7 @@ class SiteController extends Controller
      */
     public function actions()
     {
+        $sdf = 5;
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -83,6 +84,18 @@ class SiteController extends Controller
             ],
         ];
     }
+
+    // public function events()
+	// {
+	// 	return [Controller::EVENT_BEFORE_ACTION => 'beforeAction',
+	// 			Controller::EVENT_AFTER_ACTION=>'afterAction'];
+	// }
+
+    // public function afterAction($event)
+    // {
+    //     $sdf = 5;
+        
+    // }
 
     // function beforeAction($action) {
 
@@ -357,13 +370,21 @@ class SiteController extends Controller
 
         return $this->render('gallery', compact('rend'));
     }
-
+    
     public function actionAbout()
     {
 
         $this->bodyClass = 'other bl';
 
         return $this->render('about');
+    }
+
+    public function actionPrivacyPolicy()
+    {
+
+        $this->bodyClass = 'other bl';
+
+        return $this->render('policy');
     }
 
     public function actionContacts()
