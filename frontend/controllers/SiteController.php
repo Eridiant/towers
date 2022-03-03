@@ -205,7 +205,7 @@ class SiteController extends Controller
         return $this->render('infrastructure');
     }
 
-    public function actionLayouts($id = 1, $slug = null)
+    public function actionLayouts($id = 1, $lgg = null, $slug = null)
     {
         $request = Yii::$app->request;
         // $cookies = Yii::$app->request->cookies;
@@ -285,17 +285,18 @@ class SiteController extends Controller
         }
 
         foreach ($model as $key => $value) {
-            switch ($value["status"]) {
-                case '1':
-                    $status[$key] = Yii::t('frontend', 'зарезервировано');
-                    break;
-                case '2':
-                    $status[$key] = Yii::t('frontend', 'продано');
-                    break;
-                default:
-                    $status[$key] = Yii::t('frontend', 'доступно');
-                    break;
-            }
+            $status[$key] = $this->translate($value["status"], $request->post('lgg'));
+            // switch ($value["status"]) {
+            //     case '1':
+            //         $status[$key] = Yii::t('frontend', 'зарезервировано');
+            //         break;
+            //     case '2':
+            //         $status[$key] = Yii::t('frontend', 'продано');
+            //         break;
+            //     default:
+            //         $status[$key] = Yii::t('frontend', 'доступно');
+            //         break;
+            // }
 
         }
 
@@ -317,6 +318,50 @@ class SiteController extends Controller
         $this->bodyClass = 'other bl';
 
         return $this->render('layouts', compact('model', 'block', 'floor_num', 'summ', 'blocks', 'flats', 'flats_free', 'status'));
+    }
+
+    public function translate($key, $lgg)
+    {
+        $currentLang = $lgg === null ? Yii::$app->language : $lgg;
+        if ($key == 1) {
+            switch ($currentLang) {
+                case 'ru-RU':
+                    return 'зарезервировано';
+                    break;
+                case 'en-US':
+                    return 'reserved';
+                    break;
+                default:
+                    return 'დაცულია';
+                    break;
+            }
+        }
+        if ($key == 0) {
+            switch ($currentLang) {
+                case 'ru-RU':
+                    return 'доступно';
+                    break;
+                case 'en-US':
+                    return 'available';
+                    break;
+                default:
+                    return 'ხელმისაწვდომი';
+                    break;
+            }
+        }
+        if ($key == 2) {
+            switch ($currentLang) {
+                case 'ru-RU':
+                    return 'продано';
+                    break;
+                case 'en-US':
+                    return 'sold';
+                    break;
+                default:
+                    return 'გაიყიდა';
+                    break;
+            }
+        }
     }
 
     public function actionGallery()

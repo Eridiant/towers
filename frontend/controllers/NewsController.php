@@ -81,8 +81,7 @@ class NewsController extends Controller
      */
     public function actionIndex()
     {
-        $cookies = Yii::$app->request->cookies;
-        $lang = $cookies->getValue('_locale', 'en-US');
+        $lang = Yii::$app->language;
 
         $lang = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $lang])->one();
         $code = $lang->code;
@@ -123,8 +122,7 @@ class NewsController extends Controller
 
     public function actionView($slug)
     {
-        $cookies = Yii::$app->request->cookies;
-        $lang = $cookies->getValue('_locale', 'en-US');
+        $lang = Yii::$app->language;;
 
         $lang = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $lang])->one();
         $code = $lang->code;

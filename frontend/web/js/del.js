@@ -115,12 +115,12 @@ window.addEventListener('load', () => {
         })
     });
 
-    document.querySelector("#privacy-policy").addEventListener('click', (e) => {
-        e.preventDefault();
-        console.log("#privacy-policy");
+    // document.querySelector("#privacy-policy").addEventListener('click', (e) => {
+    //     e.preventDefault();
+    //     console.log("#privacy-policy");
         
-        document.querySelector('.privacy-policy').classList.add('popup-show');
-    });
+    //     document.querySelector('.privacy-policy').classList.add('popup-show');
+    // });
 
     if (document.querySelector('.project-swiper')) {
         var project =  new Swiper(".project-swiper", {
@@ -297,7 +297,8 @@ window.addEventListener('load', () => {
         })
 
         function ajaxFloor(block, fl) {
-            let data = {'slug': block, 'floor': fl};
+            let data = {'slug': block, 'floor': fl, 'lgg': lgg};
+
             changeModule(checkModule(block, fl)); //, floor
             $.ajax({
                 url: '/site/layouts',
@@ -447,7 +448,7 @@ window.addEventListener('load', () => {
             more_games.classList.add('news-next-load');
             setTimeout(()=>{
                 $.ajax({
-                    url: '/news',
+                    url: '/ru/news',
                     type: 'POST',
                     data: {add: add},
                     success: function(response){

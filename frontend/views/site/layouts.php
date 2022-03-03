@@ -10,9 +10,12 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
 
 $cookies = Yii::$app->request->cookies;
 $currentLang = $cookies->getValue('_locale', 'en-US');
-$lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one()->code;
+$lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => Yii::$app->language])->one()->code;
+
 ?>
+
 <script>
+    var lgg = <?= json_encode(Yii::$app->language); ?>; // Don't forget the extra semicolon!
     var summ = <?= json_encode($model); ?>; // Don't forget the extra semicolon!
     var stt = <?= json_encode($status); ?>; // Don't forget the extra semicolon!
 </script>
@@ -274,7 +277,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                     </picture>
                 </div>
                 <div class="flat-num-inner">
-                    <a href="<?=Url::toRoute(['/site/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => $model[0]['num'], 'img' => 1, 'view' => $model[0]['en']]) ?>" class="contacts-call btn btn-blue" target="_blank">
+                    <a href="<?=Url::toRoute([Yii::$app->params['curLangUrl'] . '/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => $model[0]['num'], 'img' => 1, 'view' => $model[0]['en']]) ?>" class="contacts-call btn btn-blue" target="_blank">
                         <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                         <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                     </a>

@@ -47,6 +47,7 @@ return [
                 'infrastructure' => 'site/infrastructure',
                 '<language:(ru|en)>/infrastructure' => 'site/infrastructure',
                 'pdf' => 'site/pdf',
+                '<language:(ru|en)>/pdf' => 'site/pdf',
                 'layouts' => 'site/layouts',
                 '<language:(ru|en)>/layouts' => 'site/layouts',
                 'layouts/<slug:[\w-]+>' => 'site/layouts',

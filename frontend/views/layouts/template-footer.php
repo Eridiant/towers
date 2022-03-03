@@ -73,7 +73,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
 			</div>
 		</div>
 		<div class="footer-wrapper footer-footer">
-			<a id="privacy-policy" href="javascript:void(0);"><?=Yii::t('frontend', 'Политика конфиденциальности')?></a>
+			<a id="privacy-policy" href="<?= Url::toRoute(Yii::$app->params['curLangUrl'] . '/privacy-policy') ?>"><?=Yii::t('frontend', 'Политика конфиденциальности')?></a>
 			<a href="#">Made by&nbsp;&nbsp;&nbsp;<img src="/images/syndicate.png" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>"></a>
 		</div>
 	</div>
