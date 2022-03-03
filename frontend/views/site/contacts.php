@@ -31,7 +31,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
         <div class="contacts-wrapper">
             <div class="contacts-inf">
                 <div class="breadcrumbs">
-                    <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
+                    <a href="<?= Yii::$app->params['curLangUrl'] ?>/"><?=Yii::t('frontend', 'Главная')?></a>
                     <p><?=Yii::t('frontend', 'Контакты')?></p>
                 </div>
                 <h1><?=Yii::t('frontend', 'Свяжитесь с нами')?></h1>

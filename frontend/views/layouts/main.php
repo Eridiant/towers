@@ -18,6 +18,17 @@ AppAsset::register($this);
 
 $currentLang = Yii::$app->language;
 
+switch ($currentLang) {
+    case 'ru-RU':
+        $curLangUrl = "/" . explode("-", $currentLang)[0];
+        break;
+    case 'en-US':
+        $curLangUrl = "/" . explode("-", $currentLang)[0];
+        break;
+    default:
+        $curLangUrl = "";
+        break;
+}
 $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
 $scripts = \frontend\models\Scripts::find(1)->one();
 

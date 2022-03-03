@@ -18,7 +18,7 @@ use yii\helpers\Url;
                 <?php $model->$code = trim(preg_replace('/\s+/i', ' ', strip_tags($model->$code))); ?>
                 <?= $model->$code; ?>
             </div>
-            <a class="news-link" href="<?= Url::toRoute("news/{$model->slug}"); ?>"><?=Yii::t('frontend', 'Подробнее')?></a>
+            <a class="news-link" href="<?= Url::toRoute(Yii::$app->params['curLangUrl'] . "/news/{$model->slug}"); ?>"><?=Yii::t('frontend', 'Подробнее')?></a>
         </div>
     </div>
 <?php endforeach; ?>

@@ -10,7 +10,7 @@ use yii\helpers\Url;
             <div class="gallery-inf">
                 <div class="gallery-inner">
                     <div class="breadcrumbs">
-                        <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
+                        <a href="<?= $curLangUrl ?>/"><?=Yii::t('frontend', 'Главная')?></a>
                         <p><?=Yii::t('frontend', 'Галерея')?></p>
                     </div>
                     <h1><?=Yii::t('frontend', 'Галерея')?></h1>
@@ -18,19 +18,19 @@ use yii\helpers\Url;
                 <div class="gallery-tab">
                     <ul>
                         <li>
-                            <a href="<?=Url::toRoute('/gallery') ?>"><?=Yii::t('frontend', 'Жилой дом')?></a>
+                            <a href="<?=Url::toRoute($curLangUrl . '/gallery') ?>"><?=Yii::t('frontend', 'Жилой дом')?></a>
                         </li>
                         <li>
-                            <a href="<?=Url::toRoute('/construction-progress') ?>"><?=Yii::t('frontend', 'Ход строительства')?></a>
+                            <a href="<?=Url::toRoute($curLangUrl . '/construction-progress') ?>"><?=Yii::t('frontend', 'Ход строительства')?></a>
                         </li>
                         <li class="gallery-tab-current">
-                            <a href="<?=Url::toRoute('/batumi') ?>"><?=Yii::t('frontend', 'Батуми')?></a>
+                            <a href="<?=Url::toRoute($curLangUrl . '/batumi') ?>"><?=Yii::t('frontend', 'Батуми')?></a>
                         </li>
                         <li>
-                            <a href="<?= Url::toRoute('/our-team') ?>"><?=Yii::t('frontend', 'Команда')?></a>
+                            <a href="<?= Url::toRoute($curLangUrl . '/our-team') ?>"><?=Yii::t('frontend', 'Команда')?></a>
                         </li>
                         <li>
-                            <a href="<?= Url::toRoute('/video-report') ?>"><?=Yii::t('frontend', 'Видео отчет о ходе строительства')?></a>
+                            <a href="<?= Url::toRoute($curLangUrl . '/video-report') ?>"><?=Yii::t('frontend', 'Видео отчет о ходе строительства')?></a>
                         </li>
                     </ul>
                 </div>

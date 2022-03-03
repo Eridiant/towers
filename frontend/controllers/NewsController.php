@@ -26,6 +26,26 @@ class NewsController extends Controller
 
     public $bodyClass;
 
+    function beforeAction($action) {
+
+        $currentLang = Yii::$app->language;
+
+        switch ($currentLang) {
+            case 'ru-RU':
+                $curLangUrl = "/" . explode("-", $currentLang)[0];
+                break;
+            case 'en-US':
+                $curLangUrl = "/" . explode("-", $currentLang)[0];
+                break;
+            default:
+                $curLangUrl = "";
+                break;
+        }
+
+        Yii::$app->params['curLangUrl'] = $curLangUrl;
+        return parent::beforeAction($action);
+    }
+
     /**
      * {@inheritdoc}
      */

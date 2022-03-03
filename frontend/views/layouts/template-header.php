@@ -14,7 +14,7 @@ $this->title = 'Calligraphy';
 	<div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
 		<div class="top-nav">
 			<div class="top-logo">
-				<a href="<?=Url::toRoute('/') ?>">
+				<a href="<?=Url::toRoute($curLangUrl . '/') ?>">
 					<svg width="100%" height="100%"><use xlink:href="/images/icons.svg#logo"></use></svg>
 				</a>
 			</div>
@@ -40,25 +40,25 @@ $this->title = 'Calligraphy';
 			</div>
             <div class="content-empty"></div>
 			<div class="top-navg">
-                <a href="<?=Url::toRoute('/') ?>">
+                <a href="<?=Url::toRoute($curLangUrl . '/') ?>">
                     <?=Yii::t('frontend', 'Главная')?>
                 </a>
-				<a href="<?=Url::toRoute('/infrastructure') ?>">
+				<a href="<?=Url::toRoute($curLangUrl . '/infrastructure') ?>">
                     <?=Yii::t('frontend', 'Инфраструктура')?>
                 </a>
-                <a href="<?=Url::toRoute('/layouts') ?>">
+                <a href="<?=Url::toRoute($curLangUrl . '/layouts') ?>">
                     <?=Yii::t('frontend', 'Планировки')?>
                 </a>
-                <a href="<?=Url::toRoute('/gallery') ?>">
+                <a href="<?=Url::toRoute($curLangUrl . '/gallery') ?>">
                     <?=Yii::t('frontend', 'Галерея')?>
                 </a>
-                <a href="<?=Url::toRoute('/about') ?>">
+                <a href="<?=Url::toRoute($curLangUrl . '/about') ?>">
                     <?=Yii::t('frontend', 'О компании')?>
                 </a>
-                <a href="<?=Url::toRoute('/news') ?>">
+                <a href="<?=Url::toRoute($curLangUrl . '/news') ?>">
                     <?=Yii::t('frontend', 'Новости')?>
                 </a>
-                <a href="<?=Url::toRoute('/contacts') ?>">
+                <a href="<?=Url::toRoute($curLangUrl . '/contacts') ?>">
                     <?=Yii::t('frontend', 'Контакты')?>
                 </a>
 			</div>
@@ -79,18 +79,27 @@ $this->title = 'Calligraphy';
         <div class="lang-choose">
             <?php $langs = \backend\modules\language\models\Language::find()->where(['deleted_at' => null])->all(); ?>
             <ul>
-                <?php foreach ($langs as $lang): ?>
-                    <li><a href="/site/set-locale?locale=<?=$lang->key?>">
-                        <?= $lang->code; ?>
-                    </a></li>
-                <?php endforeach; ?>
+                <li><a href="/en">
+                    en
+                </a></li>
+                <li><a href="/">
+                    ge
+                </a></li>
+                <li><a href="/ru">
+                    ru
+                </a></li>
+                <?php //foreach ($langs as $lang): ?>
+                    <!-- <li><a href="/site/set-locale?locale=<?//=$lang->key?>">
+                        <?//= $lang->code; ?>
+                    </a></li> -->
+                <?php //endforeach; ?>
             </ul>
         </div>
     </div>
 </div>
 <div class="content">
     <div class="content-header">
-        <a href="<?=Url::toRoute('/') ?>">
+        <a href="<?=Url::toRoute($curLangUrl . '/') ?>">
             <svg width="53" height="108"><use xlink:href="/images/icons.svg#logo"></use></svg>
         </a>
         <div class="top-social">
@@ -124,36 +133,40 @@ $this->title = 'Calligraphy';
         </div>
         <div class="lang-choose">
             <ul>
-                <?php foreach ($langs as $lang): ?>
-                    <li><a href="/site/set-locale?locale=<?=$lang->key?>">
-                        <?= $lang->code; ?>
-                    </a></li>
-                <?php endforeach; ?>
+                <li><a href="/en">
+                    en
+                </a></li>
+                <li><a href="/">
+                    ge
+                </a></li>
+                <li><a href="/ru">
+                    ru
+                </a></li>
             </ul>
         </div>
     </div>
     <div class="content-wrapper">
         <div class="content-nav">
             <ul>
-                <li><a href="<?=Url::toRoute('/') ?>">
+                <li><a href="<?=Url::toRoute($curLangUrl . '/') ?>">
                     <?=Yii::t('frontend', 'Главная')?>
                 </a></li>
-                <li><a href="<?=Url::toRoute('/infrastructure') ?>">
+                <li><a href="<?=Url::toRoute($curLangUrl . '/infrastructure') ?>">
                     <?=Yii::t('frontend', 'Инфраструктура')?>
                 </a></li>
-                <li><a href="<?=Url::toRoute('/layouts') ?>">
+                <li><a href="<?=Url::toRoute($curLangUrl . '/layouts') ?>">
                     <?=Yii::t('frontend', 'Планировки')?>
                 </a></li>
-                <li><a href="<?=Url::toRoute('/gallery') ?>">
+                <li><a href="<?=Url::toRoute($curLangUrl . '/gallery') ?>">
                     <?=Yii::t('frontend', 'Галерея')?>
                 </a></li>
-                <li><a href="<?=Url::toRoute('/about') ?>">
+                <li><a href="<?=Url::toRoute($curLangUrl . '/about') ?>">
                     <?=Yii::t('frontend', 'О компании')?>
                 </a></li>
-                <li><a href="<?=Url::toRoute('/news') ?>">
+                <li><a href="<?=Url::toRoute($curLangUrl . '/news') ?>">
                     <?=Yii::t('frontend', 'Новости')?>
                 </a></li>
-                <li><a href="<?=Url::toRoute('/contacts') ?>">
+                <li><a href="<?=Url::toRoute($curLangUrl . '/contacts') ?>">
                     <?=Yii::t('frontend', 'Контакты')?>
                 </a></li>
             </ul>

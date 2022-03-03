@@ -69,7 +69,6 @@ class SiteController extends Controller
      */
     public function actions()
     {
-        $sdf = 5;
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
@@ -97,26 +96,25 @@ class SiteController extends Controller
         
     // }
 
-    // function beforeAction($action) {
+    function beforeAction($action) {
 
-    //     // $cs = Yii::$app->getClientScript();
+        $currentLang = Yii::$app->language;
 
-        
+        switch ($currentLang) {
+            case 'ru-RU':
+                $curLangUrl = "/" . explode("-", $currentLang)[0];
+                break;
+            case 'en-US':
+                $curLangUrl = "/" . explode("-", $currentLang)[0];
+                break;
+            default:
+                $curLangUrl = "";
+                break;
+        }
 
-
-    //     $cookies = Yii::$app->request->cookies;
-    //     $lang = $cookies->getValue('_locale', 'en-US');
-
-    //     $lang = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $lang])->one();
-    //     $code = $lang->code;
-    //     $title = "title_{$code}";
-
-    //     // var_dump('<pre>');
-    //     // var_dump($code);
-    //     // var_dump('</pre>');
-    //     // die;
-    //     \yii\helpers\Html::cssFile()($code);
-    // }
+        Yii::$app->params['curLangUrl'] = $curLangUrl;
+        return parent::beforeAction($action);
+    }
 
     /**
      * Displays homepage.

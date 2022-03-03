@@ -108,8 +108,8 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
         <div class="block-wrapper">
             <div class="block-desc">
                 <div class="breadcrumbs">
-                    <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
-                    <a href="/"><?=Yii::t('frontend', 'Планировки')?></a>
+                    <a href="<?= Yii::$app->params['curLangUrl'] ?>/"><?=Yii::t('frontend', 'Главная')?></a>
+                    <a href="<?= Yii::$app->params['curLangUrl'] ?>/"><?=Yii::t('frontend', 'Планировки')?></a>
                     <p><?=Yii::t('frontend', 'Блок')?> <span class="blocks"><?= $block; ?></span></p>
                 </div>
                 <h3><?=Yii::t('frontend', 'Информация о блоке')?></h3>
@@ -153,8 +153,8 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
         <div class="floor-wrapper">
             <div class="floor-floor">
                 <div class="breadcrumbs">
-                    <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
-                    <a href="/"><?=Yii::t('frontend', 'Планировки')?></a>
+                    <a href="<?= Yii::$app->params['curLangUrl'] ?>/"><?=Yii::t('frontend', 'Главная')?></a>
+                    <a href="<?= Yii::$app->params['curLangUrl'] ?>/"><?=Yii::t('frontend', 'Планировки')?></a>
                     <p><?=Yii::t('frontend', 'Блок')?> <span class="blocks"><?= $block; ?></span></p>
                 </div>
                 <h2><?=Yii::t('frontend', 'Этажи')?></h2>
@@ -214,8 +214,8 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
         <div class="flat-wrapper">
             <div class="flat-description">
                 <div class="breadcrumbs">
-                    <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
-                    <a href="/"><?=Yii::t('frontend', 'Планировки')?></a>
+                    <a href="<?= Yii::$app->params['curLangUrl'] ?>/"><?=Yii::t('frontend', 'Главная')?></a>
+                    <a href="<?= Yii::$app->params['curLangUrl'] ?>/"><?=Yii::t('frontend', 'Планировки')?></a>
                     <p><?=Yii::t('frontend', 'Квартира')?></p>
                 </div>
                 <h2><?=Yii::t('frontend', 'Экспликация')?></h2>

@@ -13,7 +13,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
 <div class="news">
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="breadcrumbs">
-            <a href="/"><?=Yii::t('frontend', 'Главная')?></a>
+            <a href="<?= Yii::$app->params['curLangUrl'] ?>/"><?=Yii::t('frontend', 'Главная')?></a>
             <p><?=Yii::t('frontend', 'Новости')?></p>
         </div>
         <h1><?=Yii::t('frontend', 'Читать больше')?></h1>

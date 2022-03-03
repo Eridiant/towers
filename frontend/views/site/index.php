@@ -596,13 +596,13 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                     <?=Yii::t('frontend', 'Выберите блок')?>
                 </h2>
                 <div class="choose-buttons">
-                    <a href="<?=Url::toRoute('/layouts/block-A') ?>" class="choose-button" data-choose="1">
+                    <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-A') ?>" class="choose-button" data-choose="1">
                         <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'а')?></span>
                     </a>
-                    <a href="<?=Url::toRoute('/layouts/block-B') ?>" class="choose-button" data-choose="2">
+                    <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-B') ?>" class="choose-button" data-choose="2">
                         <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'б')?></span>
                     </a>
-                    <a href="<?=Url::toRoute('/layouts/block-C') ?>" class="choose-button" data-choose="3" data-inf="<?=Yii::t('frontend', 'скоро в продаже')?>">
+                    <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-C') ?>" class="choose-button" data-choose="3" data-inf="<?=Yii::t('frontend', 'скоро в продаже')?>">
                         <?//=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
                     </a>
                 </div>
@@ -612,13 +612,13 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
     <div class="choose-slider">
         <p><?=Yii::t('frontend', 'Выберите блок')?></p>
         <div class="choose-buttons-mob">
-            <a href="<?=Url::toRoute('/layouts/block-A') ?>" class="choose-button-mob" data-choose="1">
+            <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-A') ?>" class="choose-button-mob" data-choose="1">
                 <?=Yii::t('frontend', 'а')?>
             </a>
-            <a href="<?=Url::toRoute('/layouts/block-B') ?>" class="choose-button-mob" data-choose="2">
+            <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-B') ?>" class="choose-button-mob" data-choose="2">
                 <?=Yii::t('frontend', 'б')?>
             </a>
-            <a href="<?=Url::toRoute('/layouts/block-C') ?>" class="choose-button-mob" data-choose="3">
+            <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-C') ?>" class="choose-button-mob" data-choose="3">
                 <?=Yii::t('frontend', 'с')?>
             </a>
         </div>

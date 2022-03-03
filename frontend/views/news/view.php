@@ -21,7 +21,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
     <div class="container" style="max-width: 1200px; margin-left: auto; margin-right: auto">
         <h1><?= $model->$title; ?></h1>
         <div class="nws-text"><?= $model->$code; ?></div>
-        <a href="<?=Url::toRoute('/news') ?>" class="nws-btn btn btn-blue">
+        <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/news') ?>" class="nws-btn btn btn-blue">
             <svg width="34" height="8"><use xlink:href="/images/icons.svg#arrow"></use></svg>
             <span><?=Yii::t('frontend', 'Назад')?></span>
         </a>
