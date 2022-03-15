@@ -332,7 +332,7 @@ class SiteController extends Controller
                     return 'reserved';
                     break;
                 default:
-                    return 'დაცულია';
+                    return 'ჯავშანი';
                     break;
             }
         }
