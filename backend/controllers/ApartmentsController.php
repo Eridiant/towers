@@ -100,9 +100,10 @@ class ApartmentsController extends Controller
     // https://docs.google.com/spreadsheets/d/1cOh7Q3F5-ac-HZ2BaGXs4fWV66EFAQQ7xt52FjB9F8s/edit#gid=1115666623ss
     // https://docs.google.com/spreadsheets/d/1eGLzNYOQlgtJegIYCZiJdjKFEeo6TKVe/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
     // 1резерв 2 продано
+    //https://docs.google.com/spreadsheets/d/1971q5sSDF_PuSLbNXI_yp7cY3WJBcwny/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
     public function actionDba()
     {
-        $id = '1eGLzNYOQlgtJegIYCZiJdjKFEeo6TKVe';
+        $id = '1971q5sSDF_PuSLbNXI_yp7cY3WJBcwny';
         $list = 0;
         $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
         $csv = explode(PHP_EOL, $csv);
@@ -180,9 +181,10 @@ class ApartmentsController extends Controller
     }
 
     // https://docs.google.com/spreadsheets/d/15jqz5NC8l40MfnMDrdMOg-sU4go1E61N/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+    //https://docs.google.com/spreadsheets/d/1JJ35GMQTHEbPOX9NF4LlrHVrmjy9TuaJ/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
     public function actionDbb()
     {
-        $id = '15jqz5NC8l40MfnMDrdMOg-sU4go1E61N';
+        $id = '1JJ35GMQTHEbPOX9NF4LlrHVrmjy9TuaJ';
         $list = 0;
         $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
         $csv = explode(PHP_EOL, $csv);
@@ -391,88 +393,88 @@ class ApartmentsController extends Controller
         
     // }
 
-    public function actionDbch21()
-    {
-        $floor = 0;
-        $j = 1;
-        for ($i=4; $i < 45; $i++) {
-            $floor = ApartmentsB::find()
-                        ->where(['floor_num' => $i])
-                        ->all();
+    // public function actionDbch21()
+    // {
+    //     $floor = 0;
+    //     $j = 1;
+    //     for ($i=4; $i < 45; $i++) {
+    //         $floor = ApartmentsB::find()
+    //                     ->where(['floor_num' => $i])
+    //                     ->all();
 
-            $id = end($floor)->id-5;
+    //         $id = end($floor)->id-5;
 
-            $flat = ApartmentsB::find()
-                        ->where(['id' => $id])
-                        ->one();
+    //         $flat = ApartmentsB::find()
+    //                     ->where(['id' => $id])
+    //                     ->one();
 
-            $flat->img = 32;
-            $flat->save();
-            if ($flat->getErrors()) {
-                var_dump($flat->getErrors());
-            }
+    //         $flat->img = 32;
+    //         $flat->save();
+    //         if ($flat->getErrors()) {
+    //             var_dump($flat->getErrors());
+    //         }
 
-            $id = end($floor)->id-4;
+    //         $id = end($floor)->id-4;
 
-            $flat = ApartmentsB::find()
-                        ->where(['id' => $id])
-                        ->one();
+    //         $flat = ApartmentsB::find()
+    //                     ->where(['id' => $id])
+    //                     ->one();
 
-            $flat->img = 42;
-            $flat->save();
-            if ($flat->getErrors()) {
-                var_dump($flat->getErrors());
-            }
+    //         $flat->img = 42;
+    //         $flat->save();
+    //         if ($flat->getErrors()) {
+    //             var_dump($flat->getErrors());
+    //         }
 
-            $id = end($floor)->id-7;
+    //         $id = end($floor)->id-7;
 
-            $flat = ApartmentsB::find()
-                        ->where(['id' => $id])
-                        ->one();
+    //         $flat = ApartmentsB::find()
+    //                     ->where(['id' => $id])
+    //                     ->one();
 
-            $flat->img = 32;
-            $flat->save();
-            if ($flat->getErrors()) {
-                var_dump($flat->getErrors());
-            }
-        }
+    //         $flat->img = 32;
+    //         $flat->save();
+    //         if ($flat->getErrors()) {
+    //             var_dump($flat->getErrors());
+    //         }
+    //     }
         
-    }
+    // }
 
-    public function actionDbch2()
-    {
-        $floor = 0;
-        $j = 1;
-        for ($i=2; $i < 45; $i++) {
+    // public function actionDbch2()
+    // {
+    //     $floor = 0;
+    //     $j = 1;
+    //     for ($i=2; $i < 45; $i++) {
 
-            $floor = ApartmentsB::find()
-                        ->where(['floor_num' => $i])
-                        ->one();
+    //         $floor = ApartmentsB::find()
+    //                     ->where(['floor_num' => $i])
+    //                     ->one();
 
-            $id = $floor->id+1;
+    //         $id = $floor->id+1;
 
-            $flat = ApartmentsB::find()
-                        ->where(['id' => $id])
-                        ->one();
-            $flat->img = 32;
-            $flat->save();
-            if ($flat->getErrors()) {
-                var_dump($flat->getErrors());
-            }
+    //         $flat = ApartmentsB::find()
+    //                     ->where(['id' => $id])
+    //                     ->one();
+    //         $flat->img = 32;
+    //         $flat->save();
+    //         if ($flat->getErrors()) {
+    //             var_dump($flat->getErrors());
+    //         }
 
-            $id = $floor->id+3;
+    //         $id = $floor->id+3;
 
-            $flat = ApartmentsB::find()
-                        ->where(['id' => $id])
-                        ->one();
-            $flat->img = 32;
-            $flat->save();
-            if ($flat->getErrors()) {
-                var_dump($flat->getErrors());
-            }
-        }
+    //         $flat = ApartmentsB::find()
+    //                     ->where(['id' => $id])
+    //                     ->one();
+    //         $flat->img = 32;
+    //         $flat->save();
+    //         if ($flat->getErrors()) {
+    //             var_dump($flat->getErrors());
+    //         }
+    //     }
         
-    }
+    // }
 
     // public function actionDbch24()
     // {
