@@ -209,6 +209,7 @@ class ApartmentsController extends Controller
                             ->where(['id' => $value[0]])
                             ->one();
                         $q->status = 1;
+                        var_dump('| id=' . $value[0] . '_st=1');
                         $q->save();
                     } elseif ($value[9] == 2) {
 
@@ -216,6 +217,7 @@ class ApartmentsController extends Controller
                                 ->where(['id' => $value[0]])
                                 ->one();
                         $q->status = 2;
+                        var_dump('| id=' . $value[0] . '_st=2');
                         $q->save();
                     }
                     
