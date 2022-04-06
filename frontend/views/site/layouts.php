@@ -165,12 +165,12 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                     <div class="floor-choose-inner floor-show">
                         <div class="floor-choose-img">
                             <picture>
-                                <img src="/images/blocks/img/<?= $block; ?>/<?= $floor_num; ?>.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
+                                <img src="/images/blocks/img/<?= $block; ?>/<?= $floor_img; ?>.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                             </picture>
                         </div>
                         <div class="floor-choose-svg">
                             <figure class="floor-choose-fig">
-                                <object id="test" data-floor="<?= $floor_num; ?>" data-block="<?= $block; ?>" data="/images/blocks/svg/<?= $block; ?>/<?= $floor_num; ?>.svg" type="image/svg+xml">
+                                <object id="test" data-floor="<?= $floor_num; ?>" data-block="<?= $block; ?>" data="/images/blocks/svg/<?= $block; ?>/<?= $floor_img; ?>.svg" type="image/svg+xml">
                                     <!-- <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>"> -->
                                 </object>
                             </figure>
@@ -200,7 +200,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
             </div>
             <div class="floor-choose floor-choose-swiper">
                 <!-- Swiper -->
-                <div class="swiper floorChoose">
+                <div class="swiper floorChoose" data-indx="<?= $indx; ?>">
                     <div class="swiper-wrapper">
                         <?php foreach ($blocks as $blocks): ?>
                             <div class="swiper-slide"><?= $blocks->floor; ?></div>

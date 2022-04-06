@@ -24,6 +24,7 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Feedback;
+use yii\web\HttpException;
 
 /**
  * Site controller
@@ -205,8 +206,9 @@ class SiteController extends Controller
         return $this->render('infrastructure');
     }
 
-    public function actionLayouts($id = 1, $lgg = null, $slug = null)
+    public function actionLayouts($id = 1, $lgg = null, $slug = null, $flr = null)
     {
+
         $request = Yii::$app->request;
         // $cookies = Yii::$app->request->cookies;
         // $currentLang = $request->cookies->getValue('_locale', 'en-US');
@@ -221,10 +223,21 @@ class SiteController extends Controller
         if ($slug === 'block-A' || $slug == NULL) {
             $block = 'a';
             $blocks = FloorA::find()->all();
-            $floor = FloorA::find()
+            if ($flr === null) {
+                $floor = FloorA::find()
                     ->where('id=:id')
                     ->addParams([':id' => $id])
                     ->one();
+            } else {
+                $floor = FloorA::find()
+                    ->where('floor=:floor')
+                    ->addParams([':floor' => preg_replace("/[^0-9]/", '', $flr)])
+                    ->one();
+                if ($floor === null) {
+                    throw new HttpException(404, 'Запрошенная страница не найдена');
+                }
+            }
+            
             $model = ApartmentsA::find()
                     ->where('floor_num=:floor_num')
                     ->addParams([':floor_num' => $floor->floor])
@@ -238,10 +251,21 @@ class SiteController extends Controller
         if ($slug === 'block-B') {
             $block = 'b';
             $blocks = FloorB::find()->all();
-            $floor = FloorB::find()
+            if ($flr === null) {
+                $floor = FloorB::find()
                     ->where('id=:id')
                     ->addParams([':id' => $id])
                     ->one();
+            } else {
+                $floor = FloorB::find()
+                    ->where('floor=:floor')
+                    ->addParams([':floor' => preg_replace("/[^0-9]/", '', $flr)])
+                    ->one();
+                if ($floor === null) {
+                    throw new HttpException(404, 'Запрошенная страница не найдена');
+                }
+            }
+            
             $model = ApartmentsB::find()
                     ->where('floor_num=:floor_num')
                     ->addParams([':floor_num' => $floor->floor])
@@ -313,11 +337,114 @@ class SiteController extends Controller
             return $summ;
         }
 
+        $floor_img = $this->flrs($block, $id);
         $floor_num = $floor->floor;
+        
+        $indx = $floor->id - 1;
 
         $this->bodyClass = 'other bl';
 
-        return $this->render('layouts', compact('model', 'block', 'floor_num', 'summ', 'blocks', 'flats', 'flats_free', 'status'));
+        return $this->render('layouts', compact('model', 'block', 'floor_num', 'floor_img', 'indx', 'summ', 'blocks', 'flats', 'flats_free', 'status'));
+    }
+
+    public function flrs($block, $floor)
+    {
+
+        $fls = 0;
+    
+        if ($block === 'a') {
+            if (!$floor) return [$block, $fls = 11];
+            switch ($floor) {
+                case 1:
+                    $fls = 11;
+                    break;
+                case 24:
+                    $fls = 34;
+                    break;
+                case 25:
+                    $fls = 35;
+                    break;
+                default:
+                    $fls = 12;
+                    break;
+            }
+        }
+        if ($block === 'b') {
+            if (!$floor) return [$block, $fls = 2];
+            switch ($floor) {
+                case 1:
+                    $fls = 2;
+                    break;
+                case 2:
+                    $fls = 3;
+                    break;
+                case 3:
+                    $fls = 4;
+                    break;
+                case 8:
+                case 15:
+                    $fls = 9;
+                    break;
+                case 4:
+                    $fls = 5;
+                    break;
+                case 27:
+                case 28:
+                    $fls = 29;
+                    break;
+                case 29:
+                case 30:
+                case 31:
+                case 32:
+                case 33:
+                    $fls = 30;
+                    break;
+                case 34:
+                    $fls = 30;
+                    // $fls = 36;
+                    break;
+                case 35:
+                    $fls = 37;
+                    break;
+                case 36:
+                    $fls = 38;
+                    break;
+                // case 37:
+                    // $fls = 38;
+                    // break;
+                case 23:
+                case 24:
+                case 25:
+                case 26:
+                case 37:
+                    $fls = 39;
+                    break;
+                case 38:
+                case 39:
+                case 40:
+                case 41:
+                case 42:
+                    $fls = 40;
+                    break;
+                case 43:
+                    $fls = 44;
+                    break;
+                case 44:
+                    $fls = 45;
+                    break;
+                case 45:
+                    $fls = 46;
+                    break;
+                case 46:
+                    $fls = 47;
+                    break;
+                default:
+                    $fls = 6;
+                    break;
+            }
+        }
+    
+        return $fls;
     }
 
     public function translate($key, $lgg)

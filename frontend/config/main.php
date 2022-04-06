@@ -52,6 +52,8 @@ return [
                 '<language:(ru|en)>/layouts' => 'site/layouts',
                 'layouts/<slug:[\w-]+>' => 'site/layouts',
                 '<language:(ru|en)>/layouts/<slug:[\w-]+>' => 'site/layouts',
+                'layouts/<slug:[\w-]+>/<flr:[\w-]+>' => 'site/layouts',
+                '<language:(ru|en)>/layouts/<slug:[\w-]+>/<flr:[\w-]+>' => 'site/layouts',
                 'gallery' => 'site/gallery',
                 '<language:(ru|en)>/gallery' => 'site/gallery',
                 'construction-progress' => 'site/construction-progress',

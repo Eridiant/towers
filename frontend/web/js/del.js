@@ -1,5 +1,7 @@
 window.addEventListener('load', () => {
 
+    
+
     // setTimeout(() => {
     //     var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
     //     (function(){
@@ -141,21 +143,24 @@ window.addEventListener('load', () => {
             },
         });
 
-        switch (window.location.href.slice(-1)) {
-            case 'A':
-                choose.slideTo(0);
-                break;
-            case 'B':
-                choose.slideTo(1);
-                break;
-            case 'C':
-                choose.slideTo(2);
-                // ltrs('C');
-                fordelc();
-                break;
-            default:
-                break;
+        if (window.location.href.match(/block-\w/)) {
+            switch (window.location.href.match(/block-\w/)[0]) {
+                case 'block-A':
+                    choose.slideTo(0);
+                    break;
+                case 'block-B':
+                    choose.slideTo(1);
+                    break;
+                case 'block-C':
+                    choose.slideTo(2);
+                    // ltrs('C');
+                    fordelc();
+                    break;
+                default:
+                    break;
+            }
         }
+        
 
     }
 
@@ -174,6 +179,8 @@ window.addEventListener('load', () => {
 				},
 			},
 		});
+
+        floor.slideTo(document.querySelector('.floorChoose').dataset.indx);
         // document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(summ.length, summ[0].floor_num);
         // floor.update();
         // let sdf = choose;
@@ -433,6 +440,17 @@ window.addEventListener('load', () => {
         
 	}
 
+    if (document.querySelector('#header-bg-svg')) {
+        let headerBgSvg = document.querySelector('#header-bg-svg').contentDocument;
+        headerBgSvg.addEventListener('click', (e) => {
+            if (e.target.closest('.area')) {
+                let area = e.target.closest('.area');
+                let crnt = currLang == 'ge' ? '' : `${currLang}/`;
+                document.location.href = `${base_url}/${crnt}layouts/block-${area.dataset.block}/floor-${area.dataset.floor}`;
+            }
+        })
+    }
+
     if (document.querySelector('.news')) {
         let news_container = document.querySelector('.news-wrapper');
         let more_games = document.querySelector('.news-next');
@@ -603,7 +621,8 @@ function checkModule(block, floor = 0) {
                 fls = 30;
                 break;
             case 34:
-                fls = 36;
+                fls = 30;
+                // fls = 36;
                 break;
             case 35:
                 fls = 37;

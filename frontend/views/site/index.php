@@ -11,6 +11,10 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
 
 ?>
 
+<script>
+        var base_url = '<?= \Yii::$app->request->hostInfo; ?>';
+</script>
+
 <header class="header">
 	<div class="header-bg img-bg">
 		<div class="header-bg-wrap header-lights">
@@ -35,6 +39,9 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
 			</picture>
 		</div>
 	</div>
+    <div class="header-bg-svg">
+        <object id="header-bg-svg" data="images/svg/header__bg.svg" type="image/svg+xml"></object>
+    </div>
 	<div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
 		<div class="header-wrapper">
 			<div class="header-inner">
