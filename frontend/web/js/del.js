@@ -614,14 +614,14 @@ function checkModule(block, floor = 0) {
                 fls = 29;
                 break;
             case 29:
+                fls = 30;
+                break;
             case 30:
             case 31:
             case 32:
             case 33:
-                fls = 30;
-                break;
             case 34:
-                fls = 30;
+                fls = 32;
                 // fls = 36;
                 break;
             case 35:
