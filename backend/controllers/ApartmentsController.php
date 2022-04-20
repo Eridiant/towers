@@ -101,9 +101,11 @@ class ApartmentsController extends Controller
     // https://docs.google.com/spreadsheets/d/1eGLzNYOQlgtJegIYCZiJdjKFEeo6TKVe/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
     // 1резерв 2 продано
     //https://docs.google.com/spreadsheets/d/1971q5sSDF_PuSLbNXI_yp7cY3WJBcwny/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+    // https://docs.google.com/spreadsheets/d/1lVuXsIfgm7etJojw4YE1-wuiwdb2c2aj/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
+    // 1-reserv 2 sold
     public function actionDba()
     {
-        $id = '1971q5sSDF_PuSLbNXI_yp7cY3WJBcwny';
+        $id = '1lVuXsIfgm7etJojw4YE1-wuiwdb2c2aj';
         $list = 0;
         $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
         $csv = explode(PHP_EOL, $csv);
@@ -127,21 +129,29 @@ class ApartmentsController extends Controller
                 // // var_dump(!strcasecmp(trim($value[8]), 'sea view'));
                 // var_dump('</pre>');
                 if (true) {
-                    if ($value[7] == 1) {
-                        $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
+                    $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
+                    if ($value[9] == 1) {
 
                         $q = ApartmentsA::find()
                             ->where(['num' => $d])
                             ->one();
                         $q->status = 1;
+                        var_dump('| id=' . $value[0] . '_st=1');
                         $q->save();
-                    } elseif ($value[7] == 2) {
-                        $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
-
+                    } elseif ($value[9] == 2) {
                         $q = ApartmentsA::find()
                                 ->where(['num' => $d])
                                 ->one();
                         $q->status = 2;
+                        var_dump('| id=' . $value[0] . '_st=2');
+                        $q->save();
+                    }  elseif ($d != 0 ) {
+                        $q = ApartmentsA::find()
+                                ->where(['num' => $d])
+                                ->one();
+                        $q->status = 0;
+                        var_dump('| id=' . $value[0] . '_st=0');
+                        // var_dump('| id=' . $d);
                         $q->save();
                     }
                     
@@ -182,9 +192,10 @@ class ApartmentsController extends Controller
 
     // https://docs.google.com/spreadsheets/d/15jqz5NC8l40MfnMDrdMOg-sU4go1E61N/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
     //https://docs.google.com/spreadsheets/d/1JJ35GMQTHEbPOX9NF4LlrHVrmjy9TuaJ/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+    // https://docs.google.com/spreadsheets/d/1GE_nUVUKljaEQj_1yq26P63wzY5hy5ET/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     public function actionDbb()
     {
-        $id = '1JJ35GMQTHEbPOX9NF4LlrHVrmjy9TuaJ';
+        $id = '1GE_nUVUKljaEQj_1yq26P63wzY5hy5ET';
         $list = 0;
         $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
         $csv = explode(PHP_EOL, $csv);
@@ -218,6 +229,14 @@ class ApartmentsController extends Controller
                                 ->one();
                         $q->status = 2;
                         var_dump('| id=' . $value[0] . '_st=2');
+                        $q->save();
+                    } else {
+
+                        $q = ApartmentsB::find()
+                                ->where(['id' => $value[0]])
+                                ->one();
+                        $q->status = 0;
+                        var_dump('| id=' . $value[0] . '_st=0');
                         $q->save();
                     }
                     
