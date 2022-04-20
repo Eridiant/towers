@@ -32,8 +32,8 @@ $lang = Language::getCurrent()->code;
 
     <?= $form->field($model, 'status')->dropDownList([
         0 => 'Активна',
-        1 => 'Продана',
-        2 => 'Резерв',
+        1 => 'Резерв',
+        2 => 'Продана',
     ]) ?>
 
     <div class="form-group">

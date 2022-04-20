@@ -46,9 +46,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value'=>function ($model) {
                     if($model->status == 0){
                         return 'Активная';
-                    }elseif ($model->status == 1) {
-                        return 'Продана';
                     }elseif ($model->status == 2) {
+                        return 'Продана';
+                    }elseif ($model->status == 1) {
                         return 'Резерв';
                     }
                 },
