@@ -5,6 +5,9 @@ use backend\modules\language\models\Language;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
+if (Yii::$app->user->isGuest) {
+    Yii::$app->getResponse()->redirect(\Yii::$app->getUser()->loginUrl);
+}
 
 if (Yii::$app->controller->action->id === 'login') { 
 /**
