@@ -26,6 +26,33 @@ window.addEventListener('load', () => {
     // gtag('config', 'AW-307879312');
 
     // gtag('event', 'conversion', {'send_to': 'AW-307879312/8pVBCO7ohZMDEJC755IB'});
+    if (document.querySelector('#map')) {
+        let map = document.querySelector('#map');
+
+        let listenerMap = function lm() {
+            function loadScript() {
+                return new Promise(function(resolve, reject) {
+                    var script = document.createElement("script");
+                    script.onload = resolve;
+                    script.onerror = reject;
+                    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAatwjPC0N1Ku1zqWAFebbu66TnvDEbk6w&region=EN&language=en';
+                    script.type = 'text/javascript';
+                    document.body.parentNode.appendChild(script);
+                });
+            }
+            
+            loadScript().then(function() {
+                // map.innerHTML = '';
+                map.removeEventListener('click', listenerMap, false);
+                init();
+                map.classList.add('map-active');
+
+            });
+        }
+        
+        map.addEventListener('click', listenerMap, false);
+        // map.addEventListener('keydown', liMa, false);
+    }
 
 
     document.addEventListener('click', (e) => {
@@ -886,6 +913,8 @@ function init() {
         loading: 'lazy'
     });
 }
+
+
 
 function gtag_report_conversion(url) {
     var callback = function () {

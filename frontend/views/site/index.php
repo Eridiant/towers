@@ -672,6 +672,11 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="contact-wrapper">
             <div id="map" class="map"></div>
+            <div class="contacts-map-img" data-inf="Use ctrl + scroll to zoom the map">
+                <picture>
+                    <img src="/images/dist/map.jpg" alt="">
+                </picture>
+            </div>
             <!-- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1328.2836435082295!2d41.62014495682075!3d41.63638203314697!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40678775a868440d%3A0x6639592c1ec7d412!2sCalligraphy%20Towers%20Batumi!5e0!3m2!1sru!2sru!4v1641549010797!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
         </div>
         
