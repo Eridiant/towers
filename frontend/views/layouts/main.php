@@ -131,19 +131,19 @@ function getIp() {
         }
     }
 }
-require_once('SxGeo.php');
-$ip = getIp();
+// require_once('SxGeo.php');
+// $ip = getIp();
 
 
-$SxGeo = new SxGeo(Yii::getAlias('@webroot') . '/dat/SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
+// $SxGeo = new SxGeo(Yii::getAlias('@webroot') . '/dat/SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
 
-$fileName = Yii::getAlias('@webroot') . "/dat/ip.log";
-if ( file_exists($fileName) && ($fp = fopen($fileName, "a"))!==false ) {
+// $fileName = Yii::getAlias('@webroot') . "/dat/ip.log";
+// if ( file_exists($fileName) && ($fp = fopen($fileName, "a"))!==false ) {
 
-    $fLog = fopen($fileName,'a');
-    fwrite($fLog, date("d.m.Y H:i:s") . " | " . $SxGeo->getCountry($ip) . " | " . $ip . " | роут=" . $_SERVER['REQUEST_URI'] . " || ref=" . $_SERVER['HTTP_REFERER'] . "              ||| " . trim($_SERVER['HTTP_USER_AGENT']) . "\r\n");
-    fclose($fLog);
+//     $fLog = fopen($fileName,'a');
+//     fwrite($fLog, date("d.m.Y H:i:s") . " | " . $SxGeo->getCountry($ip) . " | " . $ip . " | роут=" . $_SERVER['REQUEST_URI'] . " || ref=" . $_SERVER['HTTP_REFERER'] . "              ||| " . trim($_SERVER['HTTP_USER_AGENT']) . "\r\n");
+//     fclose($fLog);
 
-}
+// }
 
 

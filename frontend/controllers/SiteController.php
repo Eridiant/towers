@@ -117,6 +117,11 @@ class SiteController extends Controller
         return parent::beforeAction($action);
     }
 
+    // public function afterAction($action, $result)
+    // {
+    //     return parent::afterAction($action, $result);
+    // }
+
     /**
      * Displays homepage.
      *
