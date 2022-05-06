@@ -97,7 +97,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
     </div>
 </div>
 <?php
-    // $this->registerJsFile(
-    //     '//maps.googleapis.com/maps/api/js?key=AIzaSyAatwjPC0N1Ku1zqWAFebbu66TnvDEbk6w&region=EN&language=en',
-    //     ['position' => $this::POS_END, 'async'=>true]
-    // );
+    $this->registerJsFile(
+        '//maps.googleapis.com/maps/api/js?key=AIzaSyAatwjPC0N1Ku1zqWAFebbu66TnvDEbk6w&region=EN&language=en',
+        ['position' => $this::POS_END, 'async'=>true]
+    );
