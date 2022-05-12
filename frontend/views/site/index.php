@@ -23,7 +23,8 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
 				<source srcset="/images/del/bg13.jpg" media="(max-width: 1280px)">
 				<source srcset="/images/del/bg12.jpg" media="(max-width: 1500px)"> -->
 				<source srcset="/images/dist/header/header_mb_bg.jpg, /images/dist/header/header_mb_bg-2x.jpg 2x, /images/dist/header/header_mb_bg-4x.jpg 4x" media="(max-width: 480px)">
-                <source type="image/jpeg" srcset="/images/dist/header/header_bg.jpg, /images/dist/header/header_bg-2x.jpg 2x, /images/dist/header/header_bg-3x.jpg 3x">
+                <!-- <source type="image/jpeg" srcset="/images/dist/header/header_bg.jpg, /images/dist/header/header_bg-2x.jpg 2x, /images/dist/header/header_bg-3x.jpg 3x"> -->
+                <source type="image/jpeg" srcset="/images/dist/header/header_bg.jpg, /images/dist/header/header_bg-1_5x.jpg 2x">
 				<img src="/images/dist/header/header_bg.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
 			</picture>
 		</div>
@@ -34,7 +35,8 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
 				<source srcset="/images/del/bg12.jpg" media="(max-width: 1500px)">
 				<source srcset="/images/del/bg11.jpg" media="(min-width: 1501px)"> -->
 				<source srcset="/images/dist/header/header_mb_bg_night.jpg, /images/dist/header/header_mb_bg_night-2x.jpg 2x, /images/dist/header/header_mb_bg_night-4x.jpg 4x" media="(max-width: 480px)">
-				<source type="image/jpeg" srcset="/images/dist/header/header_bg_night.jpg, /images/dist/header/header_bg_night-2x.jpg 2x, /images/dist/header/header_bg_night-3x.jpg 3x">
+				<!-- <source type="image/jpeg" srcset="/images/dist/header/header_bg_night.jpg, /images/dist/header/header_bg_night-2x.jpg 2x, /images/dist/header/header_bg_night-3x.jpg 3x"> -->
+				<source type="image/jpeg" srcset="/images/dist/header/header_bg_night.jpg, /images/dist/header/header_bg_night-1_5x.jpg 2x">
 				<img src="/images/dist/header/header_bg_night.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
 			</picture>
 		</div>
