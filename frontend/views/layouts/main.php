@@ -112,38 +112,5 @@ $scripts = \frontend\models\Scripts::find(1)->one();
 </html>
 <?php $this->endPage();
 
-function getIp() {
-    $keys = [
-        'HTTP_CLIENT_IP',
-        'HTTP_X_FORWARDED_FOR',
-        'REMOTE_ADDR'
-    ];
-
-    foreach ($keys as $key) {
-        if (!empty($_SERVER[$key])) {
-            $ip = explode(',', $_SERVER[$key]);
-            $ip = end($ip);
-            $ip = trim($ip);
-            // $ip = $_SERVER[$key];
-            if (filter_var($ip, FILTER_VALIDATE_IP)) {
-                return $ip;
-            }
-        }
-    }
-}
-// require_once('SxGeo.php');
-// $ip = getIp();
-
-
-// $SxGeo = new SxGeo(Yii::getAlias('@webroot') . '/dat/SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
-
-// $fileName = Yii::getAlias('@webroot') . "/dat/ip.log";
-// if ( file_exists($fileName) && ($fp = fopen($fileName, "a"))!==false ) {
-
-//     $fLog = fopen($fileName,'a');
-//     fwrite($fLog, date("d.m.Y H:i:s") . " | " . $SxGeo->getCountry($ip) . " | " . $ip . " | роут=" . $_SERVER['REQUEST_URI'] . " || ref=" . $_SERVER['HTTP_REFERER'] . "              ||| " . trim($_SERVER['HTTP_USER_AGENT']) . "\r\n");
-//     fclose($fLog);
-
-// }
 
 

@@ -579,7 +579,8 @@ window.addEventListener('load', () => {
         document.querySelector('.contact-cam').addEventListener('click', (e)=>{
 			e.preventDefault();
             document.querySelector('.video').classList.add('popup-show');
-            document.querySelector('.video .popup').innerHTML = '<iframe src= "https://g2.ipcamlive.com/player/player.php?alias=627cc094ae3bb" width="100%" height="100%" frameborder="0" allowfullscreen> </iframe>';
+            document.querySelector('.video .popup').innerHTML = '<iframe src= "https://rtsp.me/embed/iGYn4s2R/" width="100%" height="100%" frameborder="0" allowfullscreen> </iframe>';
+            // document.querySelector('.video .popup').innerHTML = '<iframe src= "https://g2.ipcamlive.com/player/player.php?alias=627cc094ae3bb" width="100%" height="100%" frameborder="0" allowfullscreen> </iframe>';
 		})
     }
 })
