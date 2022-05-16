@@ -40,6 +40,13 @@ class m220505_080344_create_user_ip_table extends Migration
      */
     public function safeDown()
     {
+        // drops index for column `ip`
+        $this->dropIndex(
+            '{{%idx-user-ip-ip}}',
+            '{{%user_ip}}',
+            'ip'
+        );
+
         $this->dropTable('{{%user_ip}}');
     }
 }

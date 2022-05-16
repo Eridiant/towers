@@ -13,6 +13,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string|null $code
  * @property string|null $preferred_lang
  * @property string|null $preferred_lang_all
+ * @property string|null $ref
  * @property string|null $country
  * @property string|null $region
  * @property string|null $city
@@ -39,7 +40,7 @@ class UserIp extends \yii\db\ActiveRecord
             [['ip', 'checked', 'created_at'], 'integer'],
             [['code'], 'string', 'max' => 10],
             [['preferred_lang', 'region'], 'string', 'max' => 128],
-            [['preferred_lang_all'], 'string', 'max' => 1000],
+            [['preferred_lang_all', 'ref'], 'string', 'max' => 1000],
             [['country', 'city'], 'string', 'max' => 64],
         ];
     }
@@ -70,6 +71,7 @@ class UserIp extends \yii\db\ActiveRecord
             'code' => 'Code',
             'preferred_lang' => 'Preferred Lang',
             'preferred_lang_all' => 'Preferred Lang All',
+            'ref' => 'Refer',
             'country' => 'Country',
             'region' => 'Region',
             'city' => 'City',
