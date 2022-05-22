@@ -105,7 +105,7 @@ class ApartmentsController extends Controller
     // 1-reserv 2 sold
     public function actionDba()
     {
-        $id = '1lVuXsIfgm7etJojw4YE1-wuiwdb2c2aj';
+        $id = '16EzcWloeyDn8zAAolIyU3vCpsYfuOaNR';
         $list = 0;
         $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
         $csv = explode(PHP_EOL, $csv);
@@ -130,7 +130,7 @@ class ApartmentsController extends Controller
                 // var_dump('</pre>');
                 if (true) {
                     $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
-                    if ($value[9] == 1) {
+                    if ($value[7] == 1) {
 
                         $q = ApartmentsA::find()
                             ->where(['num' => $d])
@@ -138,7 +138,7 @@ class ApartmentsController extends Controller
                         $q->status = 1;
                         var_dump('| id=' . $value[0] . '_st=1');
                         $q->save();
-                    } elseif ($value[9] == 2) {
+                    } elseif ($value[7] == 2) {
                         $q = ApartmentsA::find()
                                 ->where(['num' => $d])
                                 ->one();
@@ -149,6 +149,7 @@ class ApartmentsController extends Controller
                         $q = ApartmentsA::find()
                                 ->where(['num' => $d])
                                 ->one();
+
                         $q->status = 0;
                         var_dump('| id=' . $value[0] . '_st=0');
                         // var_dump('| id=' . $d);
@@ -195,7 +196,7 @@ class ApartmentsController extends Controller
     // https://docs.google.com/spreadsheets/d/1GE_nUVUKljaEQj_1yq26P63wzY5hy5ET/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     public function actionDbb()
     {
-        $id = '1GE_nUVUKljaEQj_1yq26P63wzY5hy5ET';
+        $id = '1oPSoKuW11iWvctomdEv6GViskrJISLM6';
         $list = 0;
         $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
         $csv = explode(PHP_EOL, $csv);
