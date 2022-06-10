@@ -118,44 +118,44 @@ class SiteController extends Controller
         return parent::beforeAction($action);
     }
 
-    public function afterAction($action, $result)
-    {
-        $request = Yii::$app->request;
-        $ip = ip2long($request->userIP);
+    // public function afterAction($action, $result)
+    // {
+    //     $request = Yii::$app->request;
+    //     $ip = ip2long($request->userIP);
 
 
 
-        $userIp = UserIp::find()->where(['ip' => $ip])->one();
+    //     $userIp = UserIp::find()->where(['ip' => $ip])->one();
 
-        try {
-            if ($userIp === null) {
-                $userIp = new UserIp();
-                $userIp->ip = $ip;
-                // $userIp->ip = $ip;
-                // $userIp->ip = $ip;
-            }
-            if (($list = strtolower($_SERVER['HTTP_ACCEPT_LANGUAGE']))) {
+    //     try {
+    //         if ($userIp === null) {
+    //             $userIp = new UserIp();
+    //             $userIp->ip = $ip;
+    //             // $userIp->ip = $ip;
+    //             // $userIp->ip = $ip;
+    //         }
+    //         if (($list = strtolower($_SERVER['HTTP_ACCEPT_LANGUAGE']))) {
 
-                $userIp->preferred_lang_all = $list;
-                if ($list = stristr($list, ',', true)) {
-                    $userIp->preferred_lang = $list;
-                }
-            }
+    //             $userIp->preferred_lang_all = $list;
+    //             if ($list = stristr($list, ',', true)) {
+    //                 $userIp->preferred_lang = $list;
+    //             }
+    //         }
 
-            if (isset($_SERVER['HTTP_REFERER'])) {
-                $userIp->ref = $_SERVER['HTTP_REFERER'];
-            }
+    //         if (isset($_SERVER['HTTP_REFERER'])) {
+    //             $userIp->ref = $_SERVER['HTTP_REFERER'];
+    //         }
 
-            $userIp->save();
-            // var_dump($userIp->getErrors()); 
-        }
-        catch (\yii\db\Exception $exception) {
-            echo 'еггог';
-        }
+    //         $userIp->save();
+    //         // var_dump($userIp->getErrors()); 
+    //     }
+    //     catch (\yii\db\Exception $exception) {
+    //         echo 'еггог';
+    //     }
         
 
-        return parent::afterAction($action, $result);
-    }
+    //     return parent::afterAction($action, $result);
+    // }
 
     /**
      * Displays homepage.
