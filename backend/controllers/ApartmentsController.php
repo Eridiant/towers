@@ -367,53 +367,53 @@ class ApartmentsController extends Controller
         
     // }
 
-    // public function actionDbch3()
-    // {
-    //     $floor = 0;
-    //     $j = 1;
-    //     for ($i=2; $i < 45; $i++) {
+    public function actionDbch3()
+    {
+        $floor = 0;
+        $j = 1;
+        for ($i=2; $i < 44; $i++) {
 
-    //         $floor = ApartmentsB::find()
-    //                     ->where(['floor_num' => $i])
-    //                     ->one();
+            $floor = ApartmentsB::find()
+                        ->where(['floor_num' => $i])
+                        ->one();
 
-    //         $id = $floor->id+2;
+            $id = $floor->id+1;
 
-    //         $flat = ApartmentsB::find()
-    //                     ->where(['id' => $id])
-    //                     ->one();
-    //         $flat->img = 2;
-    //         $flat->save();
-    //         if ($flat->getErrors()) {
-    //             var_dump($flat->getErrors());
-    //         }
-    //     }
+            $flat = ApartmentsB::find()
+                        ->where(['id' => $id])
+                        ->one();
+            $flat->img = 25;
+            $flat->save();
+            if ($flat->getErrors()) {
+                var_dump($flat->getErrors());
+            }
+        }
         
-    // }
+    }
 
-    // public function actionDbch20()
-    // {
-    //     $floor = 0;
-    //     $j = 1;
-    //     for ($i=4; $i < 45; $i++) {
-    //         $floor = ApartmentsB::find()
-    //                     ->where(['floor_num' => $i])
-    //                     ->all();
+    public function actionDbch20()
+    {
+        $floor = 0;
+        $j = 1;
+        for ($i=4; $i < 43; $i++) {
+            $floor = ApartmentsB::find()
+                        ->where(['floor_num' => $i])
+                        ->all();
 
-    //         $id = end($floor)->id-6;
+            $id = end($floor)->id-5;
 
-    //         $flat = ApartmentsB::find()
-    //                     ->where(['id' => $id])
-    //                     ->one();
+            $flat = ApartmentsB::find()
+                        ->where(['id' => $id])
+                        ->one();
 
-    //         $flat->img = 2;
-    //         $flat->save();
-    //         if ($flat->getErrors()) {
-    //             var_dump($flat->getErrors());
-    //         }
-    //     }
+            $flat->img = 25;
+            $flat->save();
+            if ($flat->getErrors()) {
+                var_dump($flat->getErrors());
+            }
+        }
         
-    // }
+    }
 
     // public function actionDbch21()
     // {
