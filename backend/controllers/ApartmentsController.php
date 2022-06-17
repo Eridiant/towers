@@ -131,7 +131,7 @@ class ApartmentsController extends Controller
                 // var_dump('</pre>');
                 if (true) {
                     $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
-                    if ($value[7] == 1) {
+                    if ($value[9] == 1) {
 
                         $q = ApartmentsA::find()
                             ->where(['num' => $d])
@@ -139,7 +139,7 @@ class ApartmentsController extends Controller
                         $q->status = 1;
                         var_dump('| id=' . $value[0] . '_st=1');
                         $q->save();
-                    } elseif ($value[7] == 2) {
+                    } elseif ($value[9] == 2) {
                         $q = ApartmentsA::find()
                                 ->where(['num' => $d])
                                 ->one();
