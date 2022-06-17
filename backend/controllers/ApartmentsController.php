@@ -102,10 +102,11 @@ class ApartmentsController extends Controller
     // 1резерв 2 продано
     //https://docs.google.com/spreadsheets/d/1971q5sSDF_PuSLbNXI_yp7cY3WJBcwny/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
     // https://docs.google.com/spreadsheets/d/1lVuXsIfgm7etJojw4YE1-wuiwdb2c2aj/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
+    // https://docs.google.com/spreadsheets/d/1CtN0gLTgfH0Fllas_ovFIKlv5jYUYEZs/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     // 1-reserv 2 sold
     public function actionDba()
     {
-        $id = '16EzcWloeyDn8zAAolIyU3vCpsYfuOaNR';
+        $id = '1CtN0gLTgfH0Fllas_ovFIKlv5jYUYEZs';
         $list = 0;
         $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
         $csv = explode(PHP_EOL, $csv);
@@ -145,7 +146,7 @@ class ApartmentsController extends Controller
                         $q->status = 2;
                         var_dump('| id=' . $value[0] . '_st=2');
                         $q->save();
-                    }  elseif ($d != 0 ) {
+                    } elseif ($d != 0 ) {
                         $q = ApartmentsA::find()
                                 ->where(['num' => $d])
                                 ->one();
@@ -194,9 +195,10 @@ class ApartmentsController extends Controller
     // https://docs.google.com/spreadsheets/d/15jqz5NC8l40MfnMDrdMOg-sU4go1E61N/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
     //https://docs.google.com/spreadsheets/d/1JJ35GMQTHEbPOX9NF4LlrHVrmjy9TuaJ/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
     // https://docs.google.com/spreadsheets/d/1GE_nUVUKljaEQj_1yq26P63wzY5hy5ET/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
+    // https://docs.google.com/spreadsheets/d/195QaBVdI6GMuQIo3sS7fFua5hdLh1x35/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     public function actionDbb()
     {
-        $id = '1oPSoKuW11iWvctomdEv6GViskrJISLM6';
+        $id = '195QaBVdI6GMuQIo3sS7fFua5hdLh1x35';
         $list = 0;
         $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
         $csv = explode(PHP_EOL, $csv);
