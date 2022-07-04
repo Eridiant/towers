@@ -601,11 +601,14 @@ function checkModule(block, floor = 0) {
 
     if (block === 'block-A') {
         block = 'a';
+
         if (!floor) return [block, fls = 11];
         switch (parseInt(floor)) {
             case 1:
                 fls = 11;
                 break;
+            case 22:
+            case 23:
             case 24:
                 fls = 34;
                 break;
@@ -619,7 +622,6 @@ function checkModule(block, floor = 0) {
     }
     if (block === 'block-B') {
         block = 'b';
-        console.log(floor);
         if (!floor) return [block, fls = 2];
         switch (parseInt(floor)) {
             case 1:
