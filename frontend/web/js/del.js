@@ -619,6 +619,7 @@ function checkModule(block, floor = 0) {
     }
     if (block === 'block-B') {
         block = 'b';
+        console.log(floor);
         if (!floor) return [block, fls = 2];
         switch (parseInt(floor)) {
             case 1:
@@ -648,9 +649,11 @@ function checkModule(block, floor = 0) {
             case 31:
             case 32:
             case 33:
-            case 34:
                 fls = 32;
                 // fls = 36;
+                break;
+            case 34:
+                fls = 36;
                 break;
             case 35:
                 fls = 37;
