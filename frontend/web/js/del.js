@@ -484,16 +484,18 @@ window.addEventListener('load', () => {
 
         more_games.addEventListener('click', (e) => {
             let add = news_container.childElementCount;
-            console.log(add);
-            
+
             sender(add);
         })
 
         function sender(add = 0) {
             more_games.classList.add('news-next-load');
+            console.log(currLang);
+            let cl = currLang === 'ge' ? '' : `/${currLang}`;
+
             setTimeout(()=>{
                 $.ajax({
-                    url: '/ru/news',
+                    url: `${cl}/news`,
                     type: 'POST',
                     data: {add: add},
                     success: function(response){
