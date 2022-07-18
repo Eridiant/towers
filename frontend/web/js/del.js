@@ -490,7 +490,7 @@ window.addEventListener('load', () => {
 
         function sender(add = 0) {
             more_games.classList.add('news-next-load');
-            console.log(currLang);
+
             let cl = currLang === 'ge' ? '' : `/${currLang}`;
 
             setTimeout(()=>{
