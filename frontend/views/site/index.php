@@ -698,21 +698,30 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                     'model' => $model,
                 ]) ?>
             </div>
+
             <div class="contact-bg">
-                <div class="contact-cam">
-                    <div class="contact-cam-inner">
-                        <p>live cam</p>
-                        <p><?=Yii::t('frontend', 'Посмотреть')?></p>
-                    </div>
-                    <div class="contact-cam-wrap">
-                        <svg width="28" height="26"><use xlink:href="/images/icons.svg#cam"></use></svg>
-                    </div>
+                <div class="contact-bg-img">
+                    <picture>
+                        <source type="image/jpeg" srcset="/images/dist/index/contacts/contact.jpg, /images/dist/index/contacts/contact.jpg 2x">
+                        <img src="/images/dist/index/contacts/contact.jpg" loading="lazy" alt="">
+                    </picture>
                 </div>
-                <div class="contact-video contact-cam">
-                    <p><?=Yii::t('frontend', 'Видео')?></p>
-                    <div class="contact-video-inner">
-                        <p>3D</p>
-                        <svg width="36" height="34"><use xlink:href="/images/icons.svg#3d"></use></svg>
+                <div class="contact-inn">
+                    <div class="contact-cam">
+                        <div class="contact-cam-inner">
+                            <p>live cam</p>
+                            <p><?=Yii::t('frontend', 'Посмотреть')?></p>
+                        </div>
+                        <div class="contact-cam-wrap">
+                            <svg width="28" height="26"><use xlink:href="/images/icons.svg#cam"></use></svg>
+                        </div>
+                    </div>
+                    <div class="contact-video contact-cam">
+                        <p><?=Yii::t('frontend', 'Видео')?></p>
+                        <div class="contact-video-inner">
+                            <p>3D</p>
+                            <svg width="36" height="34"><use xlink:href="/images/icons.svg#3d"></use></svg>
+                        </div>
                     </div>
                 </div>
             </div>
