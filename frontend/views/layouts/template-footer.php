@@ -79,6 +79,36 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
 	</div>
 </footer>
 
+<div class="popup-wrapper stock">
+    <div class="popup popup-stock">
+        <div class="popup-bg">
+            <picture>
+                <source type="image/jpeg" srcset="/images/dist/popup/popup.jpg, /images/dist/popup/popup.jpg 2x">
+                <img src="/images/dist/popup/popup.jpg" alt="">
+            </picture>
+        </div>
+        <div class="popup-desc">
+            <h2><?=Yii::t('frontend', 'Дорогие клиенты')?>!</h2>
+            <p>
+                <?=Yii::t('frontend', 'Специально для вас с 01.08 по 30.10.22 действует специальное предложение на квартиры по скидке 10% В блоке Б')?>
+            </p>
+            <form id="form-stock" action="/" method="post"> 
+                <input type="hidden" name="body" value="promotion">
+                <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" title="<?=Yii::t('frontend', 'только буквы')?>" required>
+                <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>" pattern="\+?[0-9\s\-\(\)]+" title="<?=Yii::t('frontend', 'только цифры')?>" required>
+                <input type="text" name="email" placeholder="<?=Yii::t('frontend', 'Почта')?>" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" title="<?=Yii::t('frontend', 'your_mail@mail')?>" required>
+                <div class="contacts-wrap">
+                    <button class="btn btn-blue"><?=Yii::t('frontend', 'Отправить')?></button>
+                    <div class="contacts-check">
+                        <label for="contact-check"><?=Yii::t('frontend', 'Я согласен с условиями обработки персональных данных')?></label>
+                        <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed" required>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div class="popup-wrapper form form-popup">
     <div class="popup">
         <div class="contacts-form">

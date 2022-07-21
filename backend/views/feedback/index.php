@@ -25,11 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             // 'id',
-            [
-                'attribute'=>'lang',
-                'label'=>'Локаль',
-                'headerOptions' => ['width' => '5%'],
-            ],
+            // [
+            //     'attribute'=>'lang',
+            //     'label'=>'Локаль',
+            //     'headerOptions' => ['width' => '5%'],
+            // ],
             [
                 'attribute'=>'name',
                 'label'=>'Имя',
@@ -51,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
             ],
             // 'subject',
-            // 'body:ntext',
+            'body:ntext',
             //'viewed',
             'created_at',
 

@@ -26,6 +26,12 @@ window.addEventListener('load', () => {
     // gtag('config', 'AW-307879312');
 
     // gtag('event', 'conversion', {'send_to': 'AW-307879312/8pVBCO7ohZMDEJC755IB'});
+
+    if (document.querySelector('.stock')) {
+        setTimeout(() => {
+            document.querySelector('.stock').classList.add('popup-show');
+        }, 15000);
+    }
     if (document.querySelector('#map')) {
         let map = document.querySelector('#map');
 
@@ -120,6 +126,31 @@ window.addEventListener('load', () => {
     });
 
     $("#form-popup").submit(function(e) {
+        e.preventDefault();
+        // gtag_report_conversion();
+        let data = $(this).serializeArray();
+
+        try {gtag_report_conversion();} catch(err) {console.log(err);};
+        
+        $.ajax({
+            url: '/site/ajax',
+            type: 'POST',
+            data: data,
+            success: function(response){
+
+                if (response.data.success == true) {
+                    document.querySelector('.success').classList.add('popup-show');
+                } else {
+                    document.querySelector('.error').classList.add('popup-show');
+                }
+            },
+            error: function(response) {
+                document.querySelector('.error').classList.add('popup-show');
+            }
+        })
+    });
+
+    $("#form-stock").submit(function(e) {
         e.preventDefault();
         // gtag_report_conversion();
         let data = $(this).serializeArray();
