@@ -14,10 +14,70 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
 	<div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="about-wrapper">
             <div class="about-desc">
-                <div class="breadcrumbs">
-                    <a href="<?= Yii::$app->params['curLangUrl'] ?>/"><?=Yii::t('frontend', 'Главная')?></a>
-                    <p><?=Yii::t('frontend', 'О компании')?></p>
+                <h1><?=Yii::t('frontend', 'О проекте')?></h1>
+                <div class="about-text">
+                    <p>
+                        <?=Yii::t('frontend', '“Grand Maison”- это строительная  и инвестиционная компания')?>
+                    </p>
+                    <p>
+                        <?=Yii::t('frontend', 'Профиль компании:')?>
+                    </p>
+                    <ul>
+                        <?php if (Yii::t('frontend', 'Строительство и реконструкция государственных дорог, тоннелей, мостов') != 'null'): ?>
+                            <li>
+                                <?=Yii::t('frontend', 'Строительство и реконструкция государственных дорог, тоннелей, мостов')?>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (Yii::t('frontend', 'Производство и продажа строительных материалов') != 'null'): ?>
+                            <li>
+                                <?=Yii::t('frontend', 'Производство и продажа строительных материалов')?>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (Yii::t('frontend', 'Строительство жилых комплексов') != 'null'): ?>
+                            <li>
+                                <?=Yii::t('frontend', 'Строительство жилых комплексов')?>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (Yii::t('frontend', 'Смотрите информацию о завершенных и текущих тендерах') != 'null'): ?>
+                            <li>
+                                <?=Yii::t('frontend', 'Смотрите информацию о завершенных и текущих тендерах')?>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
                 </div>
+                <a href="/presentation/Grand_Maison_პრეზენტაცია.pdf" class="btn btn-blue" download>
+                    <span><?=Yii::t('frontend', 'Скачать презентацию')?></span>
+                    <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
+                </a>
+            </div>
+            <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper aboute-swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="about-img">
+                            <picture>
+                                <img src="/images/dist/about/about-1-1x.jpg" width="1306" height="872" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
+                            </picture>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="about-img">
+                            <picture>
+                                <img src="/images/dist/about/about-2-1x.jpg" width="1306" height="872" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
+                            </picture>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<main class="about">
+	<div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
+        <div class="about-wrapper">
+            <div class="about-desc">
                 <h1><?=Yii::t('frontend', 'Застройщик')?></h1>
                 <div class="about-text">
                     <p>
@@ -74,9 +134,9 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                             </picture>
                         </div>
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
                 </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
         </div>
     </div>
