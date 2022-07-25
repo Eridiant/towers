@@ -27,11 +27,15 @@ window.addEventListener('load', () => {
 
     // gtag('event', 'conversion', {'send_to': 'AW-307879312/8pVBCO7ohZMDEJC755IB'});
 
-    if (document.querySelector('.stock')) {
-        setTimeout(() => {
-            document.querySelector('.stock').classList.add('popup-show');
-        }, 15000);
+    if (document.body.classList.contains('index') || !document.cookie.split(';').filter((item) => item.includes('_prm=1')).length) {
+        document.cookie = "_prm=1; max-age=3600";
+        if (document.querySelector('.stock')) {
+            setTimeout(() => {
+                document.querySelector('.stock').classList.add('popup-show');
+            }, 15000);
+        }
     }
+
     if (document.querySelector('#map')) {
         let map = document.querySelector('#map');
 
