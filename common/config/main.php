@@ -15,8 +15,8 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.beget.com',
-                'username' => 'calligraphy@calligraphy-batumi.com',
-                'password' => '0239qgsl2A',
+                'username' => 'calligraphy@bridge-sport.ru',
+                'password' => 'IA7F7H@+Jl#K',
                 'port' => '465',
                 'encryption' => 'ssl',
             ],
