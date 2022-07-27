@@ -1,6 +1,6 @@
 
 
-<form id="form" method="post">
+<form id="form" method="post" onsubmit="ym(87522082,'reachGoal','forma')">
     <div class="contact-wrap">
         <input type="hidden" name="_csrf-frontend" value="<?= Yii::$app->request->csrfToken; ?>">
         <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" title="<?=Yii::t('frontend', 'только буквы')?>" required>
