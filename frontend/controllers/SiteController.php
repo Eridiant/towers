@@ -182,7 +182,6 @@ class SiteController extends Controller
             $model->lang = Yii::$app->language;
             $ip = $request->userIP;
             $country = $this->geoCity($ip);
-            $country = $this->geoCity('185.28.110.65');
             $cntr = '';
             $sity = '';
             if ($country) {
