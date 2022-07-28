@@ -182,6 +182,13 @@ class SiteController extends Controller
             $model->lang = Yii::$app->language;
             $ip = $request->userIP;
             $country = $this->geoCity($ip);
+            $country = $this->geoCity('185.28.110.65');
+            $cntr = '';
+            $sity = '';
+            if ($country) {
+                $cntr = $country["country"]["name_ru"];
+                $sity = $country["city"]["name_ru"];
+            }
 
             if($model->save()){
                 Yii::$app->mailer->compose()
@@ -205,7 +212,7 @@ class SiteController extends Controller
                             </tr>
                             <tr style='background-color: #f8f8f8;'>
                                 <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>{$ip}</b></td>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$country["country"]["name_ru"]}{$country["city"]["name_ru"]}</td>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$cntr},{$sity}</td>
                             </tr>
                             <tr style='background-color: #f8f8f8;'>
                                 <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Почта:</b></td>
