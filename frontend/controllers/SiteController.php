@@ -177,7 +177,6 @@ class SiteController extends Controller
             $model->phone = $request->post("phone");
             $model->email = $request->post("email");
             $model->country = $request->post("country");
-            $model->body = $request->post("body");
             $model->viewed = $request->post("viewed") == "on" ? 1 : 0;
             $model->lang = Yii::$app->language;
             $ip = $request->userIP;
@@ -188,6 +187,7 @@ class SiteController extends Controller
                 $cntr = $country["country"]["name_ru"];
                 $sity = $country["city"]["name_ru"];
             }
+            $model->body = $request->post("body") . "," . $cntr . "," . $sity;
 
             if($model->save()){
                 Yii::$app->mailer->compose()
