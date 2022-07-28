@@ -25,6 +25,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Feedback;
 use frontend\models\UserIp;
+use frontend\models\SxGeo;
 use yii\web\HttpException;
 
 /**
@@ -144,6 +145,20 @@ class SiteController extends Controller
         return $this->render('index', compact('model'));
     }
 
+    private function country($ip)
+    {
+        $country = new SxGeo(Yii::getAlias('@webroot') . '/dat/SxGeo.dat', SXGEO_BATCH | SXGEO_MEMORY);
+
+        return $country->getCountry($ip);
+    }
+
+    private function geoCity($ip)
+    {
+        $country = new SxGeo(Yii::getAlias('@webroot') . '/dat/SxGeoCity.dat', SXGEO_BATCH | SXGEO_MEMORY);
+
+        return $country->getCityFull($ip);
+    }
+
     public function actionAjax()
     {
 
@@ -165,6 +180,8 @@ class SiteController extends Controller
             $model->body = $request->post("body");
             $model->viewed = $request->post("viewed") == "on" ? 1 : 0;
             $model->lang = Yii::$app->language;
+            $ip = $request->userIP;
+            $country = $this->geoCity($ip);
 
             if($model->save()){
                 Yii::$app->mailer->compose()
@@ -185,6 +202,10 @@ class SiteController extends Controller
                             <tr style='background-color: #f8f8f8;'>
                                 <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Страна:</b></td>
                                 <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$request->post('country')}</td>
+                            </tr>
+                            <tr style='background-color: #f8f8f8;'>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>{$ip}</b></td>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$country["country"]["name_ru"]}{$country["city"]["name_ru"]}</td>
                             </tr>
                             <tr style='background-color: #f8f8f8;'>
                                 <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Почта:</b></td>
