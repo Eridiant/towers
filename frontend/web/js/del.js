@@ -222,11 +222,10 @@ window.addEventListener('load', () => {
                     break;
             }
         }
-        
-
     }
 
     if (document.querySelector('#layouts')) {
+        // console.log(state["1101"].floor_num);
         let layouts = document.querySelector('#block').contentDocument;
         fillData(summ, stt);
         showStatus();
@@ -294,12 +293,21 @@ window.addEventListener('load', () => {
 				
 				if (floor_num != (floor.activeIndex + 1) ) {
 					num = floor.activeIndex + 1;
-                    ajaxFloor(document.querySelector('#floor').dataset.floor, num)
+                    let data = {'slug': document.querySelector('#floor').dataset.floor, 'floor': num, 'lgg': lgg};
+                    changeModule(checkModule(document.querySelector('#floor').dataset.floor, num));
+                    xhRequest(data, '/site/layouts')
+                        .then(response => {
+                            let model = JSON.parse(response).model;
+                            let status = JSON.parse(response).status;
+                            document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
+                            fillData(model, status);
+                        })
+                        .catch(error => console.error('error'));
+                    // ajaxFloor(document.querySelector('#floor').dataset.floor, num)
 					// document.querySelector('.floor-show').classList.remove('floor-show');
 
 					// document.querySelector(`.floor-choose-inner[data-floor="${num + 1}"`).classList.add('floor-show');
 				}
-				
 			}
 
 			clearTimeout(timeoutId);
@@ -351,7 +359,21 @@ window.addEventListener('load', () => {
                 // console.log(floor);
                 floor.slideTo(e.target.dataset.i - 1);
                 document.querySelector('.floor-floor').scrollIntoView();
-                ajaxFloor('block-A', e.target.dataset.i);
+                // ajaxFloor('block-A', e.target.dataset.i);
+                let data = {'slug': 'block-A', 'floor': e.target.dataset.i, 'lgg': lgg};
+                changeModule(checkModule('block-A', e.target.dataset.i));
+                xhRequest(data, '/site/layouts')
+                    .then(response => {
+                        let model = JSON.parse(response).model;
+                        let status = JSON.parse(response).status;
+                        // console.log(model, status);
+                        document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
+                        fillData(model, status);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        console.error('error');
+                    });
 
             }
         })
@@ -361,7 +383,21 @@ window.addEventListener('load', () => {
                 // console.log(floor);
                 floor.slideTo(e.target.dataset.i - 1);
                 document.querySelector('.floor-floor').scrollIntoView();
-                ajaxFloor('block-B', e.target.dataset.i);
+                // ajaxFloor('block-B', e.target.dataset.i);
+                let data = {'slug': 'block-B', 'floor': e.target.dataset.i, 'lgg': lgg};
+                changeModule(checkModule('block-B', e.target.dataset.i));
+                xhRequest(data, '/site/layouts')
+                    .then(response => {
+                        let model = JSON.parse(response).model;
+                        let status = JSON.parse(response).status;
+                        // console.log(model, status);
+                        document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
+                        fillData(model, status);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        console.error('error');
+                    });
             }
         })
 
@@ -623,6 +659,33 @@ window.addEventListener('load', () => {
 })
 
 
+function xhRequest(data, url) {
+    return new Promise((succeed, fail) => {
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        xhr.setRequestHeader('X-CSRF-Token', yii.getCsrfToken());
+        xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+        xhr.onload = function() {
+            if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+                // rend(JSON.parse(xhr.responseText));
+                succeed(xhr.responseText);
+            } else if (xhr.status == 400) {
+                fail(new Error(`Request failed: ${xhr.status}`));
+            } else {
+                fail(new Error('Ошибка, что-то пошло не так.'));
+
+            }
+        }
+        xhr.onerror = function() {console.log(onerror)};
+        // console.log(data, url);
+        // console.log(JSON.stringify(data));
+        xhr.send(JSON.stringify(data));
+    });
+}
+
+
 function ltrs(ltr) {
     if (document.querySelector('.blocks')) {
         let letters = document.querySelectorAll('.blocks');
@@ -742,6 +805,7 @@ function changeModule(arr) {
 
     block = arr[0];
     fl = arr[1];
+    console.log(arr);
 
     let checkFloor = document.querySelector('#test');
     if (checkFloor.dataset.block == block && checkFloor.dataset.floor == fl) return;
@@ -752,8 +816,8 @@ function changeModule(arr) {
     svg.innerHTML = `<object id="test" data-floor="${fl}" data-block="${block}" data="/images/blocks/svg/${block}/${fl}.svg" type="image/svg+xml"></object>`;
     
     document.querySelector('#floor .floor-choose-img').innerHTML = `<picture><img src="/images/blocks/img/${block}/${fl}.jpg" alt=""></picture>`;
-    
-    setTimeout(showStatus, 2000);
+
+    setTimeout(showStatus, 500);
 }
 
 function changeBlockStatus(model, status, block) {
@@ -809,6 +873,7 @@ function showStatus() {
             document.querySelector('.view').innerHTML = et.dataset.view;
             document.querySelector('.status').innerHTML = et.dataset.status;
             document.querySelector('#flat').scrollIntoView();
+            console.log(state);
         }
     })
     // let floorDoc = document.querySelector(`#floor${num}`).contentDocument;

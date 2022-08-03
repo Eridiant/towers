@@ -337,8 +337,11 @@ class SiteController extends Controller
             //         ->addParams([':floor_num' => $floor->floor]);
         }
 
+        // $state = [];
         foreach ($model as $key => $value) {
             $status[$key] = $this->translate($value["status"], $request->post('lgg'));
+
+            // $state[$value["num"]] = $value;
             // switch ($value["status"]) {
             //     case '1':
             //         $status[$key] = Yii::t('frontend', 'зарезервировано');
@@ -359,7 +362,7 @@ class SiteController extends Controller
 
         // $model = json_encode($model);
         // $blocks = json_encode($blocks);
-        $summ = json_encode(['model'=>$model, 'blocks'=>$blocks, 'flats' => $flats, 'flats_free' => $flats_free, 'status'=>$status]);
+        $summ = json_encode(['model' => $model, 'blocks' => $blocks, 'flats' => $flats, 'flats_free' => $flats_free, 'status' => $status]);
 
         if ($request->isAjax){
             // $summ = json_encode(['model'=>$model, 'blocks'=>$blocks]);

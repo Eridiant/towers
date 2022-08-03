@@ -15,6 +15,12 @@ return [
         'request' => [
             'baseUrl' => '',
             'csrfParam' => '_csrf-frontend',
+            'parsers' => [
+                'application/json' => [
+                    'class' => \yii\web\JsonParser::class,
+                    'asArray' => true,
+                ],
+            ],
         ],
         'user' => [
             'identityClass' => 'common\models\User',
