@@ -632,7 +632,7 @@ window.addEventListener('load', () => {
         if (document.querySelector('.youtube')) {
 
             gallery.on('slideChange', () => {
-                console.log('slideChange');
+                // console.log('slideChange');
                 stopVideo();
             })
 
@@ -805,7 +805,7 @@ function changeModule(arr) {
 
     block = arr[0];
     fl = arr[1];
-    console.log(arr);
+    // console.log(arr);
 
     let checkFloor = document.querySelector('#test');
     if (checkFloor.dataset.block == block && checkFloor.dataset.floor == fl) return;
@@ -873,7 +873,6 @@ function showStatus() {
             document.querySelector('.view').innerHTML = et.dataset.view;
             document.querySelector('.status').innerHTML = et.dataset.status;
             document.querySelector('#flat').scrollIntoView();
-            console.log(state);
         }
     })
     // let floorDoc = document.querySelector(`#floor${num}`).contentDocument;
