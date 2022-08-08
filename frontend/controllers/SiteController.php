@@ -193,7 +193,7 @@ class SiteController extends Controller
                 Yii::$app->mailer->compose()
                     // ->setTo($mail['email'])
                     ->setTo($mail['email'])
-                    ->setFrom('caiiigraphy@calligraphy-batumi.com')
+                    ->setFrom('mali@seamarble.ge')
                     ->setSubject('заявка')
                     ->setHtmlBody(
                         "<table style='width: 100%;'>
