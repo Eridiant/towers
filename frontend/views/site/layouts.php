@@ -269,10 +269,10 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 <div class="flat-switch">
                     <div class="flat-switch-repair flat-switch-text">
                         <p>с ремонтом</p>
-                        <svg width="24" height="24"><use xlink:href="images/icons.svg#repair"></use></svg>
+                        <svg width="24" height="24"><use xlink:href="/images/icons.svg#repair"></use></svg>
                     </div>
                     <div class="flat-switch-furniture flat-switch-text">
-                        <svg width="24" height="18"><use xlink:href="images/icons.svg#furniture"></use></svg>
+                        <svg width="24" height="18"><use xlink:href="/images/icons.svg#furniture"></use></svg>
                         <p>с мебелью</p>
                     </div>
                     <p class="flat-switch-switch"></p>
