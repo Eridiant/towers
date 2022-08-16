@@ -266,7 +266,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 </div> -->
             </div>
             <div class="flat-num">
-                <div class="flat-switch">
+                <div class="flat-switch none">
                     <div class="flat-switch-repair flat-switch-text">
                         <p>с ремонтом</p>
                         <svg width="24" height="24"><use xlink:href="/images/icons.svg#repair"></use></svg>
@@ -299,7 +299,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
 </div>
 
 
-<div class="renovation">
+<div class="renovation none">
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="renovation-row">
             <div class="renovation-swiper">
