@@ -817,7 +817,7 @@ function changeModule(arr) {
     
     document.querySelector('#floor .floor-choose-img').innerHTML = `<picture><img src="/images/blocks/img/${block}/${fl}.jpg" alt=""></picture>`;
 
-    setTimeout(showStatus, 500);
+    setTimeout(showStatus, 1000);
 }
 
 function changeBlockStatus(model, status, block) {
