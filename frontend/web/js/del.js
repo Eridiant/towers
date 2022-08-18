@@ -804,8 +804,8 @@ function checkModule(block, floor = 0) {
 function changeModule(arr) {
 
     block = arr[0];
+    let mem = fl == arr[1] ? 0 : 1;
     fl = arr[1];
-    // console.log(arr);
 
     let checkFloor = document.querySelector('#test');
     if (checkFloor.dataset.block == block && checkFloor.dataset.floor == fl) return;
@@ -814,10 +814,17 @@ function changeModule(arr) {
     let svg = document.querySelector('#floor .floor-choose-fig');
 
     svg.innerHTML = `<object id="test" data-floor="${fl}" data-block="${block}" data="/images/blocks/svg/${block}/${fl}.svg" type="image/svg+xml"></object>`;
+    console.log(mem);
 
-    // document.querySelector('#test').addEventListener('load', () => {
-    //     showStatus;
-    // })
+    if (mem) {
+        console.log('true');
+        document.querySelector('#test').addEventListener('load', () => {
+            showStatus;
+        })
+    } else {
+        console.log('false');
+        showStatus;
+    }
 
     document.querySelector('#floor .floor-choose-img').innerHTML = `<picture><img src="/images/blocks/img/${block}/${fl}.jpg" alt=""></picture>`;
 
