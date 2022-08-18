@@ -814,10 +814,14 @@ function changeModule(arr) {
     let svg = document.querySelector('#floor .floor-choose-fig');
 
     svg.innerHTML = `<object id="test" data-floor="${fl}" data-block="${block}" data="/images/blocks/svg/${block}/${fl}.svg" type="image/svg+xml"></object>`;
-    
+
+    document.querySelector('#test').addEventListener('load', () => {
+        showStatus;
+    })
+
     document.querySelector('#floor .floor-choose-img').innerHTML = `<picture><img src="/images/blocks/img/${block}/${fl}.jpg" alt=""></picture>`;
 
-    setTimeout(showStatus, 1000);
+    // setTimeout(showStatus, 1000);
 }
 
 function changeBlockStatus(model, status, block) {
