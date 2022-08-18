@@ -814,15 +814,12 @@ function changeModule(arr) {
     let svg = document.querySelector('#floor .floor-choose-fig');
 
     svg.innerHTML = `<object id="test" data-floor="${fl}" data-block="${block}" data="/images/blocks/svg/${block}/${fl}.svg" type="image/svg+xml"></object>`;
-    console.log(mem);
 
     if (mem) {
-        console.log('true');
         document.querySelector('#test').addEventListener('load', () => {
             showStatus;
         })
     } else {
-        console.log('false');
         showStatus;
     }
 
