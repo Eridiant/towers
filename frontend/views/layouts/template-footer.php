@@ -90,7 +90,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
         <div class="popup-desc">
             <h2><?=Yii::t('frontend', 'Дорогие клиенты')?>!</h2>
             <p>
-                <?=Yii::t('frontend', 'Не пропусти лучшую возможность этого лето Заполни заявку и Получи скидку до 50$ на м2 Предложение действует до 31 Августа.')?>
+                <?=Yii::t('frontend', 'Не пропусти лучшую возможность этого лето Заполни заявку и Получи скидку до 50$ на м2 Предложение действует до 30 сентября.')?>
             </p>
             <form id="form-stock" action="/" method="post" onsubmit="ym(87522082,'reachGoal','forma')"> 
                 <input type="hidden" name="body" value="promotion">
