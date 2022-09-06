@@ -68,7 +68,7 @@ use yii\helpers\Url;
                         </picture>
                     </div>
                 <?php endfor; ?>
-                <?php for($i=30; $i<39; $i++): ?>
+                <?php for($i=21; $i<39; $i++): ?>
                     <div class="swiper-slide">
                         <picture>
                             <img src="/images/dist/gallery/gallery-<?= $i; ?>.jpg" width="1204" height="779" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
