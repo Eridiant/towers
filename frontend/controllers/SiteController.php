@@ -102,6 +102,8 @@ class SiteController extends Controller
     function beforeAction($action) {
 
         $currentLang = Yii::$app->language;
+        var_dump($currentLang);
+        
 
         switch ($currentLang) {
             case 'ru-RU':
@@ -114,6 +116,8 @@ class SiteController extends Controller
                 $curLangUrl = "";
                 break;
         }
+        var_dump($curLangUrl);
+        
 
         Yii::$app->params['curLangUrl'] = $curLangUrl;
         return parent::beforeAction($action);
