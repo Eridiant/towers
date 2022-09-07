@@ -104,10 +104,11 @@ class ApartmentsController extends Controller
     // https://docs.google.com/spreadsheets/d/1lVuXsIfgm7etJojw4YE1-wuiwdb2c2aj/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     // https://docs.google.com/spreadsheets/d/1CtN0gLTgfH0Fllas_ovFIKlv5jYUYEZs/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     // https://docs.google.com/spreadsheets/d/1UhCtB7LiBgdwpIVkaw7dBpPotMTTb52A/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
+    // https://docs.google.com/spreadsheets/d/1B57evaz-a-hwlQ4xMYvnGrsOqZFjgAY6/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     // 1-reserv 2 sold
     public function actionDba()
     {
-        $id = '1UhCtB7LiBgdwpIVkaw7dBpPotMTTb52A';
+        $id = '1B57evaz-a-hwlQ4xMYvnGrsOqZFjgAY6';
         $list = 0;
         $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
         $csv = explode(PHP_EOL, $csv);
@@ -198,9 +199,10 @@ class ApartmentsController extends Controller
     // https://docs.google.com/spreadsheets/d/1GE_nUVUKljaEQj_1yq26P63wzY5hy5ET/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     // https://docs.google.com/spreadsheets/d/195QaBVdI6GMuQIo3sS7fFua5hdLh1x35/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     // https://docs.google.com/spreadsheets/d/1gi0Kbia_louQKCp5Fc1yl0tBPe-w_peQ/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
+    // https://docs.google.com/spreadsheets/d/1vlenOmroNv9YlyWr6QO5aGmiwKNLbQXf/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     public function actionDbb()
     {
-        $id = '1gi0Kbia_louQKCp5Fc1yl0tBPe-w_peQ';
+        $id = '1vlenOmroNv9YlyWr6QO5aGmiwKNLbQXf';
         $list = 0;
         $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
         $csv = explode(PHP_EOL, $csv);
