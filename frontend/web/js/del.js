@@ -196,6 +196,16 @@ window.addEventListener('load', () => {
         });
     }
 
+    if (document.querySelector('.renovation')) {
+        var renovation = new Swiper(".renovation-swiper", {
+            slidesPerView: 1,
+            navigation: {
+                nextEl: ".choose-next",
+                prevEl: ".choose-prev",
+            },
+        });
+    }
+
     if (document.querySelector('.choose-swiper')) {
         var choose =  new Swiper(".choose-swiper", {
             slidesPerView: 1,
@@ -392,6 +402,7 @@ window.addEventListener('load', () => {
                         let status = JSON.parse(response).status;
                         // console.log(model, status);
                         document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
+                        document.querySelector('.renovation-wrapper.furniture .about-text').innerHTML = JSON.parse(response).rd;
                         fillData(model, status);
                     })
                     .catch(error => {
@@ -525,6 +536,8 @@ window.addEventListener('load', () => {
                     document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
                     document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(blocks.length, model[0].floor_num);
                     floor.update();
+                    document.querySelector('.renovation-wrapper.furniture .about-text').innerHTML = JSON.parse(response).rd;
+                    console.log(JSON.parse(response).rd);
                     fillData(model, status);
                     changeBlockStatus(model, status, block);
                     // console.log(response['blocks']);
@@ -979,22 +992,26 @@ function fordelc() {
     document.querySelector('#floor').style.display = 'none';
     document.querySelector('#flat').style.display = 'none';
     document.querySelector('#blocks').style.display = 'none';
+    document.querySelector('#renovation').style.display = 'none';
     document.querySelector('#for-del').style.display = 'block';
 }
 function fordel() {
     document.querySelector('#floor').style.display = 'block';
     document.querySelector('#flat').style.display = 'block';
     document.querySelector('#blocks').style.display = 'block';
+    document.querySelector('#renovation').style.display = 'block';
     document.querySelector('#for-del').style.display = 'none';
 }
 function fdelc() {
     document.querySelector('#floor').style.display = 'none';
     document.querySelector('#flat').style.display = 'none';
+    document.querySelector('#renovation').style.display = 'none';
     document.querySelector('#for-del').style.display = 'block';
 }
 function fdel() {
     document.querySelector('#floor').style.display = 'block';
     document.querySelector('#flat').style.display = 'block';
+    document.querySelector('#renovation').style.display = 'block';
     document.querySelector('#for-del').style.display = 'none';
 }
 

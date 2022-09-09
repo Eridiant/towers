@@ -266,7 +266,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 </div> -->
             </div>
             <div class="flat-num">
-                <div class="flat-switch none">
+                <div class="flat-switch">
                     <div class="flat-switch-repair flat-switch-text">
                         <p>с ремонтом</p>
                         <svg width="24" height="24"><use xlink:href="/images/icons.svg#repair"></use></svg>
@@ -298,75 +298,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
     </div>
 </div>
 
-
-<div class="renovation none">
-    <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
-        <div class="renovation-row">
-            <div class="renovation-swiper">
-                <picture>
-                    <img src="/images/del/1234.jpg" alt="">
-                </picture>
-            </div>
-            <div class="renovation-column about-text">
-                <p>Ремонтные работы:</p>
-                <ul class="renovation-column-list">
-                    <li>крепление гипсокартонных плит на потолке;</li>
-                    <li>монтаж электрических розеток и выключателей;</li>
-                    <li>гидроизоляция в санузле;</li>
-                    <li>монтаж трапов в санузле;</li>
-                    <li>монтаж керамической плитки на стенах и полу санузла;</li>
-                    <li>обработка, покраска или оклейка обоями других стен;</li>
-                    <li>монтаж галогенных светильников;</li>
-                    <li>монтаж внутренних дверей;</li>
-                    <li>монтаж механизма унитаза</li>
-                    <li>монтаж унитаза;</li>
-                    <li>монтаж натяжного потолка в санузле;</li>
-                    <li>уборка квартиры.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="renovation-row">
-            <div class="renovation-column about-text">
-                <p>Мебель и техника:</p>
-                <ul class="renovation-column-list column">
-                    <li>душевая кабина;</li>
-                    <li>душевые аксессуары;</li>
-                    <li>монтаж раковины;</li>
-                    <li>монтаж мебели для раковины;</li>
-                    <li>монтаж аксессуаров для раковины;</li>
-                    <li>монтаж кондиционера;</li>
-                    <li>монтаж вытяжки в туалете;</li>
-                    <li>монтаж кухонной мебели;</li>
-                    <li>кухонная раковина; </li>
-                    <li>кухонная вытяжка;</li>
-                    <li>холодильник;</li>
-                    <li>1 стол;</li>
-                    <li>мягкий стул; </li>
-                    <li>1 диван;</li>
-                <!-- </ul>
-            </div>
-            <div class="renovation-column about-text">
-                <ul class="renovation-column-list"> -->
-                    <li>кровать и 2 тумбочки;</li>
-                    <li>светильники для тумбочек;</li>
-                    <li>стиральная машина;</li>
-                    <li>варочная поверхность на кухне;</li>
-                    <li>утюг;</li>
-                    <li>фен для волос;</li>
-                    <li>шторы;</li>
-                    <li>монтаж телевизора;</li>
-                    <li>микроволновая печь;</li>
-                    <li>шкаф;</li>
-                    <li>настенные часы;</li>
-                    <li>зеркала;</li>
-                    <li>две картины;</li>
-                    <li>балконный стол и два стула;</li>
-                    <li>матрас, простыни, подушки, одеяло и полотенца.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<?= $this->render($block) ?>
 
 <main>
     <div class="contact">

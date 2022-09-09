@@ -275,6 +275,7 @@ class SiteController extends Controller
             $mod = ApartmentsA::find()
                     ->where('floor_num=:floor_num')
                     ->addParams([':floor_num' => $floor->floor]);
+            $rd = $this->renderPartial('_a');
         }
 
         if ($slug === 'block-B') {
@@ -303,6 +304,7 @@ class SiteController extends Controller
             $mod = ApartmentsB::find()
                     ->where('floor_num=:floor_num')
                     ->addParams([':floor_num' => $floor->floor]);
+            $rd = $this->renderPartial('_b');
         }
 
         if ($slug === 'block-C') {
@@ -335,6 +337,7 @@ class SiteController extends Controller
             // $mod = ApartmentsC::find()
             //         ->where('floor_num=:floor_num')
             //         ->addParams([':floor_num' => $floor->floor]);
+            $rd = $this->renderPartial('_c');
         }
 
         // $state = [];
@@ -362,12 +365,15 @@ class SiteController extends Controller
 
         // $model = json_encode($model);
         // $blocks = json_encode($blocks);
-        $summ = json_encode(['model' => $model, 'blocks' => $blocks, 'flats' => $flats, 'flats_free' => $flats_free, 'status' => $status]);
-
+        
         if ($request->isAjax){
+            $summ = json_encode(['model' => $model, 'blocks' => $blocks, 'flats' => $flats, 'flats_free' => $flats_free, 'status' => $status, 'rd' => $rd]);
             // $summ = json_encode(['model'=>$model, 'blocks'=>$blocks]);
             return $summ;
         }
+
+
+        $summ = json_encode(['model' => $model, 'blocks' => $blocks, 'flats' => $flats, 'flats_free' => $flats_free, 'status' => $status]);
 
         $floor_img = $this->flrs($block, $id);
         $floor_num = $floor->floor;
