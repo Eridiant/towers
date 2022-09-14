@@ -268,6 +268,7 @@ window.addEventListener('load', () => {
                         window.history.replaceState('blockA', 'Title', '/layouts/block-A');
                     }
                     fdel();
+                    document.querySelector('.flat-switch').classList.add('none');
 
                 }
                 if (choose.activeIndex == 1) {
@@ -278,6 +279,7 @@ window.addEventListener('load', () => {
                         window.history.replaceState('blockB', 'Title', '/layouts/block-B');
                     }
                     fdel();
+                    document.querySelector('.flat-switch').classList.remove('none');
                 }
                 if (choose.activeIndex == 2) {
                     fdelc();
@@ -487,6 +489,7 @@ window.addEventListener('load', () => {
                     changeBlock(1, bl);
                     ajaxBlock('block-A');
                     document.querySelector('#floor').dataset.floor = 'block-A';
+                    document.querySelector('.flat-switch').classList.add('none');
                 }
 				if (button == 2) {
                     if (window.history.replaceState) {
@@ -499,6 +502,7 @@ window.addEventListener('load', () => {
                     changeBlock(2, bl);
                     ajaxBlock('block-B');
                     document.querySelector('#floor').dataset.floor = 'block-B';
+                    document.querySelector('.flat-switch').classList.remove('none');
                 }
 				if (button == 3) {
                     // if (window.history.replaceState) {
@@ -962,7 +966,6 @@ function fillData(model, status) {
     }
     // model.forEach(model => {
     //     // console.log(model.balcony_area);
-        
     // });
 }
 

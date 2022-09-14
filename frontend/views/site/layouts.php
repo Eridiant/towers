@@ -15,9 +15,9 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
 ?>
 
 <script>
-    var lgg = <?= json_encode(Yii::$app->language); ?>; // Don't forget the extra semicolon!
-    var summ = <?= json_encode($model); ?>; // Don't forget the extra semicolon!
-    var stt = <?= json_encode($status); ?>; // Don't forget the extra semicolon!
+    var lgg = <?= json_encode(Yii::$app->language); ?>;
+    var summ = <?= json_encode($model); ?>;
+    var stt = <?= json_encode($status); ?>;
 </script>
 
 <div id="layouts" class="layouts">
@@ -266,7 +266,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 </div> -->
             </div>
             <div class="flat-num">
-                <div class="flat-switch">
+                <div class="flat-switch<?= $block == 'a' ? ' none' : ''; ?>">
                     <div class="flat-switch-repair flat-switch-text">
                         <p>с ремонтом</p>
                         <svg width="24" height="24"><use xlink:href="/images/icons.svg#repair"></use></svg>
