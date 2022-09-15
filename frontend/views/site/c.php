@@ -1,6 +1,6 @@
 
 
-<div id="renovation" class="renovation">
+<div id="renovation" class="renovation<?= Yii::$app->params['curLangUrl'] !== '/ru' ? ' none' : ''; ?>">
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
         <div class="renovation-wrapper furniture">
             <div class="renovation-row">
