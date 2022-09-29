@@ -266,14 +266,14 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 </div> -->
             </div>
             <div class="flat-num">
-                <div class="flat-switch<?= $block == 'a' ? ' none' : ''; ?><?= Yii::$app->params['curLangUrl'] !== '/ru' ? ' none' : ''; ?>">
+                <div class="flat-switch<?= $block == 'a' ? ' none' : ''; ?><?= Yii::$app->params['curLangUrl'] === '/en' ? ' none' : ''; ?>">
                     <div class="flat-switch-repair flat-switch-text">
-                        <p>с ремонтом</p>
+                        <p><?=Yii::t('frontend', 'с ремонтом')?></p>
                         <svg width="24" height="24"><use xlink:href="/images/icons.svg#repair"></use></svg>
                     </div>
                     <div class="flat-switch-furniture flat-switch-text">
                         <svg width="24" height="18"><use xlink:href="/images/icons.svg#furniture"></use></svg>
-                        <p>с мебелью</p>
+                        <p><?=Yii::t('frontend', 'с мебелью')?></p>
                     </div>
                     <p class="flat-switch-switch"></p>
                 </div>
