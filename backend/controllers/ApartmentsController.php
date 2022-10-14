@@ -159,7 +159,7 @@ class ApartmentsController extends Controller
                         // var_dump('| id=' . $d);
                         $q->save();
                     }
-                    
+
                 }
                 if (false) {
                     $d = intval(preg_replace('/[^0-9]/', '', $value[0]));

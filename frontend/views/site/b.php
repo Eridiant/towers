@@ -8,17 +8,12 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <picture>
-                                <img src="/images/del/app/furniture-1.jpg" alt="">
+                                <img src="/images/b/furniture-1.jpg" alt="">
                             </picture>
                         </div>
                         <div class="swiper-slide">
                             <picture>
-                                <img src="/images/del/app/furniture-2.jpg" alt="">
-                            </picture>
-                        </div>
-                        <div class="swiper-slide">
-                            <picture>
-                                <img src="/images/del/app/furniture-3.jpg" alt="">
+                                <img src="/images/b/furniture-2.jpg" alt="">
                             </picture>
                         </div>
                     </div>
@@ -47,12 +42,12 @@
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <picture>
-                                <img src="/images/del/app/repair-1.jpg" alt="">
+                                <img src="/images/b/repair-1.jpg" alt="">
                             </picture>
                         </div>
                         <div class="swiper-slide">
                             <picture>
-                                <img src="/images/del/app/repair-2.jpg" alt="">
+                                <img src="/images/b/repair-2.jpg" alt="">
                             </picture>
                         </div>
                     </div>
