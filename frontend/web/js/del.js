@@ -457,8 +457,19 @@ window.addEventListener('load', () => {
 				}
 
 				layouts.querySelector(`#path-${button}`).classList.add('active');
+                changeRenovation();
 			}
 		})
+
+        function changeRenovation() {
+            let hd = document.querySelector('.renovation-wrapper:not(.hidden)');
+            hd.classList.add('hidden');
+            let vz = document.querySelector('.renovation-wrapper.hidden');
+            vz.classList.remove('hidden');
+            document.querySelector('.flat-switch').classList.add('repair');
+
+            // document.querySelector('.renovation-wrapper.furniture .about-text').innerHTML = JSON.parse(response).rd;
+        }
 
         let bl = 'a';
 
@@ -541,7 +552,6 @@ window.addEventListener('load', () => {
                     document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(blocks.length, model[0].floor_num);
                     floor.update();
                     document.querySelector('.renovation-wrapper.furniture .about-text').innerHTML = JSON.parse(response).rd;
-                    console.log(JSON.parse(response).rd);
                     fillData(model, status);
                     changeBlockStatus(model, status, block);
                     // console.log(response['blocks']);
