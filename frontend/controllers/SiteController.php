@@ -235,6 +235,33 @@ class SiteController extends Controller
         return $this->render('infrastructure');
     }
 
+    public function actionLts()
+    {
+        $request = Yii::$app->request;
+        // $cookies = Yii::$app->request->cookies;
+        // $currentLang = $request->cookies->getValue('_locale', 'en-US');
+
+        if ($request->isAjax){
+            $slug = $request->post('slug');
+            if ($slug === 'block-A') {
+                $rds = $this->renderPartial('a');
+            }
+
+            if ($slug === 'block-B') {
+                $rds = $this->renderPartial('b');
+            }
+
+            if ($slug === 'block-C') {
+                $rds = $this->renderPartial('c');
+            }
+            
+            // Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            $summ = json_encode(['rds' => $rds]);
+            return $rds;
+        }
+
+    }
+
     public function actionLayouts($id = 1, $lgg = null, $slug = null, $flr = null)
     {
 
@@ -276,6 +303,7 @@ class SiteController extends Controller
                     ->where('floor_num=:floor_num')
                     ->addParams([':floor_num' => $floor->floor]);
             $rd = $this->renderPartial('_a');
+            $rds = $this->renderPartial('a');
         }
 
         if ($slug === 'block-B') {
@@ -305,6 +333,7 @@ class SiteController extends Controller
                     ->where('floor_num=:floor_num')
                     ->addParams([':floor_num' => $floor->floor]);
             $rd = $this->renderPartial('_b');
+            $rds = $this->renderPartial('b');
         }
 
         if ($slug === 'block-C') {
@@ -338,6 +367,7 @@ class SiteController extends Controller
             //         ->where('floor_num=:floor_num')
             //         ->addParams([':floor_num' => $floor->floor]);
             $rd = $this->renderPartial('_c');
+            $rds = $this->renderPartial('c');
         }
 
         // $state = [];
@@ -367,7 +397,7 @@ class SiteController extends Controller
         // $blocks = json_encode($blocks);
         
         if ($request->isAjax){
-            $summ = json_encode(['model' => $model, 'blocks' => $blocks, 'flats' => $flats, 'flats_free' => $flats_free, 'status' => $status, 'rd' => $rd]);
+            $summ = json_encode(['model' => $model, 'blocks' => $blocks, 'flats' => $flats, 'flats_free' => $flats_free, 'status' => $status, 'rd' => $rd, 'rds' => $rds]);
             // $summ = json_encode(['model'=>$model, 'blocks'=>$blocks]);
             return $summ;
         }

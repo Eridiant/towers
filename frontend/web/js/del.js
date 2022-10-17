@@ -457,19 +457,8 @@ window.addEventListener('load', () => {
 				}
 
 				layouts.querySelector(`#path-${button}`).classList.add('active');
-                changeRenovation();
 			}
 		})
-
-        function changeRenovation() {
-            let hd = document.querySelector('.renovation-wrapper:not(.hidden)');
-            hd.classList.add('hidden');
-            let vz = document.querySelector('.renovation-wrapper.hidden');
-            vz.classList.remove('hidden');
-            document.querySelector('.flat-switch').classList.add('repair');
-
-            // document.querySelector('.renovation-wrapper.furniture .about-text').innerHTML = JSON.parse(response).rd;
-        }
 
         let bl = 'a';
 
@@ -489,6 +478,7 @@ window.addEventListener('load', () => {
             
             if (button) {
                 button = button.dataset.choose;
+                let block = '';
 				if (button == 1) {
                     if (window.history.replaceState) {
                         //prevents browser from storing history with each change:
@@ -498,6 +488,7 @@ window.addEventListener('load', () => {
                     fordel();
                     bl = 'a';
                     changeBlock(1, bl);
+                    block = 'block-A';
                     ajaxBlock('block-A');
                     document.querySelector('#floor').dataset.floor = 'block-A';
                     document.querySelector('.flat-switch').classList.add('none');
@@ -511,6 +502,7 @@ window.addEventListener('load', () => {
                     fordel();
                     bl = 'b';
                     changeBlock(2, bl);
+                    block = 'block-B';
                     ajaxBlock('block-B');
                     document.querySelector('#floor').dataset.floor = 'block-B';
                     document.querySelector('.flat-switch').classList.remove('none');
@@ -523,14 +515,34 @@ window.addEventListener('load', () => {
                     ltrs('C');
                     fordelc();
                 }
+                changeRenovation(block);
             }
-
-            
-
-            
-
-            
         })
+
+        function changeRenovation(block) {
+            // let hd = document.querySelector('.renovation-wrapper:not(.hidden)');
+            // hd?.classList?.add('hidden');
+            // let vz = document.querySelectorAll('.renovation-wrapper.hidden');
+            // vz[1].classList.remove('hidden');
+            document.querySelector('.flat-switch').classList.remove('repair');
+
+            let data = {'slug': block};
+            xhRequest(data, '/site/lts')
+                .then(response => {
+                    document.querySelector('#renovation').innerHTML = response;
+                    var renovation = new Swiper(".renovation-swiper", {
+                        slidesPerView: 1,
+                        navigation: {
+                            nextEl: ".choose-next",
+                            prevEl: ".choose-prev",
+                        },
+                    });
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+
         function ajaxBlock(block) {
             // let data = ['block' = 'block'].serializeArray();
             let data = {'slug': block};

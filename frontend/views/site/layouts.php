@@ -297,8 +297,9 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
         </div>
     </div>
 </div>
-
-<?= $this->render($block, compact('currentLang')) ?>
+<div id="renovation" class="renovation<?= Yii::$app->params['curLangUrl'] !== '/ru' ? ' none' : ''; ?>">
+    <?= $this->render($block, compact('currentLang')) ?>
+</div>
 
 <main>
     <div class="contact">

@@ -60,6 +60,8 @@ return [
                 'layouts' => 'site/layouts',
                 '<language:(ru|en)>/layouts' => 'site/layouts',
                 'layouts/<slug:[\w-]+>' => 'site/layouts',
+                '<language:(ru|en)>/lts' => 'site/lts',
+                'lts/<slug:[\w-]+>' => 'site/lts',
                 '<language:(ru|en)>/layouts/<slug:[\w-]+>' => 'site/layouts',
                 'layouts/<slug:[\w-]+>/<flr:[\w-]+>' => 'site/layouts',
                 '<language:(ru|en)>/layouts/<slug:[\w-]+>/<flr:[\w-]+>' => 'site/layouts',

@@ -1,8 +1,8 @@
 
 
-<div id="renovation" class="renovation<?= Yii::$app->params['curLangUrl'] !== '/ru' ? ' none' : ''; ?>">
+
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
-        <div class="renovation-wrapper furniture">
+        <div class="renovation-wrapper furniture hidden">
             <div class="renovation-row">
                 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper renovation-swiper">
                     <div class="swiper-wrapper">
@@ -36,7 +36,7 @@
                 </div>
             </div>
         </div>
-        <div class="renovation-wrapper repair hidden">
+        <div class="renovation-wrapper repair">
             <div class="renovation-row">
                 <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper renovation-swiper">
                     <div class="swiper-wrapper">
@@ -71,4 +71,3 @@
             </div>
         </div>
     </div>
-</div>
