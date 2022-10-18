@@ -68,7 +68,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
         <div class="header-footer">
 			<div class="header-light">
 				<svg width="19" height="19"><use xlink:href="/images/icons.svg#sun"></use></svg>
-				<svg class="header-light-rt" width="57" height="24"><use xlink:href="/images/icons.svg#switch"></use></svg>
+				<svg class="header-light-rt light-rt" width="57" height="24"><use xlink:href="/images/icons.svg#switch"></use></svg>
 				<svg width="17" height="17"><use xlink:href="/images/icons.svg#moon"></use></svg>
 			</div>
 			<div class="header-sound">

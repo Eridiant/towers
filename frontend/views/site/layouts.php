@@ -266,7 +266,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 </div> -->
             </div>
             <div class="flat-num">
-                <div class="flat-switch<?= $block == 'a' ? ' none' : ''; ?><?= Yii::$app->params['curLangUrl'] === '/en' ? ' none' : ''; ?>">
+                <div class="flat-switch<?= $block == 'a' ? ' none' : ''; ?>">
                     <div class="flat-switch-repair flat-switch-text">
                         <p><?=Yii::t('frontend', 'с ремонтом')?></p>
                         <svg width="24" height="24"><use xlink:href="/images/icons.svg#repair"></use></svg>
@@ -297,7 +297,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
         </div>
     </div>
 </div>
-<div id="renovation" class="renovation<?= Yii::$app->params['curLangUrl'] !== '/ru' ? ' none' : ''; ?>">
+<div id="renovation" class="renovation">
     <?= $this->render($block, compact('currentLang')) ?>
 </div>
 
