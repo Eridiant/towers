@@ -479,10 +479,12 @@ window.addEventListener('load', () => {
             if (button) {
                 button = button.dataset.choose;
                 let block = '';
+                let lng = currLang !== 'ge' ? `/${currLang}` : '';
+
 				if (button == 1) {
                     if (window.history.replaceState) {
                         //prevents browser from storing history with each change:
-                        window.history.replaceState('blockA', 'Title', '/layouts/block-A');
+                        window.history.replaceState('blockA', 'Title', `${lng}/layouts/block-A`);
                     }
                     ltrs('A');
                     fordel();
@@ -496,7 +498,7 @@ window.addEventListener('load', () => {
 				if (button == 2) {
                     if (window.history.replaceState) {
                         //prevents browser from storing history with each change:
-                        window.history.replaceState('blockB', 'Title', '/layouts/block-B');
+                        window.history.replaceState('blockB', 'Title', `${lng}/layouts/block-B`);
                     }
                     ltrs('B');
                     fordel();
@@ -547,9 +549,12 @@ window.addEventListener('load', () => {
             // let data = ['block' = 'block'].serializeArray();
             let data = {'slug': block};
             // let data = `'slug' = ${block}`;
+            // let lng = currLang !== 'ge' ? `/${currLang}` : '';
             changeModule(checkModule(block));
             $.ajax({
-                url: '/site/layouts',
+                url: `/site/layouts`,
+                // url: `${lng}/site/layouts`,
+                // url: `/${currLang}/site/layouts`,
                 type: 'POST',
                 data: data,
                 success: function(response){
