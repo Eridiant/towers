@@ -568,7 +568,7 @@ window.addEventListener('load', () => {
                     document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
                     document.querySelector('.floorChoose .swiper-wrapper').innerHTML = cont(blocks.length, model[0].floor_num);
                     floor.update();
-                    document.querySelector('.renovation-wrapper.furniture .about-text').innerHTML = JSON.parse(response).rd;
+                    // document.querySelector('.renovation-wrapper.furniture .about-text').innerHTML = JSON.parse(response).rd;
                     fillData(model, status);
                     changeBlockStatus(model, status, block);
                     // console.log(response['blocks']);
