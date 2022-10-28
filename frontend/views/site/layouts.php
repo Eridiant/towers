@@ -32,11 +32,16 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 <!-- <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>"> -->
             </object>
         </figure>
+        <div class="layouts-bg-letters">
+            <div class="layouts-bg-letter a">A</div>
+            <div class="layouts-bg-letter b">B</div>
+            <div class="layouts-bg-letter c">C</div>
+        </div>
     </div>
     <!-- <div class="layouts-bg-svg">
         <figure class="layouts-bg-fig">
             <object id="floors" data="/images/svg/layout-flats.svg" type="image/svg+xml">
-                <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
+                <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?//=Yii::t('frontend', 'Недвижимость в Батуми')?>">
             </object>
         </figure>
     </div> -->
