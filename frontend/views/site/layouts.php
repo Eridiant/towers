@@ -33,9 +33,9 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
             </object>
         </figure>
         <div class="layouts-bg-letters">
-            <div class="layouts-bg-letter a">A</div>
-            <div class="layouts-bg-letter b">B</div>
-            <div class="layouts-bg-letter c">C</div>
+            <div class="layouts-bg-letter cb a" data-choose="1">A</div>
+            <div class="layouts-bg-letter cb b" data-choose="2">B</div>
+            <div class="layouts-bg-letter cb c" data-choose="3">C</div>
         </div>
     </div>
     <!-- <div class="layouts-bg-svg">
@@ -52,13 +52,13 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 <h1><?=Yii::t('frontend', 'Планировки')?></h1>
             </div>
             <div class="choose-buttons">
-                <a href="javascript:void(0);" class="choose-button" data-choose="1">
+                <a href="javascript:void(0);" class="choose-button cb" data-choose="1">
                     <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'а')?></span>
                 </a>
-                <a href="javascript:void(0);" class="choose-button" data-choose="2">
+                <a href="javascript:void(0);" class="choose-button cb" data-choose="2">
                     <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'б')?></span>
                 </a>
-                <a href="javascript:void(0);" class="choose-button" data-choose="3" data-inf="<?=Yii::t('frontend', 'скоро в продаже')?>">
+                <a href="javascript:void(0);" class="choose-button cb" data-choose="3" data-inf="<?=Yii::t('frontend', 'скоро в продаже')?>">
                     <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
                 </a>
             </div>

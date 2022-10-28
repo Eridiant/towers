@@ -462,9 +462,10 @@ window.addEventListener('load', () => {
 
         let bl = 'a';
 
-        chbtn.addEventListener('click', (e) => {
+        let mchbtn = document.querySelector('.layouts');
+        mchbtn.addEventListener('click', (e) => {
 
-            let button = e.target.closest('.choose-button');
+            let button = e.target.closest('.cb');
             // let letters = document.querySelectorAll('.blocks');
             // function ltrs(ltr) {
             //     letters.forEach(el=> {
