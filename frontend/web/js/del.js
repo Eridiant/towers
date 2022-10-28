@@ -443,11 +443,11 @@ window.addEventListener('load', () => {
         }
 
 
-        let chbtn = document.querySelector('.choose-buttons');
+        let mchbtn = document.querySelector('.layouts');
 
-		chbtn.addEventListener('mouseover', (e) => {
+		mchbtn.addEventListener('mouseover', (e) => {
 
-			let button = e.target.closest('.choose-button');
+			let button = e.target.closest('.cb');
 
 			if (button) {
 				button = button.dataset.choose;
@@ -462,7 +462,6 @@ window.addEventListener('load', () => {
 
         let bl = 'a';
 
-        let mchbtn = document.querySelector('.layouts');
         mchbtn.addEventListener('click', (e) => {
 
             let button = e.target.closest('.cb');
