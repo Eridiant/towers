@@ -90,7 +90,10 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
         <div class="popup-desc">
             <h2><?=Yii::t('frontend', 'Дорогие клиенты')?>!</h2>
             <p>
-                <?=Yii::t('frontend', 'Не пропусти лучшую возможность этого лето Заполни заявку и Получи скидку до 50$ на м2 Предложение действует до 30 сентября.')?>
+                <?=Yii::t('frontend', 'Грандиозные скидки и эпические предложения <strong>Black Friday</strong> от Calligraphy towers.
+Не пропустите возможность стать резидентом премиального комплекса в Батуми.
+Переходите жить в дом своей мечты уже через год.
+Предложение действует до 25 ноября.')?>
             </p>
             <form id="form-stock" action="/" method="post" onsubmit="ym(87522082,'reachGoal','forma')"> 
                 <input type="hidden" name="body" value="promotion">
