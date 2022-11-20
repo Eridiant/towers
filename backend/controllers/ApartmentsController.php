@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use Yii;
 use backend\models\Floor;
 use backend\models\FloorA;
 use backend\models\FloorB;
@@ -96,6 +97,192 @@ class ApartmentsController extends Controller
 
         return $this->render('index', compact('searchModel','dataProvider','block'));
 
+    }
+
+    public function actionStatus()
+    {
+
+        $request = Yii::$app->request;
+
+        if ($request->isPost) {
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            $block = $request->post('block');
+            $value = $request->post('value');
+            if (!preg_match("/d\/(.*?)\//", $value, $res)) return['data' => ['success' => 'false']];
+            $id = $res[1];
+            $list = 0;
+            $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$res[1]/export?format=csv");
+            $csv = explode(PHP_EOL, $csv);
+            $arr = array_map('str_getcsv', $csv);
+            if ($block == 'a') {
+                // https://docs.google.com/spreadsheets/d/1yWtW0vzysjJBMy_80ihXRuYebw9MR1sE/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+                
+                $rrr = $this->dba($arr);
+            }
+            if ($block == 'b') {
+                // https://docs.google.com/spreadsheets/d/1yWtW0vzysjJBMy_80ihXRuYebw9MR1sE/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+                
+                $rrr = $this->dbb($arr);
+            }
+            return ['data' => ['success' => $block . '|' . $rrr]];
+            // return $this->render('status', compact('stitus'));
+        }
+        return $this->render('status');
+    }
+    // 1-reserv 2 sold
+    public function dba($arr)
+    {
+        $vr = '';
+        foreach ($arr as $key => $value) {
+            // var_dump('<pre>');
+            // var_dump($value[0]);
+            // var_dump(strripos($value[0], 'აპარტამენტი') !== false);
+            // var_dump('</pre>');
+            if (strripos($value[0], 'აპარტამენტი') !== false) {
+            // if (false) {
+                // var_dump('<pre>');
+                // var_dump($value[7]);
+                // var_dump(intval(preg_replace('/[^0-9]/', '', $value[0])));
+                
+                // // var_dump(!strcasecmp(trim($value[6]), 'mountain view'));
+                // // var_dump(!strcasecmp(trim($value[8]), 'sea view'));
+                // var_dump('</pre>');
+                if (true) {
+                    $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
+                    if ($value[9] == 1) {
+
+                        $q = ApartmentsA::find()
+                            ->where(['num' => $d])
+                            ->one();
+                        $q->status = 1;
+                        $vr .= '| id=' . $value[0] . '_st=1 </br>';
+                        $q->save();
+                    } elseif ($value[9] == 2) {
+                        $q = ApartmentsA::find()
+                                ->where(['num' => $d])
+                                ->one();
+                        $q->status = 2;
+                        $vr .= '| id=' . $value[0] . '_st=2 </br>';
+                        $q->save();
+                    } elseif ($d != 0 ) {
+                        $q = ApartmentsA::find()
+                                ->where(['num' => $d])
+                                ->one();
+
+                        $q->status = 0;
+                        $vr .= '| id=' . $value[0] . '_st=0 </br>';
+                        // var_dump('| id=' . $d);
+                        $q->save();
+                    }
+
+                }
+                if (false) {
+                    $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
+
+                    $q = ApartmentsA::find()
+                            ->where(['num' => $d])
+                            ->one();
+
+                    $q->money = $this->numint($value[8]);
+                    $q->money_m = $this->numint($value[7]);
+
+                    $q->balcony_area = $this->numfl($value[2]);
+                    $q->living_space = $this->numfl($value[1]);
+                    $q->total_area = $this->numfl($value[3]);
+
+                    if (!strcasecmp(trim($value[6]), 'mountain view')) {
+                        $q->ru = 'горы';
+                        $q->ge = 'მთები';
+                        $q->en = 'mountain';
+                        $q->he = 'ההרים';
+                    }
+                    if (!strcasecmp(trim($value[6]), 'sea view')) {
+                        $q->ru = 'море';
+                        $q->ge = 'ზღვის';
+                        $q->en = 'sea';
+                        $q->he = 'יָם';
+                    }
+
+                    $q->save();
+                }
+                
+            }
+        }
+        return $vr;
+    }
+    public function dbb($arr)
+    {
+        $vr = '';
+        foreach ($arr as $key => $value) {
+            // var_dump('<pre>');
+            // var_dump($value[0]);
+            // var_dump('</pre>');
+            if (intval($value[0])) {
+                // var_dump('<pre>');
+                // var_dump($value);
+                // var_dump(!strcasecmp(trim($value[8]), 'sea view'));
+                // var_dump('</pre>');
+                if (true) {
+                    if ($value[9] == 1) {
+
+                        $q = ApartmentsB::find()
+                            ->where(['id' => $value[0]])
+                            ->one();
+                        $q->status = 1;
+                        $vr .= '| id=' . $value[0] . '_st=1 </br>';
+                        $q->save();
+                    } elseif ($value[9] == 2) {
+
+                        $q = ApartmentsB::find()
+                                ->where(['id' => $value[0]])
+                                ->one();
+                        $q->status = 2;
+                        $vr .= '| id=' . $value[0] . '_st=2 </br>';
+                        $q->save();
+                    } else {
+
+                        $q = ApartmentsB::find()
+                                ->where(['id' => $value[0]])
+                                ->one();
+                        $q->status = 0;
+                        $vr .= '| id=' . $value[0] . '_st=0 </br>';
+                        $q->save();
+                    }
+                    
+                }
+                if (false) {
+                    $q = ApartmentsB::find()
+                            ->where(['id' => $value[0]])
+                            ->one();
+                            
+                    $q->money = $this->numint($value[13]);
+                    $q->money_m = $this->numint($value[12]);
+                    $q->money_wh = $this->numint($value[11]);
+                    $q->money_wh_m = $this->numint($value[10]);
+
+                    $q->balcony_area = $this->numfl($value[2]);
+                    $q->living_space = $this->numfl($value[1]);
+                    $q->total_area = $this->numfl($value[3]);
+
+                    if (!strcasecmp(trim($value[8]), 'mountain view')) {
+                        $q->ru = 'горы';
+                        $q->ge = 'მთები';
+                        $q->en = 'mountain';
+                        $q->he = 'ההרים';
+                    }
+                    if (!strcasecmp(trim($value[8]), 'sea view')) {
+                        $q->ru = 'море';
+                        $q->ge = 'ზღვის';
+                        $q->en = 'sea';
+                        $q->he = 'יָם';
+                    }
+
+                    $q->save();
+                }
+
+            }
+        }
+        return $vr;
     }
     // https://docs.google.com/spreadsheets/d/1cOh7Q3F5-ac-HZ2BaGXs4fWV66EFAQQ7xt52FjB9F8s/edit#gid=1115666623ss
     // https://docs.google.com/spreadsheets/d/1eGLzNYOQlgtJegIYCZiJdjKFEeo6TKVe/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true

@@ -23,6 +23,12 @@ return [
         'request' => [
             'baseUrl' => '/admin',
             'csrfParam' => '_csrf-backend',
+            'parsers' => [
+                'application/json' => [
+                    'class' => \yii\web\JsonParser::class,
+                    'asArray' => true,
+                ],
+            ],
         ],
         'user' => [
             'identityClass' => 'common\models\User',
