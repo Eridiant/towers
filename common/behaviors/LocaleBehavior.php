@@ -46,6 +46,8 @@ class LocaleBehavior extends Behavior
         }
         $request = Yii::$app->request;
         $langerhans = explode("/", $request->url)[1];
+        $langerhans = substr($langerhans, 0, 2);
+
         if ($langerhans != explode("-", $locale)[0]) {
             switch ($langerhans) {
                 case 'ru':
