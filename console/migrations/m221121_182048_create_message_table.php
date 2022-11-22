@@ -20,6 +20,8 @@ class m221121_182048_create_message_table extends Migration
             'language_id' => $this->integer()->notNull(),
             'source_id' => $this->integer()->notNull(),
             'text' => $this->text(),
+            'show' => $this->tinyInteger()->notNull()->defaultValue(0),
+            'format' => $this->tinyInteger()->notNull()->defaultValue(0),
         ]);
 
         // creates index for column `source_id`

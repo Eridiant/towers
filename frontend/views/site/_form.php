@@ -11,7 +11,7 @@
     <div class="contact-wrap">
         <div class="contact-inner">
             <label for="contact-check"><?=Yii::t('frontend', 'Я согласен с условиями обработки персональных данных')?></label>
-            <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed" required>
+            <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed" required checked>
         </div>
         <button class="btn btn-white"><?=Yii::t('frontend', 'Отправить')?></button>
     </div>

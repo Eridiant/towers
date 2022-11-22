@@ -92,7 +92,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
             <p>
                 <?=Yii::t('frontend', 'Грандиозные скидки и эпические предложения <strong>Black Friday</strong> от Calligraphy towers. Не пропустите возможность стать резидентом премиального комплекса в Батуми. Переходите жить в дом своей мечты уже через год. Предложение действует до 25 ноября.')?>
             </p>
-            <form id="form-stock" action="/" method="post" onsubmit="ym(87522082,'reachGoal','forma')"> 
+            <form id="form-stock" action="/" method="post" onsubmit="ym(87522082,'reachGoal','popupdeal')"> 
                 <input type="hidden" name="body" value="promotion">
                 <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" title="<?=Yii::t('frontend', 'только буквы')?>" required>
                 <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>" pattern="\+?[0-9\s\-\(\)]+" title="<?=Yii::t('frontend', 'только цифры')?>" required>
@@ -101,7 +101,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                     <button class="btn btn-blue"><?=Yii::t('frontend', 'Отправить')?></button>
                     <div class="contacts-check">
                         <label for="contact-check"><?=Yii::t('frontend', 'Я согласен с условиями обработки персональных данных')?></label>
-                        <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed" required>
+                        <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed" required checked>
                     </div>
                 </div>
             </form>
@@ -116,7 +116,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
             <p>
 				<?=Yii::t('frontend', 'Введите ваши данные и мы Вам перезвоним')?>
             </p>
-            <form id="form-popup" action="/" method="post" onsubmit="ym(87522082,'reachGoal','forma')"> 
+            <form id="form-popup" action="/" method="post" onsubmit="ym(87522082,'reachGoal','popupform')"> 
                 <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" title="<?=Yii::t('frontend', 'только буквы')?>" required>
                 <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>" pattern="\+?[0-9\s\-\(\)]+" title="<?=Yii::t('frontend', 'только цифры')?>" required>
                 <input type="text" name="email" placeholder="<?=Yii::t('frontend', 'Почта')?>" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" title="<?=Yii::t('frontend', 'your_mail@mail')?>" required>
@@ -124,7 +124,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                     <button class="btn btn-blue"><?=Yii::t('frontend', 'Отправить')?></button>
                     <div class="contacts-check">
                         <label for="contact-check"><?=Yii::t('frontend', 'Я согласен с условиями обработки персональных данных')?></label>
-                        <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed" required>
+                        <input id="contact-check" class="contact-checkbox" type="checkbox" name="viewed" required checked>
                     </div>
                 </div>
             </form>
