@@ -32,7 +32,7 @@ window.addEventListener('load', () => {
         if (document.querySelector('.stock')) {
             setTimeout(() => {
                 document.querySelector('.stock:not(.dnn)').classList.add('popup-show');
-            }, 1500);
+            }, 15000);
         }
     }
 
