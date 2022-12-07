@@ -90,9 +90,7 @@ $lg_num = \backend\modules\language\models\Language::find()->where(['deleted_at'
         </div>
         <div class="popup-desc">
             <h2><?=Yii::t('frontend', 'Дорогие клиенты')?>!</h2>
-            <p <?= \frontend\models\Message::find()->where(['src' => 'offer', 'language_id' => $lg_num])->joinWith(['source'])->one()->format ? 'style="white-space: pre-line"' : ''; ?>>
-                <?= \frontend\models\Message::find()->where(['src' => 'offer', 'language_id' => $lg_num])->joinWith(['source'])->one()->text ?>
-            </p>
+            <p <?= \frontend\models\Message::find()->where(['src' => 'offer', 'language_id' => $lg_num])->joinWith(['source'])->one()->format ? 'style="white-space: pre-line"' : ''; ?>><?= \frontend\models\Message::find()->where(['src' => 'offer', 'language_id' => $lg_num])->joinWith(['source'])->one()->text ?></p>
             <form id="form-stock" action="/" method="post" onsubmit="ym(87522082,'reachGoal','popupdeal')"> 
                 <input type="hidden" name="body" value="promotion">
                 <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" title="<?=Yii::t('frontend', 'только буквы')?>" required>
