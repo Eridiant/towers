@@ -18,9 +18,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
 
-    <?= $form->field($model, 'show')->checkbox([ 'value' => '1', 'checked ' => true])->label('') ?> 
+    <?= $form->field($model, 'show')->checkbox()->label('') ?> 
 
-    <?= $form->field($model, 'format')->checkbox([ 'value' => '1', 'checked ' => true])->label('') ?> 
+    <?= $form->field($model, 'format')->checkbox()->label('') ?> 
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

@@ -31,8 +31,8 @@ window.addEventListener('load', () => {
         document.cookie = "_prm=1; max-age=3600";
         if (document.querySelector('.stock')) {
             setTimeout(() => {
-                document.querySelector('.stock').classList.add('popup-show');
-            }, 15000);
+                document.querySelector('.stock:not(.dnn)').classList.add('popup-show');
+            }, 1500);
         }
     }
 

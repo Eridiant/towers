@@ -5,6 +5,7 @@ use yii\helpers\Url;
 use yii\web\View;
 
 $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one()->code;
+$lg_num = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one()->id;
 
 ?>
 
@@ -79,7 +80,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
 	</div>
 </footer>
 
-<div class="popup-wrapper stock">
+<div class="popup-wrapper stock <?= \frontend\models\Message::find()->where(['src' => 'offer', 'language_id' => $lg_num])->joinWith(['source'])->one()->show ? '' : ' dnn'; ?>">
     <div class="popup popup-stock">
         <div class="popup-bg">
             <picture>
@@ -89,8 +90,8 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
         </div>
         <div class="popup-desc">
             <h2><?=Yii::t('frontend', 'Дорогие клиенты')?>!</h2>
-            <p>
-                <?=Yii::t('frontend', 'Грандиозные скидки и эпические предложения <strong>Black Friday</strong> от Calligraphy towers. Не пропустите возможность стать резидентом премиального комплекса в Батуми. Переходите жить в дом своей мечты уже через год. Предложение действует до 25 ноября.')?>
+            <p <?= \frontend\models\Message::find()->where(['src' => 'offer', 'language_id' => $lg_num])->joinWith(['source'])->one()->format ? 'style="white-space: pre-line"' : ''; ?>>
+                <?= \frontend\models\Message::find()->where(['src' => 'offer', 'language_id' => $lg_num])->joinWith(['source'])->one()->text ?>
             </p>
             <form id="form-stock" action="/" method="post" onsubmit="ym(87522082,'reachGoal','popupdeal')"> 
                 <input type="hidden" name="body" value="promotion">

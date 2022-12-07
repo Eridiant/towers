@@ -3,8 +3,6 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = 'Calligraphy';
-
 ?>
 <script>
     var currLang = "<?= \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => $currentLang])->one()->code; ?>"
