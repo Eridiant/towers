@@ -21,7 +21,7 @@ class m221121_181921_create_source_table extends Migration
         $this->createIndex(
             '{{%idx-source-src}}',
             '{{%source}}',
-            'src'
+            'src(255)'
         );
     }
 
