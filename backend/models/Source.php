@@ -9,8 +9,6 @@ use Yii;
  *
  * @property int $id
  * @property string|null $src
- * @property int $show
- * @property int $format
  *
  * @property Message[] $messages
  */
@@ -31,7 +29,6 @@ class Source extends \yii\db\ActiveRecord
     {
         return [
             [['src'], 'string'],
-            [['show', 'format'], 'integer'],
         ];
     }
 
@@ -43,8 +40,6 @@ class Source extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'src' => 'Src',
-            'show' => 'Show',
-            'format' => 'Format',
         ];
     }
 

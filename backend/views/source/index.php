@@ -24,8 +24,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'src:ntext',
-            'show',
-            'format',
             [
                 'label' => 'RU',
                 'format' => 'raw',
