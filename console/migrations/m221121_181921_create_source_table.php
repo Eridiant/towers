@@ -14,7 +14,7 @@ class m221121_181921_create_source_table extends Migration
     {
         $this->createTable('{{%source}}', [
             'id' => $this->primaryKey(),
-            'src' => $this->text(),
+            'src' => $this->text(255),
         ]);
 
         // creates index for column `src`
