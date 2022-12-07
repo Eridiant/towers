@@ -248,6 +248,12 @@ window.addEventListener('load', () => {
 				1000: {
 					slidesPerView: 5,
 				},
+				600: {
+					direction: "vertical",
+				},
+				240: {
+					direction: 'horizontal',
+				},
 			},
 		});
 
