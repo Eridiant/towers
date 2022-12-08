@@ -149,7 +149,7 @@ class ApartmentsController extends Controller
                 // var_dump('</pre>');
                 if (true) {
                     $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
-                    if ($value[9] == 1) {
+                    if ($value[9] == 1 || str_contains(mb_strtolower($value[9], 'UTF-8'), 'booked') || str_contains($value[9], 'ჯავშანი')) {
 
                         $q = ApartmentsA::find()
                             ->where(['num' => $d])
@@ -157,7 +157,7 @@ class ApartmentsController extends Controller
                         $q->status = 1;
                         $vr .= '| id=' . $value[0] . '_st=1 </br>';
                         $q->save();
-                    } elseif ($value[9] == 2) {
+                    } elseif ($value[9] == 2 || str_contains(mb_strtolower($value[9]), 'sold') || str_contains($value[9], 'დახურული') || str_contains($value[9], 'გაიყიდა')) {
                         $q = ApartmentsA::find()
                                 ->where(['num' => $d])
                                 ->one();
@@ -223,7 +223,7 @@ class ApartmentsController extends Controller
                 // var_dump(!strcasecmp(trim($value[8]), 'sea view'));
                 // var_dump('</pre>');
                 if (true) {
-                    if ($value[9] == 1) {
+                    if ($value[9] == 1 || str_contains(mb_strtolower($value[9], 'UTF-8'), 'booked') || str_contains($value[9], 'ჯავშანი')) {
 
                         $q = ApartmentsB::find()
                             ->where(['id' => $value[0]])
@@ -231,7 +231,7 @@ class ApartmentsController extends Controller
                         $q->status = 1;
                         $vr .= '| id=' . $value[0] . '_st=1 </br>';
                         $q->save();
-                    } elseif ($value[9] == 2) {
+                    } elseif ($value[9] == 2 || str_contains(mb_strtolower($value[9]), 'sold') || str_contains($value[9], 'დახურული') || str_contains($value[9], 'გაიყიდა')) {
 
                         $q = ApartmentsB::find()
                                 ->where(['id' => $value[0]])

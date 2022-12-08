@@ -7,15 +7,27 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 <div class="apartments-status">
+    <p>
+        отметить словом или фразой содержащей
+    </p>
+    <p>
+        забронированные: 1 booked ჯავშანი
+    </p>
+    <p>
+        проданные: 2 sold დახურული გაიყიდა
+    </p>
+    <p>
+        без учета регистра
+    </p>
     <form action="#" method="post" class="block-a">
-        <p>block-a</p>
+        <p>ссылка на block-a (true)</p>
         <input type="text" name="message">
         <button type="submit">submit</button>
     </form>
     <br>
     
     <form action="#" method="post" class="block-b">
-        <p>block-b</p>
+        <p>ссылка на block-b (true)</p>
         <input type="text" name="message">
         <button type="submit">submit</button>
     </form>
