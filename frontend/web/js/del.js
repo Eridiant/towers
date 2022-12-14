@@ -997,7 +997,7 @@ function fillData(model, status) {
         floor[i].dataset.view = model[i][currLang];
         floor[i].dataset.views = model[i].en;
         floor[i].dataset.img = model[i].img;
-        num_mb[i].innerHTML = model[i].num;
+        num_mb[i].innerHTML = model[i].num < 100 ? '&#160;&#160;' + model[i].num : model[i].num;
     }
     // model.forEach(model => {
     //     // console.log(model.balcony_area);
