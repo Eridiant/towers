@@ -975,7 +975,7 @@ function focuss(test, focus, flat, status) {
 function fillData(model, status) {
     let floor = document.querySelector('#test').contentDocument.querySelectorAll('.area');
     let num_mb = document.querySelector('#test').contentDocument.querySelectorAll('.num');
-    console.log(num);
+
     for (let i = 0; i < floor.length; i++) {
         // const element = array[i];
         floor[i].dataset.flat = model[i].num;
