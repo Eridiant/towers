@@ -975,6 +975,7 @@ function focuss(test, focus, flat, status) {
 function fillData(model, status) {
     let floor = document.querySelector('#test').contentDocument.querySelectorAll('.area');
     let num_mb = document.querySelector('#test').contentDocument.querySelectorAll('.num');
+    var nms = 0;
 
     for (let i = 0; i < floor.length; i++) {
         // const element = array[i];
@@ -997,7 +998,16 @@ function fillData(model, status) {
         floor[i].dataset.view = model[i][currLang];
         floor[i].dataset.views = model[i].en;
         floor[i].dataset.img = model[i].img;
-        num_mb[i].innerHTML = model[i].num < 100 ? '&#160;&#160;' + model[i].num : model[i].num;
+        if (model[i].num < 10) {
+            nms = '&#160;&#160;&#160;' + model[i].num;
+        } else if (model[i].num < 100) {
+            nms = '&#160;&#160;' + model[i].num;
+        } else if (model[i].num < 1000) {
+            nms = '&#160;' + model[i].num;
+        } else {
+            nms = model[i].num;
+        }
+        num_mb[i].innerHTML = nms;
     }
     // model.forEach(model => {
     //     // console.log(model.balcony_area);
