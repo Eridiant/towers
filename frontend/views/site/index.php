@@ -514,7 +514,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                             <p><?=Yii::t('frontend', 'завершение строительства блока А  и  открытие гостиницы Hampton')?></p>
                         </div>
                         <div class="project-desc-5">
-                            <p><?=Yii::t('frontend', 'Зима')?>, 2025</p>
+                            <p><?=Yii::t('frontend', 'Лето')?>, 2026</p>
                             <p><?=Yii::t('frontend', 'завершение строительства блока С')?></p>
                         </div>
                     </div>
