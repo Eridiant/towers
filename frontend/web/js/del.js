@@ -974,7 +974,8 @@ function focuss(test, focus, flat, status) {
 
 function fillData(model, status) {
     let floor = document.querySelector('#test').contentDocument.querySelectorAll('.area');
-    
+    let num = document.querySelector('#test').contentDocument.querySelectorAll('.num');
+    console.log(num);
     for (let i = 0; i < floor.length; i++) {
         // const element = array[i];
         floor[i].dataset.flat = model[i].num;
@@ -996,6 +997,7 @@ function fillData(model, status) {
         floor[i].dataset.view = model[i][currLang];
         floor[i].dataset.views = model[i].en;
         floor[i].dataset.img = model[i].img;
+        num[i].innerHTML = model[i].num + 1000;
     }
     // model.forEach(model => {
     //     // console.log(model.balcony_area);
