@@ -36,7 +36,7 @@ class UserInfo extends \yii\db\ActiveRecord
         return [
             [['user_id'], 'required'],
             [['user_id'], 'integer'],
-            [['fb', 'phone', 'youtube', 'instagram', 'whats_app', 'viber'], 'string', 'max' => 255],
+            [['fb', 'phone', 'youtube', 'telegram', 'instagram', 'whats_app', 'viber'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -52,6 +52,7 @@ class UserInfo extends \yii\db\ActiveRecord
             'phone' => 'Телефон',
             'fb' => 'Facebook',
             'youtube' => 'Youtube',
+            'telegram' => 'telegram',
             'instagram' => 'Instagram',
             'whats_app' => 'WhatsApp',
             'viber' => 'Viber',
