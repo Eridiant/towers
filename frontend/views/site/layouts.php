@@ -12,6 +12,8 @@ $cookies = Yii::$app->request->cookies;
 $currentLang = $cookies->getValue('_locale', 'en-US');
 $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => null, 'key' => Yii::$app->language])->one()->code;
 
+$user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
+
 ?>
 
 <script>
@@ -58,7 +60,7 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                 <a href="javascript:void(0);" class="choose-button cb" data-choose="2">
                     <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'б')?></span>
                 </a>
-                <a href="javascript:void(0);" class="choose-button cb" data-choose="3" data-inf="<?=Yii::t('frontend', 'скоро в продаже')?>">
+                <a href="javascript:void(0);" class="choose-button cb" data-choose="3">
                     <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
                 </a>
             </div>
@@ -296,6 +298,17 @@ $lg = \backend\modules\language\models\Language::find()->where(['deleted_at' => 
                     <a href="<?=Url::toRoute([Yii::$app->params['curLangUrl'] . '/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => $model[0]['num'], 'img' => 1, 'view' => $model[0]['en']]) ?>" class="contacts-call btn btn-blue" target="_blank">
                         <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                         <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
+                    </a>
+                </div>
+                <div class="flat-num-social">
+                    <a href="https://telegram.me/<?= $user_info->telegram; ?>">
+                        <svg width="32" height="32" style="color: #0b2867; margin-right: 20px"><use xlink:href="/images/icons.svg#telegram"></use></svg>
+                    </a>
+                    <a href="https://wa.me/<?= $user_info->whats_app; ?>">
+                        <svg width="32" height="32" style="color: #0b2867; margin-right: 20px"><use xlink:href="/images/icons.svg#whatsapp"></use></svg>
+                    </a>
+                    <a href="viber://add?number=<?= $user_info->viber; ?>">
+                        <svg width="32" height="32" style="color: #0b2867; margin-right: 20px"><use xlink:href="/images/icons.svg#viber"></use></svg>
                     </a>
                 </div>
             </div>

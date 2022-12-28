@@ -616,8 +616,8 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                     <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-B') ?>" class="choose-button" data-choose="2">
                         <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'б')?></span>
                     </a>
-                    <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-C') ?>" class="choose-button" data-choose="3" data-inf="<?=Yii::t('frontend', 'скоро в продаже')?>">
-                        <?//=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
+                    <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-C') ?>" class="choose-button" data-choose="3">
+                        <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
                     </a>
                 </div>
             </div>
