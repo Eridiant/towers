@@ -617,7 +617,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                         <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'б')?></span>
                     </a>
                     <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-C') ?>" class="choose-button" data-choose="3">
-                        <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'с')?></span>
+                        <?=Yii::t('frontend', 'Блок')?> <span><?=Yii::t('frontend', 'г')?></span>
                     </a>
                 </div>
             </div>
@@ -633,7 +633,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                 <?=Yii::t('frontend', 'б')?>
             </a>
             <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-C') ?>" class="choose-button-mob" data-choose="3">
-                <?=Yii::t('frontend', 'с')?>
+                <?=Yii::t('frontend', 'г')?>
             </a>
         </div>
         <div style="--swiper-navigation-size: 30px; --swiper-navigation-color: #fff;" class="swiper choose-swiper">
@@ -660,7 +660,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                 </div>
                 <div class="swiper-slide">
                     <div class="choose-inner">
-                        <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'С')?></h2>
+                        <h2><?=Yii::t('frontend', 'Блок')?> <?=Yii::t('frontend', 'Г')?></h2>
                         <div class="choose-img">
                             <picture>
                                 <img src="/images/dist/index/choose/block-c.png" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
