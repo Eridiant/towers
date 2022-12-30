@@ -35,9 +35,9 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
             </object>
         </figure>
         <div class="layouts-bg-letters">
-            <div class="layouts-bg-letter cb a" data-choose="1">A</div>
-            <div class="layouts-bg-letter cb b" data-choose="2">B</div>
-            <div class="layouts-bg-letter cb c" data-choose="3">C</div>
+            <div class="layouts-bg-letter cb a" data-choose="1"><?=Yii::t('frontend', 'А')?></div>
+            <div class="layouts-bg-letter cb b" data-choose="2"><?=Yii::t('frontend', 'Б')?></div>
+            <div class="layouts-bg-letter cb c" data-choose="3"><?=Yii::t('frontend', 'г')?></div>
         </div>
     </div>
     <!-- <div class="layouts-bg-svg">
