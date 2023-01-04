@@ -370,6 +370,36 @@ class SiteController extends Controller
             $rds = $this->renderPartial('c');
         }
 
+        if ($slug === 'block-G') {
+            $block = 'g';
+            $blocks = FloorC::find()->all();
+            if ($flr === null) {
+                $floor = FloorC::find()
+                    ->where('id=:id')
+                    ->addParams([':id' => $id])
+                    ->one();
+            } else {
+                $floor = FloorC::find()
+                    ->where('floor=:floor')
+                    ->addParams([':floor' => preg_replace("/[^0-9]/", '', $flr)])
+                    ->one();
+                if ($floor === null) {
+                    throw new HttpException(404, 'Запрошенная страница не найдена');
+                }
+            }
+            
+            $model = ApartmentsC::find()
+                    ->where('floor_num=:floor_num')
+                    ->addParams([':floor_num' => $floor->floor])
+                    ->asArray()
+                    ->all();
+            $mod = ApartmentsC::find()
+                    ->where('floor_num=:floor_num')
+                    ->addParams([':floor_num' => $floor->floor]);
+            $rd = $this->renderPartial('_g');
+            $rds = $this->renderPartial('g');
+        }
+
         // $state = [];
         foreach ($model as $key => $value) {
             $status[$key] = $this->translate($value["status"], $request->post('lgg'));

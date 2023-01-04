@@ -471,6 +471,74 @@ class ApartmentsController extends Controller
         }
     }
 
+    public function actionDbc()
+    {
+        $url = 'https://docs.google.com/spreadsheets/d/1QO2LQ23IqJUz8jiE7Q_y8M8eC07FT1xU/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true';
+        if (!preg_match("/d\/(.*?)\//", $url, $res)) return false;
+        $id = $res[1];
+        $list = 0;
+        $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
+        $csv = explode(PHP_EOL, $csv);
+        $arr = array_map('str_getcsv', $csv);
+        // var_dump('<pre>');
+        // var_dump($arr);
+        // var_dump('</pre>');
+        // die;
+        $i = 0;
+        foreach ($arr as $key => $value) {
+            if (!intval($value[0])) continue;
+            // var_dump('<pre>');
+            // var_dump($value[0]);
+            // var_dump('</pre>');
+            // if ($i > 2) {
+            //     die;
+            // }
+            // $i++;
+
+            // continue;
+
+            $q = new ApartmentsC();
+                            
+            $q->num = $value[0];
+            $q->floor_num = (int)($value[0] / 100);
+
+            $q->money = $this->numint($value[10]);
+            $q->money_m = $this->numint($value[9]);
+            $q->money_wh = $this->numint($value[8]);
+            $q->money_wh_m = $this->numint($value[7]);
+
+            $q->balcony_area = $this->numfl($value[3]);
+            $q->living_space = $this->numfl($value[2]);
+            $q->total_area = $this->numfl($value[4]);
+
+
+            // if (str_contains($value[5], 'Yard')) var_dump('yard');ეზოს
+            // if (str_contains($value[5], 'Alley')) var_dump('alley');ხეივნის
+            // if (str_contains($value[5], 'Port and city')) var_dump('port and city');პორტისა და ქალაქის
+            if (str_contains($value[5], 'Yard')) {
+                $q->ru = 'во двор';
+                $q->ge = 'ეზოს';
+                $q->en = 'yard';
+            }
+            if (str_contains($value[5], 'Alley')) {
+                $q->ru = 'аллея';
+                $q->ge = 'ხეივნის';
+                $q->en = 'alley';
+            }
+            if (str_contains($value[5], 'Port and city')) {
+                $q->ru = 'порт и город';
+                $q->ge = 'პორტისა და ქალაქის';
+                $q->en = 'port and city';
+            }
+
+            $q->save();
+            if ($q->getErrors()) {
+                var_dump($q->getErrors());
+            }
+        }
+
+    }
+
     public function numint($num)
     {
 

@@ -42,7 +42,7 @@ class ApartmentsB extends \yii\db\ActiveRecord
             [['floor_num', 'num', 'status'], 'integer'],
             [['money', 'total_area', 'living_space', 'balcony_area'], 'number'],
             [['ru', 'en', 'ge', 'he'], 'string'],
-            [['floor_num'], 'exist', 'skipOnError' => true, 'targetClass' => FloorB::className(), 'targetAttribute' => ['floor_num' => 'floor']],
+            [['floor_num'], 'exist', 'skipOnError' => true, 'targetClass' => FloorB::class, 'targetAttribute' => ['floor_num' => 'floor']],
         ];
     }
 
@@ -74,6 +74,6 @@ class ApartmentsB extends \yii\db\ActiveRecord
      */
     public function getFloorNum()
     {
-        return $this->hasOne(FloorB::className(), ['floor' => 'floor_num']);
+        return $this->hasOne(FloorB::class, ['floor' => 'floor_num']);
     }
 }

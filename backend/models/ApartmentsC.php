@@ -5,22 +5,24 @@ namespace backend\models;
 use Yii;
 
 /**
- * This is the model class for table "cali_apartments_a".
+ * This is the model class for table "{{%apartments_c}}".
  *
  * @property int $id
  * @property int $floor_num
  * @property int $num
  * @property float|null $money
+ * @property int|null $money_m
+ * @property int|null $money_wh
+ * @property int|null $money_wh_m
  * @property float|null $total_area
  * @property float|null $living_space
  * @property float|null $balcony_area
+ * @property int|null $img
  * @property string|null $ru
  * @property string|null $en
  * @property string|null $ge
  * @property string|null $he
  * @property int $status
- *
- * @property FloorA $floorNum
  */
 class ApartmentsC extends \yii\db\ActiveRecord
 {
@@ -29,7 +31,7 @@ class ApartmentsC extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'cali_apartments_c';
+        return '{{%apartments_c}}';
     }
 
     /**
@@ -39,10 +41,10 @@ class ApartmentsC extends \yii\db\ActiveRecord
     {
         return [
             [['floor_num', 'num'], 'required'],
-            [['floor_num', 'num', 'status'], 'integer'],
+            [['id', 'floor_num', 'num', 'money_m', 'money_wh', 'money_wh_m', 'img', 'status'], 'integer'],
             [['money', 'total_area', 'living_space', 'balcony_area'], 'number'],
             [['ru', 'en', 'ge', 'he'], 'string'],
-            [['floor_num'], 'exist', 'skipOnError' => true, 'targetClass' => FloorC::className(), 'targetAttribute' => ['floor_num' => 'floor']],
+            [['id'], 'unique'],
         ];
     }
 
@@ -53,27 +55,21 @@ class ApartmentsC extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'floor_num' => 'Этаж',
-            'num' => 'Квартира',
-            'money' => 'Стоимость',
-            'total_area' => 'Общая площадь',
-            'living_space' => 'Жилая площадь',
-            'balcony_area' => 'Балкон',
+            'floor_num' => 'Floor Num',
+            'num' => 'Num',
+            'money' => 'Money',
+            'money_m' => 'Money M',
+            'money_wh' => 'Money Wh',
+            'money_wh_m' => 'Money Wh M',
+            'total_area' => 'Total Area',
+            'living_space' => 'Living Space',
+            'balcony_area' => 'Balcony Area',
+            'img' => 'Img',
             'ru' => 'Ru',
             'en' => 'En',
             'ge' => 'Ge',
             'he' => 'He',
-            'status' => 'Статус',
+            'status' => 'Status',
         ];
-    }
-
-    /**
-     * Gets query for [[FloorNum]].
-     *
-     * @return \yii\db\ActiveQuery
-     */
-    public function getFloorNum()
-    {
-        return $this->hasOne(FloorC::className(), ['floor' => 'floor_num']);
     }
 }
