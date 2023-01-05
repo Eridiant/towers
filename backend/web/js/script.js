@@ -12,6 +12,9 @@ window.addEventListener('load', () => {
             if (target.closest('.block-b')) {
                 rqstBlock('b', target.message.value);
             }
+            if (target.closest('.block-c')) {
+                rqstBlock('c', target.message.value);
+            }
         })
     }
 })

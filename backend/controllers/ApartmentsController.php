@@ -124,6 +124,11 @@ class ApartmentsController extends Controller
                 
                 $rrr = $this->dbb($arr);
             }
+            if ($block == 'c') {
+                // https://docs.google.com/spreadsheets/d/1yWtW0vzysjJBMy_80ihXRuYebw9MR1sE/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+                
+                $rrr = $this->dbc($arr);
+            }
             return ['data' => ['success' => $block . '|' . $rrr]];
             // return $this->render('status', compact('stitus'));
         }
@@ -174,38 +179,7 @@ class ApartmentsController extends Controller
                         // var_dump('| id=' . $d);
                         $q->save();
                     }
-
                 }
-                if (false) {
-                    $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
-
-                    $q = ApartmentsA::find()
-                            ->where(['num' => $d])
-                            ->one();
-
-                    $q->money = $this->numint($value[8]);
-                    $q->money_m = $this->numint($value[7]);
-
-                    $q->balcony_area = $this->numfl($value[2]);
-                    $q->living_space = $this->numfl($value[1]);
-                    $q->total_area = $this->numfl($value[3]);
-
-                    if (!strcasecmp(trim($value[6]), 'mountain view')) {
-                        $q->ru = 'горы';
-                        $q->ge = 'მთები';
-                        $q->en = 'mountain';
-                        $q->he = 'ההרים';
-                    }
-                    if (!strcasecmp(trim($value[6]), 'sea view')) {
-                        $q->ru = 'море';
-                        $q->ge = 'ზღვის';
-                        $q->en = 'sea';
-                        $q->he = 'יָם';
-                    }
-
-                    $q->save();
-                }
-                
             }
         }
         return $vr;
@@ -217,81 +191,72 @@ class ApartmentsController extends Controller
             // var_dump('<pre>');
             // var_dump($value[0]);
             // var_dump('</pre>');
-            if (intval($value[0])) {
-                // var_dump('<pre>');
-                // var_dump($value);
-                // var_dump(!strcasecmp(trim($value[8]), 'sea view'));
-                // var_dump('</pre>');
-                if (true) {
-                    if ($value[9] == 1 || str_contains(mb_strtolower($value[9], 'UTF-8'), 'booked') || str_contains($value[9], 'ჯავშანი')) {
+            if (!intval($value[0])) continue;
+            if ($value[9] == 1 || str_contains(mb_strtolower($value[9], 'UTF-8'), 'booked') || str_contains($value[9], 'ჯავშანი')) {
 
-                        $q = ApartmentsB::find()
-                            ->where(['id' => $value[0]])
-                            ->one();
-                        $q->status = 1;
-                        $vr .= '| id=' . $value[0] . '_st=1 </br>';
-                        $q->save();
-                    } elseif ($value[9] == 2 || str_contains(mb_strtolower($value[9]), 'sold') || str_contains($value[9], 'დახურული') || str_contains($value[9], 'გაიყიდა')) {
+                $q = ApartmentsB::find()
+                    ->where(['id' => $value[0]])
+                    ->one();
+                $q->status = 1;
+                $vr .= '| id=' . $value[0] . '_st=1 </br>';
+                $q->save();
+            } elseif ($value[9] == 2 || str_contains(mb_strtolower($value[9]), 'sold') || str_contains($value[9], 'დახურული') || str_contains($value[9], 'გაიყიდა')) {
 
-                        $q = ApartmentsB::find()
-                                ->where(['id' => $value[0]])
-                                ->one();
-                        $q->status = 2;
-                        $vr .= '| id=' . $value[0] . '_st=2 </br>';
-                        $q->save();
-                    } else {
+                $q = ApartmentsB::find()
+                        ->where(['id' => $value[0]])
+                        ->one();
+                $q->status = 2;
+                $vr .= '| id=' . $value[0] . '_st=2 </br>';
+                $q->save();
+            } else {
 
-                        $q = ApartmentsB::find()
-                                ->where(['id' => $value[0]])
-                                ->one();
-                        $q->status = 0;
-                        $vr .= '| id=' . $value[0] . '_st=0 </br>';
-                        $q->save();
-                    }
-                    
-                }
-                if (false) {
-                    $q = ApartmentsB::find()
-                            ->where(['id' => $value[0]])
-                            ->one();
-                            
-                    $q->money = $this->numint($value[13]);
-                    $q->money_m = $this->numint($value[12]);
-                    $q->money_wh = $this->numint($value[11]);
-                    $q->money_wh_m = $this->numint($value[10]);
-
-                    $q->balcony_area = $this->numfl($value[2]);
-                    $q->living_space = $this->numfl($value[1]);
-                    $q->total_area = $this->numfl($value[3]);
-
-                    if (!strcasecmp(trim($value[8]), 'mountain view')) {
-                        $q->ru = 'горы';
-                        $q->ge = 'მთები';
-                        $q->en = 'mountain';
-                        $q->he = 'ההרים';
-                    }
-                    if (!strcasecmp(trim($value[8]), 'sea view')) {
-                        $q->ru = 'море';
-                        $q->ge = 'ზღვის';
-                        $q->en = 'sea';
-                        $q->he = 'יָם';
-                    }
-
-                    $q->save();
-                }
-
+                $q = ApartmentsB::find()
+                        ->where(['id' => $value[0]])
+                        ->one();
+                $q->status = 0;
+                $vr .= '| id=' . $value[0] . '_st=0 </br>';
+                $q->save();
             }
         }
         return $vr;
     }
-    // https://docs.google.com/spreadsheets/d/1cOh7Q3F5-ac-HZ2BaGXs4fWV66EFAQQ7xt52FjB9F8s/edit#gid=1115666623ss
-    // https://docs.google.com/spreadsheets/d/1eGLzNYOQlgtJegIYCZiJdjKFEeo6TKVe/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
-    // 1резерв 2 продано
-    //https://docs.google.com/spreadsheets/d/1971q5sSDF_PuSLbNXI_yp7cY3WJBcwny/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
-    // https://docs.google.com/spreadsheets/d/1lVuXsIfgm7etJojw4YE1-wuiwdb2c2aj/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
-    // https://docs.google.com/spreadsheets/d/1CtN0gLTgfH0Fllas_ovFIKlv5jYUYEZs/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
-    // https://docs.google.com/spreadsheets/d/1UhCtB7LiBgdwpIVkaw7dBpPotMTTb52A/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
-    // https://docs.google.com/spreadsheets/d/1B57evaz-a-hwlQ4xMYvnGrsOqZFjgAY6/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
+    public function dbc($arr)
+    {
+        $vr = '';
+        foreach ($arr as $key => $value) {
+            if (!intval($value[0])) continue;
+            // var_dump('<pre>');
+            // var_dump($value[0]);
+            // var_dump('</pre>');
+            $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
+            if ($value[9] == 1 || str_contains(mb_strtolower($value[9], 'UTF-8'), 'booked') || str_contains($value[9], 'ჯავშანი')) {
+                $q = ApartmentsC::find()
+                    ->where(['num' => $d])
+                    ->one();
+                $q->status = 1;
+                $vr .= '| id=' . $value[0] . '_st=1 </br>';
+                $q->save();
+            } elseif ($value[9] == 2 || str_contains(mb_strtolower($value[9]), 'sold') || str_contains($value[9], 'დახურული') || str_contains($value[9], 'გაიყიდა')) {
+
+                $q = ApartmentsC::find()
+                        ->where(['num' => $d])
+                        ->one();
+                $q->status = 2;
+                $vr .= '| id=' . $value[0] . '_st=2 </br>';
+                $q->save();
+            } else {
+
+                $q = ApartmentsC::find()
+                        ->where(['num' => $d])
+                        ->one();
+                $q->status = 0;
+                $vr .= '| id=' . $value[0] . '_st=0 </br>';
+                $q->save();
+            }
+        }
+        return $vr;
+    }
+
     // https://docs.google.com/spreadsheets/d/197e9p3EvRIRv1EiQjO8_o5-TKdINNc6r/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     // 1-reserv 2 sold
     public function actionDba()
@@ -382,12 +347,6 @@ class ApartmentsController extends Controller
         }die;
     }
 
-    // https://docs.google.com/spreadsheets/d/15jqz5NC8l40MfnMDrdMOg-sU4go1E61N/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
-    //https://docs.google.com/spreadsheets/d/1JJ35GMQTHEbPOX9NF4LlrHVrmjy9TuaJ/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
-    // https://docs.google.com/spreadsheets/d/1GE_nUVUKljaEQj_1yq26P63wzY5hy5ET/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
-    // https://docs.google.com/spreadsheets/d/195QaBVdI6GMuQIo3sS7fFua5hdLh1x35/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
-    // https://docs.google.com/spreadsheets/d/1gi0Kbia_louQKCp5Fc1yl0tBPe-w_peQ/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
-    // https://docs.google.com/spreadsheets/d/1vlenOmroNv9YlyWr6QO5aGmiwKNLbQXf/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     // https://docs.google.com/spreadsheets/d/1cbBOf9gcQprrgSxwkqvdGAsOD9bQjjta/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true
     public function actionDbb()
     {

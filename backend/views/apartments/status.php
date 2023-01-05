@@ -31,6 +31,12 @@ $this->params['breadcrumbs'][] = $this->title;
         <input type="text" name="message">
         <button type="submit">submit</button>
     </form>
+    
+    <form action="#" method="post" class="block-c">
+        <p>ссылка на block-c (true)</p>
+        <input type="text" name="message">
+        <button type="submit">submit</button>
+    </form>
     <br>
     <br>
     <div class="apartments-check"></div>
