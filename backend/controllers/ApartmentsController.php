@@ -431,12 +431,22 @@ class ApartmentsController extends Controller
     }
     public function actionDbfc()
     {
-        $sql = "INSERT INTO {{%floor_c}} (floor)
-        SELECT floor_num
+        $posts = Yii::$app->db->createCommand('SELECT MAX(floor_num)
         FROM {{%apartments_c}}
-        GROUP BY floor_num";
+        GROUP BY floor_num
+        HAVING COUNT(floor_num) = 24
+        ')->queryAll();
+        var_dump('<pre>');
+        var_dump($posts);
+        var_dump('</pre>');
+        die;
+        
+        // $sql = "INSERT INTO {{%floor_c}} (floor)
+        // SELECT floor_num
+        // FROM {{%apartments_c}}
+        // GROUP BY floor_num";
 
-        \Yii::$app->db->createCommand($sql)->execute();
+        // \Yii::$app->db->createCommand($sql)->execute();
     }
     public function actionDbac()
     {
