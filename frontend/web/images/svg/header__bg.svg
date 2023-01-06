@@ -144,79 +144,79 @@
         <path d="m 3153.757,385.5693 -330.1294,-44.14562 -0.3598,-28.01192 330.5805,48.39897 z"
         id="path-72" data-floor="42" data-block="B" class="area" />
         <path d="m 2048.6165,1507.2758 v -18.0368 l -96.9064,4.652 -54.0692,-26.2405 v 16.5458 l 53.9429,28.7573 z"
-        id="path-73" data-floor="1" data-block="C" class="area" />
+        id="path-73" data-floor="1" data-block="G" class="area" />
         <path d="m 2048.532,1487.8649 v -0.9851 l 83.54,-14.3967 v -14.6907 l -180.3548,7.8893 -54.1574,-23.6063 0.09,24.1137 54.1586,26.4619 z"
-        id="path-74" data-floor="2" data-block="C" class="area" />
+        id="path-74" data-floor="2" data-block="G" class="area" />
         <path d="m 2132.0535,1456.6228 -0.1479,-25.2825 -180.1391,5.4569 -54.1086,-21.0106 -0.091,24.96 54.196,23.6234 z"
-        id="path-75" data-floor="3" data-block="C" class="area" />
+        id="path-75" data-floor="3" data-block="G" class="area" />
         <path d="m 2131.8596,1430.0869 0.1668,-28.2998 -180.2083,4.733 -54.0584,-18.729 -0.1364,26.7259 54.2033,21.0658 z"
-        id="path-76" data-floor="4" data-block="C" class="area" />
+        id="path-76" data-floor="4" data-block="G" class="area" />
         <path d="m 2131.9785,1400.5122 0.1136,-27.8043 -180.2609,4.2192 -54.2869,-17.1166 0.2104,26.7848 54.0515,18.6641 z"
-        id="path-77" data-floor="5" data-block="C" class="area" />
+        id="path-77" data-floor="5" data-block="G" class="area" />
         <path d="m 2132.0793,1371.434 0.026,-26.8283 -180.2378,3.5831 -54.1961,-15.1456 -0.045,25.6145 54.233,17.0708 z"
-        id="path-78" data-floor="6" data-block="C" class="area" />
+        id="path-78" data-floor="6" data-block="G" class="area" />
         <path d="m 2132.0301,1343.3483 0.076,-27.9217 -180.2371,4.2097 -53.9359,-14.8531 -0.1944,27.0904 54.1245,15.1334 z"
-        id="path-79" data-floor="7" data-block="C" class="area" />
+        id="path-79" data-floor="7" data-block="G" class="area" />
         <path d="m 2132.0527,1314.1709 v -26.6621 l -180.2028,3.6093 -54.3482,-13.8019 0.3975,26.1614 54.0133,14.9408 z"
-        id="path-80" data-floor="8" data-block="C" class="area" />
+        id="path-80" data-floor="8" data-block="G" class="area" />
         <path d="m 2132.0843,1286.388 v -26.9367 l -180.1412,2.0203 -54.3979,-11.6405 -0.067,26.2142 54.3475,13.9479 z"
-        id="path-81" data-floor="9" data-block="C" class="area" />
+        id="path-81" data-floor="9" data-block="G" class="area" />
         <path d="m 2132.0646,1258.1841 0.01,-26.8468 -180.2742,1.3283 -54.3351,-10.2516 0.09,26.3425 54.3169,11.5908 z"
-        id="path-82" data-floor="10" data-block="C" class="area" />
+        id="path-82" data-floor="10" data-block="G" class="area" />
         <path d="m 2132.0299,1230.1658 0.1325,-28.3814 -180.294,2.4533 -54.1932,-9.5486 -0.1468,26.4959 54.1732,10.2489 z"
-        id="path-83" data-floor="11" data-block="C" class="area" />
+        id="path-83" data-floor="11" data-block="G" class="area" />
         <path d="m 2132.0936,1200.5419 v -26.6604 l -180.2417,1.4696 -54.3915,-8.2607 0.2286,26.3194 54.1258,9.725 z"
-        id="path-84" data-floor="12" data-block="C" class="area" />
+        id="path-84" data-floor="12" data-block="G" class="area" />
         <path d="m 2132.0668,1172.6459 v -27.6725 l -180.2236,1.0571 -54.4653,-6.5194 -0.01,26.2227 54.3138,8.3419 z"
-        id="path-85" data-floor="13" data-block="C" class="area" />
+        id="path-85" data-floor="13" data-block="G" class="area" />
         <path d="m 2132.1029,1143.7503 -0.037,-26.706 -180.2229,0.01 -54.3203,-4.9669 -0.084,26.2072 54.352,6.6226 z"
-        id="path-86" data-floor="14" data-block="C" class="area" />
+        id="path-86" data-floor="14" data-block="G" class="area" />
         <path d="m 2132.0975,1115.7571 0.03,-27.4669 -180.3711,-0.2398 -54.3802,-3.4725 0.1522,26.2437 54.236,5.0337 z"
-        id="path-87" data-floor="15" data-block="C" class="area" />
+        id="path-87" data-floor="15" data-block="G" class="area" />
         <path d="m 2132.1364,1087.1229 -0.023,-27.2978 -180.3059,-1.0696 -54.3323,-1.7552 -0.049,26.3785 54.3463,3.4978 z"
-        id="path-88" data-floor="16" data-block="C" class="area" />
+        id="path-88" data-floor="16" data-block="G" class="area" />
         <path d="m 2132.1274,1058.6009 -0.2731,-27.3553 -180.0884,-0.3168 -54.3885,-1.3052 0.084,26.1141 54.3021,1.8352 z"
-        id="path-89" data-floor="17" data-block="C" class="area" />
+        id="path-89" data-floor="17" data-block="G" class="area" />
         <path d="m 2131.8507,1030.0988 0.099,-26.9651 -180.1286,-1.279 -54.3781,0.229 -0.075,26.1959 54.392,1.4361 z"
-        id="path-90" data-floor="18" data-block="C" class="area" />
+        id="path-90" data-floor="18" data-block="G" class="area" />
         <path d="m 2131.9322,1001.9228 0.1303,-28.24269 -180.3218,-1.08436 -54.2074,1.84815 -0.1522,26.365 54.4141,-0.302 z"
-        id="path-91" data-floor="19" data-block="C" class="area" />
+        id="path-91" data-floor="19" data-block="G" class="area" />
         <path d="m 2132.0356,972.45192 0.056,-26.93809 -180.4472,-1.68625 -54.1719,3.25883 0.059,26.02183 54.369,-1.77458 z"
-        id="path-92" data-floor="20" data-block="C" class="area" />
+        id="path-92" data-floor="20" data-block="G" class="area" />
         <path d="m 2132.1299,944.19346 -0.063,-26.85367 -180.2877,-2.23658 -54.3136,4.26425 -0.01,26.43849 54.1222,-3.20935 z"
-        id="path-93" data-floor="21" data-block="C" class="area" />
+        id="path-93" data-floor="21" data-block="G" class="area" />
         <path d="m 2132.0885,916.07345 -0.1376,-27.21366 -180.0334,-2.84351 -54.4469,5.96802 0.028,26.25824 54.2863,-4.39535 z"
-        id="path-94" data-floor="22" data-block="C" class="area" />
+        id="path-94" data-floor="22" data-block="G" class="area" />
         <path d="m 2131.9293,887.71064 0.1171,-27.28978 -180.1699,-3.56517 -54.484,7.59766 0.076,26.36441 54.4707,-5.92969 z"
-        id="path-95" data-floor="23" data-block="C" class="area" />
+        id="path-95" data-floor="23" data-block="G" class="area" />
         <path d="m 2132.0206,859.15062 v -27.1116 l -180.3773,-4.27486 -54.2646,8.64248 -10e-5,26.8903 54.5333,-7.64783 z"
-        id="path-96" data-floor="24" data-block="C" class="area" />
+        id="path-96" data-floor="24" data-block="G" class="area" />
         <path d="m 2131.979,830.81065 0.05,-27.73159 -180.2807,-4.21512 -54.3355,10.48619 -0.1134,25.83307 54.3329,-8.73363 z"
-        id="path-97" data-floor="25" data-block="C" class="area" />
+        id="path-97" data-floor="25" data-block="G" class="area" />
         <path d="m 2131.9971,801.85366 -0.1023,-26.95836 -180.1102,-5.23946 -54.3004,12.22727 -0.082,26.08385 54.4288,-10.43174 z"
-        id="path-98" data-floor="26" data-block="C" class="area" />
+        id="path-98" data-floor="26" data-block="G" class="area" />
         <path d="m 2131.8183,773.58402 0.036,-26.30093 -180.1608,-5.42298 -54.1973,12.40106 -0.065,26.42289 54.3198,-12.33881 z"
-        id="path-99" data-floor="27" data-block="C" class="area" />
+        id="path-99" data-floor="27" data-block="G" class="area" />
         <path d="m 2131.8505,746.08656 v -28.21618 l -180.1661,-5.439 -54.2913,14.33102 0.077,26.2887 54.1906,-12.38099 z"
-        id="path-100" data-floor="28" data-block="C" class="area" />
+        id="path-100" data-floor="28" data-block="G" class="area" />
         <path d="m 2131.8641,716.50793 0.2311,-27.72093 -180.6169,-5.55282 -53.9813,16.042 -0.1036,26.28076 54.3898,-14.40559 z"
-        id="path-101" data-floor="29" data-block="C" class="area" />
+        id="path-101" data-floor="29" data-block="G" class="area" />
         <path d="m 2132.0488,687.56384 0.06,-26.56987 -180.2119,-7.14318 -54.5309,17.823 0.095,26.34853 54.0452,-16.24334 z"
-        id="path-102" data-floor="30" data-block="C" class="area" />
+        id="path-102" data-floor="30" data-block="G" class="area" />
         <path d="m 2132.1201,659.7316 -0.1216,-28.29433 -180.35,-5.63432 -54.14,18.41236 -0.1511,26.2131 54.6214,-17.93061 z"
-        id="path-103" data-floor="31" data-block="C" class="area" />
+        id="path-103" data-floor="31" data-block="G" class="area" />
         <path d="m 2131.9878,630.19548 v -26.53495 l -180.1488,-7.02208 -54.444,20.18596 0.1129,26.16452 54.2341,-18.55025 z"
-        id="path-104" data-floor="32" data-block="C" class="area" />
+        id="path-104" data-floor="32" data-block="G" class="area" />
         <path d="m 2131.9751,602.4487 0.1069,-26.75212 -180.5431,-8.37013 -54.0492,21.7327 -0.152,26.44496 54.4086,-20.16915 z"
-        id="path-105" data-floor="33" data-block="C" class="area" />
+        id="path-105" data-floor="33" data-block="G" class="area" />
         <path d="m 1897.6632,561.65832 -0.1321,26.10107 53.9463,-21.86308 185.4032,8.89845 109.5724,-20.91623 -294.6267,-15.66488 z"
-        id="path-106" data-floor="34" data-block="C" class="area" />
+        id="path-106" data-floor="34" data-block="G" class="area" />
         <path d="m 1897.6511,534.34687 -0.063,26.0567 54.1579,-23.59428 300.1184,15.84838 11.056,-1.95668 14.1469,0.69163 98.6692,-18.10728 19.5358,-1.1953 18.6038,0.14166 72.7592,3.64321 62.3055,5.98225 v -6.76558 l -597.1581,-25.8717 z"
-        id="path-107" data-floor="35" data-block="C" class="area" />
+        id="path-107" data-floor="35" data-block="G" class="area" />
         <path d="m 1897.5443,506.81859 0.05,25.99115 54.0535,-25.14532 597.2,26.0965 v -25.87495 l -597.0085,-25.57658 z"
-        id="path-108" data-floor="36" data-block="C" class="area" />
+        id="path-108" data-floor="36" data-block="G" class="area" />
         <path d="m 1897.6361,479.64388 -0.1378,25.84604 54.0454,-24.55553 472.4353,20.10227 V 475.05949 L 1951.4665,453.1825 Z"
-        id="path-109" data-floor="37" data-block="C" class="area" />
+        id="path-109" data-floor="37" data-block="G" class="area" />
     </g>
     <style type="text/css" id="style">
         .area {
