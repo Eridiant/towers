@@ -632,7 +632,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
             <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-B') ?>" class="choose-button-mob" data-choose="2">
                 <?=Yii::t('frontend', 'б')?>
             </a>
-            <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-C') ?>" class="choose-button-mob" data-choose="3">
+            <a href="<?=Url::toRoute(Yii::$app->params['curLangUrl'] . '/layouts/block-G') ?>" class="choose-button-mob" data-choose="3">
                 <?=Yii::t('frontend', 'г')?>
             </a>
         </div>
