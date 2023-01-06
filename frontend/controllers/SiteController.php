@@ -704,7 +704,7 @@ class SiteController extends Controller
             $model = ApartmentsA::find();
         } elseif ($block === 'b') {
             $model = ApartmentsB::find();
-        } elseif ($block === 'c') {
+        } elseif ($block === 'g') {
             $model = ApartmentsC::find();
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
