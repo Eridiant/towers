@@ -954,8 +954,8 @@ function changeBlockStatus(model, status, block) {
         case 'block-A':
             bl = 'a';
             break;
-        case 'block-C':
-            bl = 'c';
+        case 'block-G':
+            bl = 'g';
             break;
         default:
             bl = 'b';
