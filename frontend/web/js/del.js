@@ -223,10 +223,8 @@ window.addEventListener('load', () => {
                 case 'block-B':
                     choose.slideTo(1);
                     break;
-                case 'block-C':
+                case 'block-G':
                     choose.slideTo(2);
-                    // ltrs('C');
-                    fordelc();
                     break;
                 default:
                     break;
@@ -288,7 +286,14 @@ window.addEventListener('load', () => {
                     document.querySelector('.flat-switch').classList.remove('none');
                 }
                 if (choose.activeIndex == 2) {
-                    fdelc();
+                    ajaxBlock('block-G');
+                    ltrs('G');
+                    document.querySelector('#floor').dataset.floor = 'block-G';
+                    if (window.history.replaceState) {
+                        window.history.replaceState('blockG', 'Title', '/layouts/block-G');
+                    }
+                    fdel();
+                    document.querySelector('.flat-switch').classList.remove('none');
                 }
                 
                 
@@ -333,12 +338,14 @@ window.addEventListener('load', () => {
 			timeoutId = setTimeout(fnCall, wait);
 
 		}
-
+        
         let buildB = document.querySelector('#buildB').contentDocument;
         let buildA = document.querySelector('#buildA').contentDocument;
+        let buildG = document.querySelector('#buildG').contentDocument;
         let floorNum = document.querySelector('#fl');
         let focusa = document.querySelector('#blocks .block-svg-a .focus');
         let focusb = document.querySelector('#blocks .block-svg-b .focus');
+        let focusg = document.querySelector('#blocks .block-svg-g .focus');
 
         buildA.addEventListener('mouseover', (e) => {
             if (e.target.classList.contains('area')) {
@@ -355,6 +362,23 @@ window.addEventListener('load', () => {
 
         buildA.addEventListener('mouseout', (e) => {
             focusa.classList.remove('focus-pocus');
+        })
+
+        buildG.addEventListener('mouseover', (e) => {
+            if (e.target.classList.contains('area')) {
+                let target = e.target;
+                
+                floorNum.innerHTML = target.dataset.floor;
+                // focus.style.backgroundColor = "blue";
+                focusg.classList.add('focus-pocus');
+                
+                focusg.style = `top: ${target.getBoundingClientRect().top * 0.9}px; left: ${target.getBoundingClientRect().right + 10}px;`;
+                focusg.innerHTML = target.dataset.floor;
+            }
+        });
+
+        buildG.addEventListener('mouseout', (e) => {
+            focusg.classList.remove('focus-pocus');
         })
 
         buildB.addEventListener('mouseover', (e) => {
@@ -404,6 +428,30 @@ window.addEventListener('load', () => {
                 // ajaxFloor('block-B', e.target.dataset.i);
                 let data = {'slug': 'block-B', 'floor': e.target.dataset.i, 'lgg': lgg};
                 changeModule(checkModule('block-B', e.target.dataset.i));
+                xhRequest(data, '/site/layouts')
+                    .then(response => {
+                        let model = JSON.parse(response).model;
+                        let status = JSON.parse(response).status;
+                        // console.log(model, status);
+                        document.querySelector('#floor-free').innerHTML = JSON.parse(response).flats_free + '/' + JSON.parse(response).flats;
+                        document.querySelector('.renovation-wrapper.furniture .about-text').innerHTML = JSON.parse(response).rd;
+                        fillData(model, status);
+                    })
+                    .catch(error => {
+                        console.log(error);
+                        console.error('error');
+                    });
+            }
+        })
+        buildG.addEventListener('click', (e) => {
+
+            if (Number(e.target.dataset.floor)) {
+                // console.log(floor);
+                floor.slideTo(e.target.dataset.i - 1);
+                document.querySelector('.floor-floor').scrollIntoView();
+                // ajaxFloor('block-G', e.target.dataset.i);
+                let data = {'slug': 'block-G', 'floor': e.target.dataset.i, 'lgg': lgg};
+                changeModule(checkModule('block-G', e.target.dataset.i));
                 xhRequest(data, '/site/layouts')
                     .then(response => {
                         let model = JSON.parse(response).model;
@@ -516,12 +564,18 @@ window.addEventListener('load', () => {
                     document.querySelector('.flat-switch').classList.remove('none');
                 }
 				if (button == 3) {
-                    // if (window.history.replaceState) {
-                    //     //prevents browser from storing history with each change:
-                    //     window.history.replaceState('blockC', 'Title', '/layouts/block-C');
-                    // }
-                    ltrs('C');
-                    fordelc();
+                    if (window.history.replaceState) {
+                        //prevents browser from storing history with each change:
+                        window.history.replaceState('blockG', 'Title', `${lng}/layouts/block-G`);
+                    }
+                    ltrs('G');
+                    fordel();
+                    bl = 'g';
+                    changeBlock(3, bl);
+                    block = 'block-G';
+                    ajaxBlock('block-G');
+                    document.querySelector('#floor').dataset.floor = 'block-G';
+                    document.querySelector('.flat-switch').classList.remove('none');
                 }
                 changeRenovation(block);
             }
@@ -847,6 +901,22 @@ function checkModule(block, floor = 0) {
                 break;
         }
     }
+    if (block === 'block-G') {
+        block = 'g';
+
+        if (!floor) return [block, fls = 11];
+        switch (parseInt(floor)) {
+            case 44:
+                fls = 44;
+                break;
+            case 45:
+                fls = 45;
+                break;
+            default:
+                fls = 11;
+                break;
+        }
+    }
 
     return [block, fls];
 }
@@ -1035,32 +1105,21 @@ function cont(lg, num) {
     return ct;
 }
 
-
-function fordelc() {
-    document.querySelector('#floor').style.display = 'none';
-    document.querySelector('#flat').style.display = 'none';
-    document.querySelector('#blocks').style.display = 'none';
-    document.querySelector('#renovation').style.display = 'none';
-    document.querySelector('#for-del').style.display = 'block';
-}
 function fordel() {
     document.querySelector('#floor').style.display = 'block';
     document.querySelector('#flat').style.display = 'block';
     document.querySelector('#blocks').style.display = 'block';
     document.querySelector('#renovation').style.display = 'block';
-    document.querySelector('#for-del').style.display = 'none';
 }
 function fdelc() {
     document.querySelector('#floor').style.display = 'none';
     document.querySelector('#flat').style.display = 'none';
     document.querySelector('#renovation').style.display = 'none';
-    document.querySelector('#for-del').style.display = 'block';
 }
 function fdel() {
     document.querySelector('#floor').style.display = 'block';
     document.querySelector('#flat').style.display = 'block';
     document.querySelector('#renovation').style.display = 'block';
-    document.querySelector('#for-del').style.display = 'none';
 }
 
 function init() {
@@ -1096,17 +1155,17 @@ function init() {
 
 
 
-function gtag_report_conversion(url) {
-    var callback = function () {
-        if (typeof(url) != 'undefined') {
-            window.location = url;
-        }
-    };
+// function gtag_report_conversion(url) {
+//     var callback = function () {
+//         if (typeof(url) != 'undefined') {
+//             window.location = url;
+//         }
+//     };
     
-    gtag('event', 'conversion', {
-        'send_to': 'AW-307879312/6s-kCOa1__ICEJC755IB',
-        'event_callback': callback
-    });
-    return false;
-}
-function gtag(){dataLayer.push(arguments);}
+//     gtag('event', 'conversion', {
+//         'send_to': 'AW-307879312/6s-kCOa1__ICEJC755IB',
+//         'event_callback': callback
+//     });
+//     return false;
+// }
+// function gtag(){dataLayer.push(arguments);}

@@ -371,6 +371,7 @@ class SiteController extends Controller
         }
 
         if ($slug === 'block-G') {
+
             $block = 'g';
             $blocks = FloorC::find()->all();
             if ($flr === null) {
@@ -387,7 +388,12 @@ class SiteController extends Controller
                     throw new HttpException(404, 'Запрошенная страница не найдена');
                 }
             }
-            
+
+            // var_dump('<pre>');
+            // var_dump($blocks);
+            // var_dump('</pre>');
+            // die;
+
             $model = ApartmentsC::find()
                     ->where('floor_num=:floor_num')
                     ->addParams([':floor_num' => $floor->floor])
@@ -418,6 +424,7 @@ class SiteController extends Controller
             // }
 
         }
+        
 
         // $min = $mod->min('money');
         $flats = $mod->count();
@@ -538,6 +545,23 @@ class SiteController extends Controller
                     break;
                 default:
                     $fls = 6;
+                    break;
+            }
+        }
+        if ($block === 'g') {
+            if (!$floor) return [$block, $fls = 11];
+            switch ($floor) {
+                case 1:
+                    $fls = 11;
+                    break;
+                case 24:
+                    $fls = 34;
+                    break;
+                case 25:
+                    $fls = 35;
+                    break;
+                default:
+                    $fls = 12;
                     break;
             }
         }

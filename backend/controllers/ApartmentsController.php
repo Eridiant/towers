@@ -429,7 +429,45 @@ class ApartmentsController extends Controller
             }
         }
     }
+    public function actionDbfc()
+    {
+        $sql = "INSERT INTO {{%floor_c}} (floor)
+        SELECT floor_num
+        FROM {{%apartments_c}}
+        GROUP BY floor_num";
 
+        \Yii::$app->db->createCommand($sql)->execute();
+    }
+    public function actionDbac()
+    {
+        $model = ApartmentsC::find()->where(['<','floor_num', 40])->all();
+
+        foreach ($model as $value) {
+            // var_dump($value->num % 100);
+            $num = $value->num % 100;
+            switch ($num) {
+                case 8:
+                case 10:
+                case 12:
+                case 14:
+                    $value->img = 6;
+                    break;
+                case 9:
+                case 11:
+                case 13:
+                case 15:
+                    $value->img = 7;
+                    break;
+                
+                default:
+                    $value->img = $num;
+                    break;
+            }
+            $value->save();
+        }
+        die;
+
+    }
     public function actionDbc()
     {
         $url = 'https://docs.google.com/spreadsheets/d/1QO2LQ23IqJUz8jiE7Q_y8M8eC07FT1xU/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true';

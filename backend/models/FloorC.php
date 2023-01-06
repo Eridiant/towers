@@ -24,7 +24,7 @@ class FloorC extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'cali_floor_c';
+        return '{{%floor_c}}';
     }
 
     /**

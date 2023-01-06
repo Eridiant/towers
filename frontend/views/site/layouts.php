@@ -107,12 +107,6 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
     </div>
 </div>
 
-<div id="for-del" class="for-del" style="display:none">
-    <div class="container" style="max-width: 1200px; margin-left: auto; margin-right: auto">
-        <h1><?=Yii::t('frontend', 'Блок С, скоро в продаже')?></h1>
-    </div>
-</div>
-
 <div id="blocks" class="block">
     <div class="container" style="max-width: 1200px; margin-left: auto; margin-right: auto">
         <div class="block-wrapper">
@@ -151,7 +145,12 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
                         </object>
                         <div class="focus"></div>
                     </div>
-                    
+                    <div class="block-svg block-svg-g<?= $block == 'g' ? ' block-svg-active' : ''; ?>" data-block="3">
+                        <object id="buildG" data="/images/svg/layouts/block/g.svg" type="image/svg+xml">
+                            <!-- <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>"> -->
+                        </object>
+                        <div class="focus"></div>
+                    </div>
                 </div>
             </div>
         </div>
