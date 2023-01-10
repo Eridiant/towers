@@ -62,7 +62,11 @@ use yii\helpers\Url;
                             <?php foreach ($model as $item): ?>
                                 <?php if ($item["area"] == "yard"): ?>
                                     <tr>
-                                        <td class="first"><?= $item["min_floor"]; ?>-<?= $item["max_floor"]; ?></td>
+                                        <?php if ($item["min_floor"] === $item["max_floor"]): ?>
+                                            <td class="first"><?= $item["min_floor"]; ?></td>
+                                        <?php else: ?>
+                                            <td class="first"><?= $item["min_floor"]; ?>-<?= $item["max_floor"]; ?></td>
+                                        <?php endif; ?>
                                         <td>$ <?= $item["max_white"]; ?></td>
                                         <td>$ <?= $item["max_turnkey"]; ?></td>
                                     </tr>
@@ -87,7 +91,11 @@ use yii\helpers\Url;
                             <?php foreach ($model as $item): ?>
                                 <?php if ($item["area"] == "port and city"): ?>
                                     <tr>
-                                        <td class="first"><?= $item["min_floor"]; ?>-<?= $item["max_floor"]; ?></td>
+                                        <?php if ($item["min_floor"] === $item["max_floor"]): ?>
+                                            <td class="first"><?= $item["min_floor"]; ?></td>
+                                        <?php else: ?>
+                                            <td class="first"><?= $item["min_floor"]; ?>-<?= $item["max_floor"]; ?></td>
+                                        <?php endif; ?>
                                         <td>$ <?= $item["max_white"]; ?></td>
                                         <td>$ <?= $item["max_turnkey"]; ?></td>
                                     </tr>
@@ -112,7 +120,11 @@ use yii\helpers\Url;
                             <?php foreach ($model as $item): ?>
                                 <?php if ($item["area"] == "alley"): ?>
                                     <tr>
-                                        <td class="first"><?= $item["min_floor"]; ?>-<?= $item["max_floor"]; ?></td>
+                                        <?php if ($item["min_floor"] === $item["max_floor"]): ?>
+                                            <td class="first"><?= $item["min_floor"]; ?></td>
+                                        <?php else: ?>
+                                            <td class="first"><?= $item["min_floor"]; ?>-<?= $item["max_floor"]; ?></td>
+                                        <?php endif; ?>
                                         <td>$ <?= $item["max_white"]; ?></td>
                                         <td>$ <?= $item["max_turnkey"]; ?></td>
                                     </tr>
