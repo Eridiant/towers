@@ -478,6 +478,70 @@ class ApartmentsController extends Controller
         die;
 
     }
+    public function actionPrc()
+    {
+        $posts = Yii::$app->db->createCommand('SELECT MAX(floor_num), MIN(floor_num), MAX(money_wh_m), MAX(money_m), MAX(en)
+        FROM {{%apartments_c}}
+        GROUP BY money_m, en
+        ORDER BY en
+        ')->queryAll();
+        var_dump('<pre>');
+        var_dump($posts);
+        var_dump('</pre>');
+        die;
+    }
+    public function actionPrice()
+    {
+        $url = 'https://docs.google.com/spreadsheets/d/1OsRMELgTqFzxv0M-zq46bQ2JCcEJ8SHp/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true';
+        if (!preg_match("/d\/(.*?)\//", $url, $res)) return false;
+        $id = $res[1];
+        $list = 0;
+        $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
+        $csv = explode(PHP_EOL, $csv);
+        $arr = array_map('str_getcsv', $csv);
+        $i = 0;
+        foreach ($arr as $key => $value) {
+            if (!intval($value[0])) continue;
+
+            // var_dump('<pre>');
+            // var_dump($value[10],$value[9],$value[8],$value[7]);
+            // var_dump('</pre>');
+            // if ($i > 2) {
+            //     die;
+            // }
+            // $i++;
+
+            // continue;
+
+            $q = ApartmentsC::find()
+                ->where(['num' => (int)$value[0]])
+                ->one();
+            // var_dump('<pre>');
+            // var_dump($this->numint($this->fixNum($value[10])));
+            // var_dump('</pre>');
+            // if ($i > 2) {
+            //     die;
+            // }
+            // $i++;
+            // continue;
+                            
+            $q->num = $value[0];
+
+            $q->money = $this->numint($this->fixNum($value[10]));
+            $q->money_m = $this->numint($this->fixNum($value[9]));
+            $q->money_wh = $this->numint($this->fixNum($value[8]));
+            $q->money_wh_m = $this->numint($this->fixNum($value[7]));
+
+            $q->save();
+            if ($q->getErrors()) {
+                var_dump($q->getErrors());
+            }
+        }
+    }
+    protected function fixNum($a)
+    {
+        return str_replace('.',',',str_replace(',','',$a));
+    }
     public function actionDbc()
     {
         $url = 'https://docs.google.com/spreadsheets/d/1QO2LQ23IqJUz8jiE7Q_y8M8eC07FT1xU/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true';

@@ -262,6 +262,43 @@ class SiteController extends Controller
 
     }
 
+    public function actionPrice()
+    {
+        $this->layout = ('@app/views/layouts/price');
+
+        
+        // $model = Yii::$app->db->createCommand('SELECT MIN(floor_num) AS min_floor, MAX(floor_num) AS max_floor, MAX(money_wh_m) AS max_white, MAX(money_m) AS max_turnkey, MAX(en) AS area
+        // FROM {{%apartments_c}}
+        // -- GROUP BY money_m
+        // GROUP BY en, money_m
+        // ORDER BY en
+        // ')->queryAll();
+
+
+        $model = Yii::$app->db->createCommand('SELECT MIN(floor_num) AS min_floor, MAX(floor_num) AS max_floor, MAX(money_wh_m) AS max_white, MAX(money_m) AS max_turnkey, MAX(en) AS area
+        FROM {{%apartments_c}}
+        -- GROUP BY money_m
+        GROUP BY en, money_m
+        ORDER BY en
+        ')->queryAll();
+        // var_dump('<pre>');
+        // var_dump($model);
+        // var_dump('</pre>');
+        // die;
+        
+
+        // $model = Yii::$app->db->createCommand('SELECT  MIN(floor_num) AS min_floor, MAX(floor_num) AS max_floor, MAX(money_wh_m) AS max_white, MAX(money_m) AS max_turnkey, MAX(en) AS area
+        // FROM {{%apartments_c}}
+        // WHERE floor_num IN (SELECT MIN(floor_num)
+        // FROM {{%apartments_c}}
+        // GROUP BY money_m)
+        // GROUP BY floor_num, en
+        // ')->queryAll();
+
+
+        return $this->render('price', compact('model'));
+    }
+
     public function actionLayouts($id = 1, $lgg = null, $slug = null, $flr = null)
     {
 
