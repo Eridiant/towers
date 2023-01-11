@@ -220,6 +220,7 @@ class ApartmentsController extends Controller
         }
         return $vr;
     }
+
     public function dbc($arr)
     {
         $vr = '';
@@ -478,19 +479,17 @@ class ApartmentsController extends Controller
         die;
 
     }
-    public function actionPrc()
-    {
-        $posts = Yii::$app->db->createCommand('SELECT MAX(floor_num), MIN(floor_num), MAX(money_wh_m), MAX(money_m), MAX(en)
-        FROM {{%apartments_c}}
-        GROUP BY money_m, en
-        ORDER BY en
-        ')->queryAll();
-        var_dump('<pre>');
-        var_dump($posts);
-        var_dump('</pre>');
-        die;
-    }
     public function actionPrice()
+    {
+        $model = Yii::$app->db->createCommand('SELECT MIN(floor_num) AS min_floor, MAX(floor_num) AS max_floor, MAX(money_wh_m) AS max_white, MAX(money_m) AS max_turnkey, MAX(en) AS area
+        FROM {{%apartments_c}}
+        GROUP BY floor_num, en
+        -- ORDER BY en
+        ')->queryAll();
+
+        return $this->render('price', compact('model'));
+    }
+    public function actionPrc()
     {
         $url = 'https://docs.google.com/spreadsheets/d/1OsRMELgTqFzxv0M-zq46bQ2JCcEJ8SHp/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true';
         if (!preg_match("/d\/(.*?)\//", $url, $res)) return false;

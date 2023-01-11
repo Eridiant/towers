@@ -45,4 +45,6 @@ phpunit.phar
 /frontend/web/images/blocks
 ip.log
 
+composer.lock
+
 sitemap.xml
