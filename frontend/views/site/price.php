@@ -72,6 +72,16 @@ use yii\helpers\Url;
                                     </tr>
                                 <?php endif; ?>
                             <?php endforeach; ?>
+                                    <tr class="dn">
+                                        <td class="first">36-38</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    <tr class="dn">
+                                        <td class="first">39-40</td>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
                         </tbody>
                     </table>
                     <table class="port">

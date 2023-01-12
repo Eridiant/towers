@@ -134,12 +134,17 @@ a {
   text-align: center;
 }
 
-/* @media (min-width: 992px) {
+@media (min-width: 992px) {
   .price .port .first, .price .alley .first {
     display: none;
   }
-} */
-@media (max-width: 768px) {
+}
+@media (max-width: 991.98px) {
+  .price .dn {
+    display: none;
+  }
+}
+@media (mmax-width: 768px) {
   .header {
     min-height: 10wh;
   }
