@@ -513,9 +513,43 @@ class ApartmentsController extends Controller
             $min_max = explode('-', $value[0]);
             // var_dump($min_max);
             if ($model->floor_num >= $min_max[0] && $model->floor_num <= $min_max[1]) {
-                echo $model->num . '|' . $min_max[0] . '|' . $min_max[1] . PHP_EOL;
+                if ($model->en == "yard") {
+                    $model->money_wh_m = (int)str_replace(['$', ' '], '', $value[1]);
+                    $model->money_m = (int)str_replace(['$', ' '], '', $value[2]);
+                }
+                if ($model->en == "port and city") {
+                    $model->money_wh_m = (int)str_replace(['$', ' '], '', $value[3]);
+                    $model->money_m = (int)str_replace(['$', ' '], '', $value[4]);
+                }
+                if ($model->en == "alley") {
+                    $model->money_wh_m = (int)str_replace(['$', ' '], '', $value[5]);
+                    $model->money_m = (int)str_replace(['$', ' '], '', $value[6]);
+                }
+                // echo " " . $model->en . "|" . $model->money_m . "|" . $model->money_wh_m . PHP_EOL;
+                // var_dump('<pre>');
+                // var_dump($value);
+                // var_dump('</pre>');
+                // die;
+                
+                $model->save();
+                var_dump($model->getErrors());
+                
                 return;
             }
+            // [0]=>
+            // string(5) "11-15"
+            // [1]=>
+            // string(4) "$750"
+            // [2]=>
+            // string(7) "$1 350"
+            // [3]=>
+            // string(4) "$800"
+            // [4]=>
+            // string(7) "$1 400"
+            // [5]=>
+            // string(4) "$850"
+            // [6]=>
+            // string(7) "$1 450"
         }
     }
     public function actionPrc()
