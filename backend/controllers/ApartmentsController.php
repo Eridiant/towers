@@ -489,6 +489,35 @@ class ApartmentsController extends Controller
 
         return $this->render('price', compact('model'));
     }
+    public function actionFix()
+    {
+        $url = 'https://docs.google.com/spreadsheets/d/1lO3yWHDfd9RcdMGcN7TA0hheHlL6go0dSxusNtuVR_M/edit?usp=sharing';
+        if (!preg_match("/d\/(.*?)\//", $url, $res)) return false;
+        $id = $res[1];
+        $list = 0;
+        $csv = file_get_contents("https://docs.google.com/spreadsheets/d/$id/export?format=csv");
+        $csv = explode(PHP_EOL, $csv);
+        $arr = array_map('str_getcsv', $csv);
+        // var_dump('<pre>');
+        // var_dump($arr);
+        // var_dump('</pre>');
+        // die;
+        $models = ApartmentsC::find()->all();
+        foreach ($models as $model) {
+            $this->table($model, $arr);
+        }
+    }
+    protected function table($model, $arr)
+    {
+        foreach ($arr as $value) {
+            $min_max = explode('-', $value[0]);
+            // var_dump($min_max);
+            if ($model->floor_num >= $min_max[0] && $model->floor_num <= $min_max[1]) {
+                echo $model->num . '|' . $min_max[0] . '|' . $min_max[1] . PHP_EOL;
+                return;
+            }
+        }
+    }
     public function actionPrc()
     {
         $url = 'https://docs.google.com/spreadsheets/d/1OsRMELgTqFzxv0M-zq46bQ2JCcEJ8SHp/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true';
