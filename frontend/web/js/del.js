@@ -903,14 +903,14 @@ function checkModule(block, floor = 0) {
     }
     if (block === 'block-G') {
         block = 'g';
-
+        console.log('block-GGGG', floor);
         if (!floor) return [block, fls = 11];
         switch (parseInt(floor)) {
-            case 44:
-                fls = 44;
+            case 30:
+                fls = 40;
                 break;
-            case 45:
-                fls = 45;
+            case 31:
+                fls = 41;
                 break;
             default:
                 fls = 11;
