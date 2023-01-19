@@ -591,14 +591,14 @@ class SiteController extends Controller
                 case 1:
                     $fls = 11;
                     break;
-                case 24:
-                    $fls = 34;
+                case 30:
+                    $fls = 40;
                     break;
-                case 25:
-                    $fls = 35;
+                case 31:
+                    $fls = 41;
                     break;
                 default:
-                    $fls = 12;
+                    $fls = 11;
                     break;
             }
         }
