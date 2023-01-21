@@ -461,27 +461,27 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
             <div class="project-img">
                 <div class="project-img-hide project-show" id="project-1">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
+                        <img srcset="/images/dist/index/project/project-1.jpg, /images/dist/index/project/project-1-2x.jpg 2x" src="/images/dist/index/project/project-1.jpg" width="486" height="691" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-2">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
+                        <img srcset="/images/dist/index/project/project-2.jpg, /images/dist/index/project/project-2-2x.jpg 2x" src="/images/dist/index/project/project-2.jpg" width="486" height="691" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-3">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
+                        <img srcset="/images/dist/index/project/project-3.png, /images/dist/index/project/project-3-2x.png 2x" src="/images/dist/index/project/project-3.png" width="486" height="691" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-4">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
+                        <img srcset="/images/dist/index/project/project-4.png, /images/dist/index/project/project-4-2x.png 2x" src="/images/dist/index/project/project-4.png" width="486" height="691" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
                     </picture>
                 </div>
                 <div class="project-img-hide" id="project-5">
                     <picture>
-                        <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" loading="lazy" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
+                        <img srcset="/images/dist/index/project/project-5.png, /images/dist/index/project/project-5-2x.png 2x" src="/images/dist/index/project/project-5.png" width="486" height="691" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                     </picture>
                 </div>
             </div>
@@ -492,7 +492,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                 </p>
                 <div class="project-svg">
                     <figure class="project-fig">
-                        <object id="project" data="/images/svg/project.svg" type="image/svg+xml">
+                        <object id="project" data="/images/svg/project.svg" type="image/svg+xml" width="1076" height="524">
                             <!-- <img src="/images/dist/bg-1920x1450.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>"> -->
                         </object>
                     </figure>
