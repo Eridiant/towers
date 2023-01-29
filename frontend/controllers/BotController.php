@@ -101,6 +101,22 @@ class BotController extends Controller
         $model->data1 = mb_strtolower($text, 'UTF-8');
         $model->save();
 
+        try {
+            $result = Request::sendMessage([
+                'chat_id' => $chat_id,
+                'text'    => "Your utf8 text $text",
+            ]);
+        } catch (\Throwable $th) {
+            $model = new TelegramLog();
+            $model->data = json_encode($th);
+            $model->save();
+            $reply = 'Hello, your message is: ' . $text;
+            file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
+        }
+
+
+        return;
+
         // $method = 'sendMessage';
         // $send_data = [
         //     'text'   => "your message is: $text",
@@ -113,8 +129,6 @@ class BotController extends Controller
         // return;
 
         // Send a reply message
-        $reply = 'Hello, your message is: ' . $text;
-        file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
 
         return;
 
