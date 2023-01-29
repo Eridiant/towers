@@ -38,7 +38,8 @@ class BotController extends Controller
 
     public function beforeAction($action)//Обязательно нужно отключить Csr валидацию, так не будет работать
     {
-        $this->enableCsrfValidation = ($action->id !== "webhook");
+        // $this->enableCsrfValidation = ($action->id !== "webhook");
+        $this->enableCsrfValidation = false;
         return parent::beforeAction($action);
     }
 
@@ -79,7 +80,7 @@ class BotController extends Controller
         $bot_username = 'clgf_bot';
         $hook_url     = $request->absoluteUrl;
 
-        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        // Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         $data = json_decode(file_get_contents('php://input'), TRUE);
 
