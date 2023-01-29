@@ -52,6 +52,7 @@ return [
             'rules' => [
                 '<language:(ru|en)>' => 'site/index',
                 'index' => 'site/index',
+                'bot' => 'bot/bot',
                 '<language:(ru|en)>/index' => 'site/index',
                 'infrastructure' => 'site/infrastructure',
                 '<language:(ru|en)>/infrastructure' => 'site/infrastructure',
