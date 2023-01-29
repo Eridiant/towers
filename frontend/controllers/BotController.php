@@ -95,11 +95,11 @@ class BotController extends Controller
         $text = $message['text'];
 
 
-        // $model = new TelegramLog();
+        $model = new TelegramLog();
 
-        // $model->data = json_encode($data);
-        // $model->data1 = mb_strtolower($text,'utf-8');
-        // $model->save();
+        $model->data = json_encode($update);
+        $model->data1 = mb_strtolower($text, 'UTF-8');
+        $model->save();
 
         // Send a reply message
         $reply = 'Hello, your message is: ' . $text;
