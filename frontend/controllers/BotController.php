@@ -87,7 +87,6 @@ class BotController extends Controller
         $model = new TelegramLog();
 
         $model->data = json_encode($data);
-        $model->save();
 
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
@@ -114,6 +113,9 @@ class BotController extends Controller
         $send_data['chat_id'] = $data['chat']['id'];
 
         $res = sendTelegram($method, $send_data);
+
+        $model->data1 = $res;
+        $model->save();
         // try {
         //     // Create Telegram API object
         //     $telegram = new Telegram($bot_api_key, $bot_username);
