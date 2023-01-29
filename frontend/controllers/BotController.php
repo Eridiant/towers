@@ -103,18 +103,41 @@ class BotController extends Controller
         $model->save();
 
         try {
-            $result = Request::sendMessage([
+            // Create Telegram API object
+            $telegram = new \Longman\TelegramBot\Telegram($bot_api_key, $bot_username);
+
+            // Set webhook
+            $result = $telegram->sendMessage([
                 'chat_id' => $chat_id,
                 'text'    => "Your utf8 text $text",
             ]);
-        } catch (\Throwable $th) {
+
+        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+            // log telegram errors
+            // echo $e->getMessage();
+
             $model = new TelegramLog();
-            $model->data = json_encode($th);
+            $model->data = $e->getMessage();
             $model->save();
 
             $reply = 'Hello, your message is: ' . $text;
             file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
         }
+
+        // try {
+        //     sendMessage
+        //     $result = Request::sendMessage([
+        //         'chat_id' => $chat_id,
+        //         'text'    => "Your utf8 text $text",
+        //     ]);
+        // } catch (\Throwable $th) {
+        //     $model = new TelegramLog();
+        //     $model->data = json_encode($th);
+        //     $model->save();
+
+        //     $reply = 'Hello, your message is: ' . $text;
+        //     file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
+        // }
 
 
         return;
