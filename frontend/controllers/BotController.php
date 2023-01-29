@@ -133,12 +133,15 @@ class BotController extends Controller
 
     protected function sendTelegram($method, $data, $headers = [])
     {
+        $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
+        $bot_api_key  = $user_info->mail;
+
         $curl = curl_init();
         curl_setopt_array($curl, [
             CURLOPT_POST => 1,
             CURLOPT_HEADER => 0,
             CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => 'https://api.telegram.org/bot' . TOKEN . '/' . $method,
+            CURLOPT_URL => 'https://api.telegram.org/bot' . $bot_api_key . '/' . $method,
             CURLOPT_POSTFIELDS => json_encode($data),
             CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
         ]);   
