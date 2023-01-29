@@ -87,6 +87,8 @@ class BotController extends Controller
         $model = new TelegramLog();
 
         $model->data = json_encode($data);
+        $model->data1 = $data;
+        $model->data2 = "sdasdf";
         $model->save();
 
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
