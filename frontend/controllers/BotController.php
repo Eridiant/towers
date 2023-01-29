@@ -90,6 +90,7 @@ class BotController extends Controller
         if (!isset($update['message'])) return;
 
         $message = $update['message'];
+        $name = $update['message']['from']['first_name'] ?? 'клиент';
 
         // Get chat ID and message text
         $chat_id = $message['chat']['id'];
@@ -111,7 +112,7 @@ class BotController extends Controller
             $result = Request::sendPhoto([
                 'chat_id' => $chat_id,
                 'parse_mode' => 'HTML',
-                'caption' => "<b>Здравствуйте</b>\nКомпания <b>«Гранд майзон»</b> имеет своего бота который сможет вам помочь и узнать больше про проект «Калиграфи таурс».\nБот Калиграфи умеет:\n-отправлять информацию -организовывать консультации со специалистами\n-отправлять нужную для вас информацию.\nБольшое спасибо за обращение, команда калиграфи таурс.",
+                'caption' => "<b>Здравствуйте</b> уважаемый $name\nКомпания <b>«Гранд майзон»</b> имеет своего бота который сможет вам помочь и узнать больше про проект «Калиграфи таурс».\nБот Калиграфи умеет:\n-отправлять информацию -организовывать консультации со специалистами\n-отправлять нужную для вас информацию.\nБольшое спасибо за обращение, команда калиграфи таурс.",
                 'photo'   => 'https://calligraphy-batumi.com/images/dist/header/header_bg_clouds.jpg',
                 'reply_markup' => [
                     'resize_keyboard' => true,
@@ -172,6 +173,26 @@ class BotController extends Controller
 
 
         return;
+
+        // "update_id":79576522,
+        // "message":{
+        //     "message_id":177,
+        //     "from":{
+        //         "id":1070950185,
+        //         "is_bot":false,
+        //         "first_name":"Eridiant",
+        //         "username":"Eridiant",
+        //         "language_code":"ru"
+        //     },
+        //     "chat":{
+        //         "id":1070950185,
+        //         "first_name":"Eridiant",
+        //         "username":"Eridiant",
+        //         "type":"private"
+        //     },
+        //     "date":1675022380,
+        //     "text":"\u041e \u0437\u0430\u0441\u0442\u0440\u043e\u0439\u0449\u0438\u043a\u0435 \u0438 \u043f\u0440\u043e\u0435\u043a\u0442\u0435"
+        // }
 
         // $method = 'sendMessage';
         // $send_data = [
