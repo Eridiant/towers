@@ -87,13 +87,15 @@ class BotController extends Controller
 
         $model = new TelegramLog();
 
-        $model->data = json_encode($update);
-        $model->save();
 
 
         $update = isset($update['callback_query']) ? $update['callback_query'] : $update['message'];
         // Check if the update contains a message
-        $message = $update['message'];
+        $message = mb_strtolower(($update['text'] ? $update['text'] : $update['data']),'utf-8');
+
+        $model->data = json_encode($update);
+        $model->data1 = $message;
+        $model->save();
 
             // Get chat ID and message text
         $chat_id = $message['chat']['id'];
