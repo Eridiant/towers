@@ -101,6 +101,17 @@ class BotController extends Controller
         $model->data1 = mb_strtolower($text, 'UTF-8');
         $model->save();
 
+        $method = 'sendMessage';
+        $send_data = [
+            'text'   => "your message is: $text",
+        ];
+
+        $send_data['chat_id'] = $data['chat']['id'];
+
+        $res = $this->sendTelegram($method, $send_data, $bot_api_key);
+
+        return;
+
         // Send a reply message
         $reply = 'Hello, your message is: ' . $text;
         file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
