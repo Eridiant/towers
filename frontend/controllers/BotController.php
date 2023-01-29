@@ -93,17 +93,18 @@ class BotController extends Controller
         $update = json_decode(file_get_contents('php://input'), true);
 
         // Check if the update contains a message
-        if (isset($update['message'])) {
-            $message = $update['message'];
+        if (!isset($update['message'])) return;
 
-            // Get chat ID and message text
-            $chat_id = $message['chat']['id'];
-            $text = $message['text'];
+        $message = $update['message'];
 
-            // Send a reply message
-            $reply = 'Hello, your message is: ' . $text;
-            file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
-        }
+        // Get chat ID and message text
+        $chat_id = $message['chat']['id'];
+        $text = $message['text'];
+
+        // Send a reply message
+        $reply = 'Hello, your message is: ' . $text;
+        file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
+
         return;
 
 
