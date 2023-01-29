@@ -99,7 +99,6 @@ class BotController extends Controller
 
             // Get chat ID and message text
         $chat_id = $message['chat']['id'];
-        $text = $message['text'];
 
         // Send a reply message
         $reply = 'Hello, your message is: ' . $text;
