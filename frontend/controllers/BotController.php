@@ -87,10 +87,9 @@ class BotController extends Controller
         $model = new TelegramLog();
 
         $model->data = json_encode($data);
+        $model->save();
 
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
-        // $data = $data['callback_query'] ?? $data['message'];
-        // $data = $data['message'];
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
 
         $method = 'sendMessage';
@@ -114,10 +113,7 @@ class BotController extends Controller
         # Добавляем данные пользователя
         $send_data['chat_id'] = $data['chat']['id'];
 
-        $res = sendTelegram($method, $send_data);
-
-        // $model->data1 = json_encode($res);
-        $model->save();
+        $res = sendTelegram($method, $send_data, $bot_api_key);
         // try {
         //     // Create Telegram API object
         //     $telegram = new Telegram($bot_api_key, $bot_username);
@@ -135,10 +131,8 @@ class BotController extends Controller
         return;
     }
 
-    protected function sendTelegram($method, $data, $headers = [])
+    protected function sendTelegram($method, $data, $bot_api_key, $headers = [])
     {
-        $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
-        $bot_api_key  = $user_info->mail;
 
         $curl = curl_init();
         curl_setopt_array($curl, [
