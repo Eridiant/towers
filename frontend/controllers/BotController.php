@@ -82,63 +82,30 @@ class BotController extends Controller
 
         // Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        // $data = json_decode(file_get_contents('php://input'), TRUE);
+        $data = json_decode(file_get_contents('php://input'), TRUE);
 
+        $model = new TelegramLog();
+
+        $model->data = json_encode($data);
+        $model->save();
 
         $API_KEY = $bot_api_key;
         $update = json_decode(file_get_contents('php://input'), true);
 
-        $model = new TelegramLog();
-
-        $model->data = json_encode($update);
-        $model->save();
-
         $update = isset($update['callback_query']) ? $update['callback_query'] : $update['message'];
         // Check if the update contains a message
-        if (!isset($update)) return;
+        if (isset($update)) {
+            $message = $update['message'];
 
-        $message = $update['message'];
+            // Get chat ID and message text
+            $chat_id = $message['chat']['id'];
+            $text = $message['text'];
 
-        // Get chat ID and message text
-        $chat_id = $message['chat']['id'];
-        $text = $message['text'];
-
-        // Send a reply message
-        $method = 'sendMessage';
-        $send_data = [
-            'text'   => 'Вот мои кнопки',
-            'reply_markup' => [
-                'resize_keyboard' => true,
-                'keyboard' => [
-                    [
-                        ['text' => 'Видео'],
-                        ['text' => 'Кнопка 2'],
-                    ],
-                    [
-                        ['text' => 'Кнопка 3'],
-                        ['text' => 'Кнопка 4'],
-                    ]
-                ]
-            ]
-        ];
-        $reply = 'Hello, your message is: ' . $text;
-        file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
-        
+            // Send a reply message
+            $reply = 'Hello, your message is: ' . $text;
+            file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
+        }
         return;
-
-        $curl = curl_init();
-        curl_setopt_array($curl, [
-            CURLOPT_POST => 1,
-            CURLOPT_HEADER => 0,
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => 'https://api.telegram.org/bot' . $bot_api_key . '/' . $method,
-            CURLOPT_POSTFIELDS => json_encode($data),
-            CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
-        ]);   
-        
-        $result = curl_exec($curl);
-        curl_close($curl);
-
 
 
         $data = isset($data['callback_query']) ? $data['callback_query'] : $data['message'];
