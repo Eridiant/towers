@@ -82,15 +82,14 @@ class BotController extends Controller
 
         // Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        $data = json_decode(file_get_contents('php://input'), TRUE);
+        $API_KEY = $bot_api_key;
+        $update = json_decode(file_get_contents('php://input'), true);
 
         $model = new TelegramLog();
 
-        $model->data = json_encode($data);
+        $model->data = json_encode($update);
         $model->save();
 
-        $API_KEY = $bot_api_key;
-        $update = json_decode(file_get_contents('php://input'), true);
 
         $update = isset($update['callback_query']) ? $update['callback_query'] : $update['message'];
         // Check if the update contains a message
