@@ -114,9 +114,15 @@ class BotController extends Controller
         # Добавляем данные пользователя
         $send_data['chat_id'] = $data['chat']['id'];
 
-        $res = sendTelegram($method, $send_data, $bot_api_key);
-        $model->data1 = json_encode($res);
-        $model->save();
+        $result = Request::sendMessage([
+            'chat_id' => $data['chat']['id'],
+            'text'    => 'Your utf8 text 😜 ...',
+        ]);
+
+        // $res = sendTelegram($method, $send_data, $bot_api_key);
+        // $model->data1 = json_encode($message);
+        // $model->data2 = json_encode($res);
+        // $model->save();
         return;
     }
 
