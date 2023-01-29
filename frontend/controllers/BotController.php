@@ -102,5 +102,7 @@ class BotController extends Controller
             // log telegram errors
             // echo $e->getMessage();
         }
+        echo 'getDescription';
+        return;
     }
 }
