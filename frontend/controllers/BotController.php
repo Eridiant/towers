@@ -102,27 +102,30 @@ class BotController extends Controller
         $model->data1 = mb_strtolower($text, 'UTF-8');
         $model->save();
 
-        try {
-            // Create Telegram API object
-            $telegram = new \Longman\TelegramBot\Telegram($bot_api_key, $bot_username);
+        $reply = 'Hello, your message is: ' . $text;
+        file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
 
-            // Set webhook
-            $result = $telegram->sendMessage([
-                'chat_id' => $chat_id,
-                'text'    => "Your utf8 text $text",
-            ]);
+        // try {
+        //     // Create Telegram API object
+        //     $telegram = new \Longman\TelegramBot\Telegram($bot_api_key, $bot_username);
 
-        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
-            // log telegram errors
-            // echo $e->getMessage();
+        //     // Set webhook
+        //     $result = $telegram->sendMessage([
+        //         'chat_id' => $chat_id,
+        //         'text'    => "Your utf8 text $text",
+        //     ]);
 
-            $model = new TelegramLog();
-            $model->data = $e->getMessage();
-            $model->save();
+        // } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+        //     // log telegram errors
+        //     // echo $e->getMessage();
 
-            $reply = 'Hello, your message is: ' . $text;
-            file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
-        }
+        //     $model = new TelegramLog();
+        //     $model->data = $e->getMessage();
+        //     $model->save();
+
+        //     $reply = 'Hello, your message is: ' . $text;
+        //     file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
+        // }
 
         // try {
         //     sendMessage
