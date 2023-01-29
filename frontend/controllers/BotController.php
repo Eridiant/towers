@@ -107,20 +107,37 @@ class BotController extends Controller
             $telegram = new \Longman\TelegramBot\Telegram($bot_api_key);
 
             // Send
-            $result = Request::sendMessage([
+            $result = Request::sendPhoto([
                 'chat_id' => $chat_id,
+                'caption' => 'Здравствуйте, уважаемый',
+                'photo'   => 'https://calligraphy-batumi.com/images/dist/header/header_bg_clouds.jpg',
                 'text'    => "Your $text",
                 'reply_markup' => [
                     'resize_keyboard' => true,
                     'keyboard' => [
                         [
-                            ['text' => 'Видео'],
-                            ['text' => 'Кнопка 2'],
+                            ['text' => 'О застройщике и проекте'],
                         ],
                         [
-                            ['text' => 'Кнопка 3'],
-                            ['text' => 'Кнопка 4'],
-                        ]
+                            ['text' => 'Тип отделки и планировки'],
+                        ],
+                        [
+                            ['text' => 'Галерея'],
+                            ['text' => 'Инфраструктура'],
+                        ],
+                        [
+                            ['text' => 'Консультация online'],
+                            ['text' => 'Оставить заявку'],
+                        ],
+                        [
+                            ['text' => 'Вопросы и ответы'],
+                            ['text' => 'Изучить документацию'],
+                        ],
+                        [
+                            ['text' => 'Корпусы ЖК'],
+                            ['text' => 'Контакты'],
+                            ['text' => 'Назад'],
+                        ],
                     ]
                 ]
             ]);
