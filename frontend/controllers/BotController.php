@@ -110,6 +110,19 @@ class BotController extends Controller
             $result = Request::sendMessage([
                 'chat_id' => $chat_id,
                 'text'    => "Your $text",
+                'reply_markup' => [
+                    'resize_keyboard' => true,
+                    'keyboard' => [
+                        [
+                            ['text' => 'Видео'],
+                            ['text' => 'Кнопка 2'],
+                        ],
+                        [
+                            ['text' => 'Кнопка 3'],
+                            ['text' => 'Кнопка 4'],
+                        ]
+                    ]
+                ]
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
