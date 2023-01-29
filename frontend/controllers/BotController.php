@@ -88,8 +88,9 @@ class BotController extends Controller
 
         $model->data = json_encode($data);
 
+        $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
         // $data = $data['callback_query'] ?? $data['message'];
-        $data = $data['message'];
+        // $data = $data['message'];
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
 
         $method = 'sendMessage';
