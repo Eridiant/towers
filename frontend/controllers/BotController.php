@@ -82,13 +82,6 @@ class BotController extends Controller
 
         // Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        $data = json_decode(file_get_contents('php://input'), TRUE);
-
-        $model = new TelegramLog();
-
-        $model->data = json_encode($data);
-        $model->save();
-
         $API_KEY = $bot_api_key;
         $update = json_decode(file_get_contents('php://input'), true);
 
@@ -100,6 +93,13 @@ class BotController extends Controller
         // Get chat ID and message text
         $chat_id = $message['chat']['id'];
         $text = $message['text'];
+
+
+        $model = new TelegramLog();
+
+        $model->data = json_encode($data);
+        $model->data = mb_strtolower($text,'utf-8');
+        $model->save();
 
         // Send a reply message
         $reply = 'Hello, your message is: ' . $text;
