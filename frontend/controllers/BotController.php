@@ -82,6 +82,12 @@ class BotController extends Controller
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         $data = json_decode(file_get_contents('php://input'), TRUE);
+
+        $model = new TelegramLog();
+
+        $model->data = $data;
+        $model->save();
+
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
 
