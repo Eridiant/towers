@@ -26,6 +26,7 @@ use frontend\models\ContactForm;
 use frontend\models\Feedback;
 use frontend\models\UserIp;
 use frontend\models\SxGeo;
+use frontend\models\TelegramLog;
 use yii\web\HttpException;
 use Longman\TelegramBot\Telegram;
 
