@@ -89,20 +89,61 @@ class BotController extends Controller
         $bot_username = 'clgf_bot';
         $hook_url     = $request->absoluteUrl;
 
-        try {
-            // Create Telegram API object
-            $telegram = new Telegram($bot_api_key, $bot_username);
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-            // Set webhook
-            $result = $telegram->setWebhook($hook_url);
-            if ($result->isOk()) {
-                echo $result->getDescription();
-            }
-        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
-            // log telegram errors
-            // echo $e->getMessage();
-        }
-        echo 'getDescription';
+        $data = json_decode(file_get_contents('php://input'), TRUE);
+        $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
+        $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
+
+        $send_data = [
+            'video'   => 'https://chastoedov.ru/video/amo.mp4',
+            'caption' => 'Вот мое видео',
+            'reply_markup' => [
+                'resize_keyboard' => true,
+                'keyboard' => [
+                    [
+                        ['text' => 'Кнопка 1'],
+                        ['text' => 'Кнопка 2'],
+                    ],
+                    [
+                        ['text' => 'Кнопка 3'],
+                        ['text' => 'Кнопка 4'],
+                    ]
+                ]
+            ]
+        ];
+
+        # Добавляем данные пользователя
+        $send_data['chat_id'] = $data['chat']['id'];
+
+        $curl = curl_init();
+            curl_setopt_array($curl, [
+                CURLOPT_POST => 1,
+                CURLOPT_HEADER => 0,
+                CURLOPT_RETURNTRANSFER => 1,
+                CURLOPT_URL => 'https://api.telegram.org/bot' . $bot_api_key . '/' . $method,
+                CURLOPT_POSTFIELDS => json_encode($data),
+                CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
+            ]);   
+            
+            $result = curl_exec($curl);
+            curl_close($curl);
+            return (json_decode($result, 1) ? json_decode($result, 1) : $result);
+
+        // try {
+        //     // Create Telegram API object
+        //     $telegram = new Telegram($bot_api_key, $bot_username);
+
+        //     // Set webhook
+        //     $result = $telegram->setWebhook($hook_url);
+        //     if ($result->isOk()) {
+        //         echo $result->getDescription();
+        //     }
+        // } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+        //     // log telegram errors
+        //     // echo $e->getMessage();
+        // }
+
         return;
     }
 }
