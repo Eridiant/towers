@@ -92,14 +92,14 @@ class BotController extends Controller
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
 
+        $method = 'sendMessage';
         $send_data = [
-            'video'   => 'https://chastoedov.ru/video/amo.mp4',
-            'caption' => 'Вот мое видео',
+            'text'   => 'Вот мои кнопки',
             'reply_markup' => [
                 'resize_keyboard' => true,
                 'keyboard' => [
                     [
-                        ['text' => 'Кнопка 1'],
+                        ['text' => 'Видео'],
                         ['text' => 'Кнопка 2'],
                     ],
                     [
@@ -113,20 +113,7 @@ class BotController extends Controller
         # Добавляем данные пользователя
         $send_data['chat_id'] = $data['chat']['id'];
 
-        $curl = curl_init();
-            curl_setopt_array($curl, [
-                CURLOPT_POST => 1,
-                CURLOPT_HEADER => 0,
-                CURLOPT_RETURNTRANSFER => 1,
-                CURLOPT_URL => 'https://api.telegram.org/bot' . $bot_api_key . '/' . $method,
-                CURLOPT_POSTFIELDS => json_encode($data),
-                CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
-            ]);   
-            
-            $result = curl_exec($curl);
-            curl_close($curl);
-            return (json_decode($result, 1) ? json_decode($result, 1) : $result);
-
+        $res = sendTelegram($method, $send_data);
         // try {
         //     // Create Telegram API object
         //     $telegram = new Telegram($bot_api_key, $bot_username);
@@ -142,5 +129,22 @@ class BotController extends Controller
         // }
 
         return;
+    }
+
+    protected function sendTelegram($method, $data, $headers = [])
+    {
+        $curl = curl_init();
+        curl_setopt_array($curl, [
+            CURLOPT_POST => 1,
+            CURLOPT_HEADER => 0,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => 'https://api.telegram.org/bot' . TOKEN . '/' . $method,
+            CURLOPT_POSTFIELDS => json_encode($data),
+            CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
+        ]);   
+        
+        $result = curl_exec($curl);
+        curl_close($curl);
+        return (json_decode($result, 1) ? json_decode($result, 1) : $result);
     }
 }
