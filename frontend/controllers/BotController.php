@@ -35,34 +35,23 @@ use Longman\TelegramBot\Telegram;
 class BotController extends Controller
 {
 
-    public $bodyClass;
+    public function beforeAction($action)//Обязательно нужно отключить Csr валидацию, так не будет работать
+    {
+        $this->enableCsrfValidation = ($action->id !== "webhook");
+        return parent::beforeAction($action);
+    }
 
-    /**
-     * {@inheritdoc}
-     */
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['logout', 'signup'],
+                'only' => ['webhook'],
                 'rules' => [
                     [
-                        'actions' => ['signup'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
                 ],
             ],
         ];
