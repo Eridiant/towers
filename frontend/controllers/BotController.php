@@ -87,7 +87,25 @@ class BotController extends Controller
         $model = new TelegramLog();
 
         $model->data = json_encode($data);
-        // $model->save();
+        $model->save();
+
+        $API_KEY = $bot_api_key;
+        $update = json_decode(file_get_contents('php://input'), true);
+
+        // Check if the update contains a message
+        if (isset($update['message'])) {
+            $message = $update['message'];
+
+            // Get chat ID and message text
+            $chat_id = $message['chat']['id'];
+            $text = $message['text'];
+
+            // Send a reply message
+            $reply = 'Hello, your message is: ' . $text;
+            file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
+        }
+        return;
+
 
         $data = isset($data['callback_query']) ? $data['callback_query'] : $data['message'];
         // $data = $data['message'];
