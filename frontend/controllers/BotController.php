@@ -115,7 +115,7 @@ class BotController extends Controller
 
         $res = sendTelegram($method, $send_data);
 
-        $model->data1 = json_encode($res);
+        // $model->data1 = json_encode($res);
         $model->save();
         // try {
         //     // Create Telegram API object
