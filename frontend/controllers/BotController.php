@@ -121,6 +121,10 @@ class BotController extends Controller
                 ]
             ]
         ];
+        $reply = 'Hello, your message is: ' . $text;
+        file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
+        
+        return;
 
         $curl = curl_init();
         curl_setopt_array($curl, [
@@ -135,10 +139,6 @@ class BotController extends Controller
         $result = curl_exec($curl);
         curl_close($curl);
 
-        // $reply = 'Hello, your message is: ' . $text;
-        // file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
-        
-        return;
 
 
         $data = isset($data['callback_query']) ? $data['callback_query'] : $data['message'];
