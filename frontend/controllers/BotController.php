@@ -101,16 +101,16 @@ class BotController extends Controller
         $model->data1 = mb_strtolower($text, 'UTF-8');
         $model->save();
 
-        $method = 'sendMessage';
-        $send_data = [
-            'text'   => "your message is: $text",
-        ];
+        // $method = 'sendMessage';
+        // $send_data = [
+        //     'text'   => "your message is: $text",
+        // ];
 
-        $send_data['chat_id'] = $data['chat']['id'];
+        // $send_data['chat_id'] = $data['chat']['id'];
 
-        $res = $this->sendTelegram($method, $send_data, $bot_api_key);
+        // $res = $this->sendTelegram($method, $send_data, $bot_api_key);
 
-        return;
+        // return;
 
         // Send a reply message
         $reply = 'Hello, your message is: ' . $text;
