@@ -86,9 +86,9 @@ class BotController extends Controller
 
         $model = new TelegramLog();
 
-        $model->data = json_encode($data);
-        $model->data1 = $data;
-        $model->data2 = "sdasdf";
+        $model->data = json_encode($data) ?? '1';
+        $model->data1 = $data ?? '2';
+        $model->data2 = Yii::$app->request->post('data') ?? '3';
         $model->save();
 
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
