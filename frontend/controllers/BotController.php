@@ -101,6 +101,26 @@ class BotController extends Controller
         $model->data1 = mb_strtolower($text, 'UTF-8');
         $model->save();
 
+        $method = 'sendMessage';
+        $send_data = [
+            'text'   => "Вот мои кнопки $text",
+        ];
+
+        $curl = curl_init();
+        curl_setopt_array($curl, [
+            CURLOPT_POST => 1,
+            CURLOPT_HEADER => 0,
+            CURLOPT_RETURNTRANSFER => 1,
+            CURLOPT_URL => "https://api.telegram.org/bot$bot_api_key/$method",
+            CURLOPT_POSTFIELDS => json_encode($send_data),
+            CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
+        ]);   
+        
+        $result = curl_exec($curl);
+        curl_close($curl);
+
+        return;
+
         // Send a reply message
         $reply = 'Hello, your message is: ' . $text;
         file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
