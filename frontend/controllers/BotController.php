@@ -87,7 +87,7 @@ class BotController extends Controller
         $model = new TelegramLog();
 
         $model->data = json_encode($data);
-        $model->save();
+        // $model->save();
 
         $data = $data['callback_query'] ? $data['callback_query'] : $data['message'];
         $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
@@ -114,20 +114,8 @@ class BotController extends Controller
         $send_data['chat_id'] = $data['chat']['id'];
 
         $res = sendTelegram($method, $send_data, $bot_api_key);
-        // try {
-        //     // Create Telegram API object
-        //     $telegram = new Telegram($bot_api_key, $bot_username);
-
-        //     // Set webhook
-        //     $result = $telegram->setWebhook($hook_url);
-        //     if ($result->isOk()) {
-        //         echo $result->getDescription();
-        //     }
-        // } catch (Longman\TelegramBot\Exception\TelegramException $e) {
-        //     // log telegram errors
-        //     // echo $e->getMessage();
-        // }
-
+        $model->data1 = json_encode($res);
+        $model->save();
         return;
     }
 
