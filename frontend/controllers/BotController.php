@@ -107,11 +107,11 @@ class BotController extends Controller
             $telegram = new \Longman\TelegramBot\Telegram($bot_api_key);
 
             // Send
+                // 'text'    => "Your $text",
             $result = Request::sendPhoto([
                 'chat_id' => $chat_id,
-                'caption' => 'Здравствуйте, уважаемый',
+                'caption' => 'Здравствуйте Компания «Гранд майзон» имеет своего бота который сможет вам помочь и узнать больше про проект «Калиграфи таурс». Бот Калиграфи умеет: -отправлять информацию -организовывать консультации со специалистами -отправлять нужную для вас информацию Большое спасибо за обрушение, команда калиграфи таурс.',
                 'photo'   => 'https://calligraphy-batumi.com/images/dist/header/header_bg_clouds.jpg',
-                'text'    => "Your $text",
                 'reply_markup' => [
                     'resize_keyboard' => true,
                     'keyboard' => [
