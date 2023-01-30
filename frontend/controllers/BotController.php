@@ -124,7 +124,7 @@ class BotController extends Controller
             $result = Request::sendPhoto([
                 'chat_id' => $chat_id,
                 'parse_mode' => 'HTML',
-                'caption' => $content->caption,
+                'caption' => "$content->caption",
                 'photo'   => $content->photo,
                 'reply_markup' => json_decode($content->reply_markup, true),
             ]);
