@@ -100,7 +100,7 @@ class BotController extends Controller
         if (isset($update['message'])) {
             $message = $update['message'];
         } else if (isset($update['callback_query'])) {
-            $message = $update['message'];
+            $message = $update['callback_query'];
             $model->data2 = json_encode($message);
         }
 
