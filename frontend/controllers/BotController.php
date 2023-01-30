@@ -90,12 +90,15 @@ class BotController extends Controller
         if (!isset($update['message'])) return;
 
         $message = $update['message'];
-        $name = $update['message']['from']['first_name'] ?? 'клиент';
 
+        $text = isset($update['callback_query']) ? $update['callback_query'] : $update['message'];
+        if ($text == "/start") {
+            $name = $update['message']['from']['first_name'] ?? 'клиент';
+            $lang = $update['message']['from']['language_code'];
+        }
+        
         // Get chat ID and message text
         $chat_id = $message['chat']['id'];
-        $text = $message['text'];
-
 
         $model = new TelegramLog();
 
@@ -193,6 +196,57 @@ class BotController extends Controller
         //     "date":1675022380,
         //     "text":"\u041e \u0437\u0430\u0441\u0442\u0440\u043e\u0439\u0449\u0438\u043a\u0435 \u0438 \u043f\u0440\u043e\u0435\u043a\u0442\u0435"
         // }
+
+        $arddddray = array(
+            'update_id' => '79576524',
+            'message' => array(
+                'message_id' => '181',
+                'from' => array(
+                    'id' => '1070950185',
+                    'is_bot' => '',
+                    'first_name' => 'Eridiant',
+                    'username' => 'Eridiant',
+                    'language_code' => 'en'
+                ),
+                'chat' => array(
+                    'id' => '1070950185',
+                    'first_name' => 'Eridiant',
+                    'username' => 'Eridiant',
+                    'type' => 'private'
+                ),
+                'date' => '1675074787',
+                'text' => '/start',
+                'entities' => array(
+                    '0' => array(
+                        'offset' => '0',
+                        'length' => '6',
+                        'type' => 'bot_command'
+                    )
+                )
+            )
+        );
+
+        $array = array(
+            'update_id' => '79576523',
+            'message' => array(
+                'message_id' => '179',
+                'from' => array(
+                    'id' => '1070950185',
+                    'is_bot' => '',
+                    'first_name' => 'Eridiant',
+                    'username' => 'Eridiant',
+                    'language_code' => 'ru'
+                ),
+                'chat' => array(
+                    'id' => '1070950185',
+                    'first_name' => 'Eridiant',
+                    'username' => 'Eridiant',
+                    'type' => 'private'
+                ),
+                'date' => '1675023506',
+                'text' => 'О застройщике и проекте'
+            )
+        );
 
         // $method = 'sendMessage';
         // $send_data = [
