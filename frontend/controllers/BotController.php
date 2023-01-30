@@ -90,13 +90,13 @@ class BotController extends Controller
         $API_KEY = $bot_api_key;
         $update = json_decode(file_get_contents('php://input'), true);
 
-        // Check if the update contains a message
-        if (!isset($update['message'])) return;
-
 
         $model = new TelegramLog();
 
-        $message = isset($update['message']) ? $update['message'] :  $update['callback_query'];
+
+        $model->data3 = json_encode($update);
+
+        // $message = isset($update['message']) ? $update['message'] :  $update['callback_query'];
         if (isset($update['message'])) {
             $message = $update['message'];
         } else if (isset($update['callback_query'])) {
