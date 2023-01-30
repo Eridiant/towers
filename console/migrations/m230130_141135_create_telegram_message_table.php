@@ -18,6 +18,7 @@ class m230130_141135_create_telegram_message_table extends Migration
         $this->createTable('{{%telegram_message}}', [
             'id' => $this->primaryKey(),
             'content_id' => $this->integer()->notNull(),
+            'lang' => $this->string(255)->notNull(),
             'text' => $this->text(),
             'parse_mode' => $this->string(24),
             'reply_markup' => $this->text(),

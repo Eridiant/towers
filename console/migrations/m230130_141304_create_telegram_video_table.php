@@ -18,6 +18,7 @@ class m230130_141304_create_telegram_video_table extends Migration
         $this->createTable('{{%telegram_video}}', [
             'id' => $this->primaryKey(),
             'content_id' => $this->integer()->notNull(),
+            'lang' => $this->string(255)->notNull(),
             'video' => $this->text(),
             'caption' => $this->text(),
             'parse_mode' => $this->string(24),

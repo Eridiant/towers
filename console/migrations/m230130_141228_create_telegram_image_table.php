@@ -18,6 +18,7 @@ class m230130_141228_create_telegram_image_table extends Migration
         $this->createTable('{{%telegram_image}}', [
             'id' => $this->primaryKey(),
             'content_id' => $this->integer()->notNull(),
+            'lang' => $this->string(255)->notNull(),
             'photo' => $this->text(),
             'caption' => $this->text(),
             'parse_mode' => $this->string(24),
