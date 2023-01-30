@@ -123,8 +123,6 @@ class BotController extends Controller
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($bot_api_key);
 
-            // Send
-                // 'text'    => "Your $text",$query $query->content->id $content->caption
             $result = Request::sendPhoto([
                 'chat_id' => $chat_id,
                 'parse_mode' => 'HTML',
