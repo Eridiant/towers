@@ -87,6 +87,9 @@ class BotController extends Controller
         $update = json_decode(file_get_contents('php://input'), true);
 
         // Check if the update contains a message
+        if (!isset($update['message'])) return;
+
+        $message = $update['message'];
 
         $text = isset($update['callback_query']) ? $update['callback_query'] : $update['message'];
         if ($text == "/start") {
@@ -194,17 +197,6 @@ class BotController extends Controller
         //     "text":"\u041e \u0437\u0430\u0441\u0442\u0440\u043e\u0439\u0449\u0438\u043a\u0435 \u0438 \u043f\u0440\u043e\u0435\u043a\u0442\u0435"
         // }
 
-        // 'reply_markup' => [
-        //     'resize_keyboard' => true,
-        //     'keyboard' => [
-        //         [
-        //             ['text' => 'English'],
-        //             ['text' => 'Русский'],
-        //             ['text' => 'ქართული'],
-        //         ],
-        //     ]
-        // ]
-
         $arddddray = array(
             'update_id' => '79576524',
             'message' => array(
@@ -234,27 +226,7 @@ class BotController extends Controller
             )
         );
 
-        $array = array(
-            'update_id' => '79576523',
-            'message' => array(
-                'message_id' => '179',
-                'from' => array(
-                    'id' => '1070950185',
-                    'is_bot' => '',
-                    'first_name' => 'Eridiant',
-                    'username' => 'Eridiant',
-                    'language_code' => 'ru'
-                ),
-                'chat' => array(
-                    'id' => '1070950185',
-                    'first_name' => 'Eridiant',
-                    'username' => 'Eridiant',
-                    'type' => 'private'
-                ),
-                'date' => '1675023506',
-                'text' => 'О застройщике и проекте'
-            )
-        );
+        
 
         // $method = 'sendMessage';
         // $send_data = [
