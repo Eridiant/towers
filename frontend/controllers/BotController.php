@@ -87,9 +87,6 @@ class BotController extends Controller
         $update = json_decode(file_get_contents('php://input'), true);
 
         // Check if the update contains a message
-        if (!isset($update['message'])) return;
-
-        $message = $update['message'];
 
         $text = isset($update['callback_query']) ? $update['callback_query'] : $update['message'];
         if ($text == "/start") {
@@ -196,6 +193,17 @@ class BotController extends Controller
         //     "date":1675022380,
         //     "text":"\u041e \u0437\u0430\u0441\u0442\u0440\u043e\u0439\u0449\u0438\u043a\u0435 \u0438 \u043f\u0440\u043e\u0435\u043a\u0442\u0435"
         // }
+
+        // 'reply_markup' => [
+        //     'resize_keyboard' => true,
+        //     'keyboard' => [
+        //         [
+        //             ['text' => 'English'],
+        //             ['text' => 'Русский'],
+        //             ['text' => 'ქართული'],
+        //         ],
+        //     ]
+        // ]
 
         $arddddray = array(
             'update_id' => '79576524',
