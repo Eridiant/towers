@@ -99,8 +99,11 @@ class BotController extends Controller
         // $message = isset($update['message']) ? $update['message'] :  $update['callback_query'];
         if (isset($update['message'])) {
             $message = $update['message'];
+            // Get chat ID and message text
+            $chat_id = $message['chat']['id'];
         } else if (isset($update['callback_query'])) {
             $message = $update['callback_query'];
+            $chat_id = $message['message']['chat']['id'];
             $model->data2 = json_encode($message);
         }
 
@@ -112,8 +115,6 @@ class BotController extends Controller
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
-        // Get chat ID and message text
-        $chat_id = $message['chat']['id'];
 
         $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
