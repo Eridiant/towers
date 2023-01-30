@@ -119,7 +119,7 @@ class BotController extends Controller
             $result = Request::sendPhoto([
                 'chat_id' => $chat_id,
                 'parse_mode' => 'HTML',
-                'caption' => "<b>Здравствуйте</b> уважаемый $name\nКомпания <b>«Гранд майзон»</b> имеет своего бота который сможет вам помочь и узнать больше про проект «Калиграфи таурс».\nБот Калиграфи умеет:\n-отправлять информацию -организовывать консультации со специалистами\n-отправлять нужную для вас информацию.\nБольшое спасибо за обращение, команда калиграфи таурс. {$query->content->id}",
+                'caption' => "<code>$query</code>",
                 'photo'   => $content->photo,
                 'reply_markup' => json_decode($content->reply_markup, true),
             ]);
