@@ -100,7 +100,7 @@ class BotController extends Controller
         $chat_id = $message['chat']['id'];
         $text = $message['text'];
 
-        $query = TelegramQuery::find()->where('query = :text', [':query' => $text])->one();
+        $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
         $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
 
@@ -119,7 +119,7 @@ class BotController extends Controller
             $result = Request::sendPhoto([
                 'chat_id' => $chat_id,
                 'parse_mode' => 'HTML',
-                'caption' => "<b>Здравствуйте</b> уважаемый $name\nКомпания <b>«Гранд майзон»</b> имеет своего бота который сможет вам помочь и узнать больше про проект «Калиграфи таурс».\nБот Калиграфи умеет:\n-отправлять информацию -организовывать консультации со специалистами\n-отправлять нужную для вас информацию.\nБольшое спасибо за обращение, команда калиграфи таурс.",
+                'caption' => "<b>Здравствуйте</b> уважаемый $name\nКомпания <b>«Гранд майзон»</b> имеет своего бота который сможет вам помочь и узнать больше про проект «Калиграфи таурс».\nБот Калиграфи умеет:\n-отправлять информацию -организовывать консультации со специалистами\n-отправлять нужную для вас информацию.\nБольшое спасибо за обращение, команда калиграфи таурс. <code>$content->reply_markup</code>",
                 'photo'   => 'https://calligraphy-batumi.com/images/dist/header/header_bg_clouds.jpg',
                 'reply_markup' => [
                     'resize_keyboard' => true,
