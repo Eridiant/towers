@@ -104,13 +104,15 @@ class BotController extends Controller
 
         $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
 
+        if (!isset($query->content->id)) {
+            $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+        };
+
         $model = new TelegramLog();
 
         $model->data = json_encode($update);
         $model->data1 = mb_strtolower($text, 'UTF-8');
         $model->save();
-
-        $query = isset($query->content->id) ? $query->content->id : 'блиааааа';
 
         try {
             // Create Telegram API object
