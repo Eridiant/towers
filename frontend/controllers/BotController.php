@@ -104,6 +104,8 @@ class BotController extends Controller
             $model->data2 = json_encode($message);
         }
 
+        $text = isset($message['text']) ? $message['text'] : 'text';
+
         $model->data = json_encode($update);
         $model->data1 = mb_strtolower($text, 'UTF-8');
         $model->save();
@@ -112,7 +114,6 @@ class BotController extends Controller
 
         // Get chat ID and message text
         $chat_id = $message['chat']['id'];
-        $text = isset($message['text']) ? $message['text'] : 'text';
 
         $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
