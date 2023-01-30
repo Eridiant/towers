@@ -102,7 +102,7 @@ class BotController extends Controller
 
         $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
-        $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+        $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
 
         $model = new TelegramLog();
 
@@ -121,7 +121,7 @@ class BotController extends Controller
             $result = Request::sendPhoto([
                 'chat_id' => $chat_id,
                 'parse_mode' => 'HTML',
-                'caption' => "<code>$query</code>",
+                'caption' => $content->caption,
                 'photo'   => $content->photo,
                 'reply_markup' => json_decode($content->reply_markup, true),
             ]);
