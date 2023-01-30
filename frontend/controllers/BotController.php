@@ -110,6 +110,8 @@ class BotController extends Controller
         $model->data1 = mb_strtolower($text, 'UTF-8');
         $model->save();
 
+        $query = json_encode($query);
+
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($bot_api_key);
