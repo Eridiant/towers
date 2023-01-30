@@ -130,6 +130,7 @@ class BotController extends Controller
 
         try {
             // Create Telegram API object
+                // 'reply_markup' => json_decode($content->reply_markup, true),
             $telegram = new \Longman\TelegramBot\Telegram($bot_api_key);
 
             $result = Request::sendPhoto([
@@ -137,7 +138,7 @@ class BotController extends Controller
                 'parse_mode' => 'HTML',
                 'caption' => $content->caption,
                 'photo'   => $content->photo,
-                'reply_markup' => json_decode($content->reply_markup, true),
+                'reply_markup' => $content->reply_markup,
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
