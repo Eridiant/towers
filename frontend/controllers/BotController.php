@@ -110,7 +110,7 @@ class BotController extends Controller
         $model->data1 = mb_strtolower($text, 'UTF-8');
         $model->save();
 
-        $query = json_encode($query);
+        $query = isset($query->query) ? $query->query : 'блиааааа';
 
         try {
             // Create Telegram API object
