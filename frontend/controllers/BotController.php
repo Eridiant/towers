@@ -105,6 +105,10 @@ class BotController extends Controller
 
         if (isset($query->content)) {
             $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
+
+            if (!isset($content->caption)) {
+                $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+            };
         } else {
             $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
         }
@@ -124,7 +128,7 @@ class BotController extends Controller
             $result = Request::sendPhoto([
                 'chat_id' => $chat_id,
                 'parse_mode' => 'HTML',
-                'caption' => "$content->caption",
+                'caption' => $content->caption,
                 'photo'   => $content->photo,
                 'reply_markup' => json_decode($content->reply_markup, true),
             ]);
@@ -193,6 +197,60 @@ class BotController extends Controller
         // Send a reply message
 
         return;
+
+        // [
+        //     'resize_keyboard' => true,
+        //     'keyboard' => [
+        //         [
+        //             ['text' => 'Вопросы и ответы'],
+        //             ['text' => 'Изучить документацию'],
+        //         ],
+        //         [
+        //             ['text' => 'Корпусы ЖК'],
+        //             ['text' => 'Контакты'],
+        //             ['text' => 'Назад'],
+        //         ],
+        //     ],
+        //     'inline_keyboard' => [
+        //         [
+        //             ['text' => 'Текст описание'],
+        //             ['text' => 'Презентация'],
+        //         ],
+        //         [
+        //             ['text' => 'Видео'],
+        //             ['text' => 'Сайт'],
+        //         ],
+        //     ],
+        // ]
+
+        // [
+        //     'resize_keyboard' => true,
+        //     'keyboard' => [
+        //         [
+        //             ['text' => 'О застройщике и проекте'],
+        //         ],
+        //         [
+        //             ['text' => 'Тип отделки и планировки'],
+        //         ],
+        //         [
+        //             ['text' => 'Галерея'],
+        //             ['text' => 'Инфраструктура'],
+        //         ],
+        //         [
+        //             ['text' => 'Консультация online'],
+        //             ['text' => 'Оставить заявку'],
+        //         ],
+        //         [
+        //             ['text' => 'Вопросы и ответы'],
+        //             ['text' => 'Изучить документацию'],
+        //         ],
+        //         [
+        //             ['text' => 'Корпусы ЖК'],
+        //             ['text' => 'Контакты'],
+        //             ['text' => 'Назад'],
+        //         ],
+        //     ]
+        // ];
 
         $method = 'sendMessage';
         $send_data = [
