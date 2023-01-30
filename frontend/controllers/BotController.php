@@ -102,11 +102,12 @@ class BotController extends Controller
 
         $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
-        $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
 
-        if (!isset($query->content->id)) {
+        if (isset($query->content)) {
+            $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
+        } else {
             $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
-        };
+        }
 
         $model = new TelegramLog();
 
