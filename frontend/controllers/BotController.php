@@ -93,12 +93,26 @@ class BotController extends Controller
         // Check if the update contains a message
         if (!isset($update['message'])) return;
 
-        $message = $update['message'];
+
+        $model = new TelegramLog();
+
+        $message = isset($update['message']) ? $update['message'] :  $update['callback_query'];
+        if (isset($update['message'])) {
+            $message = $update['message'];
+        } else if (isset($update['callback_query'])) {
+            $message = $update['message'];
+            $model->data2 = json_encode($message);
+        }
+
+        $model->data = json_encode($update);
+        $model->data1 = mb_strtolower($text, 'UTF-8');
+        $model->save();
+
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
         // Get chat ID and message text
         $chat_id = $message['chat']['id'];
-        $text = $message['text'];
+        $text = isset($message['text']) ? $message['text'] : 'text';
 
         $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
@@ -112,12 +126,6 @@ class BotController extends Controller
         } else {
             $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
         }
-
-        $model = new TelegramLog();
-
-        $model->data = json_encode($update);
-        $model->data1 = mb_strtolower($text, 'UTF-8');
-        $model->save();
 
         try {
             // Create Telegram API object
@@ -161,6 +169,17 @@ class BotController extends Controller
 
         return;
 
+
+        // 'inline_keyboard' => [
+        //     [
+        //         ['text' => 'Текст описание', 'callback_data' => '1'],
+        //         ['text' => 'Презентация', 'callback_data' => '2'],
+        //     ],
+        //     [
+        //         ['text' => 'Видео', 'callback_data' => '3'],
+        //         ['text' => 'Сайт', 'callback_data' => '4'],
+        //     ],
+        // ],
         // "update_id":79576522,
         // "message":{
         //     "message_id":177,
@@ -306,19 +325,6 @@ class BotController extends Controller
 
     protected function sendTelegram($method, $data, $bot_api_key, $headers = [])
     {
-
-        $curl = curl_init();
-        curl_setopt_array($curl, [
-            CURLOPT_POST => 1,
-            CURLOPT_HEADER => 0,
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => 'https://api.telegram.org/bot' . $bot_api_key . '/' . $method,
-            CURLOPT_POSTFIELDS => json_encode($data),
-            CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
-        ]);   
-        
-        $result = curl_exec($curl);
-        curl_close($curl);
-        return (json_decode($result, 1) ? json_decode($result, 1) : $result);
+        return ;
     }
 }
