@@ -96,21 +96,19 @@ class BotController extends Controller
 
         $model->data3 = json_encode($update);
 
-        $model->save();
-
         // $message = isset($update['message']) ? $update['message'] :  $update['callback_query'];
         if (isset($update['message'])) {
             $message = $update['message'];
         } else if (isset($update['callback_query'])) {
             $message = $update['callback_query'];
-            // $model->data2 = json_encode($message);
+            $model->data2 = json_encode($message);
         }
 
-        // $text = isset($message['text']) ? $message['text'] : 'text';
+        $text = isset($message['text']) ? $message['text'] : 'text';
 
-        // $model->data = json_encode($update);
-        // $model->data1 = mb_strtolower($text, 'UTF-8');
-        // $model->save();
+        $model->data = json_encode($update);
+        $model->data1 = mb_strtolower($text, 'UTF-8');
+        $model->save();
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
