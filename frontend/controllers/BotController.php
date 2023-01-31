@@ -70,7 +70,6 @@ class BotController extends Controller
 
         try {
             $model = new TelegramLog();
-            $model->data = json_encode($action);
             $model->data1 = $action->id;
             $model->save();
         } catch (\Throwable $th) {
