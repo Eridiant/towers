@@ -41,12 +41,7 @@ use frontend\models\telegram\TelegramMessage;
 class BotController extends Controller
 {
 
-    public function beforeAction($action)//Обязательно нужно отключить Csr валидацию, так не будет работать
-    {
-        // $this->enableCsrfValidation = ($action->id !== "webhook");
-        $this->enableCsrfValidation = false;
-        return parent::beforeAction($action);
-    }
+    private $bot_api_key;
 
     public function behaviors()
     {
@@ -64,6 +59,17 @@ class BotController extends Controller
         ];
     }
 
+    public function beforeAction($action)//Обязательно нужно отключить Csr валидацию, так не будет работать
+    {
+        $this->enableCsrfValidation = ($action->id !== "webhook");
+
+        $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
+
+        $this->bot_api_key = $user_info->mail;
+
+        return parent::beforeAction($action);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -79,17 +85,12 @@ class BotController extends Controller
     protected function sendPhoto($chat_id, $caption, $photo, $reply_markup, $parse_mode = 'HTML', $headers = [])
     {
 
-        $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
-        $request = Yii::$app->request;
-
-        $bot_api_key  = $user_info->mail;
-        $bot_username = 'clgf_bot';
-        $hook_url     = $request->absoluteUrl;
+        
 
         try {
             // Create Telegram API object
                 // 'reply_markup' => json_decode($content->reply_markup, true),
-            $telegram = new \Longman\TelegramBot\Telegram($bot_api_key);
+            $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
 
             $result = Request::sendPhoto([
                 'chat_id' => $chat_id,
@@ -100,18 +101,16 @@ class BotController extends Controller
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
-            // log telegram errors
-            // echo $e->getMessage();
-
             $model = new TelegramLog();
             $model->data = $e->getMessage();
             $model->save();
-
-            $reply = 'Hello, your message is: ' . $text;
-            file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
         }
-        return ;
     }
+
+    // protected function sendMessage($chat_id, $caption, $photo, $reply_markup, $parse_mode = 'HTML', $headers = [])
+    // {
+        
+    // }
 
     public function actionBot()
     {
