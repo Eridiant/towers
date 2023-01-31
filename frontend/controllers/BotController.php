@@ -170,7 +170,7 @@ class BotController extends Controller
         $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
 
-        $model->data2 = ($query->content->type_name) ? $query->content->type_name : "qqqqq";
+        $model->data2 = isset($query->content->type_name) ? $query->content->type_name : "qqqqq";
         $model->save();
 
         switch (isset($query->content->type_name) ? $query->content->type_name : "qqqqq") {
