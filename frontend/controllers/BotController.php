@@ -91,15 +91,13 @@ class BotController extends Controller
                 // 'reply_markup' => json_decode($content->reply_markup, true),
             $telegram = new \Longman\TelegramBot\Telegram($bot_api_key);
 
-            if ($method === 'image') {
-                $result = Request::sendPhoto([
-                    'chat_id' => $chat_id,
-                    'parse_mode' => $parse_mode,
-                    'caption' => $caption,
-                    'photo'   => $photo,
-                    'reply_markup' => $reply_markup,
-                ]);
-            }
+            $result = Request::sendPhoto([
+                'chat_id' => $chat_id,
+                'parse_mode' => $parse_mode,
+                'caption' => $caption,
+                'photo'   => $photo,
+                'reply_markup' => $reply_markup,
+            ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             // log telegram errors
