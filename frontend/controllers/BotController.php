@@ -173,7 +173,7 @@ class BotController extends Controller
 
         
 
-        switch ($query->content->type_name) {
+        switch ($query->content->type_name ?? "qqqqq") {
             case 'image':
 
                 if (isset($query->content)) {
