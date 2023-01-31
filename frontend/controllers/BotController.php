@@ -129,10 +129,11 @@ class BotController extends Controller
         }
         
         try {
-            sendTelegram();
+            $this->sendTelegram();
         } catch (\Throwable $th) {
             $model = new TelegramLog();
             $model->data = 'wache bolt';
+            $model->data1 = json_encode($th);
             $model->save();
         }
 
