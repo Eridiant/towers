@@ -118,7 +118,6 @@ class BotController extends Controller
 
         $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
-
         if (isset($query->content)) {
             $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
 
@@ -127,6 +126,14 @@ class BotController extends Controller
             };
         } else {
             $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+        }
+        
+        try {
+            sendTelegram();
+        } catch (\Throwable $th) {
+            $model = new TelegramLog();
+            $model->data = 'wache bolt';
+            $model->save();
         }
 
         try {
@@ -152,6 +159,15 @@ class BotController extends Controller
 
             $reply = 'Hello, your message is: ' . $text;
             file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
+        }
+
+        function sendTelegram()
+        {
+
+            $model = new TelegramLog();
+            $model->data = isset($content->caption) ? $content->caption : 'bold';
+            $model->save();
+            return ;
         }
 
         // try {
@@ -218,27 +234,17 @@ class BotController extends Controller
 
         return;
 
-        // [
-        //     'resize_keyboard' => true,
+        // 'reply_markup' => [
         //     'keyboard' => [
         //         [
-        //             ['text' => 'Вопросы и ответы'],
-        //             ['text' => 'Изучить документацию'],
-        //         ],
-        //         [
-        //             ['text' => 'Корпусы ЖК'],
-        //             ['text' => 'Контакты'],
-        //             ['text' => 'Назад'],
+        //             ['text' => 'Вопрос 1'],
+        //             ['text' => 'Вопрос 2'],
         //         ],
         //     ],
         //     'inline_keyboard' => [
         //         [
-        //             ['text' => 'Текст описание'],
-        //             ['text' => 'Презентация'],
-        //         ],
-        //         [
-        //             ['text' => 'Видео'],
-        //             ['text' => 'Сайт'],
+        //             ['text' => 'Ответ 1', 'callback_data' => 'ansv-1'],
+        //             ['text' => 'Ответ 2', 'callback_data' => 'ansv-2'],
         //         ],
         //     ],
         // ]
@@ -324,10 +330,5 @@ class BotController extends Controller
         $model->data2 = json_encode($res);
         $model->save();
         return;
-    }
-
-    protected function sendTelegram($method, $data, $bot_api_key, $headers = [])
-    {
-        return ;
     }
 }
