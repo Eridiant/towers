@@ -133,8 +133,18 @@ class BotController extends Controller
         } catch (\Throwable $th) {
             $model = new TelegramLog();
             $model->data = 'wache bolt';
-            $model->data1 = json_encode($th);
-            $model->data2 = $th;
+            // $model->data1 = json_encode($th);
+            $model->data2 = json_decode($th);
+            $model->save();
+        }
+        
+        try {
+            sendTelegram();
+        } catch (\Throwable $th) {
+            $model = new TelegramLog();
+            $model->data = 'wache bolt';
+            // $model->data1 = json_encode($th);
+            $model->data2 = json_decode($th);
             $model->save();
         }
 
@@ -167,8 +177,8 @@ class BotController extends Controller
         {
 
             $model = new TelegramLog();
-            $model->data = isset($content->caption) ? $content->caption : 'bold';
-            $model->save();
+            // $model->data = isset($content->caption) ? $content->caption : 'bold';
+            $model->data = 'ne bolt';
             return ;
         }
 
