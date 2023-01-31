@@ -68,6 +68,17 @@ class BotController extends Controller
 
         $this->bot_api_key = $user_info->mail;
 
+        try {
+            $model = new TelegramLog();
+            $model->data = json_encode($action);
+            $model->data1 = $action->id;
+            $model->save();
+        } catch (\Throwable $th) {
+            $model = new TelegramLog();
+            $model->data = json_encode($th->getMessage());
+            $model->save();
+        }
+
         return parent::beforeAction($action);
     }
 
