@@ -115,7 +115,7 @@ class BotController extends Controller
         }
     }
 
-    protected function sendMessage($chat_id, $text, $parse_mode = 'HTML', $headers = [])
+    protected function sendMessage($chat_id, $text, $reply_markup, $parse_mode = 'HTML', $headers = [])
     {
         try {
             // Create Telegram API object
@@ -194,7 +194,7 @@ class BotController extends Controller
                 if (!isset($query->content)) return;
                 $content = TelegramMessage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
 
-                $this->sendMessage($chat_id, $text, $parse_mode = 'HTML', $headers = []);
+                $this->sendMessage($chat_id, $content->text, $content->reply_markup, $content->parse_mode = 'HTML', $headers = []);
                 break;
             
             default:
