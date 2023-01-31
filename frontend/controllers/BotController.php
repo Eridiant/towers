@@ -61,7 +61,8 @@ class BotController extends Controller
 
     public function beforeAction($action)//Обязательно нужно отключить Csr валидацию, так не будет работать
     {
-        $this->enableCsrfValidation = ($action->id !== "webhook");
+        // $this->enableCsrfValidation = ($action->id !== "webhook");
+        $this->enableCsrfValidation = false;
 
         $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
 
@@ -84,8 +85,6 @@ class BotController extends Controller
 
     protected function sendPhoto($chat_id, $caption, $photo, $reply_markup, $parse_mode = 'HTML', $headers = [])
     {
-
-        
 
         try {
             // Create Telegram API object
