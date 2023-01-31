@@ -68,15 +68,15 @@ class BotController extends Controller
 
         $this->bot_api_key = $user_info->mail;
 
-        try {
-            $model = new TelegramLog();
-            $model->data1 = $action->id;
-            $model->save();
-        } catch (\Throwable $th) {
-            $model = new TelegramLog();
-            $model->data = json_encode($th->getMessage());
-            $model->save();
-        }
+        // try {
+        //     $model = new TelegramLog();
+        //     $model->data1 = $action->id;
+        //     $model->save();
+        // } catch (\Throwable $th) {
+        //     $model = new TelegramLog();
+        //     $model->data = json_encode($th->getMessage());
+        //     $model->save();
+        // }
 
         return parent::beforeAction($action);
     }
@@ -98,7 +98,6 @@ class BotController extends Controller
 
         try {
             // Create Telegram API object
-                // 'reply_markup' => json_decode($content->reply_markup, true),
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
 
             $result = Request::sendPhoto([
@@ -116,10 +115,25 @@ class BotController extends Controller
         }
     }
 
-    // protected function sendMessage($chat_id, $caption, $photo, $reply_markup, $parse_mode = 'HTML', $headers = [])
-    // {
-        
-    // }
+    protected function sendMessage($chat_id, $text, $parse_mode = 'HTML', $headers = [])
+    {
+        try {
+            // Create Telegram API object
+            $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
+
+            $result = Request::sendPhoto([
+                'chat_id' => $chat_id,
+                'parse_mode' => $parse_mode,
+                'text'   => $text ?? '',
+                'reply_markup' => $reply_markup,
+            ]);
+
+        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+            $model = new TelegramLog();
+            $model->data = $e->getMessage();
+            $model->save();
+        }
+    }
 
     public function actionBot()
     {
@@ -173,6 +187,14 @@ class BotController extends Controller
                 }
 
                 $this->sendPhoto($chat_id, $content->caption, $content->photo, $content->reply_markup);
+                break;
+
+            case 'message':
+
+                if (!isset($query->content)) return;
+                $content = TelegramMessage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
+
+                sendMessage($chat_id, $text, $parse_mode = 'HTML', $headers = []);
                 break;
             
             default:
