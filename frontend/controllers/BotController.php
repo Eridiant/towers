@@ -78,6 +78,14 @@ class BotController extends Controller
 
     protected function sendPhoto($chat_id, $caption, $photo, $reply_markup, $parse_mode = 'HTML', $headers = [])
     {
+
+        $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
+        $request = Yii::$app->request;
+
+        $bot_api_key  = $user_info->mail;
+        $bot_username = 'clgf_bot';
+        $hook_url     = $request->absoluteUrl;
+
         try {
             // Create Telegram API object
                 // 'reply_markup' => json_decode($content->reply_markup, true),
@@ -109,16 +117,9 @@ class BotController extends Controller
 
     public function actionBot()
     {
-        $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
-        $request = Yii::$app->request;
-
-        $bot_api_key  = $user_info->mail;
-        $bot_username = 'clgf_bot';
-        $hook_url     = $request->absoluteUrl;
 
         // Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-        $API_KEY = $bot_api_key;
         $update = json_decode(file_get_contents('php://input'), true);
 
 
