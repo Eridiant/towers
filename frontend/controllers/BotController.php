@@ -194,7 +194,7 @@ class BotController extends Controller
                 if (!isset($query->content)) return;
                 $content = TelegramMessage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
 
-                sendMessage($chat_id, $text, $parse_mode = 'HTML', $headers = []);
+                $this->sendMessage($chat_id, $text, $parse_mode = 'HTML', $headers = []);
                 break;
             
             default:
