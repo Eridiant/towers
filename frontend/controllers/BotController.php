@@ -163,7 +163,6 @@ class BotController extends Controller
 
         $model->data = json_encode($update);
         $model->data1 = mb_strtolower($text, 'UTF-8');
-        $model->save();
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
@@ -171,7 +170,8 @@ class BotController extends Controller
         $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
 
-        
+        $model->data2 = ($query->content->type_name) ? $query->content->type_name : "qqqqq";
+        $model->save();
 
         switch (isset($query->content->type_name) ? $query->content->type_name : "qqqqq") {
             case 'image':
