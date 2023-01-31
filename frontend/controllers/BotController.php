@@ -134,6 +134,7 @@ class BotController extends Controller
             $model = new TelegramLog();
             $model->data = 'wache bolt';
             $model->data1 = json_encode($th);
+            $model->data2 = $th;
             $model->save();
         }
 
