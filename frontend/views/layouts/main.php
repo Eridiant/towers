@@ -56,9 +56,6 @@ $scripts = \frontend\models\Scripts::find(1)->one();
     <?php $this->registerMetaTag(['name' => 'facebook-domain-verification', 'content' => 'zmda1htyfogiz2do08ivmons83rg48']); ?>
     <?php $this->registerMetaTag(['property' => 'og:title', 'content' => 'Premium class high rise residential complex']); ?>
     <?php $this->registerMetaTag(['property' => 'og:image', 'content' => 'https://calligraphy-batumi.com/images/image.jpg']); ?>
-    
-    <?= Yii::$app->language == 'ka-GE' ? '<link rel="stylesheet" href="/css/ge.css">' : '' ; ?>
-    <?= Yii::$app->language == 'en-US' ? '<link rel="stylesheet" href="/css/en.css">' : '' ; ?>
 
     <?= $scripts->header; ?>
     <?php
