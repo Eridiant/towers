@@ -76,6 +76,37 @@ class BotController extends Controller
         ];
     }
 
+    protected function sendPhoto($chat_id, $caption, $photo, $reply_markup, $parse_mode = 'HTML', $headers = [])
+    {
+        try {
+            // Create Telegram API object
+                // 'reply_markup' => json_decode($content->reply_markup, true),
+            $telegram = new \Longman\TelegramBot\Telegram($bot_api_key);
+
+            if ($method === 'image') {
+                $result = Request::sendPhoto([
+                    'chat_id' => $chat_id,
+                    'parse_mode' => $parse_mode,
+                    'caption' => $caption,
+                    'photo'   => $photo,
+                    'reply_markup' => $reply_markup,
+                ]);
+            }
+
+        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+            // log telegram errors
+            // echo $e->getMessage();
+
+            $model = new TelegramLog();
+            $model->data = $e->getMessage();
+            $model->save();
+
+            $reply = 'Hello, your message is: ' . $text;
+            file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
+        }
+        return ;
+    }
+
     public function actionBot()
     {
         $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
@@ -118,69 +149,42 @@ class BotController extends Controller
 
         $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
-        if (isset($query->content)) {
-            $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
 
-            if (!isset($content->caption)) {
+        
+
+        switch ($query->content->type_name) {
+            case 'image':
+
+                if (isset($query->content)) {
+                    $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
+        
+                    if (!isset($content->caption)) {
+                        $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+                    };
+                } else {
+                    $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+                }
+
+                $this->sendPhoto($chat_id, $content->caption, $content->photo, $content->reply_markup);
+                break;
+            
+            default:
+                if (isset($query->content)) {
+                    $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
+        
+                    if (!isset($content->caption)) {
+                        $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+                    };
+                } else {
                 $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
-            };
-        } else {
-            $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+            }
+
+                $this->sendPhoto($chat_id, $content->caption, $content->photo, $content->reply_markup);
+                break;
         }
 
-        function sendTelegram()
-        {
-
-            $model = new TelegramLog();
-            // $model->data = isset($content->caption) ? $content->caption : 'bold';
-            $model->data = 'ne bolt';
-            return ;
-        }
         
-        try {
-            $this->sendTelegram();
-        } catch (\Throwable $th) {
-            $model = new TelegramLog();
-            $model->data = 'wache bolt';
-            // $model->data1 = json_encode($th);
-            $model->data2 = json_decode($th);
-            $model->save();
-        }
-        
-        try {
-            sendTelegram();
-        } catch (\Throwable $th) {
-            $model = new TelegramLog();
-            $model->data = 'wache bolt';
-            // $model->data1 = json_encode($th);
-            $model->data2 = json_decode($th);
-            $model->save();
-        }
 
-        try {
-            // Create Telegram API object
-                // 'reply_markup' => json_decode($content->reply_markup, true),
-            $telegram = new \Longman\TelegramBot\Telegram($bot_api_key);
-
-            $result = Request::sendPhoto([
-                'chat_id' => $chat_id,
-                'parse_mode' => 'HTML',
-                'caption' => $content->caption,
-                'photo'   => $content->photo,
-                'reply_markup' => $content->reply_markup,
-            ]);
-
-        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
-            // log telegram errors
-            // echo $e->getMessage();
-
-            $model = new TelegramLog();
-            $model->data = $e->getMessage();
-            $model->save();
-
-            $reply = 'Hello, your message is: ' . $text;
-            file_get_contents("https://api.telegram.org/bot$API_KEY/sendMessage?chat_id=$chat_id&text=$reply");
-        }
 
         // try {
         //     sendMessage
