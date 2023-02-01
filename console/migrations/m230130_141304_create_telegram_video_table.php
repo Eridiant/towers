@@ -23,6 +23,7 @@ class m230130_141304_create_telegram_video_table extends Migration
             'caption' => $this->text(),
             'parse_mode' => $this->string(24),
             'reply_markup' => $this->text(),
+            'pre_markup' => $this->text(),
         ]);
 
         // creates index for column `content_id`

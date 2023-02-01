@@ -135,6 +135,26 @@ class BotController extends Controller
         }
     }
 
+    protected function sendIntermediateMessage($chat_id, $text, $reply_markup, $parse_mode = 'HTML', $headers = [])
+    {
+        try {
+            // Create Telegram API object
+            $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
+
+            $result = Request::sendMessage([
+                'chat_id' => $chat_id,
+                'parse_mode' => $parse_mode,
+                'text'   => isset($text) ? $text : '',
+                'reply_markup' => $reply_markup,
+            ]);
+
+        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+            $model = new TelegramLog();
+            $model->data = $e->getMessage();
+            $model->save();
+        }
+    }
+
     public function actionBot()
     {
 
@@ -299,21 +319,6 @@ class BotController extends Controller
         //     'keyboard' => [
         //         [
         //             ['text' => 'О застройщике и проекте'],
-        //         ],
-        //         [
-        //             ['text' => 'Тип отделки и планировки'],
-        //         ],
-        //         [
-        //             ['text' => 'Галерея'],
-        //             ['text' => 'Инфраструктура'],
-        //         ],
-        //         [
-        //             ['text' => 'Консультация online'],
-        //             ['text' => 'Оставить заявку'],
-        //         ],
-        //         [
-        //             ['text' => 'Вопросы и ответы'],
-        //             ['text' => 'Изучить документацию'],
         //         ],
         //         [
         //             ['text' => 'Корпусы ЖК'],
