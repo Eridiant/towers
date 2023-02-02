@@ -447,7 +447,7 @@ class SiteController extends Controller
             $rds = $this->renderPartial('g');
         }
 
-        // $state = [];
+        $status = [];
         foreach ($model as $key => $value) {
             $status[$key] = $this->translate($value["status"], $request->post('lgg'));
 
