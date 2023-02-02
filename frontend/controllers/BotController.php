@@ -132,10 +132,13 @@ class BotController extends Controller
 
     protected function sendMessage($parse_mode = 'HTML', $headers = [])
     {
-        $content = TelegramMessage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+
+        if (!empty($this->query->content->id)) {
+            $content = TelegramMessage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+        }
 
         if (empty($content->text)) {
-            $content = TelegramMessage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
         };
 
         if (!empty($content->pre_markup)) {
