@@ -199,10 +199,11 @@ class BotController extends Controller
         } else if (isset($update['callback_query'])) {
             $message = $update['callback_query'];
             $this->chat_id = $message['message']['chat']['id'];
+            // $message = $message['data'];
             $model->data2 = json_encode($message);
         }
 
-        $text = isset($message['text']) ? $message['text'] : 'text';
+        $text = isset($message['text']) ? $message['text'] : $message['data'];
 
         $model->data = json_encode($update);
         $model->data1 = mb_strtolower($text, 'UTF-8');
@@ -230,7 +231,89 @@ class BotController extends Controller
                 break;
         }
 
-        
+        // $array = array(
+        //     'update_id' => '79576717',
+        //     'callback_query' => array(
+        //         'id' => '4599696022370985036',
+        //         'from' => array(
+        //             'id' => '1070950185',
+        //             'is_bot' => '',
+        //             'first_name' => 'Eridiant',
+        //             'username' => 'Eridiant',
+        //             'language_code' => 'en'
+        //         ),
+        //         'message' => array(
+        //             'message_id' => '532',
+        //             'from' => array(
+        //                 'id' => '5851685742',
+        //                 'is_bot' => '1',
+        //                 'first_name' => 'clgfBot',
+        //                 'username' => 'clgf_bot'
+        //             ),
+        //             'chat' => array(
+        //                 'id' => '1070950185',
+        //                 'first_name' => 'Eridiant',
+        //                 'username' => 'Eridiant',
+        //                 'type' => 'private'
+        //             ),
+        //             'date' => '1675344032',
+        //             'photo' => array(
+        //                 '0' => array(
+        //                     'file_id' => 'AgACAgQAAxkDAAICFGPbuKB1D_capOHLdE4sYQoJHR8EAAJLsDEbRie9UjIzSd969FPbAQADAgADcwADLgQ',
+        //                     'file_unique_id' => 'AQADS7AxG0YnvVJ4',
+        //                     'file_size' => '948',
+        //                     'width' => '90',
+        //                     'height' => '51'
+        //                 ),
+        //                 '1' => array(
+        //                     'file_id' => 'AgACAgQAAxkDAAICFGPbuKB1D_capOHLdE4sYQoJHR8EAAJLsDEbRie9UjIzSd969FPbAQADAgADbQADLgQ',
+        //                     'file_unique_id' => 'AQADS7AxG0YnvVJy',
+        //                     'file_size' => '9529',
+        //                     'width' => '320',
+        //                     'height' => '180'
+        //                 ),
+        //                 '2' => array(
+        //                     'file_id' => 'AgACAgQAAxkDAAICFGPbuKB1D_capOHLdE4sYQoJHR8EAAJLsDEbRie9UjIzSd969FPbAQADAgADeAADLgQ',
+        //                     'file_unique_id' => 'AQADS7AxG0YnvVJ9',
+        //                     'file_size' => '38939',
+        //                     'width' => '800',
+        //                     'height' => '450'
+        //                 ),
+        //                 '3' => array(
+        //                     'file_id' => 'AgACAgQAAxkDAAICFGPbuKB1D_capOHLdE4sYQoJHR8EAAJLsDEbRie9UjIzSd969FPbAQADAgADeQADLgQ',
+        //                     'file_unique_id' => 'AQADS7AxG0YnvVJ-',
+        //                     'file_size' => '85653',
+        //                     'width' => '1280',
+        //                     'height' => '720'
+        //                 ),
+        //                 '4' => array(
+        //                     'file_id' => 'AgACAgQAAxkDAAICFGPbuKB1D_capOHLdE4sYQoJHR8EAAJLsDEbRie9UjIzSd969FPbAQADAgADdwADLgQ',
+        //                     'file_unique_id' => 'AQADS7AxG0YnvVJ8',
+        //                     'file_size' => '88082',
+        //                     'width' => '1920',
+        //                     'height' => '1080'
+        //                 )
+        //             ),
+        //             'caption' => '“Grand Maison”',
+        //             'reply_markup' => array(
+        //                 'inline_keyboard' => array(
+        //                     '0' => array(
+        //                         '0' => array(
+        //                             'text' => 'Ответ 1',
+        //                             'callback_data' => 'ansv-1'
+        //                         ),
+        //                         '1' => array(
+        //                             'text' => 'Ответ 2',
+        //                             'callback_data' => 'ansv-2'
+        //                         )
+        //                     )
+        //                 )
+        //             )
+        //         ),
+        //         'chat_instance' => '6088013493985124044',
+        //         'data' => 'ansv-1'
+        //     )
+        // );
 
 
         // try {
