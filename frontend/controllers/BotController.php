@@ -42,6 +42,9 @@ class BotController extends Controller
 {
 
     private $bot_api_key;
+    private $chat_id;
+    private $query;
+
 
     public function behaviors()
     {
@@ -93,19 +96,29 @@ class BotController extends Controller
         ];
     }
 
-    protected function sendPhoto($chat_id, $caption, $photo, $reply_markup, $parse_mode = 'HTML', $headers = [])
+    protected function sendPhoto($parse_mode = 'HTML', $headers = [])
     {
+
+        $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+
+        if (empty($content->caption)) {
+            $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+        };
+
+        if (!empty($content->pre_markup)) {
+            $this->sendIntermediateMessage();
+        }
 
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
 
             $result = Request::sendPhoto([
-                'chat_id' => $chat_id,
+                'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
-                'caption' => $caption,
-                'photo'   => $photo,
-                'reply_markup' => $reply_markup,
+                'caption' => $content->caption,
+                'photo'   => $content->photo,
+                'reply_markup' => $content->reply_markup,
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
@@ -115,17 +128,27 @@ class BotController extends Controller
         }
     }
 
-    protected function sendMessage($chat_id, $text, $reply_markup, $parse_mode = 'HTML', $headers = [])
+    protected function sendMessage($parse_mode = 'HTML', $headers = [])
     {
+        $content = TelegramMessage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+
+        if (empty($content->text)) {
+            $content = TelegramMessage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+        };
+
+        if (!empty($content->pre_markup)) {
+            $this->sendIntermediateMessage();
+        }
+
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
 
             $result = Request::sendMessage([
-                'chat_id' => $chat_id,
+                'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
-                'text'   => isset($text) ? $text : '',
-                'reply_markup' => $reply_markup,
+                'text'   => $this->text,
+                'reply_markup' => $this->reply_markup,
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
@@ -135,16 +158,16 @@ class BotController extends Controller
         }
     }
 
-    protected function sendIntermediateMessage($chat_id, $text, $reply_markup, $parse_mode = 'HTML', $headers = [])
+    protected function sendIntermediateMessage($parse_mode = 'HTML', $headers = [])
     {
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
 
             $result = Request::sendMessage([
-                'chat_id' => $chat_id,
+                'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
-                'text'   => isset($text) ? $text : '',
+                'text'   => $text,
                 'reply_markup' => $reply_markup,
             ]);
 
@@ -172,10 +195,10 @@ class BotController extends Controller
         if (isset($update['message'])) {
             $message = $update['message'];
             // Get chat ID and message text
-            $chat_id = $message['chat']['id'];
+            $this->chat_id = $message['chat']['id'];
         } else if (isset($update['callback_query'])) {
             $message = $update['callback_query'];
-            $chat_id = $message['message']['chat']['id'];
+            $this->chat_id = $message['message']['chat']['id'];
             $model->data2 = json_encode($message);
         }
 
@@ -187,48 +210,23 @@ class BotController extends Controller
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
 
-        $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
+        $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
 
-        $model->data2 = isset($query->content->type_name) ? $query->content->type_name : "qqqqq";
+        $model->data2 = isset($this->query->content->type_name) ? $this->query->content->type_name : "qqqqq";
         $model->save();
 
-        switch (isset($query->content->type_name) ? $query->content->type_name : "qqqqq") {
+        switch (isset($this->query->content->type_name) ? $this->query->content->type_name : "qqqqq") {
             case 'image':
-
-                if (isset($query->content)) {
-                    $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
-        
-                    if (!isset($content->caption)) {
-                        $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
-                    };
-                } else {
-                    $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
-                }
-
-                $this->sendPhoto($chat_id, $content->caption, $content->photo, $content->reply_markup);
+                $this->sendPhoto();
                 break;
 
             case 'message':
-
-                if (!isset($query->content)) return;
-                $content = TelegramMessage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
-
-                $this->sendMessage($chat_id, $content->text, $content->reply_markup, $content->parse_mode = 'HTML', $headers = []);
+                $this->sendMessage();
                 break;
-            
-            default:
-                if (isset($query->content)) {
-                    $content = TelegramImage::find()->where(['content_id' => $query->content->id, 'lang' => 'ru'])->one();
-        
-                    if (!isset($content->caption)) {
-                        $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
-                    };
-                } else {
-                $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
-            }
 
-                $this->sendPhoto($chat_id, $content->caption, $content->photo, $content->reply_markup);
+            default:
+                $this->sendPhoto();
                 break;
         }
 
