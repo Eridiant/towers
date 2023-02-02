@@ -254,6 +254,10 @@ class SiteController extends Controller
             if ($slug === 'block-C') {
                 $rds = $this->renderPartial('c');
             }
+
+            if ($slug === 'block-G') {
+                $rds = $this->renderPartial('g');
+            }
             
             // Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             $summ = json_encode(['rds' => $rds]);

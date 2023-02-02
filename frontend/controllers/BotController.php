@@ -106,7 +106,7 @@ class BotController extends Controller
         };
 
         if (!empty($content->pre_markup)) {
-            $this->sendIntermediateMessage();
+            $this->sendIntermediateMessage($this->query->query, $content->pre_markup);
         }
 
         try {
@@ -137,7 +137,7 @@ class BotController extends Controller
         };
 
         if (!empty($content->pre_markup)) {
-            $this->sendIntermediateMessage();
+            $this->sendIntermediateMessage($this->query->query, $content->pre_markup);
         }
 
         try {
@@ -158,7 +158,7 @@ class BotController extends Controller
         }
     }
 
-    protected function sendIntermediateMessage($parse_mode = 'HTML', $headers = [])
+    protected function sendIntermediateMessage($query, $pre_markup, $parse_mode = 'HTML', $headers = [])
     {
         try {
             // Create Telegram API object
@@ -167,8 +167,8 @@ class BotController extends Controller
             $result = Request::sendMessage([
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
-                'text'   => $text,
-                'reply_markup' => $reply_markup,
+                'text'   => $query,
+                'reply_markup' => $pre_markup,
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
