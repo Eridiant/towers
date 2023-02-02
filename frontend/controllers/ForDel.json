@@ -1,3 +1,29 @@
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "Деловой",
+			"callback_data": "Деловой"
+		},
+		{
+			"text": "Фитнес",
+			"callback_data": "Фитнес"
+		}],
+		[
+		{
+			"text": "text",
+			"callback_data": "text"
+		},
+		{
+			"text": "text",
+			"callback_data": "text"
+		}]
+	]
+}
+
+
+
+
 
 
 {
@@ -46,28 +72,7 @@
 }
 
 
-{
-	"inline_keyboard": [
-		[
-		{
-			"text": "Деловой центр",
-			"callback_data": "Деловой центр"
-		},
-		{
-			"text": "Фитнес",
-			"callback_data": "Фитнес"
-		}],
-		[
-		{
-			"text": "text",
-			"callback_data": "text"
-		},
-		{
-			"text": "text",
-			"callback_data": "text"
-		}]
-	]
-}
+
 
 
 
