@@ -22,6 +22,45 @@
 }
 
 
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "Компания застройщик",
+			"callback_data": "Компания застройщик"
+		}],
+		[
+		{
+			"text": "О Комплексе",
+			"callback_data": "О Комплексе"
+		},
+		{
+			"text": "Документы",
+			"callback_data": "Документы"
+		}]
+	]
+}
+
+
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "Блок А",
+			"callback_data": "Блок А"
+		}],
+		[
+		{
+			"text": "Блок Б",
+			"callback_data": "Блок Б"
+		}],
+		[
+		{
+			"text": "Блок Г",
+			"callback_data": "Блок Г"
+		}]
+	]
+}
 
 {
 	"inline_keyboard": [
@@ -42,8 +81,8 @@
 		}],
 		[
 		{
-			"text": "Хотите узнать про инвестирование в Грузии",
-			"callback_data": "Хотите узнать про инвестирование в Грузии"
+			"text": "Хотите узнать про инвестирование",
+			"callback_data": "Хотите узнать про инвестирование"
 		}],
 		[
 		{
@@ -59,31 +98,11 @@
 		{
 			"text": "График строительства",
 			"callback_data": "График строительства"
-		},
+		}],
+		[
 		{
 			"text": "Оплаты и переводы",
 			"callback_data": "Оплаты и переводы"
-		}],
-		[],
-		[
-		{
-			"text": "text",
-			"callback_data": "text"
-		}],
-		[
-		{
-			"text": "text",
-			"callback_data": "text"
-		}],
-		[
-		{
-			"text": "text",
-			"callback_data": "text"
-		}],
-		[
-		{
-			"text": "text",
-			"callback_data": "text"
 		}]
 	]
 }

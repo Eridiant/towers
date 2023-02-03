@@ -11,6 +11,8 @@ use Yii;
  * @property int $parent_id
  * @property int $type
  * @property string|null $type_name
+ * @property string|null $photo
+ * @property string|null $video
  *
  * @property TelegramImage[] $telegramImages
  * @property TelegramMessage[] $telegramMessages
@@ -34,6 +36,7 @@ class TelegramContent extends \yii\db\ActiveRecord
     {
         return [
             [['parent_id', 'type'], 'integer'],
+            [['photo', 'video'], 'string'],
             [['type_name'], 'string', 'max' => 255],
         ];
     }
@@ -48,6 +51,8 @@ class TelegramContent extends \yii\db\ActiveRecord
             'parent_id' => 'Parent ID',
             'type' => 'Type',
             'type_name' => 'Type Name',
+            'photo' => 'Photo',
+            'video' => 'Video',
         ];
     }
 

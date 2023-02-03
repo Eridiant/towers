@@ -217,7 +217,11 @@ class BotController extends Controller
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
 
-        $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
+        if (ctype_digit($text)) {
+            $this->query = TelegramQuery::find()->where('id = :id', [':id' => $text])->one();
+        } else {
+            $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
+        }
 
 
         $model->data2 = isset($this->query->content->type_name) ? $this->query->content->type_name : "qqqqq";
