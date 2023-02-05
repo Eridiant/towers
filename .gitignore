@@ -43,6 +43,8 @@ phpunit.phar
 /backend/web/robots.txt
 
 /frontend/web/images/blocks
+/frontend/web/video
+
 ip.log
 
 composer.lock

@@ -21,6 +21,93 @@
 	]
 }
 
+8
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "План этажа",
+			"callback_data": "План этажа"
+		},
+		{
+			"text": "Планировки",
+			"callback_data": "Планировки"
+		}],
+		[
+		{
+			"text": "Фасад",
+			"callback_data": "Фасад"
+		},
+		{
+			"text": "Виды отделок",
+			"callback_data": "Виды отделок"
+		}]
+	]
+}
+
+
+
+
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "Фасад",
+			"callback_data": "21"
+		},
+		{
+			"text": "Интерьеры",
+			"callback_data": "22"
+		}],
+		[
+		{
+			"text": "Белый каркас",
+			"callback_data": "23"
+		},
+		{
+			"text": "С ремонтом",
+			"callback_data": "24"
+		}],
+		[
+		{
+			"text": "С ремонтом и мебелью",
+			"callback_data": "25"
+		}],
+		[
+		{
+			"text": "Батуми",
+			"callback_data": "26"
+		},
+		{
+			"text": "Инфраструктура",
+			"callback_data": "27"
+		}]
+	]
+}
+
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "Студио",
+			"callback_data": "Студио"
+		},
+		{
+			"text": "1 спальня",
+			"callback_data": "1 спальня"
+		}],
+		[
+		{
+			"text": "2 спальник",
+			"callback_data": "2 спальник"
+		},
+		{
+			"text": "3 спальни",
+			"callback_data": "3 спальни"
+		}]
+	]
+}
+
 
 {
 	"inline_keyboard": [
@@ -40,6 +127,22 @@
 		}]
 	]
 }
+
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "text",
+			"callback_data": "text"
+		}],
+		[
+        {
+            "text": "text",
+            "callback_data": "text"
+        }]
+	]
+}
+
 
 
 {

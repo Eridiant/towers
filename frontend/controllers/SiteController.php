@@ -266,6 +266,13 @@ class SiteController extends Controller
 
     }
 
+    public function actionSwiper()
+    {
+        $this->layout = ('@app/views/layouts/swiper');
+        return $this->render('swiper');
+        // return $this->render('swiper', compact('model'));
+    }
+
     public function actionPrice()
     {
         $this->layout = ('@app/views/layouts/price');
