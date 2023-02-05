@@ -130,6 +130,40 @@ class BotController extends Controller
         }
     }
 
+    protected function sendAnimation($parse_mode = 'HTML', $headers = [])
+    {
+
+        if (!empty($this->query->content->id)) {
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+        }
+
+        if (empty($content->caption)) {
+            $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
+        };
+
+        if (!empty($content->pre_markup)) {
+            $this->sendIntermediateMessage($this->query->query, $content->pre_markup);
+        }
+
+        try {
+            // Create Telegram API object
+            $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
+
+            $result = Request::sendPhoto([
+                'chat_id' => $this->chat_id,
+                'parse_mode' => $parse_mode,
+                'caption' => $content->caption,
+                'animation'   => $content->photo,
+                'reply_markup' => $content->reply_markup,
+            ]);
+
+        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+            $model = new TelegramLog();
+            $model->data = $e->getMessage();
+            $model->save();
+        }
+    }
+
     protected function sendMessage($parse_mode = 'HTML', $headers = [])
     {
 
@@ -234,6 +268,10 @@ class BotController extends Controller
 
             case 'message':
                 $this->sendMessage();
+                break;
+
+            case 'animation':
+                $this->sendAnimation();
                 break;
 
             default:
