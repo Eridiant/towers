@@ -152,7 +152,7 @@ class BotController extends Controller
             $result = Request::sendAnimation([
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
-                'caption' => 'anm' . $content->caption,
+                'caption' => $content->caption,
                 'animation'   => $content->photo,
                 'reply_markup' => $content->reply_markup,
             ]);
