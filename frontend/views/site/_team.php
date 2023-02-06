@@ -10,7 +10,7 @@ use yii\helpers\Url;
             <div class="gallery-inf">
                 <div class="gallery-inner">
                     <div class="breadcrumbs">
-                        <a href="<?= Yii::$app->params['curLangUrl'] ?>/"><?=Yii::t('frontend', 'Главная')?></a>
+                        <a href="<?= Yii::$app->params['curLangUrl'] ?>"><?=Yii::t('frontend', 'Главная')?></a>
                         <p><?=Yii::t('frontend', 'Галерея')?></p>
                     </div>
                     <h1><?=Yii::t('frontend', 'Галерея')?></h1>
