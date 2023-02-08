@@ -231,6 +231,25 @@ class BotController extends Controller
         }
     }
 
+    protected function sendLocation()
+    {
+        try {
+            // Create Telegram API object
+            $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
+
+            $result = Request::sendLocation([
+                'chat_id' => $this->chat_id,
+                'latitude' => 41.63658205509769,
+                'longitude' => 41.621193980941854,
+            ]);
+
+        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+            $model = new TelegramLog();
+            $model->data = $e->getMessage();
+            $model->save();
+        }
+    }
+
     protected function sendIntermediateMessage($query, $pre_markup, $parse_mode = 'HTML', $headers = [])
     {
         try {
@@ -312,10 +331,17 @@ class BotController extends Controller
                 $this->sendVideo();
                 break;
 
+            case 'location':
+
+                $this->sendLocation();
+                break;
+
             default:
                 $this->sendPhoto();
                 break;
         }
+
+        return;
 
         // $array = array(
         //     'update_id' => '79576717',
@@ -418,7 +444,6 @@ class BotController extends Controller
         // }
 
 
-        return;
 
 
         // 'inline_keyboard' => [
@@ -495,57 +520,57 @@ class BotController extends Controller
         //     ]
         // ];
 
-        $method = 'sendMessage';
-        $send_data = [
-            'text'   => "Вот мои кнопки $text",
-        ];
-        $headers = [];
+        // $method = 'sendMessage';
+        // $send_data = [
+        //     'text'   => "Вот мои кнопки $text",
+        // ];
+        // $headers = [];
 
-        $curl = curl_init();
-        curl_setopt_array($curl, [
-            CURLOPT_POST => 1,
-            CURLOPT_HEADER => 0,
-            CURLOPT_RETURNTRANSFER => 1,
-            CURLOPT_URL => "https://api.telegram.org/bot$bot_api_key/$method",
-            CURLOPT_POSTFIELDS => json_encode($send_data),
-            CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
-        ]);   
+        // $curl = curl_init();
+        // curl_setopt_array($curl, [
+        //     CURLOPT_POST => 1,
+        //     CURLOPT_HEADER => 0,
+        //     CURLOPT_RETURNTRANSFER => 1,
+        //     CURLOPT_URL => "https://api.telegram.org/bot$bot_api_key/$method",
+        //     CURLOPT_POSTFIELDS => json_encode($send_data),
+        //     CURLOPT_HTTPHEADER => array_merge(array("Content-Type: application/json"), $headers)
+        // ]);   
         
-        $result = curl_exec($curl);
-        curl_close($curl);
+        // $result = curl_exec($curl);
+        // curl_close($curl);
 
-        return;
+        // return;
 
 
-        $data = isset($data['callback_query']) ? $data['callback_query'] : $data['message'];
-        // $data = $data['message'];
-        $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
+        // $data = isset($data['callback_query']) ? $data['callback_query'] : $data['message'];
+        // // $data = $data['message'];
+        // $message = mb_strtolower(($data['text'] ? $data['text'] : $data['data']),'utf-8');
 
-        $method = 'sendMessage';
-        $send_data = [
-            'text'   => 'Вот мои кнопки',
-            'reply_markup' => [
-                'resize_keyboard' => true,
-                'keyboard' => [
-                    [
-                        ['text' => 'Видео'],
-                        ['text' => 'Кнопка 2'],
-                    ],
-                    [
-                        ['text' => 'Кнопка 3'],
-                        ['text' => 'Кнопка 4'],
-                    ]
-                ]
-            ]
-        ];
+        // $method = 'sendMessage';
+        // $send_data = [
+        //     'text'   => 'Вот мои кнопки',
+        //     'reply_markup' => [
+        //         'resize_keyboard' => true,
+        //         'keyboard' => [
+        //             [
+        //                 ['text' => 'Видео'],
+        //                 ['text' => 'Кнопка 2'],
+        //             ],
+        //             [
+        //                 ['text' => 'Кнопка 3'],
+        //                 ['text' => 'Кнопка 4'],
+        //             ]
+        //         ]
+        //     ]
+        // ];
 
-        # Добавляем данные пользователя
-        $send_data['chat_id'] = $data['chat']['id'];
+        // # Добавляем данные пользователя
+        // $send_data['chat_id'] = $data['chat']['id'];
 
-        $res = sendTelegram($method, $send_data, $bot_api_key);
-        $model->data1 = json_encode($message);
-        $model->data2 = json_encode($res);
-        $model->save();
-        return;
+        // $res = sendTelegram($method, $send_data, $bot_api_key);
+        // $model->data1 = json_encode($message);
+        // $model->data2 = json_encode($res);
+        // $model->save();
+        // return;
     }
 }
