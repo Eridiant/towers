@@ -21,7 +21,41 @@
 	]
 }
 
-8
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "карта",
+			"callback_data": "карта"
+		}]
+	]
+}
+
+
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "Компания застройщик",
+			"callback_data": "Компания застройщик"
+		}],
+		[
+		{
+			"text": "О Комплексе",
+			"callback_data": "О Комплексе"
+		},
+		{
+			"text": "Документы",
+			"callback_data": "Документы"
+		}],
+		[
+		{
+			"text": "Инвестиции",
+			"callback_data": "Инвестиции"
+		}]
+	]
+}
+
 {
 	"inline_keyboard": [
 		[
