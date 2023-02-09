@@ -104,7 +104,7 @@ class BotController extends Controller
         }
 
         if (empty($content->caption)) {
-            $content = TelegramImage::find()->where(['content_id' => 2, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => 1, 'lang' => 'ru'])->one();
         };
 
         if (!empty($content->pre_markup)) {

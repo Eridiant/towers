@@ -21,6 +21,74 @@
 	]
 }
 
+
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "О застройщике и проекте",
+			"callback_data": "О застройщике и проекте"
+		}],
+		[
+		{
+			"text": "Тип отделки и планировки",
+			"callback_data": "Тип отделки и планировки"
+		}],
+		[
+		{
+			"text": "Галерея",
+			"callback_data": "Галерея"
+		},
+		{
+			"text": "Инфраструктура",
+			"callback_data": "Инфраструктура"
+		},
+		{
+			"text": "Корпусы ЖК",
+			"callback_data": "Корпусы ЖК"
+		}],
+		[
+		{
+			"text": "Вопросы и ответы",
+			"callback_data": "Вопросы и ответы"
+		},
+		{
+			"text": "Choose language",
+			"callback_data": "/start"
+		}],
+		[
+		{
+			"text": "Изучить документацию",
+			"callback_data": "Изучить документацию"
+		}]
+	]
+}
+
+
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "Деловой",
+			"callback_data": "Деловой"
+		},
+		{
+			"text": "Фитнес",
+			"callback_data": "Фитнес"
+		}],
+		[
+		{
+			"text": "text",
+			"callback_data": "text"
+		},
+		{
+			"text": "text",
+			"callback_data": "text"
+		}]
+	]
+}
+
+
 {
 	"inline_keyboard": [
 		[
