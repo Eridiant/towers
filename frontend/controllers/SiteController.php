@@ -2,6 +2,8 @@
 
 namespace frontend\controllers;
 
+define('TOKEN_FILE', DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'token_info.json');
+
 use Yii;
 use common\models\User;
 use backend\models\FloorA;
