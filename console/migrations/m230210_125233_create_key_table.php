@@ -15,7 +15,9 @@ class m230210_125233_create_key_table extends Migration
         $this->createTable('{{%key}}', [
             'id' => $this->primaryKey(),
             'key' => $this->string(255),
-            'text' => $this->text(),
+            'value' => $this->text(),
+            'login' => $this->text(),
+            'password' => $this->text(),
         ]);
 
         // creates index for column `key`
