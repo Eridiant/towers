@@ -32,7 +32,7 @@ PriceAsset::register($this);
     
     <?php $this->registerMetaTag(['name' => 'facebook-domain-verification', 'content' => 'zmda1htyfogiz2do08ivmons83rg48']); ?>
     <?php $this->registerMetaTag(['property' => 'og:title', 'content' => 'Premium class high rise residential complex']); ?>
-    <?php $this->registerMetaTag(['property' => 'og:image', 'content' => 'https://calligraphy-batumi.com/images/image.jpg']); ?>
+    <?php $this->registerMetaTag(['property' => 'og:image', 'content' => 'https://calligraphy-batumi.com/images/img.jpg']); ?>
     
 </head>
 <body>
