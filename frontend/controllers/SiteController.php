@@ -2,8 +2,6 @@
 
 namespace frontend\controllers;
 
-define('TOKEN_FILE', DIRECTORY_SEPARATOR . 'tmp' . DIRECTORY_SEPARATOR . 'token_info.json');
-
 use Yii;
 use common\models\User;
 use backend\models\FloorA;
@@ -169,7 +167,7 @@ class SiteController extends Controller
         $provider = new AmoCRM([
             'clientId' => 'xxx',
             'clientSecret' => 'xxx',
-            'redirectUri' => 'https://example.test',
+            'redirectUri' => 'https://calligraphy-batumi.com',
         ]);
         
         if (isset($_GET['referer'])) {
@@ -305,7 +303,10 @@ class SiteController extends Controller
                 'baseDomain' => $accessToken['baseDomain'],
             ];
 
-            file_put_contents(TOKEN_FILE, json_encode($data));
+            // file_put_contents(TOKEN_FILE, json_encode($data));
+            $key = Key::find()->where(['key' => 'date'])->one();
+            $key->value = json_encode($data);
+            $key->save();
         } else {
             exit('Invalid access token ' . var_export($accessToken, true));
         }
@@ -316,8 +317,10 @@ class SiteController extends Controller
      */
     protected function getToken()
     {
-        $accessToken = json_decode(file_get_contents(TOKEN_FILE), true);
-    
+        // $accessToken = json_decode(file_get_contents(TOKEN_FILE), true);
+        
+        $key = Key::find()->where(['key' => 'date'])->one();
+        $accessToken = json_decode($key->value);
         if (
             isset($accessToken)
             && isset($accessToken['accessToken'])
