@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "dmstr/yii2-adminlte-asset": "2.*",
         "mihaildev/yii2-ckeditor": "*",
-        "longman/telegram-bot": "^0.80.0"
+        "longman/telegram-bot": "^0.80.0",
+        "dotzero/amocrm": "^0.3.29"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
