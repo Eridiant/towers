@@ -18,6 +18,7 @@ use yii\web\NotFoundHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use Dotzero\Amocrm\AmoCRM;
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -26,6 +27,7 @@ use frontend\models\ContactForm;
 use frontend\models\Feedback;
 use frontend\models\UserIp;
 use frontend\models\SxGeo;
+use frontend\models\Key;
 use yii\web\HttpException;
 
 /**
@@ -159,6 +161,19 @@ class SiteController extends Controller
         return $country->getCityFull($ip);
     }
 
+    public function actionTest()
+    {
+        
+        $key = Key::find()->where(['key' => 'amoCrm'])->one();
+        var_dump('<pre>');
+        var_dump($key);
+        var_dump('</pre>');
+        die;
+        
+        return;
+        // AmoCRM
+    }
+
     public function actionAjax()
     {
 
@@ -190,6 +205,7 @@ class SiteController extends Controller
             $model->body = $request->post("body") . "," . $cntr . "," . $sity;
 
             if($model->save()){
+
                 Yii::$app->mailer->compose()
                     // ->setTo($mail['email'])
                     ->setTo($mail['email'])

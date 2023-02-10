@@ -59,6 +59,7 @@ return [
                 'pdf' => 'site/pdf',
                 'price' => 'site/price',
                 'swiper' => 'site/swiper',
+                'test' => 'site/test',
                 '<language:(ru|en)>/pdf' => 'site/pdf',
                 'layouts' => 'site/layouts',
                 '<language:(ru|en)>/layouts' => 'site/layouts',

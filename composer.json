@@ -21,7 +21,8 @@
         "dmstr/yii2-adminlte-asset": "2.*",
         "mihaildev/yii2-ckeditor": "*",
         "longman/telegram-bot": "^0.80.0",
-        "dotzero/amocrm": "^0.3.29"
+        "dotzero/amocrm": "^0.3.29",
+        "amocrm/oauth2-amocrm": "^2.0"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",
