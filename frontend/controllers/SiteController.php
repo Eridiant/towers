@@ -161,13 +161,13 @@ class SiteController extends Controller
         return $country->getCityFull($ip);
     }
 
-    public function actionTest()
+    public function actionAmocrm()
     {
 
         $provider = new AmoCRM([
             'clientId' => 'xxx',
             'clientSecret' => 'xxx',
-            'redirectUri' => 'https://calligraphy-batumi.com',
+            'redirectUri' => 'https://calligraphy-batumi.com/amocrm',
         ]);
         
         if (isset($_GET['referer'])) {
