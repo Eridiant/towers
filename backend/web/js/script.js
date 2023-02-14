@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // handle the response data here
                 let imgs = '';
                 data.images.forEach(el => {
-                    imgs += `<img src="/tg/${el.split('/tg/')[1]}" data-url="${el}" alt="${el.split('/tg/')[1]}">`
+                    imgs += `<img src="/tg/${el.split('/tg/')[1]}" data-url="${el.split('/tg/')[1]}" alt="${el.split('/tg/')[1]}">`
                 });
                 telegramImg.innerHTML = imgs;
             })
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let currentImg;
             if (currentImg = t.closest('.telegram-img img')) {
                 console.log(currentImg);
-                img.value = currentImg.dataset.url;
+                img.value = img.dataset.site + currentImg.dataset.url;
             }
             telegramImg.innerHTML = '';
         })

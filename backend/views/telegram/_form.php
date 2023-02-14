@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /** @var yii\web\View $this */
@@ -38,5 +39,5 @@ use yii\widgets\ActiveForm;
 
     <?php ActiveForm::end(); ?>
 
-    <div class="telegram-img"></div>
+    <div class="telegram-img" data-site="<?= Url::to(['@frontend/tg'], true); ?>"></div>
 </div>
