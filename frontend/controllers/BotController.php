@@ -99,7 +99,7 @@ class BotController extends Controller
     protected function sendPhoto($parse_mode = 'HTML', $headers = [])
     {
 
-        if (!empty($this->query->content->id) && TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->exist()) {
+        if (!empty($this->query->content->id)) {
             $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
         }
 
