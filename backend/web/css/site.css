@@ -105,3 +105,30 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+.content {
+    position: relative;
+}
+.telegram-img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 90%;
+    max-width: 90%;
+    max-height: 100%;
+    overflow: scroll;
+}
+.telegram-img img {
+    max-width: 400px;
+    width: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+.telegram-img:empty {
+    display: none;
+}
+

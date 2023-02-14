@@ -10,6 +10,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use Yii;
 
 /**
  * TelegramController implements the CRUD actions for TelegramContent model.
@@ -135,6 +136,18 @@ class TelegramController extends Controller
         return $this->render('update', [
             'model' => $model,
         ]);
+    }
+
+    public function actionChoseImage()
+    {
+        // $images = glob("images/swiper/*.*", GLOB_BRACE);
+        $images = glob(Yii::getAlias('@frontend') . "/web/tg/*.*", GLOB_BRACE);
+        // $images = glob("/backend/web/tg/*.*", GLOB_BRACE);
+        // $images = glob("/frontend/web/tg/*.*", GLOB_BRACE);
+        
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        return ['images' => $images];
     }
 
     private function forDel()

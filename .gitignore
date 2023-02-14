@@ -41,6 +41,7 @@ phpunit.phar
 /backend/web/index.php
 /backend/web/index-test.php
 /backend/web/robots.txt
+/backend/web/tg
 
 /frontend/web/images/blocks
 /frontend/web/video

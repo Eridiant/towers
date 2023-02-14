@@ -1,7 +1,6 @@
 window.addEventListener('load', () => {
     const status = document.querySelector('.apartments-status');
     if (status) {
-        console.log('st');
         status.addEventListener('submit', (e) => {
             e.preventDefault();
             let target = e.target;
@@ -18,6 +17,51 @@ window.addEventListener('load', () => {
         })
     }
 })
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const telegram = document.querySelector('#telegram');
+    if (telegram) {
+        const img = document.querySelector('#telegram .tg-img');
+        const telegramImg = document.querySelector('.telegram-img');
+
+        img.addEventListener('click', (e) => {
+            fetch('/admin/telegram/chose-image', {
+                method: 'POST', // replace with your request method
+                headers: {
+                    'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content, // replace with your actual CSRF token
+                    'Content-Type': 'application/json' // replace with your request content type
+                },
+                body: JSON.stringify({
+                    data: "New dodo pipizza"
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // handle the response data here
+                let imgs = '';
+                data.images.forEach(el => {
+                    imgs += `<img src="/tg/${el.split('/tg/')[1]}" data-url="${el}" alt="${el.split('/tg/')[1]}">`
+                });
+                telegramImg.innerHTML = imgs;
+            })
+            .catch(error => {
+                // handle any errors that occurred during the request
+                console.error(error);
+            });
+        })
+
+        telegram.addEventListener('click', (e) => {
+            let t = e.target;
+            let currentImg;
+            if (currentImg = t.closest('.telegram-img img')) {
+                console.log(currentImg);
+                img.value = currentImg.dataset.url;
+            }
+            telegramImg.innerHTML = '';
+        })
+    }
+});
 
 function rqstBlock(block, val) {
     let data = {'block':block, 'value':val};

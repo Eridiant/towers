@@ -8,7 +8,7 @@ use yii\widgets\ActiveForm;
 /** @var yii\widgets\ActiveForm $form */
 ?>
 
-<div class="telegram-content-form">
+<div id="telegram" class="telegram-content-form">
 
     <?php $form = ActiveForm::begin(); ?>
 
@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
             'document'=>'document'
     ]) ?>
 
-    <?= $form->field($model, 'photo')->textInput() ?>
+    <?= $form->field($model, 'photo')->textInput(['class' => 'form-control tg-img']) ?>
 
     <?= $form->field($model, 'video')->textInput() ?>
 
@@ -38,4 +38,5 @@ use yii\widgets\ActiveForm;
 
     <?php ActiveForm::end(); ?>
 
+    <div class="telegram-img"></div>
 </div>
