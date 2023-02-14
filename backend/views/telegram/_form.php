@@ -39,5 +39,5 @@ use yii\widgets\ActiveForm;
 
     <?php ActiveForm::end(); ?>
 
-    <div class="telegram-img" data-site="<?= Url::to(['@frontend/tg'], true); ?>"></div>
+    <div class="telegram-img" data-site="<?= Yii::getAlias('@frontend'); ?>"></div>
 </div>
