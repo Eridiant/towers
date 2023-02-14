@@ -76,6 +76,7 @@
                         ],
                     ],
                     ['label' => 'Заявки', 'icon' => 'envelope-open-o', 'url' => ['/feedback/index']],
+                    ['label' => 'Telegram', 'icon' => 'envelope-open-o', 'url' => ['/telegram/index']],
                     ['label' => 'Системные', 'options' => ['class' => 'header'], 'permission' => ['canSupper', 'canAdmin', 'canEditor']],
                     [
                         'label' => 'Локализация',

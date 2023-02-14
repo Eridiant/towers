@@ -44,6 +44,7 @@ phpunit.phar
 
 /frontend/web/images/blocks
 /frontend/web/video
+/frontend/web/tg
 
 ip.log
 
