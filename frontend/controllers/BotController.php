@@ -153,7 +153,7 @@ class BotController extends Controller
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
                 'caption' => $content->caption,
-                'animation'   => $content->photo,
+                'animation'   => empty($content->photo) ? $this->query->content->photo : $content->photo,
                 'reply_markup' => $content->reply_markup,
             ]);
 
@@ -187,7 +187,7 @@ class BotController extends Controller
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
                 'caption' => $content->caption,
-                'video'   => $content->photo,
+                'video'   => empty($content->photo) ? $this->query->content->photo : $content->photo,
                 'reply_markup' => $content->reply_markup,
             ]);
 
