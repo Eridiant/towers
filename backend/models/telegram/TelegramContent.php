@@ -125,7 +125,7 @@ class TelegramContent extends \yii\db\ActiveRecord
 
     public function updateMessage()
     {
-        if ($this->caption) {
+        if ($this->text) {
 
             if (!TelegramMessage::find()->where(['content_id' => $this->id, 'lang' => Yii::$app->request->get('lang')])->exists()) {
                 $media = new TelegramMessage();
@@ -135,7 +135,7 @@ class TelegramContent extends \yii\db\ActiveRecord
                 $media = TelegramMessage::find()->where(['content_id' => $this->id, 'lang' => Yii::$app->request->get('lang')])->one();
             }
 
-            $media->caption = $this->getCaption();
+            $media->text = $this->getText();
 
 
             if ($media->save()) {
