@@ -137,7 +137,6 @@ class TelegramContent extends \yii\db\ActiveRecord
 
             $media->text = $this->getText();
 
-
             if ($media->save()) {
                 return;
             } else {
