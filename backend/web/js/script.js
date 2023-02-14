@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let currentImg;
             if (currentImg = t.closest('.telegram-img img')) {
                 console.log(currentImg);
-                img.value = telegramImg.dataset.site + currentImg.dataset.url;
+                img.value = telegramImg.dataset.site.split('admin/')[0] + 'tg/' + currentImg.dataset.url;
             }
             telegramImg.innerHTML = '';
         })

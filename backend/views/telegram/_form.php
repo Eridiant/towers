@@ -7,6 +7,7 @@ use yii\widgets\ActiveForm;
 /** @var yii\web\View $this */
 /** @var backend\models\telegram\TelegramContent $model */
 /** @var yii\widgets\ActiveForm $form */
+
 ?>
 
 <div id="telegram" class="telegram-content-form">
@@ -39,5 +40,8 @@ use yii\widgets\ActiveForm;
 
     <?php ActiveForm::end(); ?>
 
-    <div class="telegram-img" data-site="<?= Yii::getAlias('@frontend'); ?>"></div>
+    <div><?= Url::to(['@frontend/site/index'], true); ?></div>
+
+    
+    <div class="telegram-img" data-site="<?= Url::to(['/site/index'], true); ?>"></div>
 </div>
