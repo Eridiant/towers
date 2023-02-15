@@ -22,7 +22,7 @@ class TelegramUser extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'cali_telegram_user';
+        return '{{%telegram_user}}';
     }
 
     /**
@@ -53,5 +53,15 @@ class TelegramUser extends \yii\db\ActiveRecord
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
+    }
+
+    /**
+     * Gets query for [[TelegramChats]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getChats()
+    {
+        return $this->hasMany(TelegramChat::class, ['user_id' => 'id']);
     }
 }

@@ -25,7 +25,7 @@ class TelegramImage extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'cali_telegram_image';
+        return '{{%telegram_image}}';
     }
 
     /**

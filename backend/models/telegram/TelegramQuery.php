@@ -21,7 +21,7 @@ class TelegramQuery extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'cali_telegram_query';
+        return '{{%telegram_query}}';
     }
 
     /**

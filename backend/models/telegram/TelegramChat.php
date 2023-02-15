@@ -21,7 +21,7 @@ class TelegramChat extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'cali_telegram_chat';
+        return '{{%telegram_chat}}';
     }
 
     /**

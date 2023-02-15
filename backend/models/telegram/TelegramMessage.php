@@ -24,7 +24,7 @@ class TelegramMessage extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'cali_telegram_message';
+        return '{{%telegram_message}}';
     }
 
     /**

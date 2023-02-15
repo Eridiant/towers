@@ -60,6 +60,13 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             telegramImg.innerHTML = '';
         })
+
+        const input = document.querySelector('#telegramcontent-caption');
+        const span = document.querySelector('.field-telegramcontent-caption label').appendChild(document.createElement('span'));
+        span.textContent = " " + input.value.length;
+        input.addEventListener('input', (e) => {
+            span.textContent = " " + input.value.length;
+        })
     }
 });
 
