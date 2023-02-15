@@ -22,6 +22,282 @@
 }
 
 
+
+{
+	"resize_keyboard": true,
+	"keyboard": [
+		[
+		{
+			"text": "Консультация online"
+		},
+		{
+			"text": "Оставить заявку"
+		}],
+		[
+		{
+			"text": "Контакты"
+		},
+		{
+			"text": "Инфраструктура"
+		},
+		{
+			"text": "Назад"
+		}],
+		[
+		{
+			"text": "Сервисы"
+		},
+		{
+			"text": "Корпусы ЖК"
+		},
+		{
+			"text": "В меню"
+		}]
+	]
+}
+
+{
+
+    "update_id":79577537,
+    "message":{
+        "message_id":1585,
+        "from":{
+            "id":1070950185,
+            "is_bot":false,
+            "first_name":"Eridiant",
+            "username":"Eridiant",
+            "language_code":"ru"
+        },
+        "chat":{
+            "id":1070950185,
+            "first_name":"Eridiant",
+            "username":"Eridiant",
+            "type":"private"
+        },
+        "date":1676468306,
+        "text":"В меню"
+    }
+
+}
+
+{
+
+    "update_id":79577534,
+    "callback_query":{
+        "id":"4599696022854293166",
+        "from":{
+            "id":1070950185,
+            "is_bot":false,
+            "first_name":"Eridiant",
+            "username":"Eridiant",
+            "language_code":"ru"
+        },
+        "message":{
+            "message_id":1576,
+            "from":{
+                "id":5851685742,
+                "is_bot":true,
+                "first_name":"clgfBot",
+                "username":"clgf_bot"
+            },
+            "chat":{
+                "id":1070950185,
+                "first_name":"Eridiant",
+                "username":"Eridiant",
+                "type":"private"
+            },
+            "date":1676460319,
+            "photo":[
+                {
+                    "file_id":"AgACAgQAAxkDAAIGKGPswR_PJvMH4YX38bwN_CQsGG8mAAJLsDEbRie9UjIzSd969FPbAQADAgADcwADLgQ",
+                    "file_unique_id":"AQADS7AxG0YnvVJ4",
+                    "file_size":948,
+                    "width":90,
+                    "height":51
+                },
+                {
+                    "file_id":"AgACAgQAAxkDAAIGKGPswR_PJvMH4YX38bwN_CQsGG8mAAJLsDEbRie9UjIzSd969FPbAQADAgADbQADLgQ",
+                    "file_unique_id":"AQADS7AxG0YnvVJy",
+                    "file_size":9529,
+                    "width":320,
+                    "height":180
+                },
+                {
+                    "file_id":"AgACAgQAAxkDAAIGKGPswR_PJvMH4YX38bwN_CQsGG8mAAJLsDEbRie9UjIzSd969FPbAQADAgADeAADLgQ",
+                    "file_unique_id":"AQADS7AxG0YnvVJ9",
+                    "file_size":38939,
+                    "width":800,
+                    "height":450
+                },
+                {
+                    "file_id":"AgACAgQAAxkDAAIGKGPswR_PJvMH4YX38bwN_CQsGG8mAAJLsDEbRie9UjIzSd969FPbAQADAgADeQADLgQ",
+                    "file_unique_id":"AQADS7AxG0YnvVJ-",
+                    "file_size":85653,
+                    "width":1280,
+                    "height":720
+                },
+                {
+                    "file_id":"AgACAgQAAxkDAAIGKGPswR_PJvMH4YX38bwN_CQsGG8mAAJLsDEbRie9UjIzSd969FPbAQADAgADdwADLgQ",
+                    "file_unique_id":"AQADS7AxG0YnvVJ8",
+                    "file_size":88082,
+                    "width":1920,
+                    "height":1080
+                }
+            ],
+            "caption":"“Grand Maison”- это строительная и инвестиционная компания Профиль компании: • Строительство и реконструкция государственных дорог, тоннелей, мостов • Производство и продажа строительных материалов • Строительство жилых комплексов • Смотрите информацию о завершенных и текущих тендерах",
+            "reply_markup":{
+                "inline_keyboard":[
+                    [
+                        {
+                            "text":"Компания застройщик",
+                            "callback_data":"Компания застройщик"
+                        }
+                    ],
+                    [
+                        {
+                            "text":"О Комплексе",
+                            "callback_data":"О Комплексе"
+                        },
+                        {
+                            "text":"Документы",
+                            "callback_data":"Документы"
+                        }
+                    ],
+                    [
+                        {
+                            "text":"Инвестиции",
+                            "callback_data":"Инвестиции"
+                        }
+                    ]
+                ]
+            }
+        },
+        "chat_instance":"6088013493985124044",
+        "data":"Инвестиции"
+    }
+
+}
+
+
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "О застройщике и проекте",
+			"callback_data": "О застройщике и проекте"
+		}],
+		[
+		{
+			"text": "Тип отделки и планировки",
+			"callback_data": "Тип отделки и планировки"
+		}],
+		[
+		{
+			"text": "Галерея",
+			"callback_data": "Галерея"
+		},
+		{
+			"text": "Изучить документацию",
+			"callback_data": "Изучить документацию"
+		}],
+		[
+		{
+			"text": "Вопросы и ответы",
+			"callback_data": "Вопросы и ответы"
+		},
+		{
+			"text": "Choose language",
+			"callback_data": "/start"
+		}]
+	]
+}
+
+
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "Компания застройщик",
+			"callback_data": "Компания застройщик"
+		}],
+		[
+		{
+			"text": "О Комплексе",
+			"callback_data": "О Комплексе"
+		},
+		{
+			"text": "Документы",
+			"callback_data": "Документы"
+		}],
+		[
+		{
+			"text": "Инвестиции",
+			"callback_data": "Инвестиции"
+		}]
+	]
+}
+
+
+{
+	"resize_keyboard": true,
+	"keyboard": [
+		[
+		{
+			"text": "Консультация online"
+		},
+		{
+			"text": "Оставить заявку"
+		}],
+		[
+		{
+			"text": "Контакты"
+		},
+		{
+			"text": "Инфраструктура"
+		}],
+		[
+		{
+			"text": "Сервисы"
+		},
+		{
+			"text": "Корпусы ЖК"
+		},
+		{
+			"text": "В меню"
+		}]
+	]
+}
+
+{
+	"resize_keyboard": true,
+	"keyboard": [
+		[
+		{
+			"text": "Консультация online"
+		},
+		{
+			"text": "Оставить заявку"
+		},
+		{
+			"text": "Инфраструктура"
+		}],
+		[
+        {
+            "text": "Контакты"
+        },
+		{
+			"text": "Сервисы"
+		},
+		{
+			"text": "Корпусы ЖК"
+		},
+		{
+			"text": "В меню"
+		}]
+	]
+}
+
+
 {
 	"inline_keyboard": [
 		[
