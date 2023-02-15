@@ -347,7 +347,7 @@ class BotController extends Controller
             if ($text === "Назад" || $text === "Назад") {
                 // $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
-                $parent_id = TelegramContent::find()->where('id = :id', [':id' => $this->user->last_visited_id])->one()->parent_id ?? 0;
+                $parent_id = TelegramContent::find()->where('id = :id', [':id' => $this->user->last_visited_id])->one()->parent_id;
 
                 $this->query = TelegramQuery::find()
                     ->where('content_id = :content_id')
