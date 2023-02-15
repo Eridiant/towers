@@ -337,7 +337,13 @@ class BotController extends Controller
         if (ctype_digit($text)) {
             $this->query = TelegramQuery::find()->where('id = :id', [':id' => $text])->one();
         } else {
-            $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
+            if ($text === "В меню" || $text === "Назад") {
+                $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
+
+                $this->query = TelegramQuery::find()->where(['content_id = :content_id', 'lang = :lang'], [':content_id' => $query->content->parent_id, ':lang' => 'ru'])->one();
+            } else {
+                $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
+            }
         }
 
 
