@@ -345,10 +345,10 @@ class BotController extends Controller
             $this->query = TelegramQuery::find()->where('id = :id', [':id' => $text])->one();
         } else {
             if ($text === "Назад" || $text === "Назад") {
-                $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
+                // $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
-                $parent_id = TelegramContent::find()->where('id = :id', [':id' => $this->user->last_visited_id])->one()->parent_id;
-                $this->query = TelegramQuery::find()->where(['content_id = :content_id', 'lang = :lang'], [':content_id' => $parent_id, ':lang' => 'ru'])->one();
+                // $parent_id = TelegramContent::find()->where('id = :id', [':id' => $this->user->last_visited_id])->one()->parent_id;
+                // $this->query = TelegramQuery::find()->where(['content_id = :content_id', 'lang = :lang'], [':content_id' => $parent_id, ':lang' => 'ru'])->one();
             } else {
                 $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
             }
