@@ -6,6 +6,8 @@ use backend\models\telegram\TelegramContent;
 use backend\models\telegram\TelegramImage;
 use backend\models\telegram\TelegramMessage;
 use backend\models\telegram\TelegramQuery;
+use backend\models\telegram\TelegramUser;
+use backend\models\telegram\TelegramChat;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

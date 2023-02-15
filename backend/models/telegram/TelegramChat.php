@@ -5,7 +5,7 @@ namespace backend\models\telegram;
 use Yii;
 
 /**
- * This is the model class for table "cali_telegram_userinf".
+ * This is the model class for table "cali_telegram_chat".
  *
  * @property int $id
  * @property int $user_id
@@ -14,14 +14,14 @@ use Yii;
  *
  * @property User $user
  */
-class TelegramUserinf extends \yii\db\ActiveRecord
+class TelegramChat extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return 'cali_telegram_userinf';
+        return 'cali_telegram_chat';
     }
 
     /**
