@@ -35,6 +35,8 @@ use frontend\models\telegram\TelegramQuery;
 use frontend\models\telegram\TelegramVideo;
 use frontend\models\telegram\TelegramImage;
 use frontend\models\telegram\TelegramMessage;
+use frontend\models\telegram\TelegramUser;
+use frontend\models\telegram\TelegramChat;
 /**
  * Site controller
  */
@@ -319,11 +321,15 @@ class BotController extends Controller
             $message = $update['message'];
             // Get chat ID and message text
             $this->chat_id = $message['chat']['id'];
+
+            $user_id = $update['message']["from"]["id"];
         } else if (isset($update['callback_query'])) {
             $message = $update['callback_query'];
             $this->chat_id = $message['message']['chat']['id'];
             // $message = $message['data'];
             $model->data2 = json_encode($message);
+
+            $user_id = $update['callback_query']["from"]["id"];
         }
 
         $text = isset($message['text']) ? $message['text'] : $message['data'];
@@ -333,6 +339,7 @@ class BotController extends Controller
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
+        $this->getUserById($user_id);
 
         if (ctype_digit($text)) {
             $this->query = TelegramQuery::find()->where('id = :id', [':id' => $text])->one();
@@ -340,12 +347,15 @@ class BotController extends Controller
             if ($text === "Назад" || $text === "Назад") {
                 $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
-                $this->query = TelegramQuery::find()->where(['content_id = :content_id', 'lang = :lang'], [':content_id' => $query->content->parent_id, ':lang' => 'ru'])->one();
+                $parent_id = TelegramContent::find()->where('id = :id', [':id' => $this->user->last_visited_id])->one()->parent_id;
+                $this->query = TelegramQuery::find()->where(['content_id = :content_id', 'lang = :lang'], [':content_id' => $parent_id, ':lang' => 'ru'])->one();
             } else {
                 $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
             }
         }
 
+        $this->user->last_visited_id = $this->query->content->id ?? 2;
+        $this->user->save();
 
         $model->data2 = isset($this->query->content->type_name) ? $this->query->content->type_name : "qqqqq";
         $model->save();
@@ -368,7 +378,6 @@ class BotController extends Controller
                 break;
 
             case 'location':
-
                 $this->sendLocation();
                 break;
 
@@ -608,5 +617,16 @@ class BotController extends Controller
         // $model->data2 = json_encode($res);
         // $model->save();
         // return;
+    }
+
+    protected function getUserById($id)
+    {
+        if (TelegramUser::find($id)->exists()) {
+            return $this->user = TelegramUser::find($id)->one();
+        }
+
+        $this->user = new TelegramUser($id);
+        $this->user->id = $id;
+        $this->user->last_visited_id = 0;
     }
 }

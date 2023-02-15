@@ -1,12 +1,12 @@
 <?php
 
-namespace backend\models\telegram;
+namespace frontend\models\telegram;
 
 use Yii;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the model class for table "cali_telegram_chat".
+ * This is the model class for table "{{%telegram_chat}}".
  *
  * @property int $id
  * @property int $user_id
