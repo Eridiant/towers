@@ -348,7 +348,10 @@ class BotController extends Controller
                 // $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
 
                 $parent_id = TelegramContent::find()->where('id = :id', [':id' => $this->user->last_visited_id])->one()->parent_id;
-                $this->query = TelegramQuery::find()->where(['content_id = :content_id', 'lang = :lang'], [':content_id' => $parent_id, ':lang' => 'ru'])->one();
+                $this->query = TelegramQuery::find()
+                    ->where(['content_id = :content_id', 'lang = :lang'])
+                    ->addParams([':content_id' => $parent_id, ':lang' => 'ru'])
+                    ->one();
             } else {
                 $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
             }
