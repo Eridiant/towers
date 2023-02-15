@@ -111,6 +111,16 @@ class BotController extends Controller
             $this->sendIntermediateMessage($this->query->query, $content->pre_markup);
         }
 
+        if (empty($content->photo)) {
+            if (empty($this->query->content->photo)) {
+                $photo = 'AgACAgQAAxkDAAIC2mPb6jnlvTf5PzSIuHOpRZGhR-e-AAJLsDEbRie9UjIzSd969FPbAQADAgADeQADLgQ';
+            } else {
+                $photo = $this->query->content->photo;
+            }
+        } else {
+            $photo = $content->photo;
+        }
+
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
@@ -119,7 +129,7 @@ class BotController extends Controller
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
                 'caption' => $content->caption,
-                'photo' => empty($content->photo) ? $this->query->content->photo : $content->photo,
+                'photo' => $photo,
                 'reply_markup' => $content->reply_markup,
             ]);
 
@@ -145,6 +155,16 @@ class BotController extends Controller
             $this->sendIntermediateMessage($this->query->query, $content->pre_markup);
         }
 
+        if (empty($content->photo)) {
+            if (empty($this->query->content->photo)) {
+                $photo = 'AgACAgQAAxkDAAIC2mPb6jnlvTf5PzSIuHOpRZGhR-e-AAJLsDEbRie9UjIzSd969FPbAQADAgADeQADLgQ';
+            } else {
+                $photo = $this->query->content->photo;
+            }
+        } else {
+            $photo = $content->photo;
+        }
+
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
@@ -153,7 +173,7 @@ class BotController extends Controller
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
                 'caption' => $content->caption,
-                'animation'   => empty($content->photo) ? $this->query->content->photo : $content->photo,
+                'animation'   => $photo,
                 'reply_markup' => $content->reply_markup,
             ]);
 
@@ -179,6 +199,16 @@ class BotController extends Controller
             $this->sendIntermediateMessage($this->query->query, $content->pre_markup);
         }
 
+        if (empty($content->photo)) {
+            if (empty($this->query->content->photo)) {
+                $photo = 'AgACAgQAAxkDAAIC2mPb6jnlvTf5PzSIuHOpRZGhR-e-AAJLsDEbRie9UjIzSd969FPbAQADAgADeQADLgQ';
+            } else {
+                $photo = $this->query->content->photo;
+            }
+        } else {
+            $photo = $content->photo;
+        }
+
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
@@ -187,7 +217,7 @@ class BotController extends Controller
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
                 'caption' => $content->caption,
-                'video'   => empty($content->photo) ? $this->query->content->photo : $content->photo,
+                'video'   => $photo,
                 'reply_markup' => $content->reply_markup,
             ]);
 
