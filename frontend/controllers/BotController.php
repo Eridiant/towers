@@ -419,11 +419,11 @@ class BotController extends Controller
                 ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2]])
                 // ->andWhere(['>=', 'created_at', time() - 900])
                 ->one();
-                $reply = "Введите пожалуйста Ваш номер телефона:";
-                $this->sendAnswer($reply);
-                $this->user->status = 1;
-                $inf->save();
-                $this->user->save();
+                // $reply = "Введите пожалуйста Ваш номер телефона:";
+                // $this->sendAnswer($reply);
+                // $this->user->status = 1;
+                // $inf->save();
+                // $this->user->save();
         } else {
             $inf = new TelegramInfo();
             $reply = "Введите пожалуйста Ваш номер телефона:";
