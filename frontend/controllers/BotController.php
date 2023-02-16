@@ -46,6 +46,8 @@ class BotController extends Controller
     private $bot_api_key;
     private $chat_id;
     private $query;
+    private $user;
+    private $update;
 
 
     public function behaviors()
@@ -393,6 +395,22 @@ class BotController extends Controller
 
         return;
 
+    }
+
+    protected function getUserById($id)
+    {
+        if (TelegramUser::find($id)->exists()) {
+            return $this->user = TelegramUser::find($id)->one();
+        }
+
+        $this->user = new TelegramUser();
+        $this->user->id = $id;
+        $this->user->last_visited_id = 0;
+    }
+
+    private function trash()
+    {
+
         // $array = array(
         //     'update_id' => '79576717',
         //     'callback_query' => array(
@@ -622,16 +640,5 @@ class BotController extends Controller
         // $model->data2 = json_encode($res);
         // $model->save();
         // return;
-    }
-
-    protected function getUserById($id)
-    {
-        if (TelegramUser::find($id)->exists()) {
-            return $this->user = TelegramUser::find($id)->one();
-        }
-
-        $this->user = new TelegramUser();
-        $this->user->id = $id;
-        $this->user->last_visited_id = 0;
     }
 }
