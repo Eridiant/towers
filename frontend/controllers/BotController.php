@@ -24,6 +24,7 @@ use frontend\models\TelegramLog;
 use yii\web\HttpException;
 use Longman\TelegramBot\Telegram;
 use Longman\TelegramBot\Request;
+use yii\helpers\HtmlPurifier;
 use frontend\models\telegram\TelegramContent;
 use frontend\models\telegram\TelegramQuery;
 use frontend\models\telegram\TelegramVideo;
@@ -457,7 +458,7 @@ class BotController extends Controller
         if (is_null($inf->name)) {
 
             $inf->num_attempts = 5;
-            $inf->num_attempts = \Yii::$app->db->makeStringSafe($inf->name);
+            $inf->num_attempts = HtmlPurifier::process($inf->name);
             if ($inf->save()) {
                 $reply = "Ваша заявка принята";
                 $this->sendAnswer($reply);
