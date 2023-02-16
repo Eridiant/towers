@@ -445,13 +445,13 @@ class BotController extends Controller
                     return;
                 }
             }
-            $inf->num_attempts = isset($inf->num_attempts) ? $inf->num_attempts + 1 : 0;
             if ($this->errorCounter($inf->num_attempts)) {
                 $reply = "Не правильный формат, попробуйте еще раз";
                 $this->sendAnswer($reply);
                 $inf->num_attempts += 1;
                 $inf->save();
             }
+            $inf->num_attempts = isset($inf->num_attempts) ? $inf->num_attempts + 1 : 0;
             return;
         }
 
@@ -470,6 +470,7 @@ class BotController extends Controller
                 $inf->num_attempts += 1;
                 $inf->save();
             }
+            $inf->num_attempts = isset($inf->num_attempts) ? $inf->num_attempts + 1 : 0;
             return;
         }
 
