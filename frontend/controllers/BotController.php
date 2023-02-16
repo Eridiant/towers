@@ -451,7 +451,6 @@ class BotController extends Controller
                 $inf->num_attempts += 1;
                 $inf->save();
             }
-            $inf->num_attempts = isset($inf->num_attempts) ? $inf->num_attempts + 1 : 0;
             return;
         }
 
@@ -470,7 +469,6 @@ class BotController extends Controller
                 $inf->num_attempts += 1;
                 $inf->save();
             }
-            $inf->num_attempts = isset($inf->num_attempts) ? $inf->num_attempts + 1 : 0;
             return;
         }
 
