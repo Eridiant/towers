@@ -411,12 +411,12 @@ class BotController extends Controller
     protected function fillContactForm()
     {
         $inf = TelegramInfo::find()
-            ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2]])
+            ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2, 3]])
             // ->andWhere(['>=', 'created_at', time() - 900])
             ->exists();
         if ($inf) {
             $inf = TelegramInfo::find()
-                ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2]])
+                ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2, 3]])
                 // ->andWhere(['>=', 'created_at', time() - 900])
                 ->one();
                 // $reply = "Введите пожалуйста Ваш номер телефона:";
@@ -446,7 +446,7 @@ class BotController extends Controller
                 }
             }
             if ($this->errorCounter($inf->num_attempts)) {
-                $reply = "Не правильный формат телефона, попробуйте еще раз{$inf->num_attempts}{$this->user->status}";
+                $reply = "Не правильный формат телефона, попробуйте еще раз";
                 $this->sendAnswer($reply);
                 $inf->num_attempts += 1;
                 $inf->save();
