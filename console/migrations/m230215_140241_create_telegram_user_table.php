@@ -18,6 +18,8 @@ class m230215_140241_create_telegram_user_table extends Migration
             'username' => $this->string(255),
             'lang' => $this->string(24),
             'last_visited_id' => $this->smallInteger(),
+            'status' => $this->tinyInteger()->notNull()->defaultValue(0),
+            'timestamp' => $this->integer(11),
             'created_at' => $this->integer(11)->notNull(),
             'updated_at' => $this->integer(11),
             'PRIMARY KEY(id)',

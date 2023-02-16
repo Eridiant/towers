@@ -18,8 +18,11 @@ class m230215_171358_create_telegram_info_table extends Migration
         $this->createTable('{{%telegram_info}}', [
             'id' => $this->primaryKey(),
             'user_id' => $this->integer()->notNull(),
+            'name' => $this->string(255),
             'phone' => $this->string(50),
             'mail' => $this->string(320),
+            'num_attempts' => $this->tinyInteger()->notNull()->defaultValue(0),
+            'created_at' => $this->integer(11)->notNull(),
         ]);
 
         // creates index for column `user_id`
@@ -34,7 +37,7 @@ class m230215_171358_create_telegram_info_table extends Migration
             '{{%fk-telegram_info-user_id}}',
             '{{%telegram_info}}',
             'user_id',
-            '{{%user}}',
+            '{{%telegram_user}}',
             'id',
             'CASCADE'
         );

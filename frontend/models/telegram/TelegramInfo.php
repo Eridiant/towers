@@ -6,24 +6,26 @@ use Yii;
 use yii\behaviors\TimestampBehavior;
 
 /**
- * This is the model class for table "{{%telegram_chat}}".
+ * This is the model class for table "{{%telegram_info}}".
  *
  * @property int $id
  * @property int $user_id
- * @property int $type
- * @property string|null $text
+ * @property string|null $name
+ * @property string|null $phone
+ * @property string|null $mail
+ * @property int $num_attempts
  * @property int $created_at
  *
  * @property User $user
  */
-class TelegramChat extends \yii\db\ActiveRecord
+class TelegramInfo extends \yii\db\ActiveRecord
 {
     /**
      * {@inheritdoc}
      */
     public static function tableName()
     {
-        return '{{%telegram_chat}}';
+        return '{{%telegram_info}}';
     }
 
     /**
@@ -32,9 +34,11 @@ class TelegramChat extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'type'], 'required'],
-            [['user_id', 'type', 'created_at'], 'integer'],
-            [['text'], 'string'],
+            [['user_id'], 'required'],
+            [['user_id', 'num_attempts', 'created_at'], 'integer'],
+            [['name'], 'string', 'max' => 255],
+            [['phone'], 'string', 'max' => 50],
+            [['mail'], 'string', 'max' => 320],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -60,8 +64,10 @@ class TelegramChat extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'user_id' => 'User ID',
-            'type' => 'Type',
-            'text' => 'Text',
+            'name' => 'Name',
+            'phone' => 'Phone',
+            'mail' => 'Mail',
+            'num_attempts' => 'Num Attempts',
             'created_at' => 'Created At',
         ];
     }

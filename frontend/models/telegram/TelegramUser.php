@@ -13,6 +13,8 @@ use yii\behaviors\TimestampBehavior;
  * @property string|null $username
  * @property string|null $lang
  * @property int|null $last_visited_id
+ * @property int $status
+ * @property int|null $timestamp
  * @property int $created_at
  * @property int|null $updated_at
  */
@@ -33,7 +35,7 @@ class TelegramUser extends \yii\db\ActiveRecord
     {
         return [
             [['id'], 'required'],
-            [['id', 'last_visited_id', 'created_at', 'updated_at'], 'integer'],
+            [['id', 'last_visited_id', 'status', 'timestamp', 'created_at', 'updated_at'], 'integer'],
             [['first_name', 'username'], 'string', 'max' => 255],
             [['lang'], 'string', 'max' => 24],
             [['id'], 'unique'],
@@ -65,18 +67,30 @@ class TelegramUser extends \yii\db\ActiveRecord
             'username' => 'Username',
             'lang' => 'Lang',
             'last_visited_id' => 'Last Visited ID',
+            'status' => 'Status',
+            'timestamp' => 'Timestamp',
             'created_at' => 'Created At',
             'updated_at' => 'Updated At',
         ];
     }
 
     /**
-     * Gets query for [[TelegramChats]].
+     * Gets query for [[TelegramChat]].
      *
      * @return \yii\db\ActiveQuery
      */
     public function getChats()
     {
         return $this->hasMany(TelegramChat::class, ['user_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[TelegramInfo]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getInfos()
+    {
+        return $this->hasMany(TelegramInfo::class, ['user_id' => 'id']);
     }
 }
