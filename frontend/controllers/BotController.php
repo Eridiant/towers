@@ -441,6 +441,12 @@ class BotController extends Controller
                 }
             }
             $inf->num_attempts = isset($inf->num_attempts) ? $inf->num_attempts + 1 : 0;
+        } else if ($this->errorCounter($inf->num_attempts)) {
+            $reply = "Не правильный формат, попробуйте еще раз";
+            $this->sendAnswer($reply);
+            $inf->num_attempts += 1;
+            $inf->save();
+            return;
         }
 
         if (is_null($inf->mail)) {
@@ -453,6 +459,12 @@ class BotController extends Controller
                     return;
                 }
             }
+        } else if ($this->errorCounter($inf->num_attempts)) {
+            $reply = "Не правильный формат, попробуйте еще раз";
+            $this->sendAnswer($reply);
+            $inf->num_attempts += 1;
+            $inf->save();
+            return;
         }
 
         if (is_null($inf->name)) {
@@ -466,16 +478,17 @@ class BotController extends Controller
                 $this->user->save();
                 return;
             }
-        }
-
-
-
-        if ($this->errorCounter($inf->num_attempts)) {
-            $reply = "Не правильный формат, попробуйте еще раз";
+        } else if ($this->errorCounter($inf->num_attempts)) {
+            $reply = "Введите не пустое имя";
             $this->sendAnswer($reply);
+            $inf->num_attempts += 1;
             $inf->save();
+            return;
         }
-        return;
+
+
+
+        
     }
 
     protected function errorCounter($error)
