@@ -471,19 +471,20 @@ class BotController extends Controller
         if (is_null($inf->name)) {
 
             $inf->num_attempts = 5;
-            $inf->num_attempts = HtmlPurifier::process($inf->name);
+            // $inf->num_attempts = HtmlPurifier::process($inf->name);
+            $inf->name = $inf->name;
             if ($inf->save()) {
                 $reply = "Ваша заявка принята";
                 $this->sendAnswer($reply);
                 $this->user->status = 0;
                 $this->user->save();
                 return;
+            } else if ($this->errorCounter($inf->num_attempts)) {
+                $reply = "Введите не пустое имя";
+                $this->sendAnswer($reply);
+                $inf->num_attempts += 1;
+                $inf->save();
             }
-        } else if ($this->errorCounter($inf->num_attempts)) {
-            $reply = "Введите не пустое имя";
-            $this->sendAnswer($reply);
-            $inf->num_attempts += 1;
-            $inf->save();
             return;
         }
 
