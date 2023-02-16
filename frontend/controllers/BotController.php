@@ -493,7 +493,7 @@ class BotController extends Controller
 
             $result = Request::sendMessage([
                 'chat_id' => $this->chat_id,
-                'text'   => $$answer,
+                'text' => $answer,
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
