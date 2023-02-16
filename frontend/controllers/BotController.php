@@ -405,7 +405,7 @@ class BotController extends Controller
         }
 
         $this->user = new TelegramUser();
-        $this->user->id = $id;
+        $this->user->id = $this->update["id"];
         $this->user->username = $this->update["username"];
         $this->user->first_name = $this->update["first_name"];
         $this->user->last_visited_id = 0;
