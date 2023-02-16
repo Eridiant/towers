@@ -32,7 +32,7 @@ class m230215_171358_create_telegram_info_table extends Migration
             'user_id'
         );
 
-        // add foreign key for table `{{%user}}`
+        // add foreign key for table `{{%telegram_user}}`
         $this->addForeignKey(
             '{{%fk-telegram_info-user_id}}',
             '{{%telegram_info}}',
@@ -48,7 +48,7 @@ class m230215_171358_create_telegram_info_table extends Migration
      */
     public function safeDown()
     {
-        // drops foreign key for table `{{%user}}`
+        // drops foreign key for table `{{%telegram_user}}`
         $this->dropForeignKey(
             '{{%fk-telegram_info-user_id}}',
             '{{%telegram_info}}'

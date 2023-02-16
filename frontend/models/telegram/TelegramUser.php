@@ -75,7 +75,7 @@ class TelegramUser extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[TelegramChat]].
+     * Gets query for [[TelegramChats]].
      *
      * @return \yii\db\ActiveQuery
      */
@@ -85,11 +85,11 @@ class TelegramUser extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[TelegramInfo]].
+     * Gets query for [[TelegramInfos]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getInfos()
+    public function getInfs()
     {
         return $this->hasMany(TelegramInfo::class, ['user_id' => 'id']);
     }

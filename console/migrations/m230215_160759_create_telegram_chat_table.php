@@ -30,12 +30,12 @@ class m230215_160759_create_telegram_chat_table extends Migration
             'user_id'
         );
 
-        // add foreign key for table `{{%user}}`
+        // add foreign key for table `{{%telegram_user}}`
         $this->addForeignKey(
             '{{%fk-telegram_chat-user_id}}',
             '{{%telegram_chat}}',
             'user_id',
-            '{{%user}}',
+            '{{%telegram_user}}',
             'id',
             'CASCADE'
         );
@@ -46,7 +46,7 @@ class m230215_160759_create_telegram_chat_table extends Migration
      */
     public function safeDown()
     {
-        // drops foreign key for table `{{%user}}`
+        // drops foreign key for table `{{%telegram_user}}`
         $this->dropForeignKey(
             '{{%fk-telegram_chat-user_id}}',
             '{{%telegram_chat}}'

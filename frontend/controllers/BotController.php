@@ -4,12 +4,6 @@ namespace frontend\controllers;
 
 use Yii;
 use common\models\User;
-use backend\models\FloorA;
-use backend\models\FloorB;
-use backend\models\FloorC;
-use backend\models\ApartmentsA;
-use backend\models\ApartmentsB;
-use backend\models\ApartmentsC;
 use frontend\models\ResendVerificationEmailForm;
 use frontend\models\VerifyEmailForm;
 use yii\base\InvalidArgumentException;
@@ -37,6 +31,7 @@ use frontend\models\telegram\TelegramImage;
 use frontend\models\telegram\TelegramMessage;
 use frontend\models\telegram\TelegramUser;
 use frontend\models\telegram\TelegramChat;
+use frontend\models\telegram\TelegramInfo;
 /**
  * Site controller
  */
@@ -314,9 +309,6 @@ class BotController extends Controller
 
         $model = new TelegramLog();
 
-
-        $model->data3 = json_encode($update);
-
         // $message = isset($update['message']) ? $update['message'] :  $update['callback_query'];
         if (isset($update['message'])) {
             $message = $update['message'];
@@ -333,14 +325,18 @@ class BotController extends Controller
             $this->update = $update['callback_query'];
         }
 
+        $this->getUserById();
+
         $text = isset($message['text']) ? $message['text'] : $message['data'];
+        if ($text === "Оставить заявку" || $this->user->status === 1) {
+            $this->fillContactForm();
+        }
+
 
         $model->data = json_encode($update);
         $model->data1 = mb_strtolower($text, 'UTF-8');
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
-
-        $this->getUserById();
 
         if (ctype_digit($text)) {
             $this->query = TelegramQuery::find()->where('id = :id', [':id' => $text])->one();
@@ -408,6 +404,103 @@ class BotController extends Controller
         $this->user->first_name = $this->update["from"]["first_name"];
         $this->user->last_visited_id = 0;
         $this->user->lang = $this->update["from"]["language_code"];
+    }
+
+    protected function fillContactForm()
+    {
+        $inf = TelegramInfo::find()
+        ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2]])
+        ->andWhere(['>=', 'created_at', time() - 900])
+        ->exists();
+        if ($inf) {
+            $inf = TelegramInfo::find()
+                ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2]])
+                ->andWhere(['>=', 'created_at', time() - 900])
+                ->one();
+        } else {
+            $inf = new TelegramInfo();
+            $reply = "Введите пожалуйста Ваш номер телефона:";
+            $this->user->status = 1;
+            $this->user->save();
+            $this->sendAnswer($reply);
+            return;
+        }
+
+        if (is_null($inf->phone)) {
+            if (preg_match("/\+?\d{11}/", $this->update["text"], $matches)) {
+                $inf->phone = $matches[0];
+                $inf->num_attempts = 0;
+                if ($inf->save()) {
+                    $reply = "Введите пожалуйста Ваш емайл:";
+                    $this->sendAnswer($reply);
+                    return;
+                }
+            }
+            $inf->num_attempts = isset($inf->num_attempts) ? $inf->num_attempts + 1 : 0;
+        }
+
+        if (is_null($inf->mail)) {
+            if (filter_var($this->update["text"], FILTER_VALIDATE_EMAIL)) {
+                $inf->mail = $this->update["text"];
+                $inf->num_attempts = 0;
+                if ($inf->save()) {
+                    $reply = "Введите пожалуйста Ваше имя:";
+                    $this->sendAnswer($reply);
+                    return;
+                }
+            }
+        }
+
+        if (is_null($inf->name)) {
+
+            $inf->num_attempts = 5;
+            $inf->num_attempts = \Yii::$app->db->makeStringSafe($inf->name);
+            if ($inf->save()) {
+                $reply = "Ваша заявка принята";
+                $this->sendAnswer($reply);
+                $this->user->status = 0;
+                $this->user->save();
+                return;
+            }
+        }
+
+
+
+        if ($this->errorCounter($inf->num_attempts)) {
+            $reply = "Не правильный формат, попробуйте еще раз";
+            $this->sendAnswer($reply);
+            $inf->save();
+        }
+        return;
+    }
+
+    protected function errorCounter($error)
+    {
+        if ($error > 2){
+            $this->sendPhoto();
+            $this->user->status = 0;
+            $this->user->save();
+            return 0;
+        }
+        return 1;
+    }
+
+    protected function sendAnswer($answer)
+    {
+        try {
+            // Create Telegram API object
+            $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
+
+            $result = Request::sendMessage([
+                'chat_id' => $this->chat_id,
+                'text'   => $$answer,
+            ]);
+
+        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+            $model = new TelegramLog();
+            $model->data = $e->getMessage();
+            $model->save();
+        }
     }
 
     private function trash()
