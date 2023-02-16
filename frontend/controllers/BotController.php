@@ -446,7 +446,7 @@ class BotController extends Controller
                 }
             }
             if ($this->errorCounter($inf->num_attempts)) {
-                $reply = "Не правильный формат телефона, попробуйте еще раз";
+                $reply = "Не правильный формат телефона, попробуйте еще раз{$inf->num_attempts}{$this->user->status}";
                 $this->sendAnswer($reply);
                 $inf->num_attempts += 1;
                 $inf->save();
