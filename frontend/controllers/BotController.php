@@ -426,8 +426,8 @@ class BotController extends Controller
             $inf->user_id = $this->user->id;
             if ($inf->save()) {
                 $reply = "Введите пожалуйста Ваш номер телефона:";
-                $this->user->status = 1;
-                $this->user->save();
+                // $this->user->status = 1;
+                // $this->user->save();
                 $this->sendAnswer($reply);
             }
             return;
