@@ -424,8 +424,8 @@ class BotController extends Controller
             $inf->user_id = $this->user->id;
             $this->user->status = 1;
             $this->user->save();
-            // $inf->save();
             $this->sendAnswer($reply);
+            $inf->save();
             return;
         }
 
