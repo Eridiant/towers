@@ -420,6 +420,8 @@ class BotController extends Controller
         } else {
             $inf = new TelegramInfo();
             $reply = "Введите пожалуйста Ваш номер телефона:";
+            $inf->user_id = $this->user->id;
+            $inf->save();
             $this->user->status = 1;
             $this->user->save();
             $this->sendAnswer($reply);
