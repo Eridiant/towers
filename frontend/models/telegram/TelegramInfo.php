@@ -77,8 +77,8 @@ class TelegramInfo extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getUser()
-    {
-        return $this->hasOne(TelegramUser::class, ['id' => 'user_id']);
-    }
+    // public function getUser()
+    // {
+    //     return $this->hasOne(TelegramUser::class, ['id' => 'user_id']);
+    // }
 }
