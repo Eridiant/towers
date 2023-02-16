@@ -414,7 +414,7 @@ class BotController extends Controller
     {
         $inf = TelegramInfo::find()
         ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2]])
-        ->andWhere(['>=', 'created_at', time() - 900])
+        // ->andWhere(['>=', 'created_at', time() - 900])
         ->exists();
         if ($inf) {
             $inf = TelegramInfo::find()
@@ -423,7 +423,7 @@ class BotController extends Controller
                 ->one();
         } else {
             $inf = new TelegramInfo();
-            $inf->user_id = 1;
+            $inf->user_id = $this->user->id;
             if ($inf->save()) {
                 $reply = "Введите пожалуйста Ваш номер телефона:";
                 $this->user->status = 1;
