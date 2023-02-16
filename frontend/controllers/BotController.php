@@ -424,6 +424,10 @@ class BotController extends Controller
                 // $this->user->status = 1;
                 // $inf->save();
                 // $this->user->save();
+            if ($inf->num_attempts > 2) {
+                $inf->num_attempts = 5;
+                $inf->save();
+            }
         } else {
             $inf = new TelegramInfo();
             $reply = "Введите пожалуйста Ваш номер телефона:";
