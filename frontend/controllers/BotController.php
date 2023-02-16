@@ -421,9 +421,9 @@ class BotController extends Controller
             $inf = new TelegramInfo();
             $reply = "Введите пожалуйста Ваш номер телефона:";
             $inf->user_id = $this->user->id;
-            $inf->save();
             $this->user->status = 1;
             $this->user->save();
+            $inf->save();
             $this->sendAnswer($reply);
             return;
         }
