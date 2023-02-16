@@ -323,16 +323,14 @@ class BotController extends Controller
             // Get chat ID and message text
             $this->chat_id = $message['chat']['id'];
 
-            $user_id = $update['message']["from"]["id"];
-            $this->update = $update['message']["from"];
+            $this->update = $update['message'];
         } else if (isset($update['callback_query'])) {
             $message = $update['callback_query'];
             $this->chat_id = $message['message']['chat']['id'];
             // $message = $message['data'];
             $model->data2 = json_encode($message);
 
-            $user_id = $update['callback_query']["from"]["id"];
-            $this->update = $update['callback_query']["from"];
+            $this->update = $update['callback_query'];
         }
 
         $text = isset($message['text']) ? $message['text'] : $message['data'];
@@ -400,16 +398,16 @@ class BotController extends Controller
 
     protected function getUserById()
     {
-        if (TelegramUser::find($this->update["id"])->exists()) {
-            return $this->user = TelegramUser::find($this->update["id"])->one();
+        if (TelegramUser::find($this->update["from"]["id"])->exists()) {
+            return $this->user = TelegramUser::find($this->update["from"]["id"])->one();
         }
 
         $this->user = new TelegramUser();
-        $this->user->id = $this->update["id"];
-        $this->user->username = $this->update["username"];
-        $this->user->first_name = $this->update["first_name"];
+        $this->user->id = $this->update["from"]["id"];
+        $this->user->username = $this->update["from"]["username"];
+        $this->user->first_name = $this->update["from"]["first_name"];
         $this->user->last_visited_id = 0;
-        $this->user->lang = $this->update["language_code"];
+        $this->user->lang = $this->update["from"]["language_code"];
     }
 
     private function trash()
