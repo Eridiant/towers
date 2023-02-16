@@ -502,9 +502,9 @@ class BotController extends Controller
     protected function errorCounter($error)
     {
         if ($error > 2){
-            $this->sendPhoto();
             $this->user->status = 0;
             $this->user->save();
+            $this->sendPhoto();
             return 0;
         }
         return 1;
