@@ -312,7 +312,6 @@ class BotController extends Controller
 
         $update = json_decode(file_get_contents('php://input'), true);
 
-
         $model = new TelegramLog();
 
 
@@ -325,6 +324,7 @@ class BotController extends Controller
             $this->chat_id = $message['chat']['id'];
 
             $user_id = $update['message']["from"]["id"];
+            $this->update = $update['message']["from"];
         } else if (isset($update['callback_query'])) {
             $message = $update['callback_query'];
             $this->chat_id = $message['message']['chat']['id'];
@@ -332,6 +332,7 @@ class BotController extends Controller
             $model->data2 = json_encode($message);
 
             $user_id = $update['callback_query']["from"]["id"];
+            $this->update = $update['callback_query']["from"];
         }
 
         $text = isset($message['text']) ? $message['text'] : $message['data'];
@@ -341,7 +342,7 @@ class BotController extends Controller
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
-        $this->getUserById($user_id);
+        $this->getUserById();
 
         if (ctype_digit($text)) {
             $this->query = TelegramQuery::find()->where('id = :id', [':id' => $text])->one();
@@ -397,15 +398,18 @@ class BotController extends Controller
 
     }
 
-    protected function getUserById($id)
+    protected function getUserById()
     {
-        if (TelegramUser::find($id)->exists()) {
-            return $this->user = TelegramUser::find($id)->one();
+        if (TelegramUser::find($this->update["id"])->exists()) {
+            return $this->user = TelegramUser::find($this->update["id"])->one();
         }
 
         $this->user = new TelegramUser();
         $this->user->id = $id;
+        $this->user->username = $this->update["username"];
+        $this->user->first_name = $this->update["first_name"];
         $this->user->last_visited_id = 0;
+        $this->user->lang = $this->update["language_code"];
     }
 
     private function trash()
