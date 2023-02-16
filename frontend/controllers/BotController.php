@@ -330,7 +330,6 @@ class BotController extends Controller
         $text = isset($message['text']) ? $message['text'] : $message['data'];
         if ($text === "Оставить заявку" || $this->user->status === 1) {
             $this->fillContactForm();
-            return;
         }
 
 
@@ -405,16 +404,13 @@ class BotController extends Controller
         $this->user->first_name = $this->update["from"]["first_name"];
         $this->user->last_visited_id = 0;
         $this->user->lang = $this->update["from"]["language_code"];
-        try {
-            $this->user->save();
-        } catch (\Exception $e) {}
     }
 
     protected function fillContactForm()
     {
         $inf = TelegramInfo::find()
         ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2]])
-        // ->andWhere(['>=', 'created_at', time() - 900])
+        ->andWhere(['>=', 'created_at', time() - 900])
         ->exists();
         if ($inf) {
             $inf = TelegramInfo::find()
@@ -423,13 +419,10 @@ class BotController extends Controller
                 ->one();
         } else {
             $inf = new TelegramInfo();
-            $inf->user_id = $this->user->id;
-            if ($inf->save()) {
-                $reply = "Введите пожалуйста Ваш номер телефона:";
-                // $this->user->status = 1;
-                // $this->user->save();
-                $this->sendAnswer($reply);
-            }
+            $reply = "Введите пожалуйста Ваш номер телефона:";
+            $this->user->status = 1;
+            $this->user->save();
+            $this->sendAnswer($reply);
             return;
         }
 
