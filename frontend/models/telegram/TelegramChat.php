@@ -14,7 +14,7 @@ use yii\behaviors\TimestampBehavior;
  * @property string|null $text
  * @property int $created_at
  *
- * @property User $user
+ * @property TelegramUser $user
  */
 class TelegramChat extends \yii\db\ActiveRecord
 {
@@ -35,7 +35,7 @@ class TelegramChat extends \yii\db\ActiveRecord
             [['user_id', 'type'], 'required'],
             [['user_id', 'type', 'created_at'], 'integer'],
             [['text'], 'string'],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => TelegramUser::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 

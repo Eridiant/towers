@@ -39,7 +39,7 @@ class TelegramInfo extends \yii\db\ActiveRecord
             [['name'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 50],
             [['mail'], 'string', 'max' => 320],
-            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
+            [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => TelegramUser::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
 
