@@ -423,9 +423,9 @@ class BotController extends Controller
             $reply = "Введите пожалуйста Ваш номер телефона:";
             $inf->user_id = $this->user->id;
             $this->user->status = 1;
-            $this->user->save();
             $this->sendAnswer($reply);
             $inf->save();
+            $this->user->save();
             return;
         }
 
