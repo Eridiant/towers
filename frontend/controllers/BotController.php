@@ -405,6 +405,9 @@ class BotController extends Controller
         $this->user->first_name = $this->update["from"]["first_name"];
         $this->user->last_visited_id = 0;
         $this->user->lang = $this->update["from"]["language_code"];
+        try {
+            $this->user->save();
+        } catch (\Exception $e) {}
     }
 
     protected function fillContactForm()
@@ -420,7 +423,7 @@ class BotController extends Controller
                 ->one();
         } else {
             $inf = new TelegramInfo();
-            $inf->user_id = $this->user->id;
+            $inf->user_id = 1;
             if ($inf->save()) {
                 $reply = "Введите пожалуйста Ваш номер телефона:";
                 $this->user->status = 1;
