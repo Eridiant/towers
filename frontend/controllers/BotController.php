@@ -425,7 +425,7 @@ class BotController extends Controller
             $this->user->status = 1;
             $this->sendAnswer($reply);
             $this->user->save();
-            $inf->save();
+            // $inf->save();
             return;
         }
 
