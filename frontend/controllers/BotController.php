@@ -446,7 +446,7 @@ class BotController extends Controller
                 }
             }
             if ($this->errorCounter($inf->num_attempts)) {
-                $reply = "Не правильный формат, попробуйте еще раз";
+                $reply = "Не правильный формат телефона, попробуйте еще раз";
                 $this->sendAnswer($reply);
                 $inf->num_attempts += 1;
                 $inf->save();
@@ -455,7 +455,7 @@ class BotController extends Controller
         }
 
         if (is_null($inf->mail)) {
-            if (filter_var($this->update["text"], FILTER_VALIDATE_EMAIL) || true) {
+            if (filter_var($this->update["text"], FILTER_VALIDATE_EMAIL)) {
                 $inf->mail = $this->update["text"];
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
@@ -464,7 +464,7 @@ class BotController extends Controller
                     return;
                 }
             } else if ($this->errorCounter($inf->num_attempts)) {
-                $reply = "Не правильный формат, попробуйте еще раз";
+                $reply = "Не правильный формат почты, попробуйте еще раз";
                 $this->sendAnswer($reply);
                 $inf->num_attempts += 1;
                 $inf->save();
