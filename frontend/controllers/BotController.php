@@ -358,7 +358,7 @@ class BotController extends Controller
             }
         }
 
-        $this->user->last_visited_id = isset($this->query->content->id) ? $this->query->content->id : 2;
+        $this->user->last_visited_id = $this->query->content->id ?? 2;
         $this->user->save();
 
         $model->data2 = isset($this->query->content->type_name) ? $this->query->content->type_name : "qqqqq";
