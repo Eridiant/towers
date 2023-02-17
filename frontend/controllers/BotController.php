@@ -403,10 +403,10 @@ class BotController extends Controller
 
         $this->user = new TelegramUser();
         $this->user->id = $this->update["from"]["id"];
-        $this->user->username = $this->update["from"]["username"];
-        $this->user->first_name = $this->update["from"]["first_name"];
+        $this->user->username = $this->update["from"]["username"] ?? "_";
+        $this->user->first_name = $this->update["from"]["first_name"] ?? "_";
         $this->user->last_visited_id = 0;
-        $this->user->lang = $this->update["from"]["language_code"];
+        $this->user->lang = $this->update["from"]["language_code"] ?? "ru";
     }
 
     protected function fillContactForm()
