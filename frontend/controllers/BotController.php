@@ -359,7 +359,13 @@ class BotController extends Controller
         }
 
         $this->user->last_visited_id = $this->query->content->id ?? 2;
-        $this->user->save();
+        try {
+            $this->user->save();
+        } catch (\Throwable $th) {
+            $model = new TelegramLog();
+            $model->data = json_encode($th->getMessage());
+            $model->save();
+        }
 
         $model->data2 = isset($this->query->content->type_name) ? $this->query->content->type_name : "qqqqq";
         // $model->data3 = $this->query->id ?? "qu";
@@ -434,7 +440,13 @@ class BotController extends Controller
             $this->user->status = 1;
             $this->sendAnswer($reply);
             $inf->save();
-            $this->user->save();
+            try {
+                $this->user->save();
+            } catch (\Throwable $th) {
+                $model = new TelegramLog();
+                $model->data = json_encode($th->getMessage());
+                $model->save();
+            }
             return;
         }
 
@@ -484,7 +496,13 @@ class BotController extends Controller
                 $reply = "Ваша заявка принята";
                 $this->sendAnswer($reply);
                 $this->user->status = 0;
-                $this->user->save();
+                try {
+                    $this->user->save();
+                } catch (\Throwable $th) {
+                    $model = new TelegramLog();
+                    $model->data = json_encode($th->getMessage());
+                    $model->save();
+                }
                 return;
             } else if ($this->errorCounter($inf->num_attempts)) {
                 $reply = "Введите не пустое имя";
@@ -504,7 +522,13 @@ class BotController extends Controller
     {
         if ($error > 2){
             $this->user->status = 0;
-            $this->user->save();
+            try {
+                $this->user->save();
+            } catch (\Throwable $th) {
+                $model = new TelegramLog();
+                $model->data = json_encode($th->getMessage());
+                $model->save();
+            }
             $this->sendPhoto();
             return 0;
         }
