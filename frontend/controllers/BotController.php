@@ -397,8 +397,8 @@ class BotController extends Controller
 
     protected function getUserById()
     {
-        if (TelegramUser::find($this->update["from"]["id"])->exists()) {
-            return $this->user = TelegramUser::find($this->update["from"]["id"])->one();
+        if (TelegramUser::find()->where(['id' => $this->update["from"]["id"]])->exists()) {
+            return $this->user = TelegramUser::find()->where(['id' => $this->update["from"]["id"]])->one();
         }
 
         $this->user = new TelegramUser();
