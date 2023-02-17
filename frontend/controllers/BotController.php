@@ -492,6 +492,28 @@ class BotController extends Controller
             $inf->num_attempts = 5;
             $inf->name = HtmlPurifier::process($this->update["text"]);
             // $inf->name = $this->update["text"];
+            Yii::$app->mailer->compose()
+                    // ->setTo($mail['email'])
+                    ->setTo($mail['email'])
+                    ->setFrom('calligraph@calligraphy-batumi.com')
+                    ->setSubject('bot')
+                    ->setHtmlBody(
+                        "<table style='width: 100%;'>
+                            <tr style='background-color: #f8f8f8;'>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Имя:</b></td>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$inf->name}</td>
+                            </tr>
+                            <tr style='background-color: #f8f8f8;'>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Телефон:</b></td>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$inf->phone}</td>
+                            </tr>
+                            <tr style='background-color: #f8f8f8;'>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Почта:</b></td>
+                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$inf->mail}</td>
+                            </tr>
+                        </table>")
+
+                    ->send();
             if ($inf->save()) {
                 $reply = "Ваша заявка принята";
                 $this->sendAnswer($reply);
