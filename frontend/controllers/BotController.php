@@ -493,10 +493,12 @@ class BotController extends Controller
             $inf->name = HtmlPurifier::process($this->update["text"]);
             // $inf->name = $this->update["text"];
 
-            $mail = User::find(1)
-                ->select(['email'])
-                ->one();
-            Yii::$app->mailer->compose()
+            
+            try {
+                $mail = User::find(1)
+                    ->select(['email'])
+                    ->one();
+                Yii::$app->mailer->compose()
                     // ->setTo($mail['email'])
                     ->setTo($mail['email'])
                     ->setFrom('calligraph@calligraphy-batumi.com')
@@ -518,6 +520,12 @@ class BotController extends Controller
                         </table>")
 
                     ->send();
+            } catch (\Throwable $th) {
+                $model = new TelegramLog();
+                $model->data = json_encode($th->getMessage());
+                $model->save();
+            }
+            
             if ($inf->save()) {
                 $reply = "Ваша заявка принята";
                 $this->sendAnswer($reply);
