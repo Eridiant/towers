@@ -362,7 +362,7 @@ class BotController extends Controller
         $this->user->save();
 
         $model->data2 = isset($this->query->content->type_name) ? $this->query->content->type_name : "qqqqq";
-        $model->data3 = $this->query->id ?? "qu";
+        // $model->data3 = $this->query->id ?? "qu";
         $model->save();
 
         switch (isset($this->query->content->type_name) ? $this->query->content->type_name : "qqqqq") {
