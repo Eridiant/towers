@@ -17,7 +17,7 @@ class m230215_160759_create_telegram_chat_table extends Migration
     {
         $this->createTable('{{%telegram_chat}}', [
             'id' => $this->primaryKey(),
-            'user_id' => $this->integer()->notNull(),
+            'user_id' => $this->bigInteger()->notNull(),
             'type' => $this->tinyInteger()->notNull(),
             'text' => $this->text(),
             'created_at' => $this->integer(11)->notNull(),

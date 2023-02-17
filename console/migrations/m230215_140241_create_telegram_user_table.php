@@ -13,7 +13,7 @@ class m230215_140241_create_telegram_user_table extends Migration
     public function safeUp()
     {
         $this->createTable('{{%telegram_user}}', [
-            'id' => $this->integer(11)->notNull(),
+            'id' => $this->bigInteger()->notNull(),
             'first_name' => $this->string(255),
             'username' => $this->string(255),
             'lang' => $this->string(24),

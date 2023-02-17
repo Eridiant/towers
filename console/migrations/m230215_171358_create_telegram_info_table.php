@@ -17,7 +17,7 @@ class m230215_171358_create_telegram_info_table extends Migration
     {
         $this->createTable('{{%telegram_info}}', [
             'id' => $this->primaryKey(),
-            'user_id' => $this->integer()->notNull(),
+            'user_id' => $this->bigInteger()->notNull(),
             'name' => $this->string(255),
             'phone' => $this->string(50),
             'mail' => $this->string(320),
