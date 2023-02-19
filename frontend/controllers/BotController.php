@@ -349,7 +349,7 @@ class BotController extends Controller
             return;
         }
 
-        if ($this->user->status === self::REQUEST_CONSULTATION_STATUS || $this->chat_id == 1070950185) {
+        if ($this->user->status === self::REQUEST_CONSULTATION_STATUS || $this->user->status === self::ADMINISTRATOR_STATUS) {
             $this->consultationCommunication();
             return;
         }
