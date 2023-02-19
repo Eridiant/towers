@@ -329,12 +329,12 @@ class BotController extends Controller
             return;
         }
 
-        if ($text === "Консультация online") {
-            $this->consultationRequest();
+        if ($text === "Консультация online" && $this->switchAdmin()) {
             return;
         }
 
-        if ($text === "admin" && $this->switchAdmin()) {
+        if ($text === "Консультация online") {
+            $this->consultationRequest();
             return;
         }
 
