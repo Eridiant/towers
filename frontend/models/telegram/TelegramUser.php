@@ -17,6 +17,11 @@ use yii\behaviors\TimestampBehavior;
  * @property int|null $timestamp
  * @property int $created_at
  * @property int|null $updated_at
+ *
+ * @property TelegramAdmin[] $telegramAdmins
+ * @property TelegramChat[] $telegramChats
+ * @property TelegramInfo[] $telegramInfos
+ * @property TelegramLog[] $telegramLogs
  */
 class TelegramUser extends \yii\db\ActiveRecord
 {
@@ -99,8 +104,18 @@ class TelegramUser extends \yii\db\ActiveRecord
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getTelegramLogs()
+    public function getLogs()
     {
         return $this->hasMany(TelegramLog::class, ['user_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[TelegramAdmins]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getAdmin()
+    {
+        return $this->hasOne(TelegramAdmin::class, ['user_id' => 'id']);
     }
 }

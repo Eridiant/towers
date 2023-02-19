@@ -47,6 +47,7 @@ class BotController extends Controller
     private $log = [];
     const REQUEST_TRANSFER_STATUS = 1;
     const REQUEST_CONSULTATION_STATUS = 2;
+    const ADMINISTRATOR_STATUS = 5;
 
     public function behaviors()
     {
@@ -316,7 +317,7 @@ class BotController extends Controller
         $this->getUserById();
 
         if (!isset($message['text']) && !isset($message['data'])) {
-            $this->sendAnswer("абырвалг");
+            $this->sendAnswer("сообщение не доставлено");
             $this->log["user_id"] = $this->user->id;
             $this->log["data"] = json_encode($update);
             $this->log();
@@ -335,6 +336,11 @@ class BotController extends Controller
 
         if ($text === "admin") {
             $this->switchAdmin();
+            return;
+        }
+
+        if ($text === "exit") {
+            $this->switchAdmin(0);
             return;
         }
 
@@ -628,8 +634,14 @@ class BotController extends Controller
         return;
     }
 
-    protected function switchAdmin()
+    protected function switchAdmin($flag = self::REQUEST_CONSULTATION_STATUS)
     {
+        try {
+            $this->user->status = $flag;
+            $this->user->save();
+        } catch (\Throwable $th) {
+            Yii::error($th);
+        }
         return;
     }
 
