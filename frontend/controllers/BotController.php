@@ -316,15 +316,15 @@ class BotController extends Controller
         $this->getUserById();
 
         $text = isset($message['text']) ? $message['text'] : $message['data'];
-        if ($text === "Оставить заявку" || $this->user->status === 1) {
+        if ($text === "Оставить заявку" || $this->user->status === REQUEST_TRANSFER_STATUS) {
             $this->fillContactForm();
             return;
         }
 
-        // if ($text === "Консультация online" || $this->user->status === REQUEST_CONSULTATION_STATUS) {
-            // $this->fillContactForm();
-            // return;
-        // }
+        if ($text === "Консультация online" || $this->user->status === REQUEST_CONSULTATION_STATUS) {
+            $this->fillContactForm();
+            return;
+        }
 
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
@@ -351,15 +351,9 @@ class BotController extends Controller
         try {
             $this->user->save();
         } catch (\Throwable $th) {
-            // $model = new TelegramLog();
-            // $model->error = json_encode($th->getMessage());
-            // $model->save();
+            Yii::error($th);
         }
 
-
-        // $log->data = json_encode($update);
-        // $log->query = mb_strtolower($text, 'UTF-8');
-        // $log->lang = $message["from"]["language_code"] ?? 'hz';
         $this->log["user_id"] = $this->user->id;
         $this->log["data"] = json_encode($update);
         $this->log["query"] = mb_strtolower($text, 'UTF-8');
