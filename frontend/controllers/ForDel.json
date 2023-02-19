@@ -53,6 +53,18 @@
 	]
 }
 
+
+
+{
+	"resize_keyboard": true,
+	"keyboard": [
+		[
+		{
+			"text": "Список запросов"
+		}],
+	]
+}
+
 {
 
     "update_id":79577537,
@@ -76,6 +88,242 @@
     }
 
 }
+
+
+{
+
+    "update_id":79578388,
+    "message":{
+        "message_id":3163,
+        "from":{
+            "id":1070950185,
+            "is_bot":false,
+            "first_name":"Eridiant",
+            "username":"Eridiant",
+            "language_code":"en"
+        },
+        "chat":{
+            "id":1070950185,
+            "first_name":"Eridiant",
+            "username":"Eridiant",
+            "type":"private"
+        },
+        "date":1676821397,
+        "photo":[
+            {
+                "file_id":"AgACAgIAAxkBAAIMW2PyQ5U1ZXxONDaoiBd7-P7pzLcNAAKByTEb9AABmUsxZ0KRYMdCWwEAAwIAA3MAAy4E",
+                "file_unique_id":"AQADgckxG_QAAZlLeA",
+                "file_size":757,
+                "width":90,
+                "height":64
+            },
+            {
+                "file_id":"AgACAgIAAxkBAAIMW2PyQ5U1ZXxONDaoiBd7-P7pzLcNAAKByTEb9AABmUsxZ0KRYMdCWwEAAwIAA20AAy4E",
+                "file_unique_id":"AQADgckxG_QAAZlLcg",
+                "file_size":5299,
+                "width":320,
+                "height":226
+            },
+            {
+                "file_id":"AgACAgIAAxkBAAIMW2PyQ5U1ZXxONDaoiBd7-P7pzLcNAAKByTEb9AABmUsxZ0KRYMdCWwEAAwIAA3gAAy4E",
+                "file_unique_id":"AQADgckxG_QAAZlLfQ",
+                "file_size":19045,
+                "width":800,
+                "height":566
+            },
+            {
+                "file_id":"AgACAgIAAxkBAAIMW2PyQ5U1ZXxONDaoiBd7-P7pzLcNAAKByTEb9AABmUsxZ0KRYMdCWwEAAwIAA3kAAy4E",
+                "file_unique_id":"AQADgckxG_QAAZlLfg",
+                "file_size":37858,
+                "width":1280,
+                "height":905
+            }
+        ],
+        "caption":"asdfasdfas"
+    }
+
+}
+
+{
+
+    "update_id":79578387,
+    "message":{
+        "message_id":3161,
+        "from":{
+            "id":1070950185,
+            "is_bot":false,
+            "first_name":"Eridiant",
+            "username":"Eridiant",
+            "language_code":"en"
+        },
+        "chat":{
+            "id":1070950185,
+            "first_name":"Eridiant",
+            "username":"Eridiant",
+            "type":"private"
+        },
+        "date":1676821267,
+        "photo":[
+            {
+                "file_id":"AgACAgIAAxkBAAIMWWPyQxPdBlUtHS3wc0zVb2x40rpkAAKByTEb9AABmUsxZ0KRYMdCWwEAAwIAA3MAAy4E",
+                "file_unique_id":"AQADgckxG_QAAZlLeA",
+                "file_size":757,
+                "width":90,
+                "height":64
+            },
+            {
+                "file_id":"AgACAgIAAxkBAAIMWWPyQxPdBlUtHS3wc0zVb2x40rpkAAKByTEb9AABmUsxZ0KRYMdCWwEAAwIAA20AAy4E",
+                "file_unique_id":"AQADgckxG_QAAZlLcg",
+                "file_size":5299,
+                "width":320,
+                "height":226
+            },
+            {
+                "file_id":"AgACAgIAAxkBAAIMWWPyQxPdBlUtHS3wc0zVb2x40rpkAAKByTEb9AABmUsxZ0KRYMdCWwEAAwIAA3gAAy4E",
+                "file_unique_id":"AQADgckxG_QAAZlLfQ",
+                "file_size":19045,
+                "width":800,
+                "height":566
+            },
+            {
+                "file_id":"AgACAgIAAxkBAAIMWWPyQxPdBlUtHS3wc0zVb2x40rpkAAKByTEb9AABmUsxZ0KRYMdCWwEAAwIAA3kAAy4E",
+                "file_unique_id":"AQADgckxG_QAAZlLfg",
+                "file_size":37858,
+                "width":1280,
+                "height":905
+            }
+        ]
+    }
+
+}
+
+
+
+{
+
+    "update_id":79578182,
+    "callback_query":{
+        "id":"4616263822828646762",
+        "from":{
+            "id":5369774973,
+            "is_bot":false,
+            "first_name":"Татьяна",
+            "language_code":"ru"
+        },
+        "message":{
+            "message_id":2766,
+            "from":{
+                "id":5851685742,
+                "is_bot":true,
+                "first_name":"clgfBot",
+                "username":"clgf_bot"
+            },
+            "chat":{
+                "id":5369774973,
+                "first_name":"Татьяна",
+                "type":"private"
+            },
+            "date":1676645734,
+            "photo":[
+                {
+                    "file_id":"AgACAgQAAxkDAAIKzmPvlWYbdxLjBQ80Xp2OG18bvsU2AAIprzEbt5V8UwABcpfQv-DwAQEAAwIAA3MAAy4E",
+                    "file_unique_id":"AQADKa8xG7eVfFN4",
+                    "file_size":1580,
+                    "width":90,
+                    "height":51
+                },
+                {
+                    "file_id":"AgACAgQAAxkDAAIKzmPvlWYbdxLjBQ80Xp2OG18bvsU2AAIprzEbt5V8UwABcpfQv-DwAQEAAwIAA20AAy4E",
+                    "file_unique_id":"AQADKa8xG7eVfFNy",
+                    "file_size":19988,
+                    "width":320,
+                    "height":180
+                },
+                {
+                    "file_id":"AgACAgQAAxkDAAIKzmPvlWYbdxLjBQ80Xp2OG18bvsU2AAIprzEbt5V8UwABcpfQv-DwAQEAAwIAA3gAAy4E",
+                    "file_unique_id":"AQADKa8xG7eVfFN9",
+                    "file_size":86090,
+                    "width":800,
+                    "height":450
+                },
+                {
+                    "file_id":"AgACAgQAAxkDAAIKzmPvlWYbdxLjBQ80Xp2OG18bvsU2AAIprzEbt5V8UwABcpfQv-DwAQEAAwIAA3kAAy4E",
+                    "file_unique_id":"AQADKa8xG7eVfFN-",
+                    "file_size":178017,
+                    "width":1280,
+                    "height":720
+                },
+                {
+                    "file_id":"AgACAgQAAxkDAAIKzmPvlWYbdxLjBQ80Xp2OG18bvsU2AAIprzEbt5V8UwABcpfQv-DwAQEAAwIAA3cAAy4E",
+                    "file_unique_id":"AQADKa8xG7eVfFN8",
+                    "file_size":524930,
+                    "width":2560,
+                    "height":1440
+                }
+            ],
+            "caption":"Инфраструктура • Кинотеатр Calligraphy Cinema • Piano & Lounge Bar с живой музыкой • Coworking зона • конференц-зал • Закрытый бассейн • СПА центр • Фитнес зал • Более 300 парковочных мест • Казино • Террасы общего пользования • Услуги гольф-машин",
+            "caption_entities":[
+                [
+                    0,
+                    14,
+                    "bold"
+                ]
+            ],
+            "reply_markup":{
+                "inline_keyboard":[
+                    [
+                        {
+                            "text":"Отель Хемптон",
+                            "callback_data":"Отель Хемптон"
+                        },
+                        {
+                            "text":"Торговый центр",
+                            "callback_data":"Торговый центр"
+                        }
+                    ],
+                    [
+                        {
+                            "text":"Кинотеатр",
+                            "callback_data":"Кинотеатр"
+                        },
+                        {
+                            "text":"Казино",
+                            "callback_data":"Казино"
+                        },
+                        {
+                            "text":"СПА",
+                            "callback_data":"СПА"
+                        },
+                        {
+                            "text":"Фитнес",
+                            "callback_data":"Фитнес"
+                        }
+                    ],
+                    [
+                        {
+                            "text":"Оздоровительный центр",
+                            "callback_data":"Оздоровительный центр"
+                        }
+                    ],
+                    [
+                        {
+                            "text":"Деловой центр",
+                            "callback_data":"Деловой центр"
+                        },
+                        {
+                            "text":"Собственный пляж",
+                            "callback_data":"Собственный пляж"
+                        }
+                    ]
+                ]
+            }
+        },
+        "chat_instance":"-895065924983279753",
+        "data":"Деловой центр"
+    }
+
+}
+
 
 {
 
