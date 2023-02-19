@@ -340,7 +340,7 @@ class BotController extends Controller
         // }
 
         $model->data = json_encode($update);
-        $model->query = mb_strtolower($text, 'UTF-8');
+        // $model->query = mb_strtolower($text, 'UTF-8');
         $model->lang = $message["from"]["language_code"] ?? 'hz';
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
