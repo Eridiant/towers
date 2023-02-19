@@ -335,10 +335,10 @@ class BotController extends Controller
         }
 
         if ($this->isAdmin())
-        $text = '/' . $text;
-        else $text = ltrim($text, '/');
+        $text = '\\' . $text;
+        else $text = ltrim($text, '\\');
 
-        if ($text === "/exit") {
+        if ($text === "\\exit") {
             $this->switchAdmin(0);
             return;
         }
