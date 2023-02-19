@@ -636,7 +636,7 @@ class BotController extends Controller
     protected function switchAdmin($flag = self::ADMINISTRATOR_STATUS)
     {
         if (!isset($this->user->admin))
-        return;
+        return false;
 
         try {
             $this->user->status = $flag;
@@ -646,7 +646,7 @@ class BotController extends Controller
         }
         $anwer = $flag ? "Подключен" : "Завершен";
         $this->sendAnswer($anwer);
-        return;
+        return true;
     }
 
     protected function consultationCommunication()
