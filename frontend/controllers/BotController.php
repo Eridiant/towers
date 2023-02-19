@@ -607,9 +607,9 @@ class BotController extends Controller
     protected function consultationCommunication()
     {
         if ($this->chat_id == 1070950185) {
-            $this->sendAnswer($this->update['message'], 5369774973);
+            $this->sendAnswer($this->update['text'], 5369774973);
         } else {
-            $this->sendAnswer($this->update['message'], 1070950185);
+            $this->sendAnswer($this->update['text'], 1070950185);
         }
         return;
     }
