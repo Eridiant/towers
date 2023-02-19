@@ -329,11 +329,11 @@ class BotController extends Controller
             return;
         }
 
-        if ($text === "Консультация online" && $this->switchAdmin()) {
-            return;
-        }
-
         if ($text === "Консультация online") {
+            if ($this->switchAdmin()) {
+                return;
+            }
+
             $this->consultationRequest();
             return;
         }
@@ -633,7 +633,7 @@ class BotController extends Controller
         return;
     }
 
-    protected function switchAdmin($flag = self::REQUEST_CONSULTATION_STATUS)
+    protected function switchAdmin($flag = self::ADMINISTRATOR_STATUS)
     {
         if (!isset($this->user->admin))
         return;
