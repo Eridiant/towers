@@ -397,10 +397,10 @@ class BotController extends Controller
         try {
             $lg = new TelegramLog();
             $lg->user_id = $this->log["user_id"];
-            $lg->data = $this->log["data"];
-            $lg->query = $this->log["query"];
-            $lg->lang = $this->log["lang"];
-            $lg->error = $this->log["error"];
+            $lg->data = $this->log["data"] ?? "";
+            $lg->query = $this->log["query"] ?? "";
+            $lg->lang = $this->log["lang"] ?? "";
+            $lg->error = $this->log["error"] ?? "";
             $lg->save();
         } catch (\Throwable $th) {
             Yii::error($th);
