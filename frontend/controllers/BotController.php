@@ -20,7 +20,6 @@ use frontend\models\ContactForm;
 use frontend\models\Feedback;
 use frontend\models\UserIp;
 use frontend\models\SxGeo;
-use frontend\models\TelegramLog;
 use yii\web\HttpException;
 use Longman\TelegramBot\Telegram;
 use Longman\TelegramBot\Request;
@@ -33,6 +32,7 @@ use frontend\models\telegram\TelegramMessage;
 use frontend\models\telegram\TelegramUser;
 use frontend\models\telegram\TelegramChat;
 use frontend\models\telegram\TelegramInfo;
+use frontend\models\telegram\TelegramLog;
 /**
  * Site controller
  */
@@ -44,7 +44,8 @@ class BotController extends Controller
     private $query;
     private $user;
     private $update;
-
+    const REQUEST_TRANSFER_STATUS = 1;
+    const REQUEST_CONSULTATION_STATUS = 2;
 
     public function behaviors()
     {
@@ -329,11 +330,15 @@ class BotController extends Controller
         $this->getUserById();
 
         $text = isset($message['text']) ? $message['text'] : $message['data'];
-        if ($text === "Оставить заявку" || $this->user->status === 1) {
+        if ($text === "Оставить заявку" || $this->user->status === REQUEST_TRANSFER_STATUS) {
             $this->fillContactForm();
             return;
         }
 
+        if ($text === "Консультация online" || $this->user->status === REQUEST_CONSULTATION_STATUS) {
+            // $this->fillContactForm();
+            // return;
+        }
 
         $model->data = json_encode($update);
         $model->data1 = mb_strtolower($text, 'UTF-8');
