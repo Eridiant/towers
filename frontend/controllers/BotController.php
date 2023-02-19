@@ -315,6 +315,10 @@ class BotController extends Controller
 
         $this->getUserById();
 
+        if (isset($message['text']) || isset($message['data'])) {
+            $this->sendAnswer("asdfasdf");
+            return;
+        }
         $text = isset($message['text']) ? $message['text'] : $message['data'];
         if ($text === "Оставить заявку" || $this->user->status === self::REQUEST_TRANSFER_STATUS) {
             $this->fillContactForm();
@@ -323,6 +327,11 @@ class BotController extends Controller
 
         if ($text === "Консультация online") {
             $this->consultationRequest();
+            return;
+        }
+
+        if ($text === "admin") {
+            $this->switchAdmin();
             return;
         }
 
@@ -608,6 +617,11 @@ class BotController extends Controller
         } catch (\Throwable $th) {
             Yii::error($th);
         }
+        return;
+    }
+
+    protected function switchAdmin()
+    {
         return;
     }
 
