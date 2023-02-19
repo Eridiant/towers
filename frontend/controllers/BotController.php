@@ -334,7 +334,7 @@ class BotController extends Controller
             $this->consultationRequest();
         }
 
-        if (!$this->isAdmin())
+        if ($this->isAdmin())
         $text = '/' . $text;
         else $text = ltrim($text, '/');
 
@@ -348,10 +348,10 @@ class BotController extends Controller
             return;
         }
 
-        if ($this->user->status === self::REQUEST_CONSULTATION_STATUS || $this->user->status === self::ADMINISTRATOR_STATUS) {
-            $this->consultationCommunication();
-            return;
-        }
+        // if ($this->user->status === self::REQUEST_CONSULTATION_STATUS || $this->user->status === self::ADMINISTRATOR_STATUS) {
+        //     $this->consultationCommunication();
+        //     return;
+        // }
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
@@ -635,7 +635,7 @@ class BotController extends Controller
 
     protected function isAdmin()
     {
-        if (isset($this->user->admin))
+        if ($this->user->status === self::ADMINISTRATOR_STATUS)
         return true;
     }
 
