@@ -3,6 +3,7 @@
 namespace backend\models\telegram;
 
 use Yii;
+use yii\behaviors\TimestampBehavior;
 
 /**
  * This is the model class for table "{{%telegram_log}}".
@@ -33,12 +34,25 @@ class TelegramLog extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'created_at'], 'required'],
+            [['user_id'], 'required'],
             [['user_id', 'created_at'], 'integer'],
             [['data', 'error'], 'string'],
             [['query'], 'string', 'max' => 255],
             [['lang'], 'string', 'max' => 24],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => TelegramUser::class, 'targetAttribute' => ['user_id' => 'id']],
+        ];
+    }
+
+    public function behaviors()
+    {
+        return [
+            'timestamp' => [
+                'class' => TimestampBehavior::class,
+                'attributes' => [
+                    \yii\db\BaseActiveRecord::EVENT_BEFORE_INSERT => ['created_at'],
+                ],
+                // 'value' => new \yii\db\Expression('NOW()'),
+            ],
         ];
     }
 
