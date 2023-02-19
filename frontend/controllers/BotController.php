@@ -330,15 +330,15 @@ class BotController extends Controller
         $this->getUserById();
 
         $text = isset($message['text']) ? $message['text'] : $message['data'];
-        if ($text === "Оставить заявку" || $this->user->status === REQUEST_TRANSFER_STATUS) {
+        if ($text === "Оставить заявку" || $this->user->status === 1) {
             $this->fillContactForm();
             return;
         }
 
-        if ($text === "Консультация online" || $this->user->status === REQUEST_CONSULTATION_STATUS) {
+        // if ($text === "Консультация online" || $this->user->status === REQUEST_CONSULTATION_STATUS) {
             // $this->fillContactForm();
             // return;
-        }
+        // }
 
         $model->data = json_encode($update);
         $model->data1 = mb_strtolower($text, 'UTF-8');
