@@ -401,6 +401,7 @@ class BotController extends Controller
             $lg->query = $this->log["query"];
             $lg->lang = $this->log["lang"];
             $lg->error = $this->log["error"];
+            $lg->save();
         } catch (\Throwable $th) {
             //throw $th;
         }
