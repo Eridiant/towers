@@ -321,11 +321,15 @@ class BotController extends Controller
             return;
         }
 
-        if ($text === "Консультация online" || $this->user->status === self::REQUEST_CONSULTATION_STATUS) {
-            $this->fillContactForm();
+        if ($text === "Консультация online") {
+            $this->consultationRequest();
             return;
         }
 
+        if ($this->user->status === self::REQUEST_CONSULTATION_STATUS) {
+            $this->consultationCommunication();
+            return;
+        }
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
@@ -572,20 +576,42 @@ class BotController extends Controller
         return 1;
     }
 
-    protected function sendAnswer($answer)
+    protected function sendAnswer($answer, $chat_id = null)
     {
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
 
             $result = Request::sendMessage([
-                'chat_id' => $this->chat_id,
+                'chat_id' => $chat_id ?? $this->chat_id,
                 'text' => $answer,
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
         }
+    }
+
+    protected function consultationRequest()
+    {
+        $this->sendAnswer("Наш оператор свяжется с вами");
+        try {
+            $this->user->status = self::REQUEST_CONSULTATION_STATUS;
+            $this->user->save();
+        } catch (\Throwable $th) {
+            Yii::error($th);
+        }
+        return;
+    }
+
+    protected function consultationCommunication()
+    {
+        if ($this->chat_id == 1070950185) {
+            $this->sendAnswer($this->update['message'], 5369774973);
+        } else {
+            $this->sendAnswer($this->update['message'], 1070950185);
+        }
+        return;
     }
 
     private function trash()
