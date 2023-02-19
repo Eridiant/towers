@@ -335,7 +335,7 @@ class BotController extends Controller
         }
 
         if (!$this->isAdmin())
-        $text = '\\';
+        $text = '\\' . $text;
         else $text = ltrim($text, '\\');
 
         if ($text === "\\exit") {
