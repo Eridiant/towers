@@ -623,7 +623,7 @@ class BotController extends Controller
     protected function consultationRequest($flag = self::REQUEST_CONSULTATION_STATUS)
     {
         $anwer = $flag ? "Наш оператор свяжется с вами" : "Завершено";
-        $flag ? $this->sendAnswer($anwer): $this->sendPhoto();
+        $this->sendAnswer($anwer);
 
         try {
             $this->user->status = $flag;
@@ -642,6 +642,8 @@ class BotController extends Controller
         } catch (\Throwable $th) {
             Yii::error($th);
         }
+        $anwer = $flag ? "Подключен" : "Завершен";
+        $this->sendAnswer($anwer);
         return;
     }
 
