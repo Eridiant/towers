@@ -45,8 +45,8 @@ class BotController extends Controller
     private $user;
     private $update;
     private $log = [];
-    const REQUEST_TRANSFER_STATUS = 1;
-    const REQUEST_CONSULTATION_STATUS = 2;
+    private const REQUEST_TRANSFER_STATUS = 1;
+    private const REQUEST_CONSULTATION_STATUS = 2;
 
     public function behaviors()
     {
