@@ -316,7 +316,7 @@ class BotController extends Controller
         $this->getUserById();
 
         if (isset($message['text']) || isset($message['data'])) {
-            $this->sendAnswer("asdfasdf");
+            $this->sendAnswer("абырвалг");
             return;
         }
         $text = isset($message['text']) ? $message['text'] : $message['data'];
