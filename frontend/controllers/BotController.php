@@ -334,8 +334,7 @@ class BotController extends Controller
             return;
         }
 
-        if ($text === "admin") {
-            $this->switchAdmin();
+        if ($text === "admin" && $this->switchAdmin()) {
             return;
         }
 
@@ -636,6 +635,9 @@ class BotController extends Controller
 
     protected function switchAdmin($flag = self::REQUEST_CONSULTATION_STATUS)
     {
+        if (!isset($this->user->admin))
+        return;
+
         try {
             $this->user->status = $flag;
             $this->user->save();
