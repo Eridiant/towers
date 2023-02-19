@@ -136,7 +136,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $model = new TelegramLog();
-            $model->data = $e->getMessage();
+            $model->error = $e->getMessage();
             $model->save();
         }
     }
@@ -180,7 +180,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $model = new TelegramLog();
-            $model->data = $e->getMessage();
+            $model->error = $e->getMessage();
             $model->save();
         }
     }
@@ -224,7 +224,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $model = new TelegramLog();
-            $model->data = $e->getMessage();
+            $model->error = $e->getMessage();
             $model->save();
         }
     }
@@ -257,7 +257,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $model = new TelegramLog();
-            $model->data = $e->getMessage();
+            $model->error = $e->getMessage();
             $model->save();
         }
     }
@@ -276,7 +276,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $model = new TelegramLog();
-            $model->data = $e->getMessage();
+            $model->error = $e->getMessage();
             $model->save();
         }
     }
@@ -297,7 +297,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $model = new TelegramLog();
-            $model->data = $e->getMessage();
+            $model->error = $e->getMessage();
             $model->save();
         }
     }
@@ -322,7 +322,6 @@ class BotController extends Controller
             $message = $update['callback_query'];
             $this->chat_id = $message['message']['chat']['id'];
             // $message = $message['data'];
-            $model->data2 = json_encode($message);
 
             $this->update = $update['callback_query'];
         }
@@ -341,7 +340,8 @@ class BotController extends Controller
         // }
 
         $model->data = json_encode($update);
-        $model->data1 = mb_strtolower($text, 'UTF-8');
+        $model->query = mb_strtolower($text, 'UTF-8');
+        $model->lang = $message["from"]["language_code"] ?? 'hz';
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
@@ -368,11 +368,10 @@ class BotController extends Controller
             $this->user->save();
         } catch (\Throwable $th) {
             $model = new TelegramLog();
-            $model->data = json_encode($th->getMessage());
+            $model->error = json_encode($th->getMessage());
             $model->save();
         }
 
-        $model->data2 = isset($this->query->content->type_name) ? $this->query->content->type_name : "qqqqq";
         // $model->data3 = $this->query->id ?? "qu";
         $model->save();
 
@@ -449,7 +448,7 @@ class BotController extends Controller
                 $this->user->save();
             } catch (\Throwable $th) {
                 $model = new TelegramLog();
-                $model->data = json_encode($th->getMessage());
+                $model->error = json_encode($th->getMessage());
                 $model->save();
             }
             return;
@@ -527,7 +526,7 @@ class BotController extends Controller
                     ->send();
             } catch (\Throwable $th) {
                 $model = new TelegramLog();
-                $model->data = json_encode($th->getMessage());
+                $model->error = json_encode($th->getMessage());
                 $model->save();
             }
             
@@ -539,7 +538,7 @@ class BotController extends Controller
                     $this->user->save();
                 } catch (\Throwable $th) {
                     $model = new TelegramLog();
-                    $model->data = json_encode($th->getMessage());
+                    $model->error = json_encode($th->getMessage());
                     $model->save();
                 }
                 return;
@@ -565,7 +564,7 @@ class BotController extends Controller
                 $this->user->save();
             } catch (\Throwable $th) {
                 $model = new TelegramLog();
-                $model->data = json_encode($th->getMessage());
+                $model->error = json_encode($th->getMessage());
                 $model->save();
             }
             $this->sendPhoto();
@@ -587,7 +586,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $model = new TelegramLog();
-            $model->data = $e->getMessage();
+            $model->error = $e->getMessage();
             $model->save();
         }
     }
