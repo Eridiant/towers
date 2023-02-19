@@ -317,6 +317,9 @@ class BotController extends Controller
 
         if (!isset($message['text']) && !isset($message['data'])) {
             $this->sendAnswer("абырвалг");
+            $this->log["user_id"] = $this->user->id;
+            $this->log["data"] = json_encode($update);
+            $this->log();
             return;
         }
         $text = isset($message['text']) ? $message['text'] : $message['data'];
@@ -406,6 +409,14 @@ class BotController extends Controller
                 break;
         }
 
+        $this->log();
+
+        return;
+
+    }
+
+    protected function log()
+    {
         try {
             $lg = new TelegramLog();
             $lg->user_id = $this->log["user_id"];
@@ -417,9 +428,6 @@ class BotController extends Controller
         } catch (\Throwable $th) {
             Yii::error($th);
         }
-
-        return;
-
     }
 
     protected function getUserById()
