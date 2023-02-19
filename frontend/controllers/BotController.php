@@ -326,6 +326,11 @@ class BotController extends Controller
             return;
         }
 
+        if ($text === "Завершить консультацию") {
+            $this->consultationRequest(0);
+            return;
+        }
+
         if ($this->user->status === self::REQUEST_CONSULTATION_STATUS || $this->chat_id == 1070950185) {
             $this->consultationCommunication();
             return;
@@ -592,11 +597,13 @@ class BotController extends Controller
         }
     }
 
-    protected function consultationRequest()
+    protected function consultationRequest($flag = self::REQUEST_CONSULTATION_STATUS)
     {
-        $this->sendAnswer("Наш оператор свяжется с вами");
+        $anwer = $flag ? "Наш оператор свяжется с вами" : "Завершено";
+        $flag ? $this->sendAnswer($anwer): $this->sendPhoto();
+
         try {
-            $this->user->status = self::REQUEST_CONSULTATION_STATUS;
+            $this->user->status = $flag;
             $this->user->save();
         } catch (\Throwable $th) {
             Yii::error($th);
