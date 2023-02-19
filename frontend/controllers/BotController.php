@@ -403,7 +403,7 @@ class BotController extends Controller
             $lg->error = $this->log["error"];
             $lg->save();
         } catch (\Throwable $th) {
-            //throw $th;
+            Yii::error($th);
         }
 
         return;
