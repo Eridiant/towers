@@ -45,8 +45,8 @@ class BotController extends Controller
     private $user;
     private $update;
     private $log = [];
-    private const REQUEST_TRANSFER_STATUS = 1;
-    private const REQUEST_CONSULTATION_STATUS = 2;
+    const REQUEST_TRANSFER_STATUS = 1;
+    const REQUEST_CONSULTATION_STATUS = 2;
 
     public function behaviors()
     {
@@ -316,12 +316,12 @@ class BotController extends Controller
         $this->getUserById();
 
         $text = isset($message['text']) ? $message['text'] : $message['data'];
-        if ($text === "Оставить заявку" || $this->user->status === REQUEST_TRANSFER_STATUS) {
+        if ($text === "Оставить заявку" || $this->user->status === self::REQUEST_TRANSFER_STATUS) {
             $this->fillContactForm();
             return;
         }
 
-        if ($text === "Консультация online" || $this->user->status === REQUEST_CONSULTATION_STATUS) {
+        if ($text === "Консультация online" || $this->user->status === self::REQUEST_CONSULTATION_STATUS) {
             $this->fillContactForm();
             return;
         }
