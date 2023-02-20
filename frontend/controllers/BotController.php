@@ -50,6 +50,8 @@ class BotController extends Controller
     const REQUEST_TRANSFER_STATUS = 1;
     const REQUEST_CONSULTATION_STATUS = 2;
     const ADMINISTRATOR_STATUS = 5;
+    const NORMAL_STATUS = 0;
+    const BANNED = 9;
 
     public function behaviors()
     {
@@ -319,6 +321,10 @@ class BotController extends Controller
 
         $this->getUserById();
 
+        if ($this->user->status === self::BANNED) {
+            return;
+        }
+
         if (!isset($message['text']) && !isset($message['data'])) {
             $this->sendAnswer("сообщение не доставлено");
             $this->log["user_id"] = $this->user->id;
@@ -451,13 +457,13 @@ class BotController extends Controller
         }
     }
 
-    protected function getUserById()
+    protected function getUserById($id = null)
     {
         // if (TelegramUser::find($this->update["from"]["id"])->exists()) {
         //     return $this->user = TelegramUser::find($this->update["from"]["id"])->one();
         // }
-        if (TelegramUser::find()->where(['id' => $this->update["from"]["id"]])->exists()) {
-            return $this->user = TelegramUser::find()->where(['id' => $this->update["from"]["id"]])->one();
+        if (TelegramUser::find()->where(['id' => $id ?? $this->update["from"]["id"]])->exists()) {
+            return $this->user = TelegramUser::find()->where(['id' => $id ?? $this->update["from"]["id"]])->one();
         }
 
         $this->user = new TelegramUser();
@@ -696,6 +702,40 @@ class BotController extends Controller
             return true;
         }
 
+        if ((($command["text"] ?? "") == "Завершить чат")) {
+            if (isset($this->user->admin->current_user_id)) {
+                $user = getUserById($this->user->admin->current_user_id);
+                try {
+                    $user->status = self::NORMAL_STATUS;
+                    $user->save();
+                    $admin = TelegramAdmin::find($this->chat_id)->one();
+                    $admin->current_user_id = null;
+                    $admin->save();
+                } catch (\Throwable $th) {
+                    Yii::error($th);
+                }
+                $this->adminRiply("Чат с пользователем завершен");
+            }
+            return true;
+        }
+
+        if ((($command["text"] ?? "") == "Заблокировать пользователя")) {
+            if (isset($this->user->admin->current_user_id)) {
+                $user = getUserById($this->user->admin->current_user_id);
+                try {
+                    $user->status = self::BANNED;
+                    $user->save();
+                    $admin = TelegramAdmin::find($this->chat_id)->one();
+                    $admin->current_user_id = null;
+                    $admin->save();
+                } catch (\Throwable $th) {
+                    Yii::error($th);
+                }
+                $this->adminRiply("Пользователь заблокирован");
+            }
+            return true;
+        }
+
         if (isset($command["data"])) {
             try {
                 $admin = TelegramAdmin::find($this->chat_id)->one();
@@ -709,10 +749,7 @@ class BotController extends Controller
                 "keyboard": [
                     [
                     {
-                        "text": "Список запросов"
-                    },
-                    {
-                        "text": "заблокировать пользователя"
+                        "text": "Заблокировать пользователя"
                     }],
                     [
                     {
@@ -726,6 +763,23 @@ class BotController extends Controller
             $this->sendAnswer("Чат с пользователем запущен", $this->chat_id, $reply_markup);
             return true;
         }
+    }
+
+    protected function adminRiply($message, $chat_id = null, $reply_markup = null){
+        $reply_markup = $reply_markup ?? '{
+            "resize_keyboard": true,
+            "keyboard": [
+                [
+                {
+                    "text": "Список запросов"
+                },
+                {
+                    "text": "exit"
+                }]
+            ]
+        }';
+        $this->sendAnswer("Чат с пользователем запущен", $chat_id ?? $this->chat_id, $reply_markup);
+
     }
 
     protected function consultationCommunication()
