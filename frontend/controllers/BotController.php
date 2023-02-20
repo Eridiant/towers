@@ -704,7 +704,26 @@ class BotController extends Controller
             } catch (\Throwable $th) {
                 Yii::error($th);
             }
-            $this->sendAnswer("Чат с пользователем запущен", $this->chat_id);
+            $reply_markup = '{
+                "resize_keyboard": true,
+                "keyboard": [
+                    [
+                    {
+                        "text": "Список запросов"
+                    },
+                    {
+                        "text": "заблокировать пользователя"
+                    }],
+                    [
+                    {
+                        "text": "Завершить чат"
+                    },
+                    {
+                        "text": "exit"
+                    }]
+                ]
+            }';
+            $this->sendAnswer("Чат с пользователем запущен", $this->chat_id, $reply_markup);
             return true;
         }
     }

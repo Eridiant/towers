@@ -21,7 +21,88 @@
 	]
 }
 
+{
+	"resize_keyboard": true,
+	"keyboard": [
+		[
+		{
+			"text": "Список запросов"
+		},
+		{
+			"text": "заблокировать пользователя"
+		}],
+		[
+		{
+			"text": "Завершить чат"
+		},
+		{
+			"text": "exit"
+		}]
+	]
+}
 
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "value1",
+			"callback_data": "data1"
+		}],
+		[
+        {
+            "text": "value2",
+            "callback_data": "data2"
+        }]
+	]
+}
+
+{
+
+    "id":"4599696021971795665",
+    "from":{
+        "id":1070950185,
+        "is_bot":false,
+        "first_name":"Eridiant",
+        "username":"Eridiant",
+        "language_code":"ru"
+    },
+    "message":{
+        "message_id":3548,
+        "from":{
+            "id":5851685742,
+            "is_bot":true,
+            "first_name":"clgfBot",
+            "username":"clgf_bot"
+        },
+        "chat":{
+            "id":1070950185,
+            "first_name":"Eridiant",
+            "username":"Eridiant",
+            "type":"private"
+        },
+        "date":1676891983,
+        "text":"Список ожидания:",
+        "reply_markup":{
+            "inline_keyboard":[
+                [
+                    {
+                        "text":"test",
+                        "callback_data":"536977497311"
+                    }
+                ],
+                [
+                    {
+                        "text":"test1",
+                        "callback_data":"536977497322"
+                    }
+                ]
+            ]
+        }
+    },
+    "chat_instance":"6088013493985124044",
+    "data":"536977497322"
+
+}
 
 {
 	"resize_keyboard": true,
@@ -53,7 +134,28 @@
 	]
 }
 
+{
+	"resize_keyboard": true,
+	"keyboard": [
+		[
+		{
+			"text": "exit"
+		}]
+	]
+}
 
+{
+	"resize_keyboard": true,
+	"keyboard": [
+		[
+		{
+			"text": "Список запросов"
+		},
+		{
+			"text": "exit"
+		}]
+	]
+}
 
 {
 	"resize_keyboard": true,
@@ -425,6 +527,7 @@
     }
 
 }
+
 
 
 {
