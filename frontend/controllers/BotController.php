@@ -695,7 +695,7 @@ class BotController extends Controller
             return true;
         }
 
-        if ($command["data"]) {
+        if (isset($command["data"])) {
             try {
                 $this->user->admin->current_user_id = (int)$command["data"];
                 $this->user->save();
