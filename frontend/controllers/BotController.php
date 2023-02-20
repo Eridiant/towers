@@ -329,24 +329,20 @@ class BotController extends Controller
             return;
         }
 
-        if ($text === "/exit") {
-            $this->switchAdmin(0);
-        }
-
         if ($this->isAdmin())
         $text = '/' . $text;
         else $text = ltrim($text, '/');
 
-        if ($text === "Консультация online"){
+        if ($text === "Консультация online" || $text === "exit"){
             if ($this->canAdmin() && $text === "Консультация online"){
                 $text = '/' . $text;
                 $this->switchAdmin();
+                if ($text === "/exit")
+                $this->switchAdmin(0);
             } else {
                 $this->consultationRequest();
             }
         }
-
-        
 
         if ($text === "Завершить консультацию") {
             $this->consultationRequest(0);
