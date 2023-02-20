@@ -118,4 +118,14 @@ class TelegramUser extends \yii\db\ActiveRecord
     {
         return $this->hasOne(TelegramAdmin::class, ['user_id' => 'id']);
     }
+
+    /**
+     * Gets query for [[TelegramAdmins]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getOperator()
+    {
+        return $this->hasOne(TelegramAdmin::class, ['current_user_id' => 'id']);
+    }
 }

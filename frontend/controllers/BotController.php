@@ -669,10 +669,14 @@ class BotController extends Controller
 
     protected function consultationCommunication()
     {
-        if ($this->chat_id == 1070950185) {
-            $this->sendAnswer($this->update['text'], 5369774973);
-        } else {
-            $this->sendAnswer($this->update['text'], 1070950185);
+        $current_user_id = $this->user->admin->current_user_id;
+        if ($current_user_id == 536977497311 || $current_user_id == 536977497322) {
+            $this->sendAnswer("тест", $current_user_id);
+        }
+        if (isset($this->user->admin->id)) {
+            $this->sendAnswer($this->update['text'], $current_user_id);
+        } else if(isset($this->user->operator->id)){
+            $this->sendAnswer($this->update['text'], $this->user->operator->id);
         }
         return;
     }
