@@ -331,7 +331,6 @@ class BotController extends Controller
 
         if ($text === "/exit") {
             $this->switchAdmin(0);
-            return;
         }
 
         if ($this->isAdmin())
@@ -351,7 +350,6 @@ class BotController extends Controller
 
         if ($text === "Завершить консультацию") {
             $this->consultationRequest(0);
-            return;
         }
 
         // if ($this->user->status === self::REQUEST_CONSULTATION_STATUS || $this->user->status === self::ADMINISTRATOR_STATUS) {
