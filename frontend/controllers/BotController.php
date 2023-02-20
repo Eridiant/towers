@@ -226,7 +226,7 @@ class BotController extends Controller
         }
     }
 
-    protected function sendMessage($parse_mode = 'HTML', $headers = [])
+    protected function sendMessage($ms = null, $parse_mode = 'HTML', $headers = [])
     {
 
         if (!empty($this->query->content->id)) {
@@ -248,7 +248,7 @@ class BotController extends Controller
             $result = Request::sendMessage([
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
-                'text'   => $content->text,
+                'text'   => $this->text ?? $content->text,
                 'reply_markup' => $content->reply_markup ?? "",
             ]);
 
@@ -345,7 +345,7 @@ class BotController extends Controller
             }
         }
 
-        if ($text === "Завершить консультацию") {
+        if ($text === "exit") {
             $this->consultationRequest(0);
         }
 
@@ -633,6 +633,8 @@ class BotController extends Controller
         } catch (\Throwable $th) {
             Yii::error($th);
         }
+        if (TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->exists() && $flag);
+        $this->text = "Ожидание может занять 1-3 минут, менеджер уже получил уведомление";
         return;
     }
 
