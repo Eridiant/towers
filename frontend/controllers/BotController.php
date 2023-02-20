@@ -335,10 +335,13 @@ class BotController extends Controller
         }
 
         if ($this->isAdmin())
-        $text = '\\' . $text;
-        else $text = ltrim($text, '\\');
+        $text = '/' . $text;
+        else $text = ltrim($text, '/');
 
-        if ($text === "\\exit") {
+        if ($this->canAdmin() && $text === "Консультация online")
+        $text = '/' . $text;
+
+        if ($text === "/exit") {
             $this->switchAdmin(0);
             return;
         }
@@ -631,6 +634,12 @@ class BotController extends Controller
             Yii::error($th);
         }
         return;
+    }
+
+    protected function canAdmin()
+    {
+        if (isset($this->user->admin))
+        return true;
     }
 
     protected function isAdmin()
