@@ -798,8 +798,6 @@ class BotController extends Controller
             return;
         }
 
-        $this->sendAnswer(($current_user_id == 536977497311 || $current_user_id == 536977497322), $this->chat_id);
-        return;
         if (isset($this->user->admin->id)) {
             $this->sendAnswer($this->update['text'], $current_user_id);
         } else if(isset($this->user->operator->id)){
