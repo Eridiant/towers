@@ -697,8 +697,9 @@ class BotController extends Controller
 
         if (isset($command["data"])) {
             try {
-                $this->user->admin->current_user_id = $command["data"];
-                $this->user->save();
+                $admin = TelegramAdmin::find($this->chat_id)->one();
+                $admin->current_user_id = $command["data"];
+                $admin->save();
             } catch (\Throwable $th) {
                 Yii::error($th);
             }
