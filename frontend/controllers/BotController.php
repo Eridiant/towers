@@ -736,6 +736,18 @@ class BotController extends Controller
             return true;
         }
 
+        if ((($command["text"] ?? "") == "Выйти из чата")) {
+            try {
+                $admin = TelegramAdmin::find($this->chat_id)->one();
+                $admin->current_user_id = null;
+                $admin->save();
+            } catch (\Throwable $th) {
+                Yii::error($th);
+            }
+            $this->adminRiply("Пользователь заблокирован");
+            return true;
+        }
+
         if (isset($command["data"])) {
             try {
                 $admin = TelegramAdmin::find($this->chat_id)->one();
@@ -749,14 +761,10 @@ class BotController extends Controller
                 "keyboard": [
                     [
                     {
-                        "text": "Заблокировать пользователя"
-                    }],
-                    [
-                    {
                         "text": "Завершить чат"
                     },
                     {
-                        "text": "exit"
+                        "text": "Выйти из чата"
                     }]
                 ]
             }';
@@ -778,7 +786,7 @@ class BotController extends Controller
                 }]
             ]
         }';
-        $this->sendAnswer("Чат с пользователем запущен", $chat_id ?? $this->chat_id, $reply_markup);
+        $this->sendAnswer($message, $chat_id ?? $this->chat_id, $reply_markup);
 
     }
 
