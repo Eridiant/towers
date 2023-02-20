@@ -659,8 +659,8 @@ class BotController extends Controller
         } catch (\Throwable $th) {
             Yii::error($th);
         }
-        // $anwer = $flag ? "Подключен" : "Завершен";
-        // $this->sendAnswer($anwer);
+        $anwer = $flag ? "Подключен" : "Завершен";
+        $this->sendAnswer($anwer);
         return true;
     }
 
