@@ -43,6 +43,7 @@ class BotController extends Controller
     private $chat_id;
     private $query;
     private $user;
+    private $text;
     private $update;
     private $log = [];
     const REQUEST_TRANSFER_STATUS = 1;
