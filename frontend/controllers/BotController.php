@@ -697,7 +697,7 @@ class BotController extends Controller
 
         if (isset($command["data"])) {
             try {
-                $this->user->admin->current_user_id = (int)$command["data"];
+                $this->user->admin->current_user_id = $command["data"];
                 $this->user->save();
             } catch (\Throwable $th) {
                 Yii::error($th);
