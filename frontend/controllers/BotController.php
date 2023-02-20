@@ -681,8 +681,13 @@ class BotController extends Controller
     protected function isAdminCommand($command)
     {
         if ($command == "/Список запросов" && TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->exists()) {
-            $id = TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->select(['id'])->column();
-            $this->sendAnswer(json_encode($id), $this->chat_id);
+            $users = TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->all();
+
+            // $pre_markup = inline_keyboard
+            // foreach ($users as $value) {
+                
+            // }
+            $this->sendAnswer(json_encode($users), $this->chat_id);
             return true;
         }
     }
