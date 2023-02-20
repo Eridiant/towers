@@ -248,7 +248,7 @@ class BotController extends Controller
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
                 'text'   => $content->text,
-                'reply_markup' => $content->reply_markup,
+                'reply_markup' => $content->reply_markup ?? "",
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
@@ -388,7 +388,8 @@ class BotController extends Controller
         $this->log["data"] = json_encode($update);
         $this->log["query"] = mb_strtolower($text, 'UTF-8');
         $this->log["lang"] = $message["from"]["language_code"] ?? 'hz';
-        $this->log["query"] .= "|{$this->query->content->id}";
+        $qw = $this->query->content->id ?? "qqqqq";
+        $this->log["query"] .= "|{$qw}";
 
         // $model->data3 = $this->query->id ?? "qu";
         // $model->save();
