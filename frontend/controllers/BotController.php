@@ -352,10 +352,19 @@ class BotController extends Controller
             $this->consultationRequest(0);
         }
 
-        // if ($this->user->status === self::REQUEST_CONSULTATION_STATUS || $this->user->status === self::ADMINISTRATOR_STATUS) {
-        //     $this->consultationCommunication();
-        //     return;
-        // }
+        if ($this->isAdmin() && $this->isAdminCommand($text)) {
+            return;
+        }
+
+        if ($this->user->status === self::REQUEST_CONSULTATION_STATUS && isset($this->user->operator)) {
+            $this->consultationCommunication();
+            return;
+        }
+
+        if ($this->user->status === self::ADMINISTRATOR_STATUS && isset($this->user->admin->current_user_id)) {
+            $this->consultationCommunication();
+            return;
+        }
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
@@ -637,7 +646,7 @@ class BotController extends Controller
             Yii::error($th);
         }
         if (TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->exists() && $flag)
-        $this->text = "Ожидание может занять 1-3 минут, менеджер уже получил уведомление";
+        $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
         return;
     }
 
@@ -667,6 +676,14 @@ class BotController extends Controller
         }
         // $anwer = $flag ? "Подключен" : "Завершен";
         // $this->sendAnswer($anwer);
+    }
+
+    protected function isAdminCommand($command)
+    {
+        if ($command == "/Список запросов" && TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->exists()) {
+            $id = TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->all()->id;
+            $this->sendAnswer(json_encode($id), $this->chat_id);
+        }
     }
 
     protected function consultationCommunication()
