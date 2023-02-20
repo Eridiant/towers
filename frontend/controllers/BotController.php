@@ -618,7 +618,7 @@ class BotController extends Controller
         return 1;
     }
 
-    protected function sendAnswer($answer, $chat_id = null)
+    protected function sendAnswer($answer, $chat_id = null, $reply_markup = null)
     {
         try {
             // Create Telegram API object
@@ -627,6 +627,7 @@ class BotController extends Controller
             $result = Request::sendMessage([
                 'chat_id' => $chat_id ?? $this->chat_id,
                 'text' => $answer,
+                'reply_markup' => $reply_markup,
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
@@ -683,11 +684,11 @@ class BotController extends Controller
         if ($command == "/Список запросов" && TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->exists()) {
             $users = TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->all();
 
-            $pre_markup["inline_keyboard"] = [];
+            $reply_markup["inline_keyboard"] = [];
             foreach ($users as $value) {
-                $pre_markup["inline_keyboard"][$value->first_name] = $value->id;
+                $reply_markup["inline_keyboard"][$value->first_name] = $value->id;
             }
-            $this->sendAnswer(json_encode($pre_markup), $this->chat_id);
+            $this->sendAnswer("Список ожидания:", $this->chat_id, json_encode($pre_markup));
             return true;
         }
     }
