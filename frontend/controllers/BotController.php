@@ -298,7 +298,7 @@ class BotController extends Controller
     {
 
         // Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-
+        $this->log["query"] = '';
         $update = json_decode(file_get_contents('php://input'), true);
 
         // $message = isset($update['message']) ? $update['message'] :  $update['callback_query'];
