@@ -711,6 +711,7 @@ class BotController extends Controller
 
     protected function consultationCommunication()
     {
+        $current_user_id = $this->user->admin->current_user_id;
         if ($current_user_id == 536977497311 || $current_user_id == 536977497322) {
             $this->sendAnswer("тест", $this->chat_id);
             return;
