@@ -384,7 +384,7 @@ class BotController extends Controller
 
         $this->log["user_id"] = $this->user->id;
         $this->log["data"] = json_encode($update);
-        $this->log["query"] = mb_strtolower($text, 'UTF-8');
+        $this->log["query"] .= mb_strtolower($text, 'UTF-8');
         $this->log["lang"] = $message["from"]["language_code"] ?? 'hz';
         $qw = $this->query->content->id ?? "qqqqq";
         $this->log["query"] .= "|{$qw}";
@@ -659,6 +659,7 @@ class BotController extends Controller
         try {
             $this->user->status = $flag;
             $this->user->save();
+            $this->log["query"] .= "{$flag}|";
         } catch (\Throwable $th) {
             Yii::error($th);
         }
