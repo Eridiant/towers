@@ -694,11 +694,17 @@ class BotController extends Controller
             $this->sendAnswer("Список ожидания:", $this->chat_id, json_encode($reply_markup));
             return true;
         }
-        $this->sendAnswer(json_encode($command), $this->chat_id);
-        // if ($command) {
-        //     # code...
-        // }
-        return true;
+
+        if ($command["data"]) {
+            try {
+                $this->user->admin->current_user_id = (int)$command["data"];
+                $this->user->save();
+            } catch (\Throwable $th) {
+                Yii::error($th);
+            }
+            $this->sendAnswer("Чат с пользователем запущен", $this->chat_id);
+            return true;
+        }
     }
 
     protected function consultationCommunication()
