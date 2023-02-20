@@ -800,9 +800,8 @@ class BotController extends Controller
 
         if (isset($this->user->admin->id)) {
             $this->sendAnswer($this->update['text'], $current_user_id);
-        } else if(isset($this->user->operator->id)){
-            $this->sendAnswer($this->user->operator->id ?? "er", $this->chat_id);
-            $this->sendAnswer($this->update['text'], $this->user->operator->id);
+        } else if(isset($this->user->operator->user_id)){
+            $this->sendAnswer($this->update['text'], $this->user->operator->user_id);
         }
         return;
     }
