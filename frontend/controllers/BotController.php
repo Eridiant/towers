@@ -388,13 +388,13 @@ class BotController extends Controller
         $this->log["data"] = json_encode($update);
         $this->log["query"] .= mb_strtolower($text, 'UTF-8');
         $this->log["lang"] = $message["from"]["language_code"] ?? 'hz';
-        $qw = $this->query->content->id ?? "qqqqq";
+        $qw = $this->query->content->id ?? "error_id";
         $this->log["query"] .= "|{$qw}";
 
         // $model->data3 = $this->query->id ?? "qu";
         // $model->save();
 
-        switch (isset($this->query->content->type_name) ? $this->query->content->type_name : "qqqqq") {
+        switch (isset($this->query->content->type_name) ? $this->query->content->type_name : "error_type_name") {
             case 'image':
                 $this->sendPhoto();
                 break;
