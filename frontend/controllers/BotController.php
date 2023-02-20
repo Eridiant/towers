@@ -684,11 +684,11 @@ class BotController extends Controller
         if ($command == "/Список запросов" && TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->exists()) {
             $users = TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->all();
 
-            $reply_markup["inline_keyboard"][] = [];
+            $reply_markup["inline_keyboard"] = [];
             foreach ($users as $value) {
                 // $reply_markup["inline_keyboard"]["text"] = $value->first_name;
                 // $reply_markup["inline_keyboard"]["callback_data"] = $value->id;
-                $reply_markup["inline_keyboard"][] += ["text" => $value->first_name, "callback_data" => $value->id];
+                $reply_markup["inline_keyboard"][] = ["text" => $value->first_name, "callback_data" => $value->id];
             }
             $this->sendAnswer(json_encode($reply_markup), $this->chat_id);
             // $this->sendAnswer("Список ожидания:", $this->chat_id, json_encode($reply_markup));
