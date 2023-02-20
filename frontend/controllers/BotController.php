@@ -339,12 +339,14 @@ class BotController extends Controller
             if ($this->canAdmin() && $text === "Консультация online"){
                 $text = '/' . $text;
                 $this->switchAdmin();
-                if ($text === "/exit")
-                $this->switchAdmin(0);
             } else {
                 $this->consultationRequest();
             }
         }
+
+
+        if ($text === "/exit" && $this->canAdmin())
+        $this->switchAdmin(0);
 
         if ($text === "exit") {
             $this->consultationRequest(0);
