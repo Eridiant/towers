@@ -694,6 +694,11 @@ class BotController extends Controller
             $this->sendAnswer("Список ожидания:", $this->chat_id, json_encode($reply_markup));
             return true;
         }
+        $this->sendAnswer(json_encode($command), $this->chat_id);
+        // if ($command) {
+        //     # code...
+        // }
+        return true;
     }
 
     protected function consultationCommunication()
