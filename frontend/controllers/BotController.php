@@ -688,7 +688,8 @@ class BotController extends Controller
             foreach ($users as $value) {
                 $reply_markup["inline_keyboard"][$value->first_name] = $value->id;
             }
-            $this->sendAnswer("Список ожидания:", $this->chat_id, json_encode($reply_markup));
+            $this->sendAnswer(json_encode($reply_markup), $this->chat_id);
+            // $this->sendAnswer("Список ожидания:", $this->chat_id, json_encode($reply_markup));
             return true;
         }
     }
