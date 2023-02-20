@@ -636,7 +636,7 @@ class BotController extends Controller
         } catch (\Throwable $th) {
             Yii::error($th);
         }
-        if (TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->exists() && $flag);
+        if (TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->exists() && $flag)
         $this->text = "Ожидание может занять 1-3 минут, менеджер уже получил уведомление";
         return;
     }
