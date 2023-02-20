@@ -33,6 +33,7 @@ use frontend\models\telegram\TelegramUser;
 use frontend\models\telegram\TelegramChat;
 use frontend\models\telegram\TelegramInfo;
 use frontend\models\telegram\TelegramLog;
+use frontend\models\telegram\TelegramAdmin;
 /**
  * Site controller
  */
