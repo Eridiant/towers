@@ -704,7 +704,7 @@ class BotController extends Controller
 
         if ((($command["text"] ?? "") == "Завершить чат")) {
             if (isset($this->user->admin->current_user_id)) {
-                $user = getUserById($this->user->admin->current_user_id);
+                $user = $this->getUserById($this->user->admin->current_user_id);
                 try {
                     $user->status = self::NORMAL_STATUS;
                     $user->save();
@@ -721,7 +721,7 @@ class BotController extends Controller
 
         if ((($command["text"] ?? "") == "Заблокировать пользователя")) {
             if (isset($this->user->admin->current_user_id)) {
-                $user = getUserById($this->user->admin->current_user_id);
+                $user = $this->getUserById($this->user->admin->current_user_id);
                 try {
                     $user->status = self::BANNED;
                     $user->save();
