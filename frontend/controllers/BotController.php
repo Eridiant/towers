@@ -744,7 +744,7 @@ class BotController extends Controller
             } catch (\Throwable $th) {
                 Yii::error($th);
             }
-            $this->adminRiply("Пользователь заблокирован");
+            $this->adminRiply("Вы вышли из чата");
             return true;
         }
 
