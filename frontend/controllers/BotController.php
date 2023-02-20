@@ -388,6 +388,7 @@ class BotController extends Controller
         $this->log["data"] = json_encode($update);
         $this->log["query"] = mb_strtolower($text, 'UTF-8');
         $this->log["lang"] = $message["from"]["language_code"] ?? 'hz';
+        $this->log["query"] .= "|{$this->query->content->id}";
 
         // $model->data3 = $this->query->id ?? "qu";
         // $model->save();
