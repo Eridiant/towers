@@ -329,22 +329,25 @@ class BotController extends Controller
             return;
         }
 
-        if ($text === "Консультация online") {
-            if (!$this->switchAdmin())
-            $this->consultationRequest();
+        if ($text === "/exit") {
+            $this->switchAdmin(0);
+            return;
         }
 
         if ($this->isAdmin())
         $text = '/' . $text;
         else $text = ltrim($text, '/');
 
-        if ($this->canAdmin() && $text === "Консультация online")
-        $text = '/' . $text;
-
-        if ($text === "/exit") {
-            $this->switchAdmin(0);
-            return;
+        if ($text === "Консультация online"){
+            if ($this->canAdmin() && $text === "Консультация online"){
+                $text = '/' . $text;
+                $this->switchAdmin();
+            } else {
+                $this->consultationRequest();
+            }
         }
+
+        
 
         if ($text === "Завершить консультацию") {
             $this->consultationRequest(0);
@@ -659,8 +662,8 @@ class BotController extends Controller
         } catch (\Throwable $th) {
             Yii::error($th);
         }
-        $anwer = $flag ? "Подключен" : "Завершен";
-        $this->sendAnswer($anwer);
+        // $anwer = $flag ? "Подключен" : "Завершен";
+        // $this->sendAnswer($anwer);
         return true;
     }
 
