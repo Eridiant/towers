@@ -662,7 +662,6 @@ class BotController extends Controller
         }
         // $anwer = $flag ? "Подключен" : "Завершен";
         // $this->sendAnswer($anwer);
-        return true;
     }
 
     protected function consultationCommunication()
