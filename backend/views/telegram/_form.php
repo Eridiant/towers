@@ -34,6 +34,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'text')->textarea(['rows' => 6])  ?>
     <?= $form->field($model, 'caption')->textarea(['rows' => 6])  ?>
+    <a href="#" class="btn">выделить</a>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

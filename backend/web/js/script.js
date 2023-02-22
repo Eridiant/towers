@@ -68,6 +68,25 @@ document.addEventListener("DOMContentLoaded", () => {
             span.textContent = " " + input.value.length;
         })
     }
+
+    let caption = document.querySelector('#telegramcontent-caption');
+    if (caption) {
+        document.querySelector('.btn').addEventListener('click', (e) => {
+            e.preventDefault();
+            let start = caption.selectionStart;
+            let end = caption.selectionEnd;
+
+            if (start != end) {
+                let text = caption.value;
+
+                caption.value = `${text.substring(0, start)}<b>${text.substring(start, end)}</b>${text.substring(end)}`;
+
+                var sel = end + 7;
+                caption.setSelectionRange(sel, sel);
+            }
+            return false;
+        })
+    }
 });
 
 function rqstBlock(block, val) {
