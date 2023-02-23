@@ -117,7 +117,7 @@ class BotController extends Controller
             // }
         };
 
-        $qr = $this->query->query ?? $this->update['text'] == "exit";
+        $qr = $this->query->query ?? $this->update['text'] == "exit" ?? false;
         if (!empty($content->pre_markup) && $qr) {
             $this->sendIntermediateMessage($qr, $content->pre_markup);
         }
