@@ -239,14 +239,19 @@ class BotController extends Controller
             $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
         }
 
+        $rslt = [
+            'chat_id' => $this->chat_id,
+            'media' => json_encode($this->query->content->video),
+        ];
+        foreach ($this->query->content->photo as $key => $value) {
+            $rslt += [$key => $value];
+        }
+
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
 
-            $result = Request::sendMediaGroup([
-                'chat_id' => $this->chat_id,
-                'media' => json_encode($this->query->content->video),
-            ]);
+            $result = Request::sendMediaGroup($rslt);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();

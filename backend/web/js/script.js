@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         img.addEventListener('click', (e) => {
             let type = document.querySelector('#telegramcontent-type_name').value;
-            if (!(type === 'image' || type === 'animation' || type === 'video' || type === 'group')) return;
+            if (!(type === 'image' || type === 'animation' || type === 'video' || type === 'groups')) return;
 
             fetch('/admin/telegram/chose-image', {
                 method: 'POST', // replace with your request method
