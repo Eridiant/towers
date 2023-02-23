@@ -243,7 +243,7 @@ class BotController extends Controller
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
 
-            $result = Request::sendVideo([
+            $result = Request::sendMediaGroup([
                 'chat_id' => $this->chat_id,
                 'media' => $content->video,
             ]);
