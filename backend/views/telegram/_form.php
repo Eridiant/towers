@@ -25,7 +25,8 @@ use yii\widgets\ActiveForm;
             'video'=>'video',
             'animation'=>'animation',
             'document'=>'document',
-            'location'=>'location'
+            'location'=>'location',
+            'group'=>'group'
     ]) ?>
 
     <?= $form->field($model, 'photo')->textInput(['class' => 'form-control tg-img']) ?>

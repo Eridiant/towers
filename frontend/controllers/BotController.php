@@ -233,6 +233,26 @@ class BotController extends Controller
         }
     }
 
+    protected function sendMediaGroup($parse_mode = 'HTML', $headers = [])
+    {
+        if (!empty($this->query->content->id)) {
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+        }
+
+        try {
+            // Create Telegram API object
+            $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
+
+            $result = Request::sendVideo([
+                'chat_id' => $this->chat_id,
+                'media' => $content->video,
+            ]);
+
+        } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+            $this->log["error"] = $e->getMessage();
+        }
+    }
+
     protected function sendMessage($ms = null, $parse_mode = 'HTML', $headers = [])
     {
 
@@ -430,6 +450,10 @@ class BotController extends Controller
 
             case 'location':
                 $this->sendLocation();
+                break;
+
+            case 'group':
+                $this->sendMediaGroup();
                 break;
 
             default:
