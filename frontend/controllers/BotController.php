@@ -243,7 +243,7 @@ class BotController extends Controller
             'chat_id' => $this->chat_id,
             'media' => json_encode($this->query->content->video),
         ];
-        foreach ($this->query->content->photo as $key => $value) {
+        foreach (json_decode($this->query->content->photo) as $key => $value) {
             $rslt += [$key => $value];
         }
 
