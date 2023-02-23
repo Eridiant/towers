@@ -42,11 +42,15 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.json())
             .then(data => {
                 // handle the response data here
-                let imgs = '';
+                let items = '';
                 data.images.forEach(el => {
-                    imgs += `<img src="/tg/${el.split('/tg/')[1]}" data-url="${el.split('/tg/')[1]}" alt="${el.split('/tg/')[1]}">`
+                    if (type === 'video') {
+                        items += `<video src="/tg/${el.split('/tg/')[1]}" data-url="${el.split('/tg/')[1]}"  alt="${el.split('/tg/')[1]}"></video>`;
+                    } else {
+                        items += `<img src="/tg/${el.split('/tg/')[1]}" data-url="${el.split('/tg/')[1]}" alt="${el.split('/tg/')[1]}">`;
+                    }
                 });
-                telegramImg.innerHTML = imgs;
+                telegramImg.innerHTML = items;
             })
             .catch(error => {
                 // handle any errors that occurred during the request
@@ -59,6 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
             let currentImg;
             if (currentImg = t.closest('.telegram-img img')) {
                 console.log(currentImg);
+                img.value = telegramImg.dataset.site.split('admin/')[0] + 'tg/' + currentImg.dataset.url;
+            }
+            if (currentImg = t.closest('.telegram-img video')) {
+                console.log(currentImg.dataset);
                 img.value = telegramImg.dataset.site.split('admin/')[0] + 'tg/' + currentImg.dataset.url;
             }
             telegramImg.innerHTML = '';
