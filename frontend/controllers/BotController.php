@@ -112,8 +112,8 @@ class BotController extends Controller
 
         if (empty($content->caption)) {
             $content = TelegramImage::find()->where(['content_id' => 2, 'lang' => 'ru'])->one();
-            if ($this->query->content->id == 1) {
-                $content->caption = str_replace('$name', $this->update["from"]["first_name"] ?? $this->update["from"]["username"] ?? 'клиент', $content->caption);
+            if ($this->query->content->id === 1) {
+                $content->caption = str_replace('name', $this->update["from"]["first_name"] ?? $this->update["from"]["username"] ?? 'клиент', $content->caption);
             }
         };
 
