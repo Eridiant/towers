@@ -26,6 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const telegramImg = document.querySelector('.telegram-img');
 
         img.addEventListener('click', (e) => {
+            let type = document.querySelector('#telegramcontent-type_name').value;
+            if (!(type === 'image' || type === 'animation' || type === 'video')) return;
+            console.log('type', type, type !== 'image');
             fetch('/admin/telegram/chose-image', {
                 method: 'POST', // replace with your request method
                 headers: {
@@ -33,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     'Content-Type': 'application/json' // replace with your request content type
                 },
                 body: JSON.stringify({
-                    data: "New dodo pipizza"
+                    data: type
                 })
             })
             .then(response => response.json())

@@ -142,8 +142,12 @@ class TelegramController extends Controller
 
     public function actionChoseImage()
     {
+        $request = Yii::$app->request;
+        if ($request->post("data") == "image") $type = '{jpg,png}';
+        if ($request->post("data") == "animation") $type = '{gif}';
+        if ($request->post("data") == "video") $type = '{mp4}';
         // $images = glob("images/swiper/*.*", GLOB_BRACE);
-        $images = glob(Yii::getAlias('@frontend') . "/web/tg/*.*", GLOB_BRACE);
+        $images = glob(Yii::getAlias('@frontend') . "/web/tg/*.{$type}", GLOB_BRACE);
         // $images = glob("/backend/web/tg/*.*", GLOB_BRACE);
         // $images = glob("/frontend/web/tg/*.*", GLOB_BRACE);
         

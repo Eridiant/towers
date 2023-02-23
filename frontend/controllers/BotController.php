@@ -600,10 +600,6 @@ class BotController extends Controller
             }
             return;
         }
-
-
-
-        
     }
 
     protected function errorCounter($error)
