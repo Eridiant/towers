@@ -245,7 +245,7 @@ class BotController extends Controller
 
             $result = Request::sendMediaGroup([
                 'chat_id' => $this->chat_id,
-                'media' => $this->query->content->video,
+                'media' => json_encode($this->query->content->video),
             ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
