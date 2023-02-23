@@ -139,7 +139,7 @@ class BotController extends Controller
             $result = Request::sendPhoto([
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
-                'caption' => $this->query->content->id !== 1 ? $content->caption : str_replace('name', $this->update["from"]["first_name"] ?? $this->update["from"]["username"] ?? 'клиент', $content->caption),
+                'caption' => isset($this->query->content->id) && $this->query->content->id === 1 ? str_replace('name', $this->update["from"]["first_name"] ?? $this->update["from"]["username"] ?? 'клиент', $content->caption) : $content->caption,
                 'photo' => $photo,
                 'reply_markup' => $content->reply_markup,
             ]);
