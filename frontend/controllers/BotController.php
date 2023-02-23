@@ -112,9 +112,9 @@ class BotController extends Controller
 
         if (empty($content->caption)) {
             $content = TelegramImage::find()->where(['content_id' => 2, 'lang' => 'ru'])->one();
-            if ($this->query->content->id === 1) {
-                $content->caption = str_replace('name', $this->update["from"]["first_name"] ?? $this->update["from"]["username"] ?? 'клиент', $content->caption);
-            }
+            // if ($this->query->content->id === 1) {
+            //     $content->caption = str_replace('name', $this->update["from"]["first_name"] ?? $this->update["from"]["username"] ?? 'клиент', $content->caption);
+            // }
         };
 
         $qr = $this->query->query ?? $this->update['text'] == "exit";
@@ -139,7 +139,7 @@ class BotController extends Controller
             $result = Request::sendPhoto([
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
-                'caption' => $content->caption,
+                'caption' => str_replace('name', 'клиент', $content->caption),
                 'photo' => $photo,
                 'reply_markup' => $content->reply_markup,
             ]);
