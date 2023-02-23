@@ -394,10 +394,6 @@ class BotController extends Controller
             }
         }
 
-        if ($this->query->content->id === 1) {
-            # code...
-        }
-
         $this->user->last_visited_id = $this->query->content->id ?? 2;
         try {
             $this->user->save();
