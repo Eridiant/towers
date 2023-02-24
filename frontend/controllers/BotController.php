@@ -122,7 +122,7 @@ class BotController extends Controller
             $this->sendIntermediateMessage($qr, $content->pre_markup);
         }
 
-        if (empty($content->photo) && empty($this->query->content->photo)) {
+        if (empty($content->photo)) {
             if (empty($this->query->content->photo)) {
                 $photo = 'AgACAgQAAxkDAAIC2mPb6jnlvTf5PzSIuHOpRZGhR-e-AAJLsDEbRie9UjIzSd969FPbAQADAgADeQADLgQ';
             } else {
