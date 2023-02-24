@@ -47,6 +47,8 @@ phpunit.phar
 /frontend/web/video
 /frontend/web/tg
 
+
+/frontend/web/.htaccess
 ip.log
 
 composer.lock
