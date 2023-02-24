@@ -209,7 +209,7 @@ class BotController extends Controller
 
         if (empty($content->photo)) {
             if (empty($this->query->content->photo)) {
-                $photo = 'https://calligraphy-batumi.com/tg/output_video.mp4';
+                $photo = 'https://calligraphy-batumi.com/tg/output_video1.mp4';
             } else {
                 $photo = $this->query->content->photo;
             }
