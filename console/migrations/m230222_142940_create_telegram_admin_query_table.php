@@ -17,7 +17,7 @@ class m230222_142940_create_telegram_admin_query_table extends Migration
     {
         $this->createTable('{{%telegram_admin_query}}', [
             'id' => $this->primaryKey(),
-            'user_id' => $this->integer()->notNull(),
+            'user_id' => $this->bigInteger()->notNull(),
         ]);
 
         // creates index for column `user_id`
