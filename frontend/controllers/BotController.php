@@ -202,8 +202,9 @@ class BotController extends Controller
             $content = TelegramImage::find()->where(['content_id' =>2, 'lang' => 'ru'])->one();
         };
 
-        if (!empty($content->pre_markup) && isset($this->query->query)) {
-            $this->sendIntermediateMessage($this->query->query, $content->pre_markup);
+        $qr = $this->query->query ?? isset($this->update['text']) && $this->update['text'] == "exit";
+        if (!empty($content->pre_markup) && $qr) {
+            $this->sendIntermediateMessage($qr, $content->pre_markup);
         }
 
         if (empty($content->photo)) {
