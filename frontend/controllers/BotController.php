@@ -124,7 +124,7 @@ class BotController extends Controller
 
         if (empty($content->photo)) {
             if (empty($this->query->content->photo)) {
-                $photo = 'https://calligraphy-batumi.com/tg/output_video.mp4';
+                $photo = 'AgACAgQAAxkDAAIC2mPb6jnlvTf5PzSIuHOpRZGhR-e-AAJLsDEbRie9UjIzSd969FPbAQADAgADeQADLgQ';
             } else {
                 $photo = $this->query->content->photo;
             }
@@ -208,7 +208,7 @@ class BotController extends Controller
 
         if (empty($content->photo)) {
             if (empty($this->query->content->photo)) {
-                $photo = 'AgACAgQAAxkDAAIC2mPb6jnlvTf5PzSIuHOpRZGhR-e-AAJLsDEbRie9UjIzSd969FPbAQADAgADeQADLgQ';
+                $photo = 'https://calligraphy-batumi.com/tg/output_video.mp4';
             } else {
                 $photo = $this->query->content->photo;
             }
@@ -462,7 +462,7 @@ class BotController extends Controller
                 break;
 
             default:
-                $this->sendPhoto();
+                $this->sendVideo();
                 break;
         }
 
