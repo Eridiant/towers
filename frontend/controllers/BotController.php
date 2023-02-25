@@ -240,13 +240,13 @@ class BotController extends Controller
             $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
         }
 
-        $rslt = [
-            'chat_id' => $this->chat_id,
-            'media' => json_encode($this->query->content->video),
-        ];
-        foreach (json_decode($this->query->content->photo) as $key => $value) {
-            $rslt += [$key => $value];
-        }
+        // $rslt = [
+        //     'chat_id' => $this->chat_id,
+        //     'media' => json_encode($this->query->content->video),
+        // ];
+        // foreach (json_decode($this->query->content->photo) as $key => $value) {
+        //     $rslt += [$key => $value];
+        // }
 
         try {
             // Create Telegram API object
