@@ -259,7 +259,7 @@ class BotController extends Controller
         $mediaItems = explode(",", $this->query->content->photo);
 
         $firstItem = isset($content->caption);
-        foreach ($photos as $key => $value) {
+        foreach ($mediaItems as $key => $value) {
             if ($firstItem) {
                 $media[] = [
                     'type' => 'photo',
