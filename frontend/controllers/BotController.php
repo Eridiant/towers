@@ -246,8 +246,6 @@ class BotController extends Controller
             $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
         }
 
-        $this->log["error"] = "gr";
-
         // $rslt = [
         //     'chat_id' => $this->chat_id,
         //     'media' => json_encode($this->query->content->video),
@@ -255,47 +253,45 @@ class BotController extends Controller
         // foreach (json_decode($this->query->content->photo) as $key => $value) {
         //     $rslt += [$key => $value];
         // }
+        // $firstKey = array_key_first($this->query->content->photo);
+        // $arr = explode(",", $this->query->content->photo);
+        $arr = 'https://calligraphy-batumi.com/tg/example-1.jpg,https://calligraphy-batumi.com/tg/example-2.jpg,http://www.alcan5000.com/JPG/64Caliente.jpg';
+        $photos = explode(",", $arr);
+        $caption = "asd asdfasd";
 
-        // foreach ($files as $file)
-        // {
-        //     $media[] = [
-        //         'type' => $type,
-        //         'media' => $file['tmp_name'],
-        //         'caption' => $caption
-        //     ];
-        // }
+        // 'caption' => $content->caption,
+        foreach ($photos as $key => $value) {
+            if ($keys[0] === $key) {
+                $media[] = [
+                    'type' => 'photo',
+                    'media' => $value,
+                    'caption' => $caption,
+                ];
+            } else {
+                $media[] = [
+                    'type' => 'photo',
+                    'media' => $value,
+                ];
+            }
+        }
 
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
 
-            // $result = Request::sendMediaGroup($rslt);
-            // $result = Request::sendMediaGroup([
-            //     'chat_id' => $this->chat_id,
-            //     'media' => json_encode([
-            //         ['type' => 'photo', 'media' => 'attach://example-1.jpg' ],
-            //         ['type' => 'photo', 'media' => 'attach://example-2.jpg' ],
-            //     ]),
-            //     'example-1.jpg' => 'https://calligraphy-batumi.com/tg/example-1.jpg',
-            //     'example-2.jpg' => 'https://calligraphy-batumi.com/tg/example-2.jpg',
-            // ]);
-            // $result = Request::sendMediaGroup([
-            //     'chat_id' => $this->chat_id,
-            //     'media' => json_encode([
-            //         ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-1.jpg'],
-            //         ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-2.jpg'],
-            //         ['type' => 'photo', 'media' => 'http://www.alcan5000.com/JPG/64Caliente.jpg']
-            //     ]),
-            // ]);
             $result = Request::sendMediaGroup([
                 'chat_id' => $this->chat_id,
-                'media' => [
-                    ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-1.jpg', 'caption' => 'ok cap'],
-                    ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-2.jpg'],
-                    ['type' => 'photo', 'media' => 'http://www.alcan5000.com/JPG/64Caliente.jpg']
-                ],
+                'media' => $media,
             ]);
             
+            // $result = Request::sendMediaGroup([
+            //     'chat_id' => $this->chat_id,
+            //     'media' => [
+            //         ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-1.jpg', 'caption' => 'ok cap'],
+            //         ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-2.jpg'],
+            //         ['type' => 'photo', 'media' => 'http://www.alcan5000.com/JPG/64Caliente.jpg']
+            //     ],
+            // ]);
             // $result = Request::sendMediaGroup([
             //     'chat_id' => $this->chat_id,
             //     'media'   => [
