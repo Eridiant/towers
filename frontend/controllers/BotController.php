@@ -268,20 +268,22 @@ class BotController extends Controller
             //     'example-1.jpg' => 'https://calligraphy-batumi.com/tg/example-1.jpg',
             //     'example-2.jpg' => 'https://calligraphy-batumi.com/tg/example-2.jpg',
             // ]);
-            // $result = Request::sendMediaGroup([
-            //     'chat_id' => $this->chat_id,
-            //     'media' => json_encode([
-            //         ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-1.jpg'],
-            //         ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-2.jpg'],
-            //     ]),
-            // ]);
             $result = Request::sendMediaGroup([
                 'chat_id' => $this->chat_id,
-                'media'   => [
-                    new InputMediaPhoto(['media' => 'https://calligraphy-batumi.com/tg/example-1.jpg']),
-                    new InputMediaPhoto(['media' => 'https://calligraphy-batumi.com/tg/example-2.jpg']),
-                ],
+                'media' => json_encode([
+                    ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-1.jpg'],
+                    ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-2.jpg'],
+                    ['type' => 'photo', 'media' => 'http://www.alcan5000.com/JPG/64Caliente.jpg']
+                ]),
             ]);
+            
+            // $result = Request::sendMediaGroup([
+            //     'chat_id' => $this->chat_id,
+            //     'media'   => [
+            //         new InputMediaPhoto(['media' => 'https://calligraphy-batumi.com/tg/example-1.jpg']),
+            //         new InputMediaPhoto(['media' => 'https://calligraphy-batumi.com/tg/example-2.jpg']),
+            //     ],
+            // ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
