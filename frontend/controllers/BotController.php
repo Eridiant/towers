@@ -146,6 +146,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
+            $this->log();
         }
     }
 
@@ -188,6 +189,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
+            $this->log();
         }
     }
 
@@ -231,6 +233,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
+            $this->log();
         }
     }
 
@@ -265,6 +268,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
+            $this->log();
         }
     }
 
@@ -296,6 +300,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
+            $this->log();
         }
     }
 
@@ -313,6 +318,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
+            $this->log();
         }
     }
 
@@ -332,6 +338,7 @@ class BotController extends Controller
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
+            $this->log();
         }
     }
 
