@@ -147,6 +147,7 @@ class BotController extends Controller
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
             $this->log();
+            Yii::error($th);
         }
     }
 
@@ -190,6 +191,7 @@ class BotController extends Controller
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
             $this->log();
+            Yii::error($e);
         }
     }
 
@@ -234,6 +236,7 @@ class BotController extends Controller
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
             $this->log();
+            Yii::error($e);
         }
     }
 
@@ -269,6 +272,7 @@ class BotController extends Controller
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
             $this->log();
+            Yii::error($e);
         }
     }
 
@@ -301,6 +305,7 @@ class BotController extends Controller
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
             $this->log();
+            Yii::error($e);
         }
     }
 
@@ -319,6 +324,7 @@ class BotController extends Controller
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
             $this->log();
+            Yii::error($e);
         }
     }
 
@@ -339,6 +345,7 @@ class BotController extends Controller
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
             $this->log();
+            Yii::error($e);
         }
     }
 
