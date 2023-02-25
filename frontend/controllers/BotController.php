@@ -252,7 +252,16 @@ class BotController extends Controller
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
 
-            $result = Request::sendMediaGroup($rslt);
+            // $result = Request::sendMediaGroup($rslt);
+            $result = Request::sendMediaGroup([
+                'chat_id' => $this->chat_id,
+                'media' => json_encode([
+                    ['type' => 'photo', 'media' => 'attach://example-1.jpg' ],
+                    ['type' => 'photo', 'media' => 'attach://example-2.jpg' ],
+                ]),
+                'example-1.jpg' => 'https://calligraphy-batumi.com/tg/example-1.jpg',
+                'example-2.jpg' => 'https://calligraphy-batumi.com/tg/example-2.jpg',
+            ]);
 
         } catch (Longman\TelegramBot\Exception\TelegramException $e) {
             $this->log["error"] = $e->getMessage();
