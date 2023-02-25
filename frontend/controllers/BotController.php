@@ -255,18 +255,16 @@ class BotController extends Controller
         // }
         // $firstKey = array_key_first($this->query->content->photo);
         // $arr = explode(",", $this->query->content->photo);
-        $arr = 'https://calligraphy-batumi.com/tg/example-1.jpg,https://calligraphy-batumi.com/tg/example-2.jpg,http://www.alcan5000.com/JPG/64Caliente.jpg';
-        $photos = explode(",", $arr);
-        $caption = "asd asdfasd";
 
-        // 'caption' => $content->caption,
-        $firstItem = true;
+        $mediaItems = explode(",", $this->query->content->photo);
+
+        $firstItem = isset($content->caption);
         foreach ($photos as $key => $value) {
             if ($firstItem) {
                 $media[] = [
                     'type' => 'photo',
                     'media' => $value,
-                    'caption' => $caption,
+                    'caption' => $content->caption,
                 ];
                 $firstItem = false;
             } else {
