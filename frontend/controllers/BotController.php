@@ -246,6 +246,8 @@ class BotController extends Controller
             $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
         }
 
+        $this->log["error"] = "gr";
+
         // $rslt = [
         //     'chat_id' => $this->chat_id,
         //     'media' => json_encode($this->query->content->video),
