@@ -282,8 +282,8 @@ class BotController extends Controller
                 'chat_id' => $this->chat_id,
                 'media' => [
                     ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-1.jpg', 'caption' => 'ok cap'],
-                    ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-2.jpg', 'caption' => 'ok cap'],
-                    ['type' => 'photo', 'media' => 'http://www.alcan5000.com/JPG/64Caliente.jpg', 'caption' => 'ok cap']
+                    ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-2.jpg'],
+                    ['type' => 'photo', 'media' => 'http://www.alcan5000.com/JPG/64Caliente.jpg']
                 ],
             ]);
             
