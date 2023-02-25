@@ -256,6 +256,15 @@ class BotController extends Controller
         //     $rslt += [$key => $value];
         // }
 
+        // foreach ($files as $file)
+        // {
+        //     $media[] = [
+        //         'type' => $type,
+        //         'media' => $file['tmp_name'],
+        //         'caption' => $caption
+        //     ];
+        // }
+
         try {
             // Create Telegram API object
             $telegram = new \Longman\TelegramBot\Telegram($this->bot_api_key);
@@ -281,11 +290,10 @@ class BotController extends Controller
             $result = Request::sendMediaGroup([
                 'chat_id' => $this->chat_id,
                 'media' => [
-                    ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-1.jpg'],
-                    ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-2.jpg'],
-                    ['type' => 'photo', 'media' => 'http://www.alcan5000.com/JPG/64Caliente.jpg']
+                    ['media' => 'https://calligraphy-batumi.com/tg/example-1.jpg', 'caption' => 'ok cap'],
+                    ['media' => 'https://calligraphy-batumi.com/tg/example-2.jpg'],
+                    ['media' => 'http://www.alcan5000.com/JPG/64Caliente.jpg']
                 ],
-                'caption' => 'ok cap',
             ]);
             
             // $result = Request::sendMediaGroup([
