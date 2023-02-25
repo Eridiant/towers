@@ -290,9 +290,9 @@ class BotController extends Controller
             $result = Request::sendMediaGroup([
                 'chat_id' => $this->chat_id,
                 'media' => [
-                    ['media' => 'https://calligraphy-batumi.com/tg/example-1.jpg', 'caption' => 'ok cap'],
-                    ['media' => 'https://calligraphy-batumi.com/tg/example-2.jpg'],
-                    ['media' => 'http://www.alcan5000.com/JPG/64Caliente.jpg']
+                    ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-1.jpg', 'caption' => 'ok cap'],
+                    ['type' => 'photo', 'media' => 'https://calligraphy-batumi.com/tg/example-2.jpg'],
+                    ['type' => 'photo', 'media' => 'http://www.alcan5000.com/JPG/64Caliente.jpg']
                 ],
             ]);
             
