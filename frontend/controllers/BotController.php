@@ -260,13 +260,15 @@ class BotController extends Controller
         $caption = "asd asdfasd";
 
         // 'caption' => $content->caption,
+        $firstItem = true;
         foreach ($photos as $key => $value) {
-            if ($keys[0] === $key) {
+            if ($firstItem) {
                 $media[] = [
                     'type' => 'photo',
                     'media' => $value,
                     'caption' => $caption,
                 ];
+                $firstItem = false;
             } else {
                 $media[] = [
                     'type' => 'photo',
