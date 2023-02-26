@@ -109,6 +109,13 @@ a.desc:after {
 .content {
     position: relative;
 }
+.telegram-btn {
+    position: absolute;
+    top: -0px;
+    background-color: #fff;
+    border-radius: 3px;
+    z-index: 10;
+}
 .telegram-img {
     position: absolute;
     left: 50%;
@@ -120,6 +127,7 @@ a.desc:after {
     width: 90%;
     max-width: 90%;
     max-height: 100%;
+    padding-top: 40px;
     overflow: scroll;
 }
 .telegram-img img {
@@ -131,4 +139,19 @@ a.desc:after {
 .telegram-img:empty {
     display: none;
 }
-
+.telegram-img .group {
+    position: relative;
+}
+.telegram-img .group input {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+}
+.telegram-img .group input ~label{
+    box-sizing: border-box;
+    border: 1px solid transparent;
+}
+.telegram-img .group input:checked ~label{
+    border: 1px solid red;
+}

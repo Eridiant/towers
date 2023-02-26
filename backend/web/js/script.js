@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         img.addEventListener('click', (e) => {
             let type = document.querySelector('#telegramcontent-type_name').value;
-            if (!(type === 'image' || type === 'animation' || type === 'video' || type === 'groups')) return;
+            if (!(type === 'image' || type === 'animation' || type === 'video' || type === 'group')) return;
 
             fetch('/admin/telegram/chose-image', {
                 method: 'POST', // replace with your request method
@@ -42,14 +42,24 @@ document.addEventListener("DOMContentLoaded", () => {
             .then(response => response.json())
             .then(data => {
                 // handle the response data here
-                let items = '';
-                data.images.forEach(el => {
+                let items = type === 'group' ? `<a class="telegram-btn btn" href="#">добавить изображения</a>` : '';
+
+                data.images.forEach((el, i) => {
                     if (type === 'video') {
-                        items += `<video src="/tg/${el.split('/tg/')[1]}" data-url="${el.split('/tg/')[1]}"  alt="${el.split('/tg/')[1]}"></video>`;
+                        items += `<video class="video" src="/tg/${el.split('/tg/')[1]}" data-url="${el.split('/tg/')[1]}"  alt="${el.split('/tg/')[1]}"></video>`;
+                    }else if (type === 'group') {
+                        items += ``;
+                        items += `<div class="group">
+                                    <input type="checkbox" name="image" id="input-${i}">
+                                    <label for="input-${i}">
+                                        <img src="/tg/${el.split('/tg/')[1]}" data-url="${el.split('/tg/')[1]}" alt="${el.split('/tg/')[1]}">
+                                    </label>
+                                </div>`;
                     } else {
-                        items += `<img src="/tg/${el.split('/tg/')[1]}" data-url="${el.split('/tg/')[1]}" alt="${el.split('/tg/')[1]}">`;
+                        items += `<img class="img" src="/tg/${el.split('/tg/')[1]}" data-url="${el.split('/tg/')[1]}" alt="${el.split('/tg/')[1]}">`;
                     }
                 });
+
                 telegramImg.innerHTML = items;
             })
             .catch(error => {
@@ -60,16 +70,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         telegram.addEventListener('click', (e) => {
             let t = e.target;
+            if (t.closest('.telegram-btn')) e.preventDefault();
             let currentImg;
-            if (currentImg = t.closest('.telegram-img img')) {
+            if (currentImg = t.closest('.telegram-img .img')) {
                 console.log(currentImg);
                 img.value = telegramImg.dataset.site.split('admin/')[0] + 'tg/' + currentImg.dataset.url;
+                telegramImg.innerHTML = '';
             }
-            if (currentImg = t.closest('.telegram-img video')) {
+            if (currentImg = t.closest('.telegram-img .video')) {
                 console.log(currentImg.dataset);
                 img.value = telegramImg.dataset.site.split('admin/')[0] + 'tg/' + currentImg.dataset.url;
+                telegramImg.innerHTML = '';
             }
-            telegramImg.innerHTML = '';
+            if (t.closest('.telegram-btn')) {
+                let checked = document.querySelectorAll('.telegram-img input:checked ~label img');
+                arr = [];
+                checked.forEach(el => {
+                    arr.push(telegramImg.dataset.site.split('admin/')[0] + 'tg/' + el.dataset.url);
+                });
+                img.value = arr.join(',');
+                telegramImg.innerHTML = '';
+            }
         })
 
         const input = document.querySelector('#telegramcontent-caption');

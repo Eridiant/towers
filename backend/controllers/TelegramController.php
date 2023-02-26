@@ -146,6 +146,7 @@ class TelegramController extends Controller
         if ($request->post("data") == "image") $type = '{jpg,png}';
         if ($request->post("data") == "animation") $type = '{gif}';
         if ($request->post("data") == "video") $type = '{mp4}';
+        if ($request->post("data") == "group") $type = '{jpg,png}';
         // $images = glob("images/swiper/*.*", GLOB_BRACE);
         $images = glob(Yii::getAlias('@frontend') . "/web/tg/*.{$type}", GLOB_BRACE);
         // $images = glob("/backend/web/tg/*.*", GLOB_BRACE);
