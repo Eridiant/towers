@@ -630,7 +630,7 @@ class BotController extends Controller
 
         if (is_null($inf->mail)) {
             if (filter_var($this->update["text"] ?? "", FILTER_VALIDATE_EMAIL) || ($this->update["data"] ?? "" == "skip") ) {
-                $inf->mail = $this->update["text"];
+                $inf->mail = $this->update["text"] ?? "skip";
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
                     $reply = "Введите пожалуйста Ваше имя:";
