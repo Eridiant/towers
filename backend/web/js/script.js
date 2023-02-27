@@ -85,7 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (t.closest('.telegram-btn')) {
                 let checked = document.querySelectorAll('.telegram-img input:checked ~label img');
                 arr = [];
-                checked.forEach(el => {
+                checked.forEach((el, i) => {
+                    if (i > 10) return;
                     arr.push(telegramImg.dataset.site.split('admin/')[0] + 'tg/' + el.dataset.url);
                 });
                 img.value = arr.join(',');

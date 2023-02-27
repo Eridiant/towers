@@ -50,7 +50,7 @@ class BotController extends Controller
     const REQUEST_TRANSFER_STATUS = 1;
     const REQUEST_CONSULTATION_STATUS = 2;
     const ADMINISTRATOR_STATUS = 5;
-    const NORMAL_STATUS = 0;
+    const REQUEST_STATUS = 0;
     const BANNED = 9;
 
     public function behaviors()
@@ -415,11 +415,8 @@ class BotController extends Controller
             $this->log();
             return;
         }
+
         $text = isset($message['text']) ? $message['text'] : $message['data'];
-        if ($text === "Оставить заявку" || $this->user->status === self::REQUEST_TRANSFER_STATUS) {
-            $this->fillContactForm();
-            return;
-        }
 
         if ($this->isAdmin())
         $text = '/' . $text;
@@ -471,6 +468,15 @@ class BotController extends Controller
                     ->one();
             } else {
                 $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
+            }
+        }
+
+        if ($text === "Оставить заявку" || $this->user->status === self::REQUEST_TRANSFER_STATUS) {
+            if (isset($this->query)) {
+                $this->user->status = REQUEST_STATUS;
+            } else {
+                $this->fillContactForm();
+                return;
             }
         }
 
@@ -793,7 +799,7 @@ class BotController extends Controller
             if (isset($this->user->admin->current_user_id)) {
                 $user = $this->getUserById($this->user->admin->current_user_id);
                 try {
-                    $user->status = self::NORMAL_STATUS;
+                    $user->status = self::REQUEST_STATUS;
                     $user->save();
                     $admin = TelegramAdmin::find($this->chat_id)->one();
                     $admin->current_user_id = null;
