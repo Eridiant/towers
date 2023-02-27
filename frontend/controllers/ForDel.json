@@ -21,6 +21,8 @@
 	]
 }
 
+{"inline_keyboard": [[{"text": "Пропусить","callback_data": "skip"}]]}
+
 [
 {
     "type": "photo",

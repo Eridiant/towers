@@ -611,7 +611,7 @@ class BotController extends Controller
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
                     $reply = "Введите пожалуйста Ваш емайл:";
-                    $this->sendAnswer($reply);
+                    $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": "Пропусить","callback_data": "skip"}]]}');
                     return;
                 }
             }
