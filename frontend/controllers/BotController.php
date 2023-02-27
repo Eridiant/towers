@@ -528,6 +528,9 @@ class BotController extends Controller
                 $this->sendMediaGroup();
                 break;
 
+            case 'command':
+                break;
+
             default:
                 $this->sendVideo();
                 break;
