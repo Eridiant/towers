@@ -473,7 +473,7 @@ class BotController extends Controller
 
         if ($text === "Оставить заявку" || $this->user->status === self::REQUEST_TRANSFER_STATUS) {
             if (isset($this->query)) {
-                $this->user->status = REQUEST_STATUS;
+                $this->user->status = self::REQUEST_STATUS;
             } else {
                 $this->fillContactForm();
                 return;
