@@ -611,7 +611,7 @@ class BotController extends Controller
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
                     $reply = "Введите пожалуйста Ваш емайл:";
-                    if ($this->update["text"] == "skip") {
+                    if ($this->update["data"] ?? "" == "skip") {
                         $this->sendAnswer($reply);
                     } else {
                         $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": "Пропусить","callback_data": "sk"}]]}');
