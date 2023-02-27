@@ -614,7 +614,7 @@ class BotController extends Controller
                     if ($this->update["text"] == "skip") {
                         $this->sendAnswer($reply);
                     } else {
-                        $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": "Пропусить","callback_data": "skip"}]]}');
+                        $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": "Пропусить","callback_data": "skip "}]]}');
                     }
                     return;
                 }
@@ -629,7 +629,7 @@ class BotController extends Controller
         }
 
         if (is_null($inf->mail)) {
-            if (filter_var($this->update["text"] ?? "", FILTER_VALIDATE_EMAIL) || ($this->update["data"] ?? "" == "skip") ) {
+            if (filter_var($this->update["text"] ?? "", FILTER_VALIDATE_EMAIL) || ($this->update["data"] ?? "" == "skip ") ) {
                 $inf->mail = $this->update["text"] ?? "skip";
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
