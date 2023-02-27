@@ -472,7 +472,7 @@ class BotController extends Controller
         }
 
         if ($text === "Оставить заявку" || $this->user->status === self::REQUEST_TRANSFER_STATUS) {
-            if (isset($this->query->content) && $this->query->content->type_name === "command" && $this->user->status !== self::REQUEST_TRANSFER_STATUS) {
+            if (isset($this->query->content) && $this->query->content->type_name === "command" && $this->user->status === self::REQUEST_TRANSFER_STATUS) {
                 $this->user->status = self::REQUEST_STATUS;
                 try {
                     $inf = TelegramInfo::find()
