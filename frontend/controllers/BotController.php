@@ -474,6 +474,12 @@ class BotController extends Controller
         if ($text === "Оставить заявку" || $this->user->status === self::REQUEST_TRANSFER_STATUS) {
             if (isset($this->query->content)) {
                 $this->user->status = self::REQUEST_STATUS;
+                try {
+                    $inf = TelegramInfo::find()
+                    ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2, 3]])->delete();
+                } catch (\Throwable $th) {
+                    Yii::error($th);
+                }
             } else {
                 $this->fillContactForm();
                 return;
@@ -577,8 +583,7 @@ class BotController extends Controller
                 // ->andWhere(['>=', 'created_at', time() - 900])
                 ->one();
             if ($inf->num_attempts > 2) {
-                $inf->num_attempts = 5;
-                $inf->save();
+                $inf->delete();
             }
         } else {
             $inf = new TelegramInfo();
