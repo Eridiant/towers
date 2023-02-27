@@ -607,7 +607,7 @@ class BotController extends Controller
 
         if (is_null($inf->phone)) {
             if (($this->update["data"] ?? "" == "skip") || preg_match("/\+?\d{11}/", $this->update["text"] ?? "", $matches)) {
-                $inf->phone = $matches[0];
+                $inf->phone = $matches[0] ?? "skip";
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
                     $reply = "Введите пожалуйста Ваш емайл:";
