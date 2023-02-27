@@ -606,7 +606,7 @@ class BotController extends Controller
         }
 
         if (is_null($inf->phone)) {
-            if (preg_match("/\+?\d{11}/", $this->update["text"], $matches) || $this->update["text"] == "skip") {
+            if (($this->update["data"] ?? "" == "skip") || preg_match("/\+?\d{11}/", $this->update["text"] ?? "", $matches)) {
                 $inf->phone = $matches[0];
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
@@ -629,7 +629,7 @@ class BotController extends Controller
         }
 
         if (is_null($inf->mail)) {
-            if (filter_var($this->update["text"], FILTER_VALIDATE_EMAIL) || $this->update["text"] == "skip") {
+            if (filter_var($this->update["text"] ?? "", FILTER_VALIDATE_EMAIL) || ($this->update["data"] ?? "" == "skip") ) {
                 $inf->mail = $this->update["text"];
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
