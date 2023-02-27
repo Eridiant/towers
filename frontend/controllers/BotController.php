@@ -476,8 +476,7 @@ class BotController extends Controller
                 $this->user->status = self::REQUEST_STATUS;
                 try {
                     $inf = TelegramInfo::find()
-                    ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2, 3]])->one();
-                    $inf->delete();
+                    ->where(['user_id' => $this->user->id, 'num_attempts' => [0, 1, 2, 3]])->one()->delete();
                 } catch (\Throwable $th) {
                     Yii::error($th);
                 }
