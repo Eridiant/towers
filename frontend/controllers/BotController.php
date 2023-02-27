@@ -593,7 +593,7 @@ class BotController extends Controller
             $reply = "Введите пожалуйста Ваш номер телефона:";
             $inf->user_id = $this->user->id;
             $this->user->status = 1;
-            $this->sendAnswer($reply);
+            $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": "Пропусить","callback_data": "skip"}]]}');
             $inf->save();
             try {
                 $this->user->save();
@@ -606,12 +606,16 @@ class BotController extends Controller
         }
 
         if (is_null($inf->phone)) {
-            if (preg_match("/\+?\d{11}/", $this->update["text"], $matches)) {
+            if (preg_match("/\+?\d{11}/", $this->update["text"], $matches) || $this->update["text"] == "skip") {
                 $inf->phone = $matches[0];
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
                     $reply = "Введите пожалуйста Ваш емайл:";
-                    $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": "Пропусить","callback_data": "skip"}]]}');
+                    if ($this->update["text"] == "skip") {
+                        $this->sendAnswer($reply);
+                    } else {
+                        $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": "Пропусить","callback_data": "skip"}]]}');
+                    }
                     return;
                 }
             }
@@ -625,7 +629,7 @@ class BotController extends Controller
         }
 
         if (is_null($inf->mail)) {
-            if (filter_var($this->update["text"], FILTER_VALIDATE_EMAIL)) {
+            if (filter_var($this->update["text"], FILTER_VALIDATE_EMAIL) || $this->update["text"] == "skip") {
                 $inf->mail = $this->update["text"];
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
