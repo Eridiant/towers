@@ -45,7 +45,7 @@ class TelegramController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => TelegramContent::find(),
+            'query' => TelegramContent::find()->andWhere(['<>', 'type_name', 'command']),
             /*
             'pagination' => [
                 'pageSize' => 50
