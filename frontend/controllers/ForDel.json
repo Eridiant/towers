@@ -21,6 +21,38 @@
 	]
 }
 
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "Фасад",
+			"callback_data": "21"
+		},
+		{
+			"text": "Интерьеры",
+			"callback_data": "22"
+		}],
+		[
+		{
+			"text": "Белый каркас",
+			"callback_data": "23"
+		},
+		{
+			"text": "С ремонтом и мебелью",
+			"callback_data": "25"
+		}],
+		[
+		{
+			"text": "Батуми",
+			"callback_data": "26"
+		},
+		{
+			"text": "Инфраструктура",
+			"callback_data": "27"
+		}]
+	]
+}
+
 {"inline_keyboard": [[{"text": "Пропусить","callback_data": "skip"}]]}
 
 [

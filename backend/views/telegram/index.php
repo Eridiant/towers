@@ -32,9 +32,20 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
 
             'id',
-            'parent_id',
+            // 'parent_id',
+            [
+                'label' => 'Родитель',
+                // 'attribute' => 'category_id',
+                // 'filter' => Category::find()->select(['name', 'id'])->indexBy('id')->column(),
+                'value' => 'parent.query',
+                'contentOptions' => ['class' => 'limit', 'style' => 'max-width: 70px;'],
+            ],
             // 'type',
-            'type_name',
+            // 'type_name',
+            [
+                'attribute' => 'type_name',
+                'contentOptions' => ['class' => 'limit', 'style' => 'max-width: 20px;'],
+            ],
             [
                 'label' => 'Запрос',
                 'value' => 'query.query',
@@ -62,6 +73,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'contentOptions' => ['class' => 'limit', 'style' => 'max-width: 100px;'],
             ],
             // 'photo:ntext',
+            [
+                'attribute' => 'photo',
+                'contentOptions' => ['class' => 'limit', 'style' => 'max-width: 150px;'],
+            ],
             //'video:ntext',
             [
                 'label' => 'Язык',
