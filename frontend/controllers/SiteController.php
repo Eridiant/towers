@@ -163,10 +163,11 @@ class SiteController extends Controller
 
     public function actionAmocrm()
     {
+        $keys = Key::find()->where(['id' => 1])->one();
 
         $provider = new AmoCRM([
-            'clientId' => 'xxx',
-            'clientSecret' => 'xxx',
+            'clientId' => $keys->value,
+            'clientSecret' => $keys->login,
             'redirectUri' => 'https://calligraphy-batumi.com/amocrm',
         ]);
         
