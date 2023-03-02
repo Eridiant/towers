@@ -46,7 +46,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                         <div class="contacts-inner-svg">
                             <svg width="21" height="16"><use xlink:href="images/icons.svg#mail"></use></svg>
                         </div>
-                        <a href="mailto:info@calligraphy-towers.com">info@calligraphy-towers.com</a>
+                        <a href="mailto:info@calligraphy-batumi.com">info@calligraphy-batumi.com</a>
                     </div>
                     <div class="contacts-inner">
                         <div class="contacts-inner-svg">
