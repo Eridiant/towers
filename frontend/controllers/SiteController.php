@@ -28,6 +28,7 @@ use frontend\models\Feedback;
 use frontend\models\UserIp;
 use frontend\models\SxGeo;
 use frontend\models\Key;
+use frontend\models\Log;
 use yii\web\HttpException;
 
 /**
@@ -164,15 +165,16 @@ class SiteController extends Controller
     public function actionAmocrm()
     {
         $keys = Key::find()->where(['id' => 1])->one();
+        $log = new Log();
 
         $provider = new AmoCRM([
             'clientId' => $keys->value,
             'clientSecret' => $keys->login,
             'redirectUri' => 'https://calligraphy-batumi.com/amocrm',
         ]);
-        
+
         if (isset($_GET['referer'])) {
-            $provider->setBaseDomain($_GET['referer']);
+            $log->value = $provider->setBaseDomain($_GET['referer']);
         }
         
         if (!isset($_GET['request'])) {
@@ -220,6 +222,7 @@ class SiteController extends Controller
                 $accessToken = $provider->getAccessToken(new League\OAuth2\Client\Grant\AuthorizationCode(), [
                     'code' => $_GET['code'],
                 ]);
+                $log->value1 = json_encode($accessToken);
         
                 if (!$accessToken->hasExpired()) {
                     $this->saveToken([
@@ -239,8 +242,10 @@ class SiteController extends Controller
             printf('Hello, %s!', $ownerDetails->getName());
         } else {
             $accessToken = $this->getToken();
+            $log->value1 = json_encode($accessToken);
         
             $provider->setBaseDomain($accessToken->getValues()['baseDomain']);
+            $log->value2 = json_encode($provider);
         
             /**
              * Проверяем активен ли токен и делаем запрос или обновляем токен
@@ -282,6 +287,12 @@ class SiteController extends Controller
             } catch (GuzzleHttp\Exception\GuzzleException $e) {
                 var_dump((string)$e);
             }
+        }
+
+        try {
+            $log->save();
+        } catch (\Throwable $th) {
+            Yii::error($th);
         }
 
         return;
