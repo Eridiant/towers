@@ -233,6 +233,7 @@ class SiteController extends Controller
                     ]);
                 }
             } catch (Exception $e) {
+                $log->save();
                 die((string)$e);
             }
         
@@ -267,6 +268,7 @@ class SiteController extends Controller
                     ]);
         
                 } catch (Exception $e) {
+                    $log->save();
                     die((string)$e);
                 }
             }
