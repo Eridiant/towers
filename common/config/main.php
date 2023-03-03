@@ -1,8 +1,8 @@
 <?php
-// if (\frontend\models\Key::find()->where(['key' => 'mail'])->exists()) {
-//     $key = \frontend\models\Key::find()->where(['key' => 'mail'])->one();
-//     $mail = $key->password;
-// }
+if (\frontend\models\Key::find()->where(['key' => 'mail'])->exists()) {
+    $key = \frontend\models\Key::find()->where(['key' => 'mail'])->one();
+    $mail = $key->password ?? "";
+}
 return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -20,7 +20,7 @@ return [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'hostde14.fornex.org',
                 'username' => 'calligraph@calligraphy-batumi.com',
-                'password' => "",
+                'password' => $mail ?? "",
                 'port' => '465',
                 'encryption' => 'ssl',
             ],
