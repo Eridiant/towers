@@ -51,6 +51,7 @@ phpunit.phar
 
 /frontend/web/.htaccess
 ip.log
+.env
 
 composer.lock
 
