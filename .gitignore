@@ -49,7 +49,7 @@ phpunit.phar
 
 /common/config/main.php
 
-/frontend/web/.htaccess
+.htaccess
 ip.log
 .env
 
