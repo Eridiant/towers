@@ -47,8 +47,6 @@ phpunit.phar
 /frontend/web/video
 /frontend/web/tg
 
-/common/config/main.php
-
 .htaccess
 ip.log
 .env
