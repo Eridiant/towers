@@ -16,7 +16,7 @@ return [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'hostde14.fornex.org',
                 'username' => 'calligraph@calligraphy-batumi.com',
-                'password' => 'ZBaCeUvZyE89@G',
+                'password' => \frontend\models\Key::find()->where(['key' => 'mail'])->one()->password,
                 'port' => '465',
                 'encryption' => 'ssl',
             ],
