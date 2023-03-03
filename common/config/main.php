@@ -1,8 +1,4 @@
 <?php
-// if (\frontend\models\Key::find()->where(['key' => 'mail'])->exists()) {
-//     $key = \frontend\models\Key::find()->where(['key' => 'mail'])->one();
-//     $mail = $key->password ?? "";
-// }
 return [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
