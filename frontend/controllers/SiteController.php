@@ -31,6 +31,8 @@ use frontend\models\Key;
 use frontend\models\Log;
 use yii\web\HttpException;
 
+use League\OAuth2\Client\Grant\AuthorizationCode;
+
 /**
  * Site controller
  */
@@ -162,41 +164,85 @@ class SiteController extends Controller
         return $country->getCityFull($ip);
     }
 
-    public function actionAmocrm()
+    public function actionAmocrms()
     {
         $keys = Key::find()->where(['id' => 1])->one();
         $log = new Log();
 
+        $request = Yii::$app->request;
+        $log->value = json_encode($request->get());
+        $log->value1 = json_encode($request->post());
+
+
+
+
         $provider = new AmoCRM([
             'clientId' => $keys->value,
-            'clientSecret' => $keys->login,
-            'redirectUri' => 'https://calligraphy-batumi.com/amocrm',
+            // 'clientId' => $keys->login,
+            'clientSecret' => $keys->password,
+            'redirectUri' => 'https://calligraphy-batumi.com/amocrms',
         ]);
 
+        
+        $accessToke = $this->getToken();
+        // var_dump('<pre>');
+        var_dump('1678116606');
+        // var_dump($accessToken->getToken());
+        // var_dump($accessToken->getRefreshToken());
+        var_dump($accessToke->getExpires());
+        // var_dump($provider->getBaseDomain());
+        // var_dump($provider->urlAccount());
+        // var_dump($accessToken->hasExpired());
+        // var_dump('</pre>');
+
+        // die;
+
+        $provider->setBaseDomain('www.kommo.com');
+        if ($request->post()) {
+            $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\AuthorizationCode(), [
+                'code' => $request->post('code'),
+            ]);
+            $log->value3 = json_encode($accessToken);
+        }
+
+        if ($request->get()) {
+            $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\AuthorizationCode(), [
+                'code' => $request->get('code'),
+            ]);
+            $log->value3 = json_encode($accessToken);
+        }
+
+
+        $log->save();
+
         if (isset($_GET['referer'])) {
-            $log->value = $provider->setBaseDomain($_GET['referer']);
+            $provider->setBaseDomain($_GET['referer']);
         }
         
-        if (!isset($_GET['request'])) {
+        if (!isset($_GET['request']) && false) {
             if (!isset($_GET['code'])) {
                 /**
                  * Просто отображаем кнопку авторизации или получаем ссылку для авторизации
                  * По-умолчанию - отображаем кнопку
                  */
-                $_SESSION['oauth2state'] = bin2hex(random_bytes(16));
-                if (true) {
+                $session = Yii::$app->session;
+                $session->set('oauth2state', bin2hex(random_bytes(16)));
+                // $_SESSION['oauth2state'] = bin2hex(random_bytes(16));
+                // var_dump($_SESSION['oauth2state']);
+                
+                if (false) {
                     echo '<div>
                         <script
-                            class="amocrm_oauth"
+                            class="kommo_oauth"
                             charset="utf-8"
                             data-client-id="' . $provider->getClientId() . '"
-                            data-title="Установить интеграцию"
+                            data-title="Button"
                             data-compact="false"
                             data-class-name="className"
                             data-color="default"
                             data-state="' . $_SESSION['oauth2state'] . '"
                             data-error-callback="handleOauthError"
-                            src="https://www.amocrm.ru/auth/button.min.js"
+                            src="https://www.kommo.com/auth/button.js"
                         ></script>
                         </div>';
                     echo '<script>
@@ -205,7 +251,7 @@ class SiteController extends Controller
                     }
                     </script>';
                     die;
-                } else {
+            } else {
                     $authorizationUrl = $provider->getAuthorizationUrl(['state' => $_SESSION['oauth2state']]);
                     header('Location: ' . $authorizationUrl);
                 }
@@ -219,11 +265,11 @@ class SiteController extends Controller
              */
             try {
                 /** @var \League\OAuth2\Client\Token\AccessToken $access_token */
-                $accessToken = $provider->getAccessToken(new League\OAuth2\Client\Grant\AuthorizationCode(), [
+                $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\AuthorizationCode(), [
                     'code' => $_GET['code'],
                 ]);
                 $log->value1 = json_encode($accessToken);
-        
+
                 if (!$accessToken->hasExpired()) {
                     $this->saveToken([
                         'accessToken' => $accessToken->getToken(),
@@ -243,10 +289,10 @@ class SiteController extends Controller
             printf('Hello, %s!', $ownerDetails->getName());
         } else {
             $accessToken = $this->getToken();
-            $log->value1 = json_encode($accessToken);
+            // $log->value1 = json_encode($accessToken);
         
             $provider->setBaseDomain($accessToken->getValues()['baseDomain']);
-            $log->value2 = json_encode($provider);
+            // $log->value2 = json_encode($provider);
         
             /**
              * Проверяем активен ли токен и делаем запрос или обновляем токен
@@ -256,7 +302,7 @@ class SiteController extends Controller
                  * Получаем токен по рефрешу
                  */
                 try {
-                    $accessToken = $provider->getAccessToken(new League\OAuth2\Client\Grant\RefreshToken(), [
+                    $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\RefreshToken(), [
                         'refresh_token' => $accessToken->getRefreshToken(),
                     ]);
         
@@ -271,10 +317,11 @@ class SiteController extends Controller
                     $log->save();
                     die((string)$e);
                 }
+                die;
             }
         
             $token = $accessToken->getToken();
-        
+
             try {
                 /**
                  * Делаем запрос к АПИ
@@ -283,8 +330,9 @@ class SiteController extends Controller
                     ->request('GET', $provider->urlAccount() . 'api/v2/account', [
                         'headers' => $provider->getHeaders($accessToken)
                     ]);
-        
+
                 $parsedBody = json_decode($data->getBody()->getContents(), true);
+
                 printf('ID аккаунта - %s, название - %s', $parsedBody['id'], $parsedBody['name']);
             } catch (GuzzleHttp\Exception\GuzzleException $e) {
                 var_dump((string)$e);
@@ -334,7 +382,7 @@ class SiteController extends Controller
         // $accessToken = json_decode(file_get_contents(TOKEN_FILE), true);
         
         $key = Key::find()->where(['key' => 'date'])->one();
-        $accessToken = json_decode($key->value);
+        $accessToken = json_decode($key->value, true);
         if (
             isset($accessToken)
             && isset($accessToken['accessToken'])
