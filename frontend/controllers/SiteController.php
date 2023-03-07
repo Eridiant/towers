@@ -166,12 +166,14 @@ class SiteController extends Controller
 
     public function actionAmocrms()
     {
+        // return;
         $keys = Key::find()->where(['id' => 1])->one();
         $log = new Log();
 
         $request = Yii::$app->request;
         $log->value = json_encode($request->get());
         $log->value1 = json_encode($request->post());
+        $log->save();
 
 
 
@@ -183,37 +185,60 @@ class SiteController extends Controller
             'redirectUri' => 'https://calligraphy-batumi.com/amocrms',
         ]);
 
-        
+        $apiClient = new \AmoCRM\Client\AmoCRMApiClient($keys->value, $keys->password, 'https://calligraphy-batumi.com/amocrms');
+
+        $accessToken = $this->getToken();
+        $apiClient->setAccessToken($accessToken)
+                ->setAccountBaseDomain($accessToken->getValues()['baseDomain']);
+
         $accessToke = $this->getToken();
-        // var_dump('<pre>');
+        $leadsService = $apiClient->leads();
+        $lead = new \AmoCRM\Models\LeadModel();
+        $lead->setName('test tost')
+            ->setPrice(12345)
+            ->setSourceExternalId('www.calligraphy-batumi.com')
+            // >setPipelineId(5138575)
+            // ->setResponsibleUserId($keys->login)
+            // 1092497
+            ;
+
+        // try {
+        //     $lead = $leadsService->addOne($lead);
+        // } catch (\AmoCRM\ExceptionsAmoCRMApiException $e) {
+        //     printError($e);
+        //     die;
+        // }
+        // $lead = new \AmoCRM\Models\LeadModel();
+
+        var_dump('<pre>');
+        var_dump($accessToke->hasExpired());
+        // var_dump($lead);
+        // var_dump($lead->toArray());
         var_dump('1678116606');
-        // var_dump($accessToken->getToken());
-        // var_dump($accessToken->getRefreshToken());
+        // var_dump($accessToke->getToken());
         var_dump($accessToke->getExpires());
         // var_dump($provider->getBaseDomain());
         // var_dump($provider->urlAccount());
-        // var_dump($accessToken->hasExpired());
-        // var_dump('</pre>');
+        // var_dump($accessToke->getRefreshToken());
+        var_dump('</pre>');
 
-        // die;
+        die;
 
-        $provider->setBaseDomain('www.kommo.com');
-        if ($request->post()) {
-            $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\AuthorizationCode(), [
-                'code' => $request->post('code'),
-            ]);
-            $log->value3 = json_encode($accessToken);
-        }
+        // $provider->setBaseDomain('www.kommo.com');
+        // if ($request->post()) {
+        //     $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\AuthorizationCode(), [
+        //         'code' => $request->post('code'),
+        //     ]);
+        //     $log->value3 = json_encode($accessToken);
+        // }
 
-        if ($request->get()) {
-            $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\AuthorizationCode(), [
-                'code' => $request->get('code'),
-            ]);
-            $log->value3 = json_encode($accessToken);
-        }
+        // if ($request->get()) {
+        //     $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\AuthorizationCode(), [
+        //         'code' => $request->get('code'),
+        //     ]);
+        //     $log->value3 = json_encode($accessToken);
+        // }
 
-
-        $log->save();
 
         if (isset($_GET['referer'])) {
             $provider->setBaseDomain($_GET['referer']);
@@ -292,20 +317,21 @@ class SiteController extends Controller
             // $log->value1 = json_encode($accessToken);
         
             $provider->setBaseDomain($accessToken->getValues()['baseDomain']);
-            // $log->value2 = json_encode($provider);
-        
+
             /**
              * Проверяем активен ли токен и делаем запрос или обновляем токен
              */
+
             if ($accessToken->hasExpired()) {
                 /**
                  * Получаем токен по рефрешу
                  */
+
                 try {
                     $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\RefreshToken(), [
                         'refresh_token' => $accessToken->getRefreshToken(),
                     ]);
-        
+
                     $this->saveToken([
                         'accessToken' => $accessToken->getToken(),
                         'refreshToken' => $accessToken->getRefreshToken(),
@@ -317,7 +343,6 @@ class SiteController extends Controller
                     $log->save();
                     die((string)$e);
                 }
-                die;
             }
         
             $token = $accessToken->getToken();

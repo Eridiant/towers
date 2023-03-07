@@ -44,6 +44,10 @@ $scripts = \frontend\models\Scripts::find(1)->one();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
+    <link rel="apple-touch-icon" href="/images/favicon/touch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/images/favicon/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/images/favicon/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/images/favicon/touch-icon-ipad-retina.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
