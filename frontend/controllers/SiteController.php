@@ -256,6 +256,7 @@ class SiteController extends Controller
         try {
             $lead = $leadsService->addOne($lead);
         } catch (\AmoCRM\ExceptionsAmoCRMApiException $e) {
+            throw $e;
         }
 
         return;
@@ -569,7 +570,7 @@ class SiteController extends Controller
                 ->send();
                 $sending_status = 1;
             } catch (\Throwable $th) {
-                $sending_status = 0;
+                throw $th;
             }
 
             $model->sending_status = $sending_status;
