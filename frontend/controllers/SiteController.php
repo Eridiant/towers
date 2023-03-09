@@ -538,6 +538,7 @@ class SiteController extends Controller
             }
             $model->body = $request->post("body") . "," . $cntr . "," . $sity;
 
+            $sending_status = 0;
             try {Yii::$app->mailer->compose()
                 // ->setTo($mail['email'])
                 ->setTo($mail['email'])
@@ -574,7 +575,7 @@ class SiteController extends Controller
             }
 
             $model->sending_status = $sending_status;
-            $model->sending_status += $this->actionAmocrms();
+            // $model->sending_status += $this->actionAmocrms();
 
             if($model->save()){
                 return ['data' => ['success' => true]];
