@@ -8,14 +8,16 @@ use Yii;
  * This is the model class for table "{{%feedback}}".
  *
  * @property int $id
- * @property string $name
- * @property string $email
- * @property string $phone
+ * @property string|null $name
+ * @property string|null $email
+ * @property string|null $phone
+ * @property string|null $country
  * @property string|null $subject
  * @property string|null $lang
  * @property string|null $body
  * @property int|null $viewed
  * @property string $created_at
+ * @property int|null $sending_status
  */
 class Feedback extends \yii\db\ActiveRecord
 {
@@ -34,7 +36,7 @@ class Feedback extends \yii\db\ActiveRecord
     {
         return [
             [['body'], 'string'],
-            [['viewed'], 'integer'],
+            [['viewed', 'sending_status'], 'integer'],
             [['created_at'], 'safe'],
             [['name', 'subject', 'country'], 'string', 'max' => 255],
             [['email', 'phone', 'lang'], 'string', 'max' => 32],
@@ -57,6 +59,7 @@ class Feedback extends \yii\db\ActiveRecord
             'body' => 'Body',
             'viewed' => 'Viewed',
             'created_at' => 'Created At',
+            'sending_status' => 'Sending Status',
         ];
     }
 }

@@ -10,14 +10,16 @@ use yii\db\ActiveRecord;
  * This is the model class for table "{{%feedback}}".
  *
  * @property int $id
- * @property string $name
- * @property string $email
- * @property string $phone
+ * @property string|null $name
+ * @property string|null $email
+ * @property string|null $phone
+ * @property string|null $country
  * @property string|null $subject
  * @property string|null $lang
  * @property string|null $body
  * @property int|null $viewed
- * @property int $created_at
+ * @property string $created_at
+ * @property int|null $sending_status
  */
 class Feedback extends ActiveRecord
 {
@@ -38,7 +40,7 @@ class Feedback extends ActiveRecord
     {
         return [
             [['name', 'phone'], 'required'],
-            [['body'], 'string'],
+            [['body', 'sending_status'], 'string'],
             [['created_at'], 'safe'],
             // ['viewed', 'compare', 'compareValue' => 1, 'operator' => '===', 'type' => 'number', 'message'=>'Необходимо принять условия пользовательского соглашения'],
             [['name', 'subject', 'country'], 'string', 'max' => 255],
@@ -74,6 +76,7 @@ class Feedback extends ActiveRecord
             'body' => Yii::t('frontend', 'Body'),
             'viewed' => Yii::t('frontend', 'Viewed'),
             'created_at' => Yii::t('frontend', 'Date'),
+            'sending_status' => 'Sending Status',
         ];
     }
 }

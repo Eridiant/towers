@@ -255,8 +255,9 @@ class SiteController extends Controller
 
         try {
             $lead = $leadsService->addOne($lead);
+            return 10;
         } catch (\AmoCRM\ExceptionsAmoCRMApiException $e) {
-            printError($e);
+            return 0;
         }
 
         return;
@@ -537,42 +538,45 @@ class SiteController extends Controller
             }
             $model->body = $request->post("body") . "," . $cntr . "," . $sity;
 
+            try {Yii::$app->mailer->compose()
+                // ->setTo($mail['email'])
+                ->setTo($mail['email'])
+                ->setFrom('calligraph@calligraphy-batumi.com')
+                ->setSubject('заявка')
+                ->setHtmlBody(
+                    "<table style='width: 100%;'>
+                        <tr style='background-color: #f8f8f8;'>
+                            <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Имя:</b></td>
+                            <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$request->post('name')}</td>
+                        </tr>
+                        <tr style='background-color: #f8f8f8;'>
+                            <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Телефон:</b></td>
+                            <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$request->post('phone')}</td>
+                        </tr>
+                        <tr style='background-color: #f8f8f8;'>
+                            <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Страна:</b></td>
+                            <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$request->post('country')}</td>
+                        </tr>
+                        <tr style='background-color: #f8f8f8;'>
+                            <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>{$ip}</b></td>
+                            <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$cntr},{$sity}</td>
+                        </tr>
+                        <tr style='background-color: #f8f8f8;'>
+                            <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Почта:</b></td>
+                            <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$request->post('email')}</td>
+                        </tr>
+                    </table>")
+
+                ->send();
+                $sending_status = 1;
+            } catch (\Throwable $th) {
+                $sending_status = 0;
+            }
+
+            $model->sending_status = $sending_status;
+            $model->sending_status += $this->actionAmocrms();
+
             if($model->save()){
-
-                try {Yii::$app->mailer->compose()
-                    // ->setTo($mail['email'])
-                    ->setTo($mail['email'])
-                    ->setFrom('calligraph@calligraphy-batumi.com')
-                    ->setSubject('заявка')
-                    ->setHtmlBody(
-                        "<table style='width: 100%;'>
-                            <tr style='background-color: #f8f8f8;'>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Имя:</b></td>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$request->post('name')}</td>
-                            </tr>
-                            <tr style='background-color: #f8f8f8;'>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Телефон:</b></td>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$request->post('phone')}</td>
-                            </tr>
-                            <tr style='background-color: #f8f8f8;'>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Страна:</b></td>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$request->post('country')}</td>
-                            </tr>
-                            <tr style='background-color: #f8f8f8;'>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>{$ip}</b></td>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$cntr},{$sity}</td>
-                            </tr>
-                            <tr style='background-color: #f8f8f8;'>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'><b>Почта:</b></td>
-                                <td style='padding: 10px; border: #e9e9e9 1px solid;'>{$request->post('email')}</td>
-                            </tr>
-                        </table>")
-
-                    ->send();
-                } catch (\Throwable $th) {
-                    //throw $th;
-                }
-                $this->actionAmocrms();
                 return ['data' => ['success' => true]];
             }
 
