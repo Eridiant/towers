@@ -255,9 +255,7 @@ class SiteController extends Controller
 
         try {
             $lead = $leadsService->addOne($lead);
-            return 10;
         } catch (\AmoCRM\ExceptionsAmoCRMApiException $e) {
-            return 0;
         }
 
         return;
