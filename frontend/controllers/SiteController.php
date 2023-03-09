@@ -573,7 +573,7 @@ class SiteController extends Controller
                 throw $th;
             }
 
-            $model->sending_status = $sending_status;
+            // $model->sending_status = $sending_status;
             // $model->sending_status += $this->actionAmocrms();
 
             if($model->save()){
