@@ -46,6 +46,23 @@ $this->params['breadcrumbs'][] = $this->title;
                     }
                 },
             ],
+            [
+                'label' => 'статус',
+                'attribute'=>'sending_status',
+                'format' => 'raw',
+                'value'=>function ($model) {
+                    if (!isset($model->sending_status))
+                        return '<p style="color:green">nan</p>';
+                    if ($model->sending_status > 10)
+                        return '<p style="color:green">success</p>';
+                    if (!($model->sending_status % 10 && $model->sending_status > 10))
+                        return '<p style="color:#c55">error</p>';
+                    if($model->sending_status % 10 === 0)
+                        return '<p style="color:orange">mail error</p>';
+                    if($model->sending_status < 2)
+                        return '<p style="color:orange">amo error</p>';
+            },
+            ],
             // 'subject',
             'body:ntext',
             //'viewed',
