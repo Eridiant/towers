@@ -19,6 +19,19 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use AmoCRM\OAuth2\Client\Provider\AmoCRM;
+
+use \AmoCRM\Collections\CustomFieldsValuesCollection;
+use \AmoCRM\Models\CustomFieldsValues\TextCustomFieldValuesModel;
+use \AmoCRM\Models\CustomFieldsValues\ValueCollections\TextCustomFieldValueCollection;
+use \AmoCRM\Models\CustomFieldsValues\ValueModels\TextCustomFieldValueModel;
+
+use \AmoCRM\Models\CustomFieldsValues\MultitextCustomFieldValuesModel;
+use \AmoCRM\Models\CustomFieldsValues\ValueCollections\MultitextCustomFieldValueCollection;
+use \AmoCRM\Models\CustomFieldsValues\ValueModels\MultitextCustomFieldValueModel;
+
+use \AmoCRM\Collections\ContactsCollection;
+use \AmoCRM\Models\ContactModel;
+
 use common\models\LoginForm;
 use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
@@ -40,6 +53,8 @@ class SiteController extends Controller
 {
 
     public $bodyClass;
+    private $formName;
+    private $formFields = [];
 
     /**
      * {@inheritdoc}
@@ -166,77 +181,152 @@ class SiteController extends Controller
 
     public function actionAmocrms()
     {
-        // return;
+
         $keys = Key::find()->where(['id' => 1])->one();
-        $log = new Log();
 
         $request = Yii::$app->request;
-        $log->value = json_encode($request->get());
-        $log->value1 = json_encode($request->post());
-        $log->save();
 
+        // $provider = new AmoCRM([
+        //     'clientId' => $keys->value,
+        //     // 'clientId' => $keys->login,
+        //     'clientSecret' => $keys->password,
+        //     'redirectUri' => 'https://calligraphy-batumi.com/amocrms',
+        // ]);
 
-
-
-        $provider = new AmoCRM([
-            'clientId' => $keys->value,
-            // 'clientId' => $keys->login,
-            'clientSecret' => $keys->password,
-            'redirectUri' => 'https://calligraphy-batumi.com/amocrms',
-        ]);
+        // $accessToke = $this->getToken();
+        // var_dump('<pre>');
+        // var_dump($accessToke->hasExpired());
+        // var_dump('</pre>');
+        // die;
 
         $apiClient = new \AmoCRM\Client\AmoCRMApiClient($keys->value, $keys->password, 'https://calligraphy-batumi.com/amocrms');
 
         $accessToken = $this->getToken();
+        // $baseDomain = $provider->getBaseDomain();
+        $baseDomain = $accessToken->getValues()['baseDomain'];
         $apiClient->setAccessToken($accessToken)
-                ->setAccountBaseDomain($accessToken->getValues()['baseDomain']);
+                ->setAccountBaseDomain($baseDomain);
 
-        $accessToke = $this->getToken();
+        if ($accessToken->hasExpired()) {
+            $apiClient->onAccessTokenRefresh(
+                function (\League\OAuth2\Client\Token\AccessTokenInterface $accessToken, string $baseDomain) {
+                    $this->saveToken(
+                        [
+                            'accessToken' => $accessToken->getToken(),
+                            'refreshToken' => $accessToken->getRefreshToken(),
+                            'expires' => $accessToken->getExpires(),
+                            'baseDomain' => $baseDomain,
+                        ]
+                    );
+                }
+            );
+        }
+
+        // $this->formFields["1092497"] = "name";
+        // $this->formFields["1092577"] = "phone";
+        // $this->formFields["1092579"] = "email";
+        // $this->formFields["1092595"] = "country";
+        // $this->formFields["1092597"] = "by_ip";
+
+        // $accessToke = $this->getToken();
+
+
+        if (!count($this->formFields))
+            return;
+
         $leadsService = $apiClient->leads();
         $lead = new \AmoCRM\Models\LeadModel();
-        $lead->setName('test tost')
-            ->setPrice(12345)
-            ->setSourceExternalId('www.calligraphy-batumi.com')
-            // >setPipelineId(5138575)
-            // ->setResponsibleUserId($keys->login)
-            // 1092497
-            ;
 
-        // try {
-        //     $lead = $leadsService->addOne($lead);
-        // } catch (\AmoCRM\ExceptionsAmoCRMApiException $e) {
-        //     printError($e);
-        //     die;
-        // }
+        $leadCustomFieldsValues = new CustomFieldsValuesCollection();
+
+        foreach ($this->formFields as $field => $value) {
+            $textCustomFieldValueModel = new TextCustomFieldValuesModel();
+            $textCustomFieldValueModel->setFieldId($field);
+            $textCustomFieldValueModel->setValues(
+                (new TextCustomFieldValueCollection())
+                    ->add((new TextCustomFieldValueModel())->setValue($value))
+            );
+            $leadCustomFieldsValues->add($textCustomFieldValueModel);
+            $lead->setCustomFieldsValues($leadCustomFieldsValues);
+        }
+
+        $lead->setName('Заявка статичная форма')
+            ->setPipelineId(5138575);
+
+        try {
+            $lead = $leadsService->addOne($lead);
+        } catch (\AmoCRM\ExceptionsAmoCRMApiException $e) {
+            printError($e);
+        }
+
+        return;
+
+        // add contact
+        // ->setContacts(
+        //     (new ContactsCollection())
+        //         ->add(
+        //             (new ContactModel())
+        //                 ->setFirstName("name")
+        //                 // ->setLastName($externalLead['contact']['last_name'])
+        //                 ->setCustomFieldsValues(
+        //                     (new CustomFieldsValuesCollection())
+        //                         ->add(
+        //                             (new MultitextCustomFieldValuesModel())
+        //                                 ->setFieldCode('PHONE')
+        //                                 ->setValues(
+        //                                     (new MultitextCustomFieldValueCollection())
+        //                                         ->add(
+        //                                             (new MultitextCustomFieldValueModel())
+        //                                                 ->setValue(125545122410)
+        //                                         )
+        //                                 )
+        //                         )
+                                // ->add(
+                                //     (new MultitextCustomFieldValuesModel())
+                                //         ->setFieldCode('PHONE')
+                                //         ->setValues(
+                                //             (new MultitextCustomFieldValueCollection())
+                                //                 ->add(
+                                //                     (new MultitextCustomFieldValueModel())
+                                //                         ->setValue(125545122410)
+                                //                 )
+                                //         )
+                                // )
+        //                 )
+        //         )
+        // )
+        //end contact
+
+
+
+
         // $lead = new \AmoCRM\Models\LeadModel();
 
-        var_dump('<pre>');
-        var_dump($accessToke->hasExpired());
+        // var_dump('<pre>');
+        // var_dump($accessToke->hasExpired());
         // var_dump($lead);
         // var_dump($lead->toArray());
-        var_dump('1678116606');
+        // var_dump('1678116606');
         // var_dump($accessToke->getToken());
-        var_dump($accessToke->getExpires());
+        // var_dump($accessToke->getExpires());
         // var_dump($provider->getBaseDomain());
         // var_dump($provider->urlAccount());
         // var_dump($accessToke->getRefreshToken());
-        var_dump('</pre>');
+        // var_dump('</pre>');
 
-        die;
+        // die;
 
         // $provider->setBaseDomain('www.kommo.com');
         // if ($request->post()) {
         //     $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\AuthorizationCode(), [
         //         'code' => $request->post('code'),
         //     ]);
-        //     $log->value3 = json_encode($accessToken);
         // }
 
         // if ($request->get()) {
         //     $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\AuthorizationCode(), [
         //         'code' => $request->get('code'),
         //     ]);
-        //     $log->value3 = json_encode($accessToken);
         // }
 
 
@@ -293,7 +383,6 @@ class SiteController extends Controller
                 $accessToken = $provider->getAccessToken(new \League\OAuth2\Client\Grant\AuthorizationCode(), [
                     'code' => $_GET['code'],
                 ]);
-                $log->value1 = json_encode($accessToken);
 
                 if (!$accessToken->hasExpired()) {
                     $this->saveToken([
@@ -304,7 +393,6 @@ class SiteController extends Controller
                     ]);
                 }
             } catch (Exception $e) {
-                $log->save();
                 die((string)$e);
             }
         
@@ -314,7 +402,6 @@ class SiteController extends Controller
             printf('Hello, %s!', $ownerDetails->getName());
         } else {
             $accessToken = $this->getToken();
-            // $log->value1 = json_encode($accessToken);
         
             $provider->setBaseDomain($accessToken->getValues()['baseDomain']);
 
@@ -340,7 +427,6 @@ class SiteController extends Controller
                     ]);
         
                 } catch (Exception $e) {
-                    $log->save();
                     die((string)$e);
                 }
             }
@@ -362,12 +448,6 @@ class SiteController extends Controller
             } catch (GuzzleHttp\Exception\GuzzleException $e) {
                 var_dump((string)$e);
             }
-        }
-
-        try {
-            $log->save();
-        } catch (\Throwable $th) {
-            Yii::error($th);
         }
 
         return;
@@ -440,10 +520,10 @@ class SiteController extends Controller
         if ($request->isPost) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
-            $model->name = $request->post("name");
-            $model->phone = $request->post("phone");
-            $model->email = $request->post("email");
-            $model->country = $request->post("country");
+            $model->name = $this->formFields["1092497"] = $request->post("name");
+            $model->phone = $this->formFields["1092577"] = $request->post("phone");
+            $model->email = $this->formFields["1092579"] = $request->post("email");
+            $model->country = $this->formFields["1092595"] = $request->post("country");
             $model->viewed = $request->post("viewed") == "on" ? 1 : 0;
             $model->lang = Yii::$app->language;
             $ip = $request->userIP;
@@ -453,12 +533,13 @@ class SiteController extends Controller
             if ($country) {
                 $cntr = $country["country"]["name_ru"];
                 $sity = $country["city"]["name_ru"];
+                $this->formFields["1092597"] = implode(",", [$cntr, $sity]);
             }
             $model->body = $request->post("body") . "," . $cntr . "," . $sity;
 
             if($model->save()){
 
-                Yii::$app->mailer->compose()
+                try {Yii::$app->mailer->compose()
                     // ->setTo($mail['email'])
                     ->setTo($mail['email'])
                     ->setFrom('calligraph@calligraphy-batumi.com')
@@ -488,6 +569,10 @@ class SiteController extends Controller
                         </table>")
 
                     ->send();
+                } catch (\Throwable $th) {
+                    //throw $th;
+                }
+                $this->actionAmocrms();
                 return ['data' => ['success' => true]];
             }
 
