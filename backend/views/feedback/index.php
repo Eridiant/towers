@@ -54,9 +54,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     if (!isset($model->sending_status))
                         return '<p style="color:green">nan</p>';
                     if ($model->sending_status > 10)
-                        return '<p style="color:green">success</p>';
+                        return '<p style="color:green">delivered</p>';
                     if (!($model->sending_status % 10 && $model->sending_status > 10))
-                        return '<p style="color:#c55">error</p>';
+                        return '<p style="color:#c55">errors</p>';
                     if($model->sending_status % 10 === 0)
                         return '<p style="color:orange">mail error</p>';
                     if($model->sending_status < 2)
