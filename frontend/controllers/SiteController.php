@@ -257,9 +257,10 @@ class SiteController extends Controller
             $lead = $leadsService->addOne($lead);
         } catch (\AmoCRM\ExceptionsAmoCRMApiException $e) {
             throw $e;
+            return 0;
         }
 
-        return;
+        return 10;
 
         // add contact
         // ->setContacts(
@@ -573,8 +574,8 @@ class SiteController extends Controller
                 throw $th;
             }
 
-            // $model->sending_status = $sending_status;
-            // $model->sending_status += $this->actionAmocrms();
+            $model->sending_status = $sending_status;
+            $model->sending_status += $this->actionAmocrms();
 
             if($model->save()){
                 return ['data' => ['success' => true]];

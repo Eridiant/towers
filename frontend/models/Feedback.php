@@ -40,8 +40,9 @@ class Feedback extends ActiveRecord
     {
         return [
             [['name', 'phone'], 'required'],
-            [['body', 'sending_status'], 'string'],
+            [['body'], 'string'],
             [['created_at'], 'safe'],
+            [['viewed', 'sending_status'], 'integer'],
             // ['viewed', 'compare', 'compareValue' => 1, 'operator' => '===', 'type' => 'number', 'message'=>'Необходимо принять условия пользовательского соглашения'],
             [['name', 'subject', 'country'], 'string', 'max' => 255],
             [['email', 'phone', 'lang'], 'string', 'max' => 32],
@@ -76,7 +77,7 @@ class Feedback extends ActiveRecord
             'body' => Yii::t('frontend', 'Body'),
             'viewed' => Yii::t('frontend', 'Viewed'),
             'created_at' => Yii::t('frontend', 'Date'),
-            'sending_status' => 'Sending Status',
+            'sending_status' => Yii::t('frontend', 'Sending Status'),
         ];
     }
 }
