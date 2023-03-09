@@ -576,16 +576,9 @@ class SiteController extends Controller
             // $model->sending_status = $sending_status;
             // $model->sending_status += $this->actionAmocrms();
 
-            try {
-                $model->save();
-            } catch (\Throwable $th) {
-                return ['data' => ['success' => false]];
-                throw $th;
+            if($model->save()){
+                return ['data' => ['success' => true]];
             }
-            return ['data' => ['success' => true]];
-            // if($model->save()){
-            //     return ['data' => ['success' => true]];
-            // }
 
             return ['data' => ['success' => false]];
         }
