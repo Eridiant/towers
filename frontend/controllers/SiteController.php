@@ -265,11 +265,11 @@ class SiteController extends Controller
             case 'pop-up':
                 $formName = "Pop-up";
                 break;
-            
+
             case 'promotion':
                 $formName = "Pop-up с задержкой";
                     break;
-                
+
             default:
                 $formName = "Заявка статичная форма";
                 break;
