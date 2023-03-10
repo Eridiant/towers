@@ -185,19 +185,7 @@ $lg_num = \backend\modules\language\models\Language::find()->where(['deleted_at'
         View::POS_END,
     );
 } ?>
-<?php if (Yii::$app->request->userIP == "185.28.110.61"): ?>
-    <?php $cookies = Yii::$app->request->cookies; ?>
-    <p><?= $_COOKIE["utm_source"]; ?></p>
-    <p><?= $_COOKIE["utm_medium"]; ?></p>
-    <p><?= $_COOKIE["utm_campaign"]; ?></p>
-    <p><?= $_COOKIE["utm_term"]; ?></p>
-    <p><?= $_COOKIE["utm_content"]; ?></p>
-    <p><?= $cookies->getValue('utm_source', ''); ?></p>
-    <p><?= $cookies->getValue('utm_medium', ''); ?></p>
-    <p><?= $cookies->getValue('utm_campaign', ''); ?></p>
-    <p><?= $cookies->getValue('utm_term', ''); ?></p>
-    <p><?= $cookies->getValue('utm_content', ''); ?></p>
-<?php endif; ?>
+
 
 <?= $scripts->footer; ?>
 
