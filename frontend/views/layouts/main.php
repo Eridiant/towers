@@ -43,6 +43,8 @@ if(isset($_GET["utm_content"])) setcookie("utm_content", $_GET["utm_content"], t
 if(isset($_GET["utm_term"])) setcookie("utm_term", $_GET["utm_term"], time()+3600+24+30, "/");
 if(isset($_GET["utm_referrer"])) setcookie("utm_referrer", $_GET["utm_referrer"], time()+3600+24+30, "/");
 if(isset($_GET["fbclid"])) setcookie("fb_cl_id", $_GET["fbclid"], time()+3600+24+30, "/");
+if(isset($_GET["gclientid"])) setcookie("g_client_id", $_GET["gclientid"], time()+3600+24+30, "/");
+if(isset($_GET["gclid"])) setcookie("g_cl_id", $_GET["gclid"], time()+3600+24+30, "/");
 
 ?>
 <?php $this->beginPage() ?>
