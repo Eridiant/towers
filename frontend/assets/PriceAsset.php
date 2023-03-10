@@ -15,7 +15,7 @@ class PriceAsset extends AssetBundle
         'css/price.css',
     ];
     public $js = [
-        'js/price.js',
+        // 'js/price.js',
     ];
     public $depends = [
         // 'yii\web\YiiAsset',
