@@ -38,26 +38,26 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                 <div class="contacts-contact">
                     <div class="contacts-inner">
                         <div class="contacts-inner-svg">
-                            <svg width="20" height="20"><use xlink:href="images/icons.svg#phone"></use></svg>
+                            <svg width="20" height="20"><use xlink:href="/images/icons.svg#phone"></use></svg>
                         </div>
                         <a href="+995571075555">+995 (571) 07-55-55</a>
                     </div>
                     <div class="contacts-inner">
                         <div class="contacts-inner-svg">
-                            <svg width="21" height="16"><use xlink:href="images/icons.svg#mail"></use></svg>
+                            <svg width="21" height="16"><use xlink:href="/images/icons.svg#mail"></use></svg>
                         </div>
                         <a href="mailto:info@calligraphy-batumi.com">info@calligraphy-batumi.com</a>
                     </div>
                     <div class="contacts-inner">
                         <div class="contacts-inner-svg">
-                            <svg width="17" height="24"><use xlink:href="images/icons.svg#address"></use></svg>
+                            <svg width="17" height="24"><use xlink:href="/images/icons.svg#address"></use></svg>
                         </div>
                         <p><?=Yii::t('frontend', 'г. Батуми ул. Шартава 18')?></p>
                     </div>
                 </div>
                 <a href="#" class="contacts-call btn btn-blue">
                     <span><?=Yii::t('frontend', 'Обратный звонок')?></span>
-                    <svg width="20" height="20"><use xlink:href="images/icons.svg#phone"></use></svg>
+                    <svg width="20" height="20"><use xlink:href="/images/icons.svg#phone"></use></svg>
                 </a>
             </div>
             <div class="contacts-map">
