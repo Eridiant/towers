@@ -235,7 +235,7 @@ class SiteController extends Controller
         $this->formFields["1019751"] = $_COOKIE("utm_term");
         $this->formFields["1019753"] = $_COOKIE("utm_content");
         $this->formFields["1019755"] = $_COOKIE("utm_referrer");
-        // $this->formFields["1019763"] = $_COOKIE("fbclid");
+        $this->formFields["1019763"] = $_COOKIE("fb_cl_id");
         // $this->formFields["1019759"] = $_COOKIE("gclientid");
         // $this->formFields["1019761"] = $_COOKIE("gclid");
 
