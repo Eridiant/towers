@@ -81,7 +81,8 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
             <p>
 				<?=Yii::t('frontend', 'Введите ваши данные и мы Вам перезвоним')?>
             </p>
-            <form id="form-call-back" action="/" method="post"> 
+            <form id="form-call-back" action="/" method="post">
+                <input type="hidden" name="body" value="pop-up">
                 <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" title="<?=Yii::t('frontend', 'только буквы')?>" required>
                 <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>" pattern="\+?[0-9\s\-\(\)]+" title="<?=Yii::t('frontend', 'только цифры')?>" required>
                 <input type="text" name="country" placeholder="<?=Yii::t('frontend', 'Страна')?>">

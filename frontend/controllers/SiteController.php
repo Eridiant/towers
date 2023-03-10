@@ -261,7 +261,20 @@ class SiteController extends Controller
             $lead->setCustomFieldsValues($leadCustomFieldsValues);
         }
 
-        $lead->setName('Заявка статичная форма')
+        switch ($this->formName) {
+            case 'pop-up':
+                $formName = "Pop-up";
+                break;
+            
+            case 'promotion':
+                $formName = "Pop-up с задержкой";
+                    break;
+                
+            default:
+                $formName = "Заявка статичная форма";
+                break;
+        }
+        $lead->setName($formName)
             ->setPipelineId(5138575);
 
         try {
@@ -532,6 +545,7 @@ class SiteController extends Controller
         if ($request->isPost) {
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
+            $this->formName = $request->post("body") ?? "";
             $model->name = $this->formFields["1092497"] = $request->post("name");
             $model->phone = $this->formFields["1092577"] = $request->post("phone");
             $model->email = $this->formFields["1092579"] = $request->post("email");
