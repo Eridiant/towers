@@ -228,17 +228,28 @@ class SiteController extends Controller
         // $this->formFields["1092595"] = "country";
         // $this->formFields["1092597"] = "by_ip";
         
-        $cookies = Yii::$app->request->cookies;
+
+        // $cookies = Yii::$app->request->cookies;
         // $this->formFields["1019757"] = $cookies->getValue('referrer', '');
-        $this->formFields["1019745"] = $cookies->getValue('utm_source', '');
-        $this->formFields["1019747"] = $cookies->getValue('utm_medium', '');
-        $this->formFields["1019749"] = $cookies->getValue('utm_campaign', '');
-        $this->formFields["1019751"] = $cookies->getValue('utm_term', '');
-        $this->formFields["1019753"] = $cookies->getValue('utm_content', '');
-        $this->formFields["1019755"] = $cookies->getValue('utm_referrer', '');
-        $this->formFields["1019763"] = $cookies->getValue('fb_cl_id', '');
-        $this->formFields["1019759"] = $cookies->getValue('g_client_id', '');
-        $this->formFields["1019761"] = $cookies->getValue('g_cl_id', '');
+        // $this->formFields["1019745"] = $cookies->getValue('utm_source', '');
+        // $this->formFields["1019747"] = $cookies->getValue('utm_medium', '');
+        // $this->formFields["1019749"] = $cookies->getValue('utm_campaign', '');
+        // $this->formFields["1019751"] = $cookies->getValue('utm_term', '');
+        // $this->formFields["1019753"] = $cookies->getValue('utm_content', '');
+        // $this->formFields["1019755"] = $cookies->getValue('utm_referrer', '');
+        // $this->formFields["1019763"] = $cookies->getValue('fb_cl_id', '');
+        // $this->formFields["1019759"] = $cookies->getValue('g_client_id', '');
+        // $this->formFields["1019761"] = $cookies->getValue('g_cl_id', '');
+        // $this->formFields["1019757"] = $_COOKIE["referrer"] ?? "";
+        $this->formFields["1019745"] = $_COOKIE["utm_source"] ?? "";
+        $this->formFields["1019747"] = $_COOKIE["utm_medium"] ?? "";
+        $this->formFields["1019749"] = $_COOKIE["utm_campaign"] ?? "";
+        $this->formFields["1019751"] = $_COOKIE["utm_term"] ?? "";
+        $this->formFields["1019753"] = $_COOKIE["utm_content"] ?? "";
+        $this->formFields["1019755"] = $_COOKIE["utm_referrer"] ?? "";
+        $this->formFields["1019763"] = $_COOKIE["fb_cl_id"] ?? "";
+        $this->formFields["1019759"] = $_COOKIE["g_client_id"] ?? "";
+        $this->formFields["1019761"] = $_COOKIE["g_cl_id"] ?? "";
 
         // $accessToke = $this->getToken();
 
