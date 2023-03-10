@@ -116,6 +116,7 @@ $lg_num = \backend\modules\language\models\Language::find()->where(['deleted_at'
 				<?=Yii::t('frontend', 'Введите ваши данные и мы Вам перезвоним')?>
             </p>
             <form id="form-popup" action="/" method="post" onsubmit="ym(87522082,'reachGoal','popupform')"> 
+                <input type="hidden" name="body" value="pop-up">
                 <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" title="<?=Yii::t('frontend', 'только буквы')?>" required>
                 <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>" pattern="\+?[0-9\s\-\(\)]+" title="<?=Yii::t('frontend', 'только цифры')?>" required>
                 <input type="text" name="email" placeholder="<?=Yii::t('frontend', 'Почта')?>" pattern="([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})" title="<?=Yii::t('frontend', 'your_mail@mail')?>" required>
