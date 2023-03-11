@@ -557,7 +557,7 @@ class ApartmentsController extends Controller
     }
     public function actionPrb()
     {
-        $url = 'https://docs.google.com/spreadsheets/d/1Empd2jCtKmo0Qf8W4yANGKVr28hHWObd/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true';
+        $url = 'https://docs.google.com/spreadsheets/d/1k2x-UCI30f6bckdhlVWhEUi2ttQGmBXS/edit?usp=sharing&ouid=102071057558095013478&rtpof=true&sd=true';
         if (!preg_match("/d\/(.*?)\//", $url, $res)) return false;
         $id = $res[1];
         $list = 0;
@@ -569,7 +569,9 @@ class ApartmentsController extends Controller
             if (!intval($value[0])) continue;
 
             // var_dump('<pre>');
-            // var_dump($value[10],$value[9],$value[8],$value[7]);
+            // // var_dump($value[10],$value[9],$value[8],$value[7]);
+            // var_dump($value);
+            
             // var_dump('</pre>');
             // if ($i > 2) {
             //     die;
@@ -590,22 +592,22 @@ class ApartmentsController extends Controller
             // }
             // $i++;
             // continue;
-                            
+
             // $q->num = $value[0];
-            var_dump('<pre>');
-            var_dump($q->money, (int)$value[0]);
-            var_dump('</pre>');
-            if ($i > 7) {
-                die;
-            }
-            $i++;
-            continue;
+            // var_dump('<pre>');
+            // var_dump($q->money);
+            // var_dump('</pre>');
+            // if ($i > 7) {
+            //     die;
+            // }
+            // $i++;
+            // continue;
             
 
-            $q->money = $this->numint($this->fixNum($value[10]));
-            $q->money_m = $this->numint($this->fixNum($value[9]));
-            $q->money_wh = $this->numint($this->fixNum($value[8]));
-            $q->money_wh_m = $this->numint($this->fixNum($value[7]));
+            $q->money = $this->numint($this->fixNum($value[13]));
+            $q->money_m = $this->numint($this->fixNum($value[12]));
+            $q->money_wh = $this->numint($this->fixNum($value[11]));
+            $q->money_wh_m = $this->numint($this->fixNum($value[10]));
 
             $q->save();
             if ($q->getErrors()) {
