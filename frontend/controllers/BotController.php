@@ -912,12 +912,12 @@ class BotController extends Controller
         return;
     }
 
-    private function saveAnswer($answer, $chat_id = null)
+    private function saveAnswer($answer, $user_id = null)
     {
-        $chat_id = $chat_id ?? $this->chat_id;
-        if (!($chat = TelegramChat::find()->where(['user_id' => $chat_id]))->one()){
+        $user_id = $user_id ?? $this->user->id;
+        if (!($chat = TelegramChat::find()->where(['user_id' => $user_id]))->one()){
             $chat = new TelegramChat();
-            $chat->chat_id = $chat_id;
+            $chat->user_id = $user_id;
         }
         $chat->text = isset($chat_id) ? "{$this->user->first_name}:{$answer}" : "Клиент:{$answer}";
         $chat->type = isset($chat_id) ? 1 : 0;
