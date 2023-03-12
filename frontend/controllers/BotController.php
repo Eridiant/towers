@@ -766,7 +766,7 @@ class BotController extends Controller
                 $request->request_time = time();
                 $this->user->link('request', $request);
             } else {
-                $this->user->unlink('request', $request, true);
+                $this->user->unlink('request', $request[0], true);
             }
         } catch (\Throwable $th) {
             Yii::error($th);
