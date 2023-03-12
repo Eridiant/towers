@@ -754,7 +754,7 @@ class BotController extends Controller
                 // $request->user_id = $this->user->id;
             }
         } catch (\Throwable $th) {
-            //throw $th;
+            Yii::error($th);
         }
 
         
@@ -769,7 +769,7 @@ class BotController extends Controller
                 $this->user->unlink('request', $request, true);
             }
         } catch (\Throwable $th) {
-            //throw $th;
+            Yii::error($th);
         }
 
 
