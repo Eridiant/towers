@@ -762,8 +762,8 @@ class BotController extends Controller
         try {
             $this->user->save();
             // $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
-            $request->request_time = time();
             if ($flag) {
+                $request->request_time = time();
                 $this->user->link('request', $request);
             } else {
                 $this->user->unlink('request', $request, true);
