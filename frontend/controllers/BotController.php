@@ -917,8 +917,8 @@ class BotController extends Controller
 
         $chat = new TelegramChat();
         $chat->user_id = $user_id ?? $this->user->id;
-        $chat->text = isset($chat_id) ? "{$this->user->first_name}:{$answer}" : "Клиент:{$answer}";
-        $chat->type = isset($chat_id) ? 1 : 0;
+        $chat->text = isset($user_id) ? "{$this->user->first_name}:{$answer}" : "Клиент:{$answer}";
+        $chat->type = isset($user_id) ? 1 : 0;
         if ($chat->save()) return;
 
         $log = new Log();
