@@ -753,6 +753,7 @@ class BotController extends Controller
                 $request = new TelegramWaitingList();
                 // $request->user_id = $this->user->id;
             }
+            $request->request_time = time();
         } catch (\Throwable $th) {
             Yii::error($th);
         }
@@ -763,10 +764,9 @@ class BotController extends Controller
             $this->user->save();
             // $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
             if ($flag) {
-                $request->request_time = time();
                 $this->user->link('request', $request);
             } else {
-                $this->user->unlink('request', $request[0], true);
+                $request->delete();
             }
         } catch (\Throwable $th) {
             Yii::error($th);
