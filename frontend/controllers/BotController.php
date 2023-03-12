@@ -315,7 +315,7 @@ class BotController extends Controller
         }
 
         if (empty($content->text)) {
-            $content = TelegramImage::find()->where(['content_id' =>2, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => 2, 'lang' => 'ru'])->one();
         };
 
         if (!empty($content->pre_markup) && isset($this->query->query)) {
@@ -908,7 +908,29 @@ class BotController extends Controller
         } else if(isset($this->user->operator->user_id)){
             $this->sendAnswer($this->update['text'], $this->user->operator->user_id);
         }
+        $this->saveAnswer($this->update['text'], $current_user_id ?? null);
         return;
+    }
+
+    private function saveAnswer($answer, $chat_id = null)
+    {
+        $chat_id = $chat_id ?? $this->chat_id;
+        if (!($chat = TelegramChat::find()->where(['user_id' => $chat_id]))->one()){
+            $chat = new TelegramChat();
+            $chat->chat_id = $chat_id;
+        }
+        $chat->text = isset($chat_id) ? "{$this->user->first_name}:{$answer}" : "Клиент:{$answer}";
+        $chat->type = isset($chat_id) ? 1 : 0;
+        if ($chat->save()) return;
+
+        $log = new Log();
+        $log->name = "bot";
+        $log->error = "save chat error";
+        try {
+            $log->save();
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     private function trash()
