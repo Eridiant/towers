@@ -915,10 +915,9 @@ class BotController extends Controller
     private function saveAnswer($answer, $user_id = null)
     {
         $user_id = $user_id ?? $this->user->id;
-        if (!($chat = TelegramChat::find()->where(['user_id' => $user_id])->one())){
-            $chat = new TelegramChat();
-            $chat->user_id = $user_id;
-        }
+
+        $chat = new TelegramChat();
+        $chat->user_id = $user_id;
         $chat->text = isset($chat_id) ? "{$this->user->first_name}:{$answer}" : "Клиент:{$answer}";
         $chat->type = isset($chat_id) ? 1 : 0;
         if ($chat->save()) return;
