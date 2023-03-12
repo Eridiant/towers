@@ -34,6 +34,7 @@ use frontend\models\telegram\TelegramChat;
 use frontend\models\telegram\TelegramInfo;
 use frontend\models\telegram\TelegramLog;
 use frontend\models\telegram\TelegramAdmin;
+use frontend\models\telegram\TelegramWaitingList;
 /**
  * Site controller
  */
@@ -745,13 +746,29 @@ class BotController extends Controller
     {
         // $anwer = $flag ? "Наш оператор свяжется с вами" : "Завершено";
         // $this->sendAnswer($anwer);
-
-        try {
-            $this->user->status = $flag;
-            $this->user->save();
-        } catch (\Throwable $th) {
-            Yii::error($th);
+        if (isset($this->user->request)) {
+            $request = TelegramWaitingList::find()->where(["user_id" => $this->user->id]);
+        } else {
+            $request = new TelegramWaitingList();
+            // $request->user_id = $this->user->id;
         }
+
+        $request->request_time = time();
+
+        $this->user->status = $flag;
+        try {
+            $this->user->save();
+            // $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
+            if ($flag) {
+                $this->user->link('request', $request);
+            } else {
+                $this->user->unlink('request', $request, true);
+            }
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
+
+
         if (TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->exists() && $flag === 2) {
             $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
             $admins = TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->all();

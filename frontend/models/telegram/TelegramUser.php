@@ -18,10 +18,12 @@ use yii\behaviors\TimestampBehavior;
  * @property int $created_at
  * @property int|null $updated_at
  *
+ * @property TelegramAdminQuery[] $telegramAdminQueries
  * @property TelegramAdmin[] $telegramAdmins
  * @property TelegramChat[] $telegramChats
  * @property TelegramInfo[] $telegramInfos
  * @property TelegramLog[] $telegramLogs
+ * @property TelegramWaitingList[] $telegramWaitingLists
  */
 class TelegramUser extends \yii\db\ActiveRecord
 {
@@ -127,5 +129,25 @@ class TelegramUser extends \yii\db\ActiveRecord
     public function getOperator()
     {
         return $this->hasOne(TelegramAdmin::class, ['current_user_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[TelegramWaitingLists]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getWaiting()
+    {
+        return $this->hasMany(TelegramWaitingList::class, ['user_id' => 'id']);
+    }
+
+    /**
+     * Gets query for [[TelegramWaitingLists]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getRequest()
+    {
+        return $this->hasOne(TelegramWaitingList::class, ['user_id' => 'id']);
     }
 }
