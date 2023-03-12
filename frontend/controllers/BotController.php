@@ -746,24 +746,24 @@ class BotController extends Controller
     {
         // $anwer = $flag ? "Наш оператор свяжется с вами" : "Завершено";
         // $this->sendAnswer($anwer);
-        if (isset($this->user->request)) {
-            $request = TelegramWaitingList::find()->where(["user_id" => $this->user->id]);
-        } else {
-            $request = new TelegramWaitingList();
-            // $request->user_id = $this->user->id;
-        }
+        // if (isset($this->user->request)) {
+        //     $request = TelegramWaitingList::find()->where(["user_id" => $this->user->id]);
+        // } else {
+        //     $request = new TelegramWaitingList();
+        //     // $request->user_id = $this->user->id;
+        // }
 
-        $request->request_time = time();
+        // $request->request_time = time();
 
         $this->user->status = $flag;
         try {
             $this->user->save();
             // $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
-            if ($flag) {
-                $this->user->link('request', $request);
-            } else {
-                $this->user->unlink('request', $request, true);
-            }
+            // if ($flag) {
+            //     $this->user->link('request', $request);
+            // } else {
+            //     $this->user->unlink('request', $request, true);
+            // }
         } catch (\Throwable $th) {
             //throw $th;
         }
