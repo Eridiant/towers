@@ -32,7 +32,7 @@ class TelegramWaitingList extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'request_time'], 'required'],
+            [['user_id'], 'required'],
             [['user_id', 'admin_id', 'status', 'request_time', 'response_time'], 'integer'],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => TelegramUser::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
