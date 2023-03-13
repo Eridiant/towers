@@ -405,9 +405,9 @@ class BotController extends Controller
 
         $this->getUserById();
 
-        if ($this->user->status === self::BANNED) {
-            return;
-        }
+        // if ($this->user->status === self::BANNED) {
+        //     return;
+        // }
 
         if (!isset($message['text']) && !isset($message['data'])) {
             $this->sendAnswer("сообщение не доставлено");
@@ -748,12 +748,12 @@ class BotController extends Controller
         // $this->sendAnswer($anwer);
         try {
             if (isset($this->user->request)) {
-                $request = TelegramWaitingList::find()->where(["user_id" => $this->user->id]);
+                $request = TelegramWaitingList::find()->where(["user_id" => $this->user->id])->one();
             } else {
                 $request = new TelegramWaitingList();
                 // $request->user_id = $this->user->id;
+                $request->request_time = time();
             }
-            $request->request_time = time();
         } catch (\Throwable $th) {
             Yii::error($th);
         }
@@ -762,9 +762,12 @@ class BotController extends Controller
         $this->user->status = $flag;
         try {
             $this->user->save();
+
+
             // $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
             if ($flag) {
                 $this->user->link('request', $request);
+                // $request->save();
             } else {
                 $request->delete();
             }
@@ -772,13 +775,17 @@ class BotController extends Controller
             Yii::error($th);
         }
 
+        $admins = TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->all();
+        $user = $this->user->first_name ?? $this->user->username;
 
         if (TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->exists() && $flag === 2) {
             $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
-            $admins = TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->all();
-            $user = $this->user->first_name ?? $this->user->username;
             foreach ($admins as $value) {
                 $this->sendAnswer("Системное сообщение: пользователь {$user} запросил консультацию", $value->id);
+            }
+        } else {
+            foreach ($admins as $value) {
+                $this->sendAnswer("Системное сообщение: пользователь {$user} вышел из чата", $value->id);
             }
         }
         return;
@@ -845,22 +852,22 @@ class BotController extends Controller
             return true;
         }
 
-        if ((($command["text"] ?? "") == "Заблокировать пользователя")) {
-            if (isset($this->user->admin->current_user_id)) {
-                $user = $this->getUserById($this->user->admin->current_user_id);
-                try {
-                    $user->status = self::BANNED;
-                    $user->save();
-                    $admin = TelegramAdmin::find($this->chat_id)->one();
-                    $admin->current_user_id = null;
-                    $admin->save();
-                } catch (\Throwable $th) {
-                    Yii::error($th);
-                }
-                $this->adminRiply("Пользователь заблокирован");
-            }
-            return true;
-        }
+        // if ((($command["text"] ?? "") == "Заблокировать пользователя")) {
+        //     if (isset($this->user->admin->current_user_id)) {
+        //         $user = $this->getUserById($this->user->admin->current_user_id);
+        //         try {
+        //             $user->status = self::BANNED;
+        //             $user->save();
+        //             $admin = TelegramAdmin::find($this->chat_id)->one();
+        //             $admin->current_user_id = null;
+        //             $admin->save();
+        //         } catch (\Throwable $th) {
+        //             Yii::error($th);
+        //         }
+        //         $this->adminRiply("Пользователь заблокирован");
+        //     }
+        //     return true;
+        // }
 
         if ((($command["text"] ?? "") == "Выйти из чата")) {
             try {
@@ -923,6 +930,15 @@ class BotController extends Controller
             $this->sendAnswer("тест", $this->chat_id);
             return;
         }
+
+        try {
+            if (isste($this->user->admin->currentUser) && $this->user->admin->currentUser->status == REQUEST_CONSULTATION_STATUS)
+                return;
+        } catch (\Throwable $th) {
+            Yii::error($th);
+        }
+
+        // if (TelegramUser::find()->where(["id" => $this->user->admin->current_user_id])->one()->status == REQUEST_CONSULTATION_STATUS)
 
         if (isset($this->user->admin->id)) {
             $this->sendAnswer($this->update['text'], $current_user_id);
