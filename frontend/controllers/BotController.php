@@ -908,7 +908,10 @@ class BotController extends Controller
                     }]
                 ]
             }';
-            $this->sendAnswer($this->getHistory($this->user->admin->current_user_id), $this->chat_id, $reply_markup);
+
+            $history = $this->getHistory($this->user->admin->current_user_id);
+            if (empty($history)) $history = "Чат запущен";
+            $this->sendAnswer($history, $this->chat_id, $reply_markup);
             
             return true;
         }
@@ -918,10 +921,12 @@ class BotController extends Controller
     {
         $history = TelegramChat::find()->where(["user_id" => $id])->orderBy(['id' => SORT_DESC])->limit(10)->all();
 
-        $text = "";
+        $arr = [];
         foreach ($history as $value) {
-            $text .= Yii::$app->formatter->asDate($value->created_at, 'php:d.m.y') . $value->text . PHP_EOL;
+            $arr[] = Yii::$app->formatter->asDate($value->created_at, 'php:d.m.y h:i') . ": " . $value->text;
         }
+
+        $text = implode(PHP_EOL, array_reverse($arr));
 
         return mb_substr($text, -2000);
     }
