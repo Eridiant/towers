@@ -831,6 +831,8 @@ class BotController extends Controller
 
             $reply_markup["inline_keyboard"] = [];
             foreach ($users as $value) {
+                if (isset($value->operator->current_user_id))
+                    continue;
                 // $reply_markup["inline_keyboard"]["text"] = $value->first_name;
                 // $reply_markup["inline_keyboard"]["callback_data"] = $value->id;
                 $reply_markup["inline_keyboard"][] = [["text" => $value->first_name, "callback_data" => $value->id]];
@@ -889,6 +891,10 @@ class BotController extends Controller
         }
 
         if (isset($command["data"])) {
+            if (TelegramAdmin::find()->where(["current_user_id" => 5369774973])->exists()) {
+                $this->sendAnswer("Пользователь уже подключен к оператору");
+                return true;
+            }
             try {
                 $admin = TelegramAdmin::find($this->chat_id)->one();
                 $admin->current_user_id = $command["data"];
@@ -951,7 +957,21 @@ class BotController extends Controller
     public function actionTest()
     {
         // $this->getUserById(1070950185);
+
         // $this->getUserById(5369774973);
+
+        // operator
+
+        
+
+        // $users = TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->all();
+
+        // foreach ($users as $value) {
+        //     var_dump('<pre>');
+        //     var_dump();
+        //     var_dump('</pre>');
+        //     // die;
+        // }
 
         // echo $this->getHistory();
         // try {
