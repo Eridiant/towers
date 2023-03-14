@@ -20,6 +20,7 @@ use frontend\models\ContactForm;
 use frontend\models\Feedback;
 use frontend\models\UserIp;
 use frontend\models\SxGeo;
+use frontend\models\Log;
 use yii\web\HttpException;
 use Longman\TelegramBot\Telegram;
 use Longman\TelegramBot\Request;
@@ -748,7 +749,7 @@ class BotController extends Controller
         // $this->sendAnswer($anwer);
         try {
             if (isset($this->user->request)) {
-                $request = TelegramWaitingList::find()->where(["user_id" => $this->user->id])->one();
+                // $request = TelegramWaitingList::find()->where(["user_id" => $this->user->id])->one();
             } else {
                 $request = new TelegramWaitingList();
                 // $request->user_id = $this->user->id;
@@ -769,7 +770,11 @@ class BotController extends Controller
                 $this->user->link('request', $request);
                 // $request->save();
             } else {
-                $request->delete();
+                // $request->delete();
+                $this->user->request->delete();
+                $admin = TelegramAdmin::find()->where(["current_user_id" => $this->chat_id])->one();
+                $admin->current_user_id = null;
+                $admin->save();
             }
         } catch (\Throwable $th) {
             Yii::error($th);
@@ -837,9 +842,11 @@ class BotController extends Controller
 
         if ((($command["text"] ?? "") == "Завершить чат")) {
             if (isset($this->user->admin->current_user_id)) {
+                $this->sendAnswer("Диалог завершен", $this->user->admin->current_user_id);
                 $user = $this->getUserById($this->user->admin->current_user_id);
                 try {
                     $user->status = self::REQUEST_STATUS;
+                    $user->request->delete();
                     $user->save();
                     $admin = TelegramAdmin::find($this->chat_id)->one();
                     $admin->current_user_id = null;
@@ -901,9 +908,22 @@ class BotController extends Controller
                     }]
                 ]
             }';
-            $this->sendAnswer("Чат с пользователем запущен", $this->chat_id, $reply_markup);
+            $this->sendAnswer($this->getHistory($this->user->admin->current_user_id), $this->chat_id, $reply_markup);
+            
             return true;
         }
+    }
+
+    protected function getHistory($id)
+    {
+        $history = TelegramChat::find()->where(["user_id" => $id])->orderBy(['id' => SORT_DESC])->limit(10)->all();
+
+        $text = "";
+        foreach ($history as $value) {
+            $text .= Yii::$app->formatter->asDate($value->created_at, 'php:d.m.y') . $value->text . PHP_EOL;
+        }
+
+        return mb_substr($text, -2000);
     }
 
     protected function adminRiply($message, $chat_id = null, $reply_markup = null){
@@ -923,6 +943,30 @@ class BotController extends Controller
 
     }
 
+    public function actionTest()
+    {
+        // $this->getUserById(1070950185);
+        // $this->getUserById(5369774973);
+
+        // echo $this->getHistory();
+        // try {
+            
+        //     $this->user->request->delete();
+        // } catch (\Throwable $th) {
+        //     // Yii::error($th);
+        //     var_dump($th);
+            
+        // }
+        // var_dump('<pre>');
+        // var_dump(isset($this->user->admin->currentUser->status));
+        // var_dump('</pre>');
+        die;
+        
+        $this->consultationCommunication();
+        die;
+        return;
+    }
+
     protected function consultationCommunication()
     {
         $current_user_id = $this->user->admin->current_user_id ?? null;
@@ -931,9 +975,19 @@ class BotController extends Controller
             return;
         }
 
+        if (isset($this->user->admin->currentUser->status) && $this->user->admin->currentUser->status !== self::REQUEST_CONSULTATION_STATUS) {
+            $this->sendAnswer("Юзер покинул чат");
+            return;
+        }
+
         try {
-            if (isste($this->user->admin->currentUser) && $this->user->admin->currentUser->status == REQUEST_CONSULTATION_STATUS)
-                return;
+            $log = new Log();
+            $log->name = "currentUser->status";
+            // $log->error = json_encode(isset($this->user->admin->currentUser));
+            $log->error = isset($this->user->admin);
+            // $log->value = $this->user->admin->currentUser->status;
+
+            $log->save();
         } catch (\Throwable $th) {
             Yii::error($th);
         }

@@ -82,6 +82,7 @@ return [
                 'contacts' => 'site/contacts',
                 '<language:(ru|en)>/contacts' => 'site/contacts',
                 'about' => 'site/about',
+                'test' => 'bot/test',
                 '<language:(ru|en)>/about' => 'site/about',
                 'privacy-policy' => 'site/privacy-policy',
                 '<language:(ru|en)>/privacy-policy' => 'site/privacy-policy',
