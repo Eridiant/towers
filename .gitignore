@@ -46,6 +46,7 @@ phpunit.phar
 /frontend/web/images/blocks
 /frontend/web/video
 /frontend/web/tg
+/frontend/web/doc
 
 .htaccess
 ip.log
