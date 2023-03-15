@@ -43,6 +43,8 @@ class BotController extends Controller
 {
 
     private $bot_api_key;
+    private $bot_username;
+    private $hook_url;
     private $chat_id;
     private $query;
     private $user;
