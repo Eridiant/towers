@@ -33,7 +33,7 @@ use yii\helpers\Url;
             <div class="price">
                 <div class="price-button">
                     <div class="price-text">
-                        <span>ფასი</span>
+                        <span>ბლოკი</span>
                         <span>price</span>
                         <span>цены</span>
                     </div>
