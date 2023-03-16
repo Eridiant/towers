@@ -99,10 +99,15 @@ document.addEventListener("DOMContentLoaded", () => {
         span.textContent = " " + input.value.length;
         input.addEventListener('input', (e) => {
             span.textContent = " " + input.value.length;
+            const button = document.querySelector('.form-group .btn-success');
             if (input.value.length > 1000) {
-                document.querySelector('.form-group .btn-success').disabled = true;
+                button.disabled = true;
+                button.innerHTML = "превышено максимальное количество символов";
+                button.classList.add('btn-danger')
             } else {
-                document.querySelector('.form-group .btn-success').disabled = false;
+                button.disabled = false;
+                button.innerHTML = "save";
+                button.classList.remove('btn-danger')
             }
         })
     }
