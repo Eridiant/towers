@@ -10,11 +10,12 @@ use backend\models\telegram\TelegramContent;
 /** @var yii\widgets\ActiveForm $form */
 
 $childs = TelegramContent::find()->where(["parent_id" => $model->id])->with('query')->all();
+
 ?>
 
 <div class="navigation">
     <div>
-        <?= isset($model->parent->query) ? Html::a($model->parent->query, ['/telegram/update', 'id' => $model->parent->id, 'lang' => 'ru']) : ""; ?>
+        <?= isset($model->parent->query->query) ? Html::a($model->parent->query->query, ['/telegram/update', 'id' => $model->parent->id, 'lang' => 'ru']) : ""; ?>
     </div>
     <div> > </div>
     <div><?= $model->query->query ?? ""; ?></div>

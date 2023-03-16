@@ -37,7 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Родитель',
                 // 'attribute' => 'category_id',
                 // 'filter' => Category::find()->select(['name', 'id'])->indexBy('id')->column(),
-                'value' => 'parent.query',
+                'value' => 'parent.query.query',
                 'contentOptions' => ['class' => 'limit', 'style' => 'max-width: 70px;'],
             ],
             // 'type',

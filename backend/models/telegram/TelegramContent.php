@@ -88,7 +88,7 @@ class TelegramContent extends \yii\db\ActiveRecord
     }
     public function getParent()
     {
-        return $this->hasOne(TelegramQuery::class, ['id' => 'parent_id']);
+        return $this->hasOne(TelegramContent::class, ['id' => 'parent_id']);
     }
     public function getQuery()
     {
