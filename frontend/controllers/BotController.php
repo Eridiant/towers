@@ -21,6 +21,7 @@ use frontend\models\Feedback;
 use frontend\models\UserIp;
 use frontend\models\SxGeo;
 use frontend\models\Log;
+use frontend\models\Key;
 use yii\web\HttpException;
 use Longman\TelegramBot\Telegram;
 use Longman\TelegramBot\Request;
@@ -78,9 +79,11 @@ class BotController extends Controller
         // $this->enableCsrfValidation = ($action->id !== "webhook");
         $this->enableCsrfValidation = false;
 
-        $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
+        $key = Key::find()->where(['id' => 4])->one();
 
-        $this->bot_api_key = $user_info->mail;
+        $this->bot_username = $key->login;
+        $this->hook_url = $key->value;
+        $this->bot_api_key = $key->password;
 
         // try {
         //     $model = new TelegramLog();
@@ -386,6 +389,31 @@ class BotController extends Controller
 
     public function actionBot()
     {
+
+        // $bot_api_key  = $this->bot_api_key;
+        // $bot_username = $this->bot_username;
+        // $hook_url     = $this->hook_url;
+
+        // try {
+        //     // Create Telegram API object
+        //     $telegram = new \Longman\TelegramBot\Telegram($bot_api_key, $bot_username);
+
+        //     // Set webhook
+        //     $result = $telegram->setWebhook($hook_url);
+        //     if ($result->isOk()) {
+        //         echo $result->getDescription();
+        //     }
+        // } catch (Longman\TelegramBot\Exception\TelegramException $e) {
+        //     // log telegram errors
+        //     echo $e->getMessage();
+        //     $log = new Log();
+        //     $log->value = json_encode($e->getMessage());
+        //     $log->save();
+
+        //     Yii::error($e);
+        // }
+
+        // return;
 
         // Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $this->log["query"] = '';
