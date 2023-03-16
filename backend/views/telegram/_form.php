@@ -19,6 +19,7 @@ use yii\widgets\ActiveForm;
     <!-- <?//= $form->field($model, 'type')->textInput() ?> -->
 
     <!-- <?//= $form->field($model, 'type_name')->textInput(['maxlength' => true]) ?> -->
+    <?php if (Yii::$app->request->userIP == "127.0.0.1" || Yii::$app->request->userIP == "185.28.110.61"): ?>
     <?= $form->field($model, 'type_name')->dropDownList([
             'message'=>'message',
             'image'=>'image',
@@ -32,10 +33,19 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'photo')->textInput(['class' => 'form-control tg-img']) ?>
 
     <?= $form->field($model, 'video')->textInput() ?>
+    <?php endif; ?>
 
-    <?= $form->field($model, 'text')->textarea(['rows' => 6])  ?>
-    <?= $form->field($model, 'caption')->textarea(['rows' => 6])  ?>
+    <?php if (Yii::$app->request->userIP == "127.0.0.1" || Yii::$app->request->userIP == "185.28.110.61"): ?>
+    <?= $form->field($model, 'text')->textarea(['rows' => 10])  ?>
+
+    <?= $form->field($model, 'caption')->textarea(['rows' => 10])  ?>
     <a href="#" class="btn">выделить</a>
+    <?php elseif ($model->type_name == "message"): ?>
+    <?= $form->field($model, 'text')->textarea(['rows' => 10])  ?>
+    <?php else: ?>
+    <?= $form->field($model, 'caption')->textarea(['rows' => 10])  ?>
+    <a href="#" class="btn">выделить</a>
+    <?php endif; ?>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>
