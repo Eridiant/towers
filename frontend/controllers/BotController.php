@@ -594,7 +594,8 @@ class BotController extends Controller
         // if (TelegramUser::find($this->update["from"]["id"])->exists()) {
         //     return $this->user = TelegramUser::find($this->update["from"]["id"])->one();
         // }
-        if (TelegramUser::find()->where(['id' => $id ?? $this->update["from"]["id"]])->exists()) {
+        $id = isset($id) ? $id : $this->update["from"]["id"];
+        if (TelegramUser::find()->where(['id' => $id])->exists()) {
             return $this->user = TelegramUser::find()->where(['id' => $id ?? $this->update["from"]["id"]])->one();
         }
 
