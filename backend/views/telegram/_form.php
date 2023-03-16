@@ -3,15 +3,29 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\widgets\ActiveForm;
+use backend\models\telegram\TelegramContent;
 
 /** @var yii\web\View $this */
 /** @var backend\models\telegram\TelegramContent $model */
 /** @var yii\widgets\ActiveForm $form */
 
-
+$childs = TelegramContent::find()->where(["parent_id" => $model->id])->with('query')->all();
 ?>
 
-<h4><?= $model->parent->query ?? ""; ?> > <?= $model->query->query ?? ""; ?></h4>
+<div class="navigation">
+    <div>
+        <?= isset($model->parent->query) ? Html::a($model->parent->query, ['/telegram/update', 'id' => $model->parent->id, 'lang' => 'ru']) : ""; ?>
+    </div>
+    <div> > </div>
+    <div><?= $model->query->query ?? ""; ?></div>
+    <div> > </div>
+    <div class="childs">
+        <?php foreach ($childs as $child): ?>
+            <div><?= Html::a($child->query->query, ['/telegram/update', 'id' => $child->id, 'lang' => 'ru']); ?></div>
+        <?php endforeach; ?>
+    </div>
+</div>
+
 
 
 
