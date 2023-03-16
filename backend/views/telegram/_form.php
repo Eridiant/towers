@@ -35,7 +35,7 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'video')->textInput() ?>
     <?php endif; ?>
 
-    <?php if (Yii::$app->request->userIP == "127.0.0.1" || Yii::$app->request->userIP == "185.28.110.61"): ?>
+    <?php if (false && (Yii::$app->request->userIP == "127.0.0.1" || Yii::$app->request->userIP == "185.28.110.61")): ?>
     <?= $form->field($model, 'text')->textarea(['rows' => 10])  ?>
 
     <?= $form->field($model, 'caption')->textarea(['rows' => 10])  ?>

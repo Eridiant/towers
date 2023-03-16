@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const img = document.querySelector('#telegram .tg-img');
         const telegramImg = document.querySelector('.telegram-img');
 
-        img.addEventListener('click', (e) => {
+        img?.addEventListener('click', (e) => {
             let type = document.querySelector('#telegramcontent-type_name').value;
             if (!(type === 'image' || type === 'animation' || type === 'video' || type === 'group')) return;
 
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         })
 
-        telegram.addEventListener('click', (e) => {
+        telegram?.addEventListener('click', (e) => {
             let t = e.target;
             if (t.closest('.telegram-btn')) e.preventDefault();
             let currentImg;
