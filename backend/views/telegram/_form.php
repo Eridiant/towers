@@ -8,7 +8,12 @@ use yii\widgets\ActiveForm;
 /** @var backend\models\telegram\TelegramContent $model */
 /** @var yii\widgets\ActiveForm $form */
 
+
 ?>
+
+<h4><?= $model->parent->query ?? ""; ?> > <?= $model->query->query ?? ""; ?></h4>
+
+
 
 <div id="telegram" class="telegram-content-form">
 
