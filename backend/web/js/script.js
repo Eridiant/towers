@@ -99,6 +99,11 @@ document.addEventListener("DOMContentLoaded", () => {
         span.textContent = " " + input.value.length;
         input.addEventListener('input', (e) => {
             span.textContent = " " + input.value.length;
+            if (input.value.length > 1000) {
+                document.querySelector('.form-group .btn-success').disabled = true;
+            } else {
+                document.querySelector('.form-group .btn-success').disabled = false;
+            }
         })
     }
 
