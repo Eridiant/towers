@@ -22,6 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <form action="#" method="post" class="block-a">
         <p>ссылка на block-a (true)</p>
         <input type="text" name="message">
+        <button type="button" class="check">check</button>
         <button type="submit">submit</button>
     </form>
     <br>
@@ -29,12 +30,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <form action="#" method="post" class="block-b">
         <p>ссылка на block-b (true)</p>
         <input type="text" name="message">
+        <button type="button" class="check">check</button>
         <button type="submit">submit</button>
     </form>
     
     <form action="#" method="post" class="block-c">
         <p>ссылка на block-c (true)</p>
         <input type="text" name="message">
+        <button type="button" class="check">check</button>
         <button type="submit">submit</button>
     </form>
     <br>

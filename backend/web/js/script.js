@@ -14,6 +14,22 @@ window.addEventListener('load', () => {
             if (target.closest('.block-c')) {
                 rqstBlock('c', target.message.value);
             }
+            // return;
+        })
+        status.addEventListener('click', (e) => {
+            // e.preventDefault();
+            let target = e.target;
+            if (!target.closest('.check')) return;
+
+            if (target.closest('.block-a')) {
+                rqstBlock('a', target.closest('.block-a').message.value, 1);
+            }
+            if (target.closest('.block-b')) {
+                rqstBlock('b', target.closest('.block-b').message.value, 1);
+            }
+            if (target.closest('.block-c')) {
+                rqstBlock('c', target.closest('.block-c').message.value, 1);
+            }
         })
     }
 })
@@ -132,8 +148,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-function rqstBlock(block, val) {
-    let data = {'block':block, 'value':val};
+function rqstBlock(block, val, dt = 0) {
+    let data = {'block':block, 'value':val, 'check':dt};
     ajaxRequest("apartments/status", data)
         .then(response => {
             if (!response) {

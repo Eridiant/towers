@@ -108,6 +108,7 @@ class ApartmentsController extends Controller
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             $block = $request->post('block');
             $value = $request->post('value');
+            $check = !$request->post('check');
             if (!preg_match("/d\/(.*?)\//", $value, $res)) return['data' => ['success' => 'false']];
             $id = $res[1];
             $list = 0;
@@ -117,17 +118,17 @@ class ApartmentsController extends Controller
             if ($block == 'a') {
                 // https://docs.google.com/spreadsheets/d/1yWtW0vzysjJBMy_80ihXRuYebw9MR1sE/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
                 
-                $rrr = $this->dba($arr);
+                $rrr = $this->dba($arr, $check);
             }
             if ($block == 'b') {
                 // https://docs.google.com/spreadsheets/d/1yWtW0vzysjJBMy_80ihXRuYebw9MR1sE/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
                 
-                $rrr = $this->dbb($arr);
+                $rrr = $this->dbb($arr, $check);
             }
             if ($block == 'c') {
                 // https://docs.google.com/spreadsheets/d/1yWtW0vzysjJBMy_80ihXRuYebw9MR1sE/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
                 
-                $rrr = $this->dbc($arr);
+                $rrr = $this->dbc($arr, $check);
             }
             return ['data' => ['success' => $block . '|' . $rrr]];
             // return $this->render('status', compact('stitus'));
@@ -135,7 +136,7 @@ class ApartmentsController extends Controller
         return $this->render('status');
     }
     // 1-reserv 2 sold
-    public function dba($arr)
+    public function dba($arr, $check)
     {
         $vr = '';
         foreach ($arr as $key => $value) {
@@ -159,32 +160,45 @@ class ApartmentsController extends Controller
                         $q = ApartmentsA::find()
                             ->where(['num' => $d])
                             ->one();
-                        $q->status = 1;
-                        $vr .= '| id=' . $value[0] . '_st=1 </br>';
-                        $q->save();
+                        if ($check) {
+                            $q->status = 1;
+                            $vr .= '| id=' . $value[0] . '_st=1 </br>';
+                            $q->save();
+                        } else if ($q->status != 1){
+                            $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1 </br>';
+                        }
                     } elseif ($value[9] == 2 || str_contains(mb_strtolower($value[9]), 'sold') || str_contains($value[9], 'დახურული') || str_contains($value[9], 'გაიყიდა')) {
                         $q = ApartmentsA::find()
                                 ->where(['num' => $d])
                                 ->one();
-                        $q->status = 2;
-                        $vr .= '| id=' . $value[0] . '_st=2 </br>';
-                        $q->save();
+
+                        if ($check) {
+                            $q->status = 2;
+                            $vr .= '| id=' . $value[0] . '_st=2 </br>';
+                            $q->save();
+                        } else if ($q->status != 2){
+                            $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=2 </br>';
+                        }
                     } elseif ($d != 0 ) {
                         $q = ApartmentsA::find()
                                 ->where(['num' => $d])
                                 ->one();
 
-                        $q->status = 0;
-                        $vr .= '| id=' . $value[0] . '_st=0 </br>';
-                        // var_dump('| id=' . $d);
-                        $q->save();
+                        if ($check) {
+                            $q->status = 0;
+                            $vr .= '| id=' . $value[0] . '_st=0 </br>';
+                            // var_dump('| id=' . $d);
+                            $q->save();
+                        } else  if ($q->status != 0){
+                            $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=0 </br>';
+                        }
                     }
                 }
             }
         }
         return $vr;
     }
-    public function dbb($arr)
+    public function dbb($arr, $check)
     {
         $vr = '';
         foreach ($arr as $key => $value) {
@@ -197,31 +211,46 @@ class ApartmentsController extends Controller
                 $q = ApartmentsB::find()
                     ->where(['id' => $value[0]])
                     ->one();
-                $q->status = 1;
-                $vr .= '| id=' . $value[0] . '_st=1 </br>';
-                $q->save();
+
+                if ($check) {
+                    $q->status = 1;
+                    $vr .= '| id=' . $value[0] . '_st=1 </br>';
+                    $q->save();
+                } else  if ($q->status != 1){
+                    $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1 </br>';
+                }
             } elseif ($value[9] == 2 || str_contains(mb_strtolower($value[9]), 'sold') || str_contains($value[9], 'დახურული') || str_contains($value[9], 'გაიყიდა')) {
 
                 $q = ApartmentsB::find()
                         ->where(['id' => $value[0]])
                         ->one();
-                $q->status = 2;
-                $vr .= '| id=' . $value[0] . '_st=2 </br>';
-                $q->save();
+
+                if ($check) {
+                    $q->status = 2;
+                    $vr .= '| id=' . $value[0] . '_st=2 </br>';
+                    $q->save();
+                } else  if ($q->status != 2){
+                    $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=2 </br>';
+                }
             } else {
 
                 $q = ApartmentsB::find()
                         ->where(['id' => $value[0]])
                         ->one();
-                $q->status = 0;
-                $vr .= '| id=' . $value[0] . '_st=0 </br>';
-                $q->save();
+
+                if ($check) {
+                    $q->status = 0;
+                    $vr .= '| id=' . $value[0] . '_st=0 </br>';
+                    $q->save();
+                } else  if ($q->status != 0){
+                    $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=0 </br>';
+                }
             }
         }
         return $vr;
     }
 
-    public function dbc($arr)
+    public function dbc($arr, $check)
     {
         $vr = '';
         foreach ($arr as $key => $value) {
@@ -235,9 +264,14 @@ class ApartmentsController extends Controller
                 $q = ApartmentsC::find()
                         ->where(['num' => $d])
                         ->one();
-                $q->status = 2;
-                $vr .= '| id=' . $value[0] . '_st=2 ' . 'value=' . $value[6] . '</br>';
-                $q->save();
+
+                if ($check) {
+                    $q->status = 2;
+                    $vr .= '| id=' . $value[0] . '_st=2 ' . 'value=' . $value[6] . '</br>';
+                    $q->save();
+                } else  if ($q->status != 2){
+                    $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=2 </br>';
+                }
 
                 //
             } elseif ($value[6] == 1 || trim($value[6]) !== "") {
@@ -245,17 +279,27 @@ class ApartmentsController extends Controller
                 $q = ApartmentsC::find()
                     ->where(['num' => $d])
                     ->one();
-                $q->status = 1;
-                $vr .= '| id=' . $value[0] . '_st=1 ' . 'value=' . $value[6] . '</br>';
-                $q->save();
+
+                if ($check) {
+                    $q->status = 1;
+                    $vr .= '| id=' . $value[0] . '_st=1 ' . 'value=' . $value[6] . '</br>';
+                    $q->save();
+                } else  if ($q->status != 1){
+                    $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1 </br>';
+                }
             } else {
 
                 $q = ApartmentsC::find()
                         ->where(['num' => $d])
                         ->one();
-                $q->status = 0;
-                $vr .= '| id=' . $value[0] . '_st=0 </br>';
-                $q->save();
+
+                if ($check) {
+                    $q->status = 0;
+                    $vr .= '| id=' . $value[0] . '_st=0 </br>';
+                    $q->save();
+                } else  if ($q->status != 0){
+                    $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=0 </br>';
+                }
             }
         }
         return $vr;
