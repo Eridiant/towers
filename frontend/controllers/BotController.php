@@ -458,7 +458,6 @@ class BotController extends Controller
             if ($this->canAdmin() && $text === "Консультация online"){
                 $text = '/' . $text;
                 $this->switchAdmin();
-                $this->isAdminCommand($command["text"] = "Список запросов");
             } else if ($text === "exit"){
                 $this->consultationRequest(0);
             } else {
@@ -818,7 +817,9 @@ class BotController extends Controller
         if (TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->exists() && $flag === 2) {
             $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
             foreach ($admins as $value) {
-                $this->sendAnswer("Системное сообщение: пользователь {$user} запросил консультацию", $value->id);
+                // $this->sendAnswer("Системное сообщение: пользователь {$user} запросил консультацию", $value->id);
+                $reply_markup["inline_keyboard"][] = [["text" => "подключить", "callback_data" => $this->user->id]];
+                $this->sendAnswer("Системное сообщение: пользователь {$user} запросил консультацию", $value->id, json_encode($reply_markup));
             }
         } else {
             foreach ($admins as $value) {
@@ -858,6 +859,7 @@ class BotController extends Controller
 
     protected function isAdminCommand($command)
     {
+
         if ((($command["text"] ?? "") == "Список запросов") && TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->exists()) {
             $users = TelegramUser::find()->where(['status' => self::REQUEST_CONSULTATION_STATUS])->all();
 
