@@ -39,7 +39,7 @@ use yii\helpers\Url;
                     </div>
                     <div class="price-btn">G</div>
                     <div class="price-text">
-                        <span>დაბლოკვა</span>
+                        <!-- <span>დაბლოკვა</span> -->
                         <span>block</span>
                         <span>блок</span>
                     </div>
