@@ -160,11 +160,14 @@ class ApartmentsController extends Controller
                         $q = ApartmentsA::find()
                             ->where(['num' => $d])
                             ->one();
+
+                        if ($q->status == 1)
+                            continue;
                         if ($check) {
                             $q->status = 1;
                             $vr .= '| id=' . $value[0] . '_st=1 </br>';
                             $q->save();
-                        } else if ($q->status != 1){
+                        } else {
                             $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1 </br>';
                         }
                     } elseif ($value[9] == 2 || str_contains(mb_strtolower($value[9]), 'sold') || str_contains($value[9], 'დახურული') || str_contains($value[9], 'გაიყიდა')) {
@@ -172,11 +175,14 @@ class ApartmentsController extends Controller
                                 ->where(['num' => $d])
                                 ->one();
 
+                        if ($q->status != 2)
+                            continue;
+
                         if ($check) {
                             $q->status = 2;
                             $vr .= '| id=' . $value[0] . '_st=2 </br>';
                             $q->save();
-                        } else if ($q->status != 2){
+                        } else {
                             $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=2 </br>';
                         }
                     } elseif ($d != 0 ) {
@@ -184,12 +190,15 @@ class ApartmentsController extends Controller
                                 ->where(['num' => $d])
                                 ->one();
 
+                        if ($q->status != 0)
+                            continue;
+
                         if ($check) {
                             $q->status = 0;
                             $vr .= '| id=' . $value[0] . '_st=0 </br>';
                             // var_dump('| id=' . $d);
                             $q->save();
-                        } else  if ($q->status != 0){
+                        } else {
                             $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=0 </br>';
                         }
                     }
@@ -212,11 +221,14 @@ class ApartmentsController extends Controller
                     ->where(['id' => $value[0]])
                     ->one();
 
+                if ($q->status != 1)
+                    continue;
+
                 if ($check) {
                     $q->status = 1;
                     $vr .= '| id=' . $value[0] . '_st=1 </br>';
                     $q->save();
-                } else  if ($q->status != 1){
+                } else {
                     $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1 </br>';
                 }
             } elseif ($value[9] == 2 || str_contains(mb_strtolower($value[9]), 'sold') || str_contains($value[9], 'დახურული') || str_contains($value[9], 'გაიყიდა')) {
@@ -225,11 +237,14 @@ class ApartmentsController extends Controller
                         ->where(['id' => $value[0]])
                         ->one();
 
+                if ($q->status != 2)
+                    continue;
+
                 if ($check) {
                     $q->status = 2;
                     $vr .= '| id=' . $value[0] . '_st=2 </br>';
                     $q->save();
-                } else  if ($q->status != 2){
+                } else {
                     $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=2 </br>';
                 }
             } else {
@@ -238,11 +253,14 @@ class ApartmentsController extends Controller
                         ->where(['id' => $value[0]])
                         ->one();
 
+                if ($q->status != 0)
+                    continue;
+
                 if ($check) {
                     $q->status = 0;
                     $vr .= '| id=' . $value[0] . '_st=0 </br>';
                     $q->save();
-                } else  if ($q->status != 0){
+                } else {
                     $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=0 </br>';
                 }
             }
@@ -265,11 +283,14 @@ class ApartmentsController extends Controller
                         ->where(['num' => $d])
                         ->one();
 
+                if ($q->status != 2)
+                    continue;
+
                 if ($check) {
                     $q->status = 2;
                     $vr .= '| id=' . $value[0] . '_st=2 ' . 'value=' . $value[6] . '</br>';
                     $q->save();
-                } else  if ($q->status != 2){
+                } else {
                     $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=2 </br>';
                 }
 
@@ -280,11 +301,14 @@ class ApartmentsController extends Controller
                     ->where(['num' => $d])
                     ->one();
 
+                if ($q->status != 1)
+                    continue;
+
                 if ($check) {
                     $q->status = 1;
                     $vr .= '| id=' . $value[0] . '_st=1 ' . 'value=' . $value[6] . '</br>';
                     $q->save();
-                } else  if ($q->status != 1){
+                } else {
                     $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1 </br>';
                 }
             } else {
@@ -293,11 +317,14 @@ class ApartmentsController extends Controller
                         ->where(['num' => $d])
                         ->one();
 
+                if ($q->status != 0)
+                    continue;
+
                 if ($check) {
                     $q->status = 0;
                     $vr .= '| id=' . $value[0] . '_st=0 </br>';
                     $q->save();
-                } else  if ($q->status != 0){
+                } else {
                     $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=0 </br>';
                 }
             }
