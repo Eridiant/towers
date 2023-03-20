@@ -58,13 +58,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     $text = '';
                     if ($model->type_name === "message") {
                         foreach ($model->messages as $value) {
-                            $text .= "<div class='limit'>{$value->text}</div>";
+                            $strlen = iconv_strlen($value->text) . ":" ?? "";
+                            $text .= "<div class='limit'>{$strlen}{$value->text}</div>";
                         }
                     }
 
                     if ($model->type_name === "image" || $model->type_name === "video" || $model->type_name === "animation") {
                         foreach ($model->images as $value) {
-                            $text .= "<div class='limit'>{$value->caption}</div>";
+                            $strlen = iconv_strlen($value->caption) . ":" ?? "";
+                            $text .= "<div class='limit'>{$strlen}{$value->caption}</div>";
                         }
                     }
                     return $text;
