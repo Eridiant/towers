@@ -306,8 +306,13 @@ window.addEventListener('load', () => {
         }
 
 		floor.on('slideChange', fn);
+        let skip = 0;
 
 		function fn() {
+            if (skip) {
+                skip = 0;
+                return;
+            }
 			let timeoutId = null;
 			let wait = 1000;
 			let floor_num = document.querySelector('.floor-show').dataset.floor;
@@ -400,6 +405,7 @@ window.addEventListener('load', () => {
 
             if (Number(e.target.dataset.floor)) {
                 // console.log(floor);
+                skip = 1;
                 floor.slideTo(e.target.dataset.i - 1);
                 document.querySelector('.floor-floor').scrollIntoView();
                 // ajaxFloor('block-A', e.target.dataset.i);
@@ -424,6 +430,7 @@ window.addEventListener('load', () => {
 
             if (Number(e.target.dataset.floor)) {
                 // console.log(floor);
+                skip = 1;
                 floor.slideTo(e.target.dataset.i - 1);
                 document.querySelector('.floor-floor').scrollIntoView();
                 // ajaxFloor('block-B', e.target.dataset.i);
@@ -448,6 +455,7 @@ window.addEventListener('load', () => {
 
             if (Number(e.target.dataset.floor)) {
                 // console.log(floor);
+                skip = 1;
                 floor.slideTo(e.target.dataset.i - 1);
                 document.querySelector('.floor-floor').scrollIntoView();
                 // ajaxFloor('block-G', e.target.dataset.i);
@@ -578,7 +586,7 @@ window.addEventListener('load', () => {
                     document.querySelector('#floor').dataset.floor = 'block-G';
                     document.querySelector('.flat-switch').classList.remove('none');
                 }
-                changeRenovation(block);
+                // changeRenovation(block);
             }
         })
 
@@ -589,7 +597,7 @@ window.addEventListener('load', () => {
             // vz[1].classList.remove('hidden');
             document.querySelector('.flat-switch').classList.remove('repair');
 
-            let data = {'slug': block};
+            let data = {'slug': block, 'lgg': lgg};
             xhRequest(data, '/site/lts')
                 .then(response => {
                     document.querySelector('#renovation').innerHTML = response;
@@ -608,7 +616,7 @@ window.addEventListener('load', () => {
 
         function ajaxBlock(block) {
             // let data = ['block' = 'block'].serializeArray();
-            let data = {'slug': block};
+            let data = {'slug': block, 'lgg': lgg};
             // let data = `'slug' = ${block}`;
             // let lng = currLang !== 'ge' ? `/${currLang}` : '';
             changeModule(checkModule(block));
@@ -633,6 +641,14 @@ window.addEventListener('load', () => {
                     fillData(model, status);
                     changeBlockStatus(model, status, block);
                     // console.log(response['blocks']);
+                    document.querySelector('#renovation').innerHTML = JSON.parse(response).rds;
+                    var renovation = new Swiper(".renovation-swiper", {
+                        slidesPerView: 1,
+                        navigation: {
+                            nextEl: ".choose-next",
+                            prevEl: ".choose-prev",
+                        },
+                    });
                 },
                 error: function(response) {
                     console.log(response);
@@ -904,7 +920,7 @@ function checkModule(block, floor = 0) {
     }
     if (block === 'block-G') {
         block = 'g';
-        console.log('block-GGGG', floor);
+        // console.log('block-GGGG', floor);
         if (!floor) return [block, fls = 11];
         switch (parseInt(floor)) {
             case 30:

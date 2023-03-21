@@ -717,6 +717,10 @@ class SiteController extends Controller
             if ($request->post('floor')) {
                 $id = $request->post('floor');
             }
+            $lgg = $request->post('lgg');
+            if ($lgg == 'ru-RU' || $lgg == 'en-US' || $lgg == 'ka-GE') {
+                Yii::$app->language = $lgg;
+            }
         }
 
         if ($slug === 'block-A' || $slug == NULL) {
