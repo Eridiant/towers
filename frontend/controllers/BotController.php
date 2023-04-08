@@ -50,6 +50,7 @@ class BotController extends Controller
     private $query;
     private $user;
     private $text;
+    private $lang;
     private $update;
     private $log = [];
     const REQUEST_TRANSFER_STATUS = 1;
@@ -114,7 +115,7 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
         }
 
         if (empty($content->caption)) {
@@ -162,7 +163,7 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
         }
 
         if (empty($content->caption)) {
@@ -206,7 +207,7 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
         }
 
         if (empty($content->caption)) {
@@ -250,7 +251,7 @@ class BotController extends Controller
     protected function sendMediaGroup($parse_mode = 'HTML', $headers = [])
     {
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
         }
 
         // $rslt = [
@@ -318,7 +319,7 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramMessage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+            $content = TelegramMessage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
         }
 
         if (empty($content->text)) {
@@ -485,8 +486,12 @@ class BotController extends Controller
 
         $name = $update['message']['from']['first_name'] ?? 'клиент';
 
+
         if (ctype_digit($text)) {
             $this->query = TelegramQuery::find()->where('id = :id', [':id' => $text])->one();
+
+            $this->checkLang();
+
         } else {
             if ($text === "Назад" || $text === "Назад") {
                 // $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
@@ -496,7 +501,7 @@ class BotController extends Controller
                 $this->query = TelegramQuery::find()
                     ->where('content_id = :content_id')
                     ->andWhere('lang = :lang')
-                    ->addParams([':content_id' => $parent_id, ':lang' => 'ru'])
+                    ->addParams([':content_id' => $parent_id, ':lang' => $this->user->lang ?? 'ru'])
                     ->one();
             } else {
                 $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
@@ -572,6 +577,30 @@ class BotController extends Controller
 
         return;
 
+    }
+
+    protected function checkLang()
+    {
+        switch ($this->query->content_id) {
+            case 2:
+                $this->lang = 'ru';
+                $this->user->lang = 'ru';
+                break;
+            
+            case 333:
+                $this->lang = 'en';
+                $this->user->lang = 'en';
+                break;
+            
+            case 444:
+                $this->lang = 'ge';
+                $this->user->lang = 'ge';
+                break;
+            
+            default:
+                $this->lang = $this->user->lang ?? 'ru';
+                break;
+        }
     }
 
     protected function log()
