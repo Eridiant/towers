@@ -872,8 +872,8 @@ class BotController extends Controller
 
     protected function switchAdmin($flag = self::ADMINISTRATOR_STATUS)
     {
-        if (!isset($this->user->admin))
-        return false;
+        // if (!isset($this->user->admin))
+        // return false;
 
         try {
             $this->user->status = $flag;
