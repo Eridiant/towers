@@ -39,7 +39,7 @@ $childs = TelegramContent::find()->where(["parent_id" => $model->id])->with('que
     <!-- <?//= $form->field($model, 'type')->textInput() ?> -->
 
     <!-- <?//= $form->field($model, 'type_name')->textInput(['maxlength' => true]) ?> -->
-    <?php if (Yii::$app->request->userIP == "127.0.0.1" || Yii::$app->request->userIP == "185.28.110.61"): ?>
+    <?php if (Yii::$app->request->userIP == "127.0.0.1" || Yii::$app->request->userIP == "185.28.110.61" || Yii::$app->request->userIP == "185.28.110.63"): ?>
     <?= $form->field($model, 'type_name')->dropDownList([
             'message'=>'message',
             'image'=>'image',
