@@ -337,7 +337,7 @@ class BotController extends Controller
             $result = Request::sendMessage([
                 'chat_id' => $this->chat_id,
                 'parse_mode' => $parse_mode,
-                'text'   => $this->text ?? $content->text,
+                'text'   => $this->text ?? $content->text ?? "zxcvb",
                 'reply_markup' => $content->reply_markup ?? "",
             ]);
 
