@@ -115,7 +115,12 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id])->one();
+            $content = TelegramImage::find()
+            ->where(['content_id' => $this->query->content->id]);
+            if ($this->query->content->id != 1) {
+                $content = $content->andWhere(['lang' => $this->lang ?? $this->user->lang]);
+            }
+            $content = $content->one();
         }
 
         if (empty($content->caption)) {
@@ -207,7 +212,7 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
         }
 
         if (empty($content->caption)) {
@@ -491,8 +496,6 @@ class BotController extends Controller
         if (ctype_digit($text)) {
             $this->query = TelegramQuery::find()->where('id = :id', [':id' => $text])->one();
 
-            $this->checkLang();
-
         } else {
             if ($text === "Назад" || $text === "Назад") {
                 // $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
@@ -508,6 +511,10 @@ class BotController extends Controller
             } else {
                 $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
             }
+        }
+
+        if ($text == "Русский" || $text == "English" || $text == "ქართული") {
+            $this->checkLang();
         }
 
         if ($text === "Оставить заявку" || $this->user->status === self::REQUEST_TRANSFER_STATUS) {
@@ -583,26 +590,28 @@ class BotController extends Controller
 
     protected function checkLang()
     {
-        switch ($this->query->content_id) {
-            case 2:
-                $this->lang = 'ru';
-                $this->user->lang = 'ru';
-                break;
+        $this->lang = $this->user->lang = $this->query->lang;
+
+        // switch ($this->query->lang) {
+        //     case 2:
+        //         $this->lang = 'ru';
+        //         $this->user->lang = 'ru';
+        //         break;
             
-            case 333:
-                $this->lang = 'en';
-                $this->user->lang = 'en';
-                break;
+        //     case 333:
+        //         $this->lang = 'en';
+        //         $this->user->lang = 'en';
+        //         break;
             
-            case 444:
-                $this->lang = 'ge';
-                $this->user->lang = 'ge';
-                break;
+        //     case 444:
+        //         $this->lang = 'ge';
+        //         $this->user->lang = 'ge';
+        //         break;
             
-            default:
-                $this->lang = $this->user->lang ?? 'ru';
-                break;
-        }
+        //     default:
+        //         $this->lang = $this->user->lang ?? 'ru';
+        //         break;
+        // }
     }
 
     protected function log()
