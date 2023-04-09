@@ -12,6 +12,7 @@ use backend\models\telegram\TelegramContent;
 $childs = TelegramContent::find()->where(["parent_id" => $model->id])->with('query')->all();
 
 ?>
+<p>текущий язык <?= Yii::$app->request->get('lang'); ?></p>
 
 <div class="navigation">
     <div>
@@ -50,12 +51,14 @@ $childs = TelegramContent::find()->where(["parent_id" => $model->id])->with('que
             'group'=>'group'
     ]) ?>
 
+    <?= $form->field($model, 'inquiry')->textarea(['rows' => 3])  ?>
+
     <?= $form->field($model, 'photo')->textInput(['class' => 'form-control tg-img']) ?>
 
     <?= $form->field($model, 'video')->textInput() ?>
     <?php endif; ?>
 
-    <?php if (false && (Yii::$app->request->userIP == "127.0.0.1" || Yii::$app->request->userIP == "185.28.110.61")): ?>
+    <?php if (Yii::$app->request->userIP == "127.0.0.1" || Yii::$app->request->userIP == "185.28.110.61" || Yii::$app->request->userIP == "185.28.110.63"): ?>
     <?= $form->field($model, 'text')->textarea(['rows' => 10])  ?>
 
     <?= $form->field($model, 'caption')->textarea(['rows' => 10])  ?>

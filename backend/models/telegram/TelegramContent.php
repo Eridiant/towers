@@ -38,7 +38,7 @@ class TelegramContent extends \yii\db\ActiveRecord
             [['parent_id', 'type'], 'integer'],
             [['photo', 'video'], 'string'],
             [['type_name'], 'string', 'max' => 255],
-            [['media', 'caption', 'text'], 'safe'],
+            [['media', 'caption', 'text', 'inquiry'], 'safe'],
         ];
     }
 
@@ -152,7 +152,45 @@ class TelegramContent extends \yii\db\ActiveRecord
         }
     }
 
+    private $_inquiry;
+    public function getInquiry()
+    {
+        $lang = Yii::$app->request->get('lang');
 
+        if ($this->_inquiry === null && !is_null($this->getQueries()->andWhere(['lang' => $lang])->one())) {
+            $this->_inquiry = $this->getQueries()->andWhere(['lang' => $lang])->one()->query;
+        }
+
+        return $this->_inquiry;
+    }
+    public function setInquiry($value)
+    {
+        $this->_inquiry = $value;
+    }
+    public function updateInquiry()
+    {
+        if ($this->inquiry) {
+
+            if (!TelegramQuery::find()->where(['content_id' => $this->id, 'lang' => Yii::$app->request->get('lang')])->exists()) {
+                $media = new TelegramQuery();
+                $media->content_id = $this->id;
+                $media->lang = Yii::$app->request->get('lang');
+            } else {
+                $media = TelegramQuery::find()->where(['content_id' => $this->id, 'lang' => Yii::$app->request->get('lang')])->one();
+            }
+
+            $media->query = $this->getInquiry();
+
+            if ($media->save()) {
+                return;
+            } else {
+                var_dump('<pre>');
+                var_dump($media->getErrors());
+                var_dump('</pre>');
+                die;
+            }
+        }
+    }
 
     private $_media;
     private $_caption;
@@ -212,6 +250,7 @@ class TelegramContent extends \yii\db\ActiveRecord
     {
         $this->updateMedia();
         $this->updateMessage();
+        $this->updateInquiry();
 
         // var_dump('<pre>');
         // var_dump($this);
