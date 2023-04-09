@@ -115,7 +115,7 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
         }
 
         if (empty($content->caption)) {
@@ -163,7 +163,7 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
         }
 
         if (empty($content->caption)) {
@@ -207,7 +207,7 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
         }
 
         if (empty($content->caption)) {
@@ -251,7 +251,7 @@ class BotController extends Controller
     protected function sendMediaGroup($parse_mode = 'HTML', $headers = [])
     {
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
         }
 
         // $rslt = [
@@ -319,7 +319,7 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramMessage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
+            $content = TelegramMessage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
         }
 
         if (empty($content->text)) {
