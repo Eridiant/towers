@@ -115,11 +115,11 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id])->one();
         }
 
         if (empty($content->caption)) {
-            $content = TelegramImage::find()->where(['content_id' => 2, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => 2])->one();
             // if ($this->query->content->id === 1) {
             //     $content->caption = str_replace('name', $this->update["from"]["first_name"] ?? $this->update["from"]["username"] ?? 'клиент', $content->caption);
             // }
@@ -163,11 +163,11 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id])->one();
         }
 
         if (empty($content->caption)) {
-            $content = TelegramImage::find()->where(['content_id' =>2, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' =>2])->one();
         };
 
         if (!empty($content->pre_markup) && isset($this->query->query)) {
@@ -207,11 +207,11 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id])->one();
         }
 
         if (empty($content->caption)) {
-            $content = TelegramImage::find()->where(['content_id' =>2, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' =>2])->one();
         };
 
         $qr = $this->query->query ?? isset($this->update['text']) && $this->update['text'] == "exit";
@@ -251,7 +251,7 @@ class BotController extends Controller
     protected function sendMediaGroup($parse_mode = 'HTML', $headers = [])
     {
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id])->one();
         }
 
         // $rslt = [
@@ -319,11 +319,11 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramMessage::find()->where(['content_id' => $this->query->content->id, 'lang' => 'ru'])->one();
+            $content = TelegramMessage::find()->where(['content_id' => $this->query->content->id])->one();
         }
 
         if (empty($content->text)) {
-            $content = TelegramImage::find()->where(['content_id' => 2, 'lang' => 'ru'])->one();
+            $content = TelegramImage::find()->where(['content_id' => 2])->one();
         };
 
         if (!empty($content->pre_markup) && isset($this->query->query)) {
