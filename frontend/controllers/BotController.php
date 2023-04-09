@@ -132,7 +132,7 @@ class BotController extends Controller
 
         if (empty($content->photo)) {
             if (empty($this->query->content->photo)) {
-                $photo = 'https://calligraphy-batumi.com/tg/batumi-2-2x.jpg';
+                $photo = 'https://calligraphy-batumi.com/images/dist/header/header_bg_clouds.jpg';
             } else {
                 $photo = $this->query->content->photo;
             }
@@ -176,7 +176,7 @@ class BotController extends Controller
 
         if (empty($content->photo)) {
             if (empty($this->query->content->photo)) {
-                $photo = 'https://calligraphy-batumi.com/tg/batumi-2-2x.jpg';
+                $photo = 'https://calligraphy-batumi.com/images/dist/header/header_bg_clouds.jpg';
             } else {
                 $photo = $this->query->content->photo;
             }
@@ -501,8 +501,9 @@ class BotController extends Controller
 
                 $this->query = TelegramQuery::find()
                     ->where('content_id = :content_id')
-                    ->andWhere('lang = :lang')
-                    ->addParams([':content_id' => $parent_id, ':lang' => $this->user->lang ?? 'ru'])
+                    // ->andWhere('lang = :lang')
+                    ->addParams([':content_id' => $parent_id])
+                    // ->addParams([':content_id' => $parent_id, ':lang' => $this->user->lang ?? 'ru'])
                     ->one();
             } else {
                 $this->query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
