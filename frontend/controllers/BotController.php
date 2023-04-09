@@ -460,7 +460,7 @@ class BotController extends Controller
         $text = '/' . $text;
         else $text = ltrim($text, '/');
 
-        if ($text === "Консультация online" || $text === "exit"){
+        if ($text === "Консультация online" || $text === "exit" || $text === "ონლაინ კონსულტაცია"){
             if ($this->canAdmin() && $text === "Консультация online"){
                 $text = '/' . $text;
                 $this->switchAdmin();

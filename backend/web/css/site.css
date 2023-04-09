@@ -161,3 +161,11 @@ a.desc:after {
 .telegram-img .group input:checked ~label{
     border: 1px solid red;
 }
+
+.telegram-column {
+    display: flex;
+    gap: 10px;
+}
+.telegram-column > div {
+    flex-basis: 40%;
+}

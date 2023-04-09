@@ -38,7 +38,7 @@ class TelegramContent extends \yii\db\ActiveRecord
             [['parent_id', 'type'], 'integer'],
             [['photo', 'video'], 'string'],
             [['type_name'], 'string', 'max' => 255],
-            [['media', 'caption', 'text', 'inquiry'], 'safe'],
+            [['media', 'caption', 'text', 'inquiry', 'textReply', 'textInline', 'mediaReply', 'mediaInline'], 'safe'],
         ];
     }
 
@@ -112,6 +112,36 @@ class TelegramContent extends \yii\db\ActiveRecord
     // }
 
     private $_text;
+    private $_textReply;
+    private $_textInline;
+    public function getTextReply()
+    {
+        $lang = Yii::$app->request->get('lang');
+
+        if ($this->_textReply === null && !is_null($this->getMessages()->andWhere(['lang' => $lang])->one())) {
+            $this->_textReply = $this->getMessages()->andWhere(['lang' => $lang])->one()->reply_markup;
+        }
+
+        return $this->_textReply;
+    }
+    public function getTextInline()
+    {
+        $lang = Yii::$app->request->get('lang');
+
+        if ($this->_textInline === null && !is_null($this->getMessages()->andWhere(['lang' => $lang])->one())) {
+            $this->_textInline = $this->getMessages()->andWhere(['lang' => $lang])->one()->pre_markup;
+        }
+
+        return $this->_textInline;
+    }
+    public function setTextReply($value)
+    {
+        $this->_textReply = $value;
+    }
+    public function setTextInline($value)
+    {
+        $this->_textInline = $value;
+    }
     public function getText()
     {
         $lang = Yii::$app->request->get('lang');
@@ -140,6 +170,8 @@ class TelegramContent extends \yii\db\ActiveRecord
             }
 
             $media->text = $this->getText();
+            $media->pre_markup = $this->getTextInline();
+            $media->pre_markup = $this->getTextInline();
 
             if ($media->save()) {
                 return;
@@ -194,6 +226,8 @@ class TelegramContent extends \yii\db\ActiveRecord
 
     private $_media;
     private $_caption;
+    private $_mediaReply;
+    private $_mediaInline;
     public function getMedia()
     {
         return $this->_media;
@@ -201,6 +235,34 @@ class TelegramContent extends \yii\db\ActiveRecord
     public function setMedia($value)
     {
         $this->_media = $value;
+    }
+    public function getMediaReply()
+    {
+        $lang = Yii::$app->request->get('lang');
+
+        if ($this->_mediaReply === null && !is_null($this->getImages()->andWhere(['lang' => $lang])->one())) {
+            $this->_mediaReply = $this->getImages()->andWhere(['lang' => $lang])->one()->reply_markup;
+        }
+
+        return $this->_mediaReply;
+    }
+    public function getMediaInline()
+    {
+        $lang = Yii::$app->request->get('lang');
+
+        if ($this->_mediaInline === null && !is_null($this->getImages()->andWhere(['lang' => $lang])->one())) {
+            $this->_mediaInline = $this->getImages()->andWhere(['lang' => $lang])->one()->pre_markup;
+        }
+
+        return $this->_mediaInline;
+    }
+    public function setMediaReply($value)
+    {
+        $this->_mediaReply = $value;
+    }
+    public function setMediaInline($value)
+    {
+        $this->_mediaInline = $value;
     }
     public function getCaption()
     {
@@ -230,6 +292,8 @@ class TelegramContent extends \yii\db\ActiveRecord
             }
 
             $media->caption = $this->getCaption();
+            $media->reply_markup = $this->getMediaReply();
+            $media->pre_markup = $this->getMediaInline();
 
 
             if ($media->save()) {

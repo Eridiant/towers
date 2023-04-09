@@ -62,8 +62,16 @@ $childs = TelegramContent::find()->where(["parent_id" => $model->id])->with('que
 
     <?php if (Yii::$app->request->userIP == "127.0.0.1" || Yii::$app->request->userIP == "185.28.110.61" || Yii::$app->request->userIP == "185.28.110.63"): ?>
     <?= $form->field($model, 'text')->textarea(['rows' => 10])  ?>
+    <div class="telegram-column">
+        <?= $form->field($model, 'textReply')->textarea(['rows' => 10])  ?>
+        <?= $form->field($model, 'textInline')->textarea(['rows' => 10])  ?>
+    </div>
 
     <?= $form->field($model, 'caption')->textarea(['rows' => 10])  ?>
+    <div class="telegram-column">
+        <?= $form->field($model, 'mediaReply')->textarea(['rows' => 10])  ?>
+        <?= $form->field($model, 'mediaInline')->textarea(['rows' => 10])  ?>
+    </div>
     <a href="#" class="btn">выделить</a>
     <?php elseif ($model->type_name == "message"): ?>
     <?= $form->field($model, 'text')->textarea(['rows' => 10])  ?>
