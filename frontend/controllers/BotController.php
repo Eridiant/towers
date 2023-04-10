@@ -168,7 +168,12 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id])->one();
+            $content = TelegramImage::find()
+            ->where(['content_id' => $this->query->content->id]);
+            if ($this->query->content->id != 1) {
+                $content = $content->andWhere(['lang' => $this->lang ?? $this->user->lang]);
+            }
+            $content = $content->one();
         }
 
         if (empty($content->caption)) {
@@ -212,7 +217,12 @@ class BotController extends Controller
     {
 
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id, 'lang' => $this->lang])->one();
+            $content = TelegramImage::find()
+            ->where(['content_id' => $this->query->content->id]);
+            if ($this->query->content->id != 1) {
+                $content = $content->andWhere(['lang' => $this->lang ?? $this->user->lang]);
+            }
+            $content = $content->one();
         }
 
         if (empty($content->caption)) {
@@ -325,6 +335,12 @@ class BotController extends Controller
 
         if (!empty($this->query->content->id)) {
             $content = TelegramMessage::find()->where(['content_id' => $this->query->content->id])->one();
+            $content = TelegramMessage::find()
+            ->where(['content_id' => $this->query->content->id]);
+            if ($this->query->content->id != 1) {
+                $content = $content->andWhere(['lang' => $this->lang ?? $this->user->lang]);
+            }
+            $content = $content->one();
         }
 
         if (empty($content->text)) {
