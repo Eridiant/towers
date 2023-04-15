@@ -170,7 +170,7 @@ class TelegramContent extends \yii\db\ActiveRecord
             }
 
             $media->text = $this->getText();
-            $media->pre_markup = $this->getTextInline();
+            $media->reply_markup = $this->getTextReply();
             $media->pre_markup = $this->getTextInline();
 
             if ($media->save()) {
