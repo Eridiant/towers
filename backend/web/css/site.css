@@ -169,3 +169,6 @@ a.desc:after {
 .telegram-column > div {
     flex-basis: 40%;
 }
+.links {
+    font-size: 24px;
+}

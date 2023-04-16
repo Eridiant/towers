@@ -21,6 +21,84 @@
 	]
 }
 
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "About the developer and the project",
+			"callback_data": "3"
+		}],
+		[
+		{
+			"text": "Type of finishing and layout",
+			"callback_data": "Type of finishing and layout"
+		}],
+		[
+		{
+			"text": "Gallery",
+			"callback_data": "Gallery"
+		},
+		{
+			"text": "Q&A",
+			"callback_data": "Q&A"
+		}],
+		[
+		{
+			"text": "Read documentation",
+			"callback_data": "10"
+		},
+		{
+			"text": "Change language",
+			"callback_data": "/start"
+		}]
+	]
+}
+
+{
+	"inline_keyboard": [
+		[
+		{
+			"text": "სასტუმრო Hampton by Hilton",
+			"callback_data": "28"
+		},
+		{
+			"text": "სავაჭრო ცენტრი",
+			"callback_data": "31"
+		}],
+		[
+		{
+			"text": "კინოთეატრი",
+			"callback_data": "29"
+		},
+		{
+			"text": "კაზინო",
+			"callback_data": "30"
+		},
+		{
+			"text": "სპა",
+			"callback_data": "35"
+		},
+		{
+			"text": "ფიტნესი",
+			"callback_data": "33"
+		}],
+		[
+		{
+			"text": "გამაჯანსაღებელი ცენტრი",
+			"callback_data": "34"
+		}],
+		[
+		{
+			"text": "ბიზნეს ცენტრი",
+			"callback_data": "32"
+		},
+		{
+			"text": "კერძო სანაპირო",
+			"callback_data": "36"
+		}]
+	]
+}
+
 
 {
 	"resize_keyboard": true,
