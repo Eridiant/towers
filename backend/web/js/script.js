@@ -38,6 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const telegram = document.querySelector('#telegram');
     if (telegram) {
+
+        let childs = document.querySelector('.childs');
+        childs?.addEventListener('click', (e) => {
+            let t = e.target;
+            if (t.closest('.id')) {
+                copy(t.closest('.id').dataset.id);
+            }
+        })
+
         const img = document.querySelector('#telegram .tg-img');
         const telegramImg = document.querySelector('.telegram-img');
 
@@ -147,6 +156,19 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 });
+
+function copy(str){
+    let tmp   = document.createElement('INPUT'), // Создаём новый текстовой input
+        focus = document.activeElement; // Получаем ссылку на элемент в фокусе (чтобы не терять фокус)
+
+    tmp.value = str; // Временному input вставляем текст для копирования
+
+    document.body.appendChild(tmp); // Вставляем input в DOM
+    tmp.select(); // Выделяем весь текст в input
+    document.execCommand('copy'); // Магия! Копирует в буфер выделенный текст (см. команду выше)
+    document.body.removeChild(tmp); // Удаляем временный input
+    focus.focus(); // Возвращаем фокус туда, где был
+}
 
 function rqstBlock(block, val, dt = 0) {
     let data = {'block':block, 'value':val, 'check':dt};

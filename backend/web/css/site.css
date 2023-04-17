@@ -172,3 +172,10 @@ a.desc:after {
 .links {
     font-size: 24px;
 }
+.childs .id {
+    cursor: pointer;
+}
+.childs .id:hover {
+    color: #a94442;
+    font-weight: 700;
+}

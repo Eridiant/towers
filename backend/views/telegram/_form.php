@@ -24,7 +24,7 @@ $childs = TelegramContent::find()->where(["parent_id" => $model->id])->with('que
     <div class="childs">
         <?php foreach ($childs as $child): ?>
             <?php if (isset($child->query->query)): ?>
-                <div> <?= $child->query->id; ?> - <?= $child->id; ?> - <?= Html::a($child->query->query, ['/telegram/update', 'id' => $child->id, 'lang' => 'ru']); ?></div>
+                <div> <span class="id" data-id="<?= $child->query->id; ?>"><?= $child->query->id; ?></span> - <?= Html::a($child->query->query, ['/telegram/update', 'id' => $child->id, 'lang' => 'ru']); ?></div>
             <?php endif; ?>
         <?php endforeach; ?>
     </div>
