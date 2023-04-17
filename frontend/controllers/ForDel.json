@@ -25,6 +25,51 @@
 	"inline_keyboard": [
 		[
 		{
+			"text": "Отель Хемптон",
+			"callback_data": "28"
+		},
+		{
+			"text": "Торговый центр",
+			"callback_data": "31"
+		}],
+		[
+        {
+            "text": "Кинотеатр",
+            "callback_data": "29"
+        },
+		{
+			"text": "Казино",
+			"callback_data": "30"
+		},
+		{
+			"text": "СПА",
+			"callback_data": "35"
+		},
+		{
+			"text": "Фитнес",
+			"callback_data": "33"
+		}],
+		[
+		{
+			"text": "Оздоровительный центр",
+			"callback_data": "34"
+		}],
+		[
+        {
+            "text": "Деловой центр",
+            "callback_data": "32"
+        },
+		{
+			"text": "Собственный пляж",
+			"callback_data": "36"
+		}]
+	]
+}
+
+{
+	"inline_keyboard": [
+		[
+		{
 			"text": "About the developer and the project",
 			"callback_data": "3"
 		}],
