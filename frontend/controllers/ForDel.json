@@ -33,10 +33,10 @@
 			"callback_data": "31"
 		}],
 		[
-        {
-            "text": "Кинотеатр",
-            "callback_data": "29"
-        },
+		{
+			"text": "Кинотеатр",
+			"callback_data": "29"
+		},
 		{
 			"text": "Казино",
 			"callback_data": "30"
@@ -55,10 +55,10 @@
 			"callback_data": "34"
 		}],
 		[
-        {
-            "text": "Деловой центр",
-            "callback_data": "32"
-        },
+		{
+			"text": "Деловой центр",
+			"callback_data": "32"
+		},
 		{
 			"text": "Собственный пляж",
 			"callback_data": "36"

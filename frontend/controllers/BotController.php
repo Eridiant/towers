@@ -266,7 +266,11 @@ class BotController extends Controller
     protected function sendMediaGroup($parse_mode = 'HTML', $headers = [])
     {
         if (!empty($this->query->content->id)) {
-            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id])->one();
+            $content = TelegramImage::find()->where(['content_id' => $this->query->content->id]);
+            if ($this->query->content->id != 1) {
+                $content = $content->andWhere(['lang' => $this->lang ?? $this->user->lang]);
+            }
+            $content = $content->one();
         }
 
         // $rslt = [
