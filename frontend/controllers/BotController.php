@@ -481,7 +481,7 @@ class BotController extends Controller
         else $text = ltrim($text, '/');
 
         if ($text === "Консультация online" || $text === "Online consultation" || $text === "exit" || $text === "ონლაინ კონსულტაცია"){
-            if ($this->canAdmin() && $text === "Консультация online"){
+            if ($this->canAdmin() && ($text === "Консультация online" || $text === "Online consultation" || $text === "ონლაინ კონსულტაცია")){
                 $text = '/' . $text;
                 $this->switchAdmin();
             } else if ($text === "exit"){
@@ -686,7 +686,7 @@ class BotController extends Controller
 
             switch ($this->lang ?? $this->user->lang) {
                 case 'en':
-                    $reply = "Введите пожалуйста Ваш номер телефона:";
+                    $reply = "Please enter your phone number:";
                     break;
                 
                 case 'ge':
@@ -694,7 +694,7 @@ class BotController extends Controller
                     break;
                 
                 default:
-                    $reply = "Please enter your phone number:";
+                    $reply = "Введите пожалуйста Ваш номер телефона:";
                     break;
             }
             $inf->user_id = $this->user->id;
@@ -719,7 +719,7 @@ class BotController extends Controller
                     
                     switch ($this->lang ?? $this->user->lang) {
                         case 'en':
-                            $reply = "Введите пожалуйста Ваш емайл:";
+                            $reply = "Please enter your email:";
                             break;
                         
                         case 'ge':
@@ -727,7 +727,7 @@ class BotController extends Controller
                             break;
                         
                         default:
-                            $reply = "Please enter your email:";
+                            $reply = "Введите пожалуйста Ваш емайл:";
                             break;
                     }
                     if ($this->update["data"] ?? "" == "skip") {
@@ -742,7 +742,7 @@ class BotController extends Controller
                     
                 switch ($this->lang ?? $this->user->lang) {
                     case 'en':
-                        $reply = "Неверный формат телефона, попробуйте еще раз";
+                        $reply = "Wrong phone format, please try again:";
                         break;
                     
                     case 'ge':
@@ -750,7 +750,7 @@ class BotController extends Controller
                         break;
                     
                     default:
-                        $reply = "Wrong phone format, please try again:";
+                        $reply = "Неверный формат телефона, попробуйте еще раз";
                         break;
                 }
                 $this->sendAnswer($reply);
@@ -767,7 +767,7 @@ class BotController extends Controller
                 if ($inf->save()) {
                     switch ($this->lang ?? $this->user->lang) {
                         case 'en':
-                            $reply = "Введите пожалуйста Ваше имя:";
+                            $reply = "Please enter your name:";
                             break;
                         
                         case 'ge':
@@ -775,7 +775,7 @@ class BotController extends Controller
                             break;
                         
                         default:
-                            $reply = "Please enter your name:";
+                            $reply = "Введите пожалуйста Ваше имя:";
                             break;
                     }
                     $this->sendAnswer($reply);
@@ -784,7 +784,7 @@ class BotController extends Controller
             } else if ($this->errorCounter($inf->num_attempts)) {
                 switch ($this->lang ?? $this->user->lang) {
                     case 'en':
-                        $reply = "Неверный формат почты, попробуйте еще раз";
+                        $reply = "Wrong email format, please try again:";
                         break;
                     
                     case 'ge':
@@ -792,7 +792,7 @@ class BotController extends Controller
                         break;
                     
                     default:
-                        $reply = "Wrong email format, please try again:";
+                        $reply = "Неверный формат почты, попробуйте еще раз";
                         break;
                 }
                 $this->sendAnswer($reply);
@@ -844,7 +844,7 @@ class BotController extends Controller
             if ($inf->save()) {
                 switch ($this->lang ?? $this->user->lang) {
                     case 'en':
-                        $reply = "Ваша заявка принята";
+                        $reply = "Your request has been accepted.:";
                         break;
                     
                     case 'ge':
@@ -852,7 +852,7 @@ class BotController extends Controller
                         break;
                     
                     default:
-                        $reply = "Your request has been accepted.:";
+                        $reply = "Ваша заявка принята";
                         break;
                 }
                 $this->sendAnswer($reply);
@@ -868,7 +868,7 @@ class BotController extends Controller
             } else if ($this->errorCounter($inf->num_attempts)) {
                 switch ($this->lang ?? $this->user->lang) {
                     case 'en':
-                        $reply = "Введите не пустое имя";
+                        $reply = "Please enter a name:";
                         break;
                     
                     case 'ge':
@@ -876,7 +876,7 @@ class BotController extends Controller
                         break;
                     
                     default:
-                        $reply = "Please enter a name:";
+                        $reply = "Введите не пустое имя";
                         break;
                 }
                 $this->sendAnswer($reply);
