@@ -724,20 +724,23 @@ class BotController extends Controller
                     switch ($this->lang ?? $this->user->lang) {
                         case 'en':
                             $reply = "Please enter your email:";
+                            $mes = "pass";
                             break;
                         
                         case 'ge':
                             $reply = "შეიყვანეთ თქვენი ელექტრონული ფოსტა:";
+                            $mes = "გამოტოვება";
                             break;
                         
                         default:
                             $reply = "Введите пожалуйста Ваш емайл:";
+                            $mes = "Пропустить";
                             break;
                     }
                     if ($this->update["data"] ?? "" == "skip") {
                         $this->sendAnswer($reply);
                     } else {
-                        $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": "Пропусить","callback_data": "sk"}]]}');
+                        $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": ' . $mes . ',"callback_data": "sk"}]]}');
                     }
                     return;
                 }
