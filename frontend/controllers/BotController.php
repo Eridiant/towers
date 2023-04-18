@@ -692,7 +692,7 @@ class BotController extends Controller
                 
                 case 'ge':
                     $reply = "შეიყვანეთ თქვენი საკონტაქტო მობილურის ნომერი:";
-                    $mes = '{"inline_keyboard": [[{"text": "Проგამოტოვებაпустить","callback_data": "skip"}]]}';
+                    $mes = '{"inline_keyboard": [[{"text": "გამოტოვება","callback_data": "skip"}]]}';
                     break;
                 
                 default:
@@ -724,20 +724,23 @@ class BotController extends Controller
                     switch ($this->lang ?? $this->user->lang) {
                         case 'en':
                             $reply = "Please enter your email:";
+                            $mes = '{"inline_keyboard": [[{"text": "pass","callback_data": "sk"}]]}';
                             break;
                         
                         case 'ge':
                             $reply = "შეიყვანეთ თქვენი ელექტრონული ფოსტა:";
+                            $mes = '{"inline_keyboard": [[{"text": "გამოტოვება","callback_data": "sk"}]]}';
                             break;
                         
                         default:
                             $reply = "Введите пожалуйста Ваш емайл:";
+                            $mes = '{"inline_keyboard": [[{"text": "Пропустить","callback_data": "sk"}]]}';
                             break;
                     }
                     if ($this->update["data"] ?? "" == "skip") {
                         $this->sendAnswer($reply);
                     } else {
-                        $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": "Пропустить","callback_data": "sk"}]]}');
+                        $this->sendAnswer($reply, $this->chat_id, $mes);
                     }
                     return;
                 }
