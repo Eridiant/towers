@@ -480,7 +480,7 @@ class BotController extends Controller
         $text = '/' . $text;
         else $text = ltrim($text, '/');
 
-        if ($text === "Консультация online" || $text === "exit" || $text === "ონლაინ კონსულტაცია"){
+        if ($text === "Консультация online" || $text === "Online consultation" || $text === "exit" || $text === "ონლაინ კონსულტაცია"){
             if ($this->canAdmin() && $text === "Консультация online"){
                 $text = '/' . $text;
                 $this->switchAdmin();
@@ -537,7 +537,7 @@ class BotController extends Controller
             $this->checkLang();
         }
 
-        if ($text === "Оставить заявку" || $this->user->status === self::REQUEST_TRANSFER_STATUS) {
+        if ($text === "Оставить заявку" || $text === "საკონტაქტო ინფორმაციის დატოვება" || $text === "Leave a request" || $this->user->status === self::REQUEST_TRANSFER_STATUS) {
             if (isset($this->query->content) && $this->query->content->id !== 8 && $this->user->status === self::REQUEST_TRANSFER_STATUS) {
                 $this->user->status = self::REQUEST_STATUS;
                 try {
@@ -683,7 +683,20 @@ class BotController extends Controller
             }
         } else {
             $inf = new TelegramInfo();
-            $reply = "Введите пожалуйста Ваш номер телефона:";
+
+            switch ($this->lang ?? $this->user->lang) {
+                case 'en':
+                    $reply = "Введите пожалуйста Ваш номер телефона:";
+                    break;
+                
+                case 'ge':
+                    $reply = "შეიყვანეთ თქვენი საკონტაქტო მობილურის ნომერი:";
+                    break;
+                
+                default:
+                    $reply = "Please enter your phone number:";
+                    break;
+            }
             $inf->user_id = $this->user->id;
             $this->user->status = 1;
             $this->sendAnswer($reply, $this->chat_id, '{"inline_keyboard": [[{"text": "Пропусить","callback_data": "skip"}]]}');
@@ -703,7 +716,20 @@ class BotController extends Controller
                 $inf->phone = $matches[0] ?? "skip";
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
-                    $reply = "Введите пожалуйста Ваш емайл:";
+                    
+                    switch ($this->lang ?? $this->user->lang) {
+                        case 'en':
+                            $reply = "Введите пожалуйста Ваш емайл:";
+                            break;
+                        
+                        case 'ge':
+                            $reply = "შეიყვანეთ თქვენი ელექტრონული ფოსტა:";
+                            break;
+                        
+                        default:
+                            $reply = "Please enter your email:";
+                            break;
+                    }
                     if ($this->update["data"] ?? "" == "skip") {
                         $this->sendAnswer($reply);
                     } else {
@@ -713,7 +739,20 @@ class BotController extends Controller
                 }
             }
             if ($this->errorCounter($inf->num_attempts)) {
-                $reply = "Не правильный формат телефона, попробуйте еще раз";
+                    
+                switch ($this->lang ?? $this->user->lang) {
+                    case 'en':
+                        $reply = "Неверный формат телефона, попробуйте еще раз";
+                        break;
+                    
+                    case 'ge':
+                        $reply = "ნომრის ფორმატი არასწორია:";
+                        break;
+                    
+                    default:
+                        $reply = "Wrong phone format, please try again:";
+                        break;
+                }
                 $this->sendAnswer($reply);
                 $inf->num_attempts += 1;
                 $inf->save();
@@ -726,12 +765,36 @@ class BotController extends Controller
                 $inf->mail = $this->update["text"] ?? "skip";
                 $inf->num_attempts = 0;
                 if ($inf->save()) {
-                    $reply = "Введите пожалуйста Ваше имя:";
+                    switch ($this->lang ?? $this->user->lang) {
+                        case 'en':
+                            $reply = "Введите пожалуйста Ваше имя:";
+                            break;
+                        
+                        case 'ge':
+                            $reply = "გთხოვთ შეიყვანოთ თქვენი სახელი:";
+                            break;
+                        
+                        default:
+                            $reply = "Please enter your name:";
+                            break;
+                    }
                     $this->sendAnswer($reply);
                     return;
                 }
             } else if ($this->errorCounter($inf->num_attempts)) {
-                $reply = "Не правильный формат почты, попробуйте еще раз";
+                switch ($this->lang ?? $this->user->lang) {
+                    case 'en':
+                        $reply = "Неверный формат почты, попробуйте еще раз";
+                        break;
+                    
+                    case 'ge':
+                        $reply = "ფოსტის მისამართის არასწორი ფორმატი, გთხოვთ სცადოთ ხელმეორედ:";
+                        break;
+                    
+                    default:
+                        $reply = "Wrong email format, please try again:";
+                        break;
+                }
                 $this->sendAnswer($reply);
                 $inf->num_attempts += 1;
                 $inf->save();
@@ -779,7 +842,19 @@ class BotController extends Controller
             }
             
             if ($inf->save()) {
-                $reply = "Ваша заявка принята";
+                switch ($this->lang ?? $this->user->lang) {
+                    case 'en':
+                        $reply = "Ваша заявка принята";
+                        break;
+                    
+                    case 'ge':
+                        $reply = "თქვენი განაცხადი მიღებულია:";
+                        break;
+                    
+                    default:
+                        $reply = "Your request has been accepted.:";
+                        break;
+                }
                 $this->sendAnswer($reply);
                 $this->user->status = 0;
                 try {
@@ -791,7 +866,19 @@ class BotController extends Controller
                 }
                 return;
             } else if ($this->errorCounter($inf->num_attempts)) {
-                $reply = "Введите не пустое имя";
+                switch ($this->lang ?? $this->user->lang) {
+                    case 'en':
+                        $reply = "Введите не пустое имя";
+                        break;
+                    
+                    case 'ge':
+                        $reply = "შეავსეთ ცარიელი ველი:";
+                        break;
+                    
+                    default:
+                        $reply = "Please enter a name:";
+                        break;
+                }
                 $this->sendAnswer($reply);
                 $inf->num_attempts += 1;
                 $inf->save();
@@ -875,7 +962,19 @@ class BotController extends Controller
         $user = $this->user->first_name ?? $this->user->username;
 
         if (TelegramUser::find()->where(['status' => self::ADMINISTRATOR_STATUS])->exists() && $flag === 2) {
-            $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
+            switch ($this->lang ?? $this->user->lang) {
+                case 'en':
+                    $this->text = "The wait may take several minutes, the manager has already received a notification";
+                    break;
+                
+                case 'ge':
+                    $this->text = "ლოდინს შეიძლება რამდენიმე წუთი დასჭირდეს, მენეჯერმა უკვე მიიღო შეტყობინება";
+                    break;
+                
+                default:
+                    $this->text = "Ожидание может занять несколько минут, менеджер уже получил уведомление";
+                    break;
+            }
             foreach ($admins as $value) {
                 // $this->sendAnswer("Системное сообщение: пользователь {$user} запросил консультацию", $value->id);
                 $reply_markup["inline_keyboard"][] = [["text" => "подключить", "callback_data" => $this->user->id]];
