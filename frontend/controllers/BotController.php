@@ -703,7 +703,7 @@ class BotController extends Controller
             $inf->user_id = $this->user->id;
             $this->user->status = 1;
 
-            $this->sendAnswer($reply, $this->chat_id, "{'inline_keyboard': [[{'text': $mes,'callback_data': 'skip'}]]}");
+            $this->sendAnswer($reply, $this->chat_id, "{'inline_keyboard': [[{'text': 'Пропустить','callback_data': 'skip'}]]}");
             $inf->save();
             try {
                 $this->user->save();
@@ -740,7 +740,7 @@ class BotController extends Controller
                     if ($this->update["data"] ?? "" == "skip") {
                         $this->sendAnswer($reply);
                     } else {
-                        $this->sendAnswer($reply, $this->chat_id, "{'inline_keyboard': [[{'text': $mes,'callback_data': 'sk'}]]}");
+                        $this->sendAnswer($reply, $this->chat_id, "{'inline_keyboard': [[{'text': 'Пропустить','callback_data': 'sk'}]]}");
                     }
                     return;
                 }
