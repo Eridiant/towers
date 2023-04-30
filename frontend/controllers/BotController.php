@@ -1057,8 +1057,8 @@ class BotController extends Controller
                 } catch (\Throwable $th) {
                     Yii::error($th);
                 }
-                $this->adminRiply("Чат с пользователем завершен");
             }
+            $this->adminRiply("Чат с пользователем завершен");
             return true;
         }
 
