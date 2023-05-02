@@ -413,6 +413,29 @@ class BotController extends Controller
         }
     }
 
+    protected function sendEditedMessage($chatId, $messageId, $text) {
+        $data = [
+            'chat_id' => $chatId,
+            'message_id' => $messageId,
+            'text' => $text
+        ];
+
+        $url = 'https://api.telegram.org/bot' . $this->bot_api_key . '/editMessageText';
+
+        $options = [
+            'http' => [
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method'  => 'POST',
+                'content' => http_build_query($data)
+            ]
+        ];
+
+        $context  = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);
+
+        return $result;
+    }
+
     public function actionBot()
     {
 
@@ -445,6 +468,10 @@ class BotController extends Controller
         $this->log["query"] = '';
         $update = json_decode(file_get_contents('php://input'), true);
 
+        $this->log["user_id"] = $this->user->id ?? "999999";
+        $this->log["data"] = json_encode($update);
+        $this->log();
+
         // $message = isset($update['message']) ? $update['message'] :  $update['callback_query'];
         if (isset($update['message'])) {
             $message = $update['message'];
@@ -458,6 +485,23 @@ class BotController extends Controller
             // $message = $message['data'];
 
             $this->update = $update['callback_query'];
+        }
+
+        if (isset($update['edited_message'])) {
+            $editedMessage = $update['edited_message'];
+
+            $chatId = $editedMessage['chat']['id'];
+            $messageId = $editedMessage['message_id'];
+            $text = $editedMessage['text'];
+
+            $this->log["user_id"] = $this->user->id ?? "999999";
+            $this->log["data"] = json_encode($update);
+            $this->log["query"] .= mb_strtolower($text, 'UTF-8');
+            $this->log();
+
+            // Отправляем обновленное сообщение
+            $this->sendEditedMessage($chatId, $messageId, $text);
+            return;
         }
 
         $this->getUserById();
