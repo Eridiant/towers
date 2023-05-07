@@ -64,17 +64,13 @@ class BotController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::class,
-                // 'only' => ['*'],
+                'only' => ['webhook'],
                 'rules' => [
                     [
                         'allow' => true,
                         'roles' => ['?'],
-                        'ips' => ['149.154.160.0/20', '91.108.4.0/22'],
                     ],
                 ],
-                'denyCallback' => function ($rule, $action) {
-                    throw new \Exception('You are not allowed to access this page');
-                }
             ],
         ];
     }
@@ -89,6 +85,18 @@ class BotController extends Controller
         $this->bot_username = $key->login;
         $this->hook_url = $key->value;
         $this->bot_api_key = $key->password;
+
+
+        // 'rules' => [
+        //     [
+        //         'allow' => true,
+        //         'roles' => ['?'],
+        //         'ips' => ['149.154.160.0/20', '91.108.4.0/22'],
+        //     ],
+        // ],
+        // 'denyCallback' => function ($rule, $action) {
+        //     throw new \Exception('You are not allowed to access this page');
+        // }
 
         // try {
         //     $model = new TelegramLog();
