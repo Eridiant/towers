@@ -64,13 +64,17 @@ class BotController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::class,
-                'only' => ['webhook'],
+                // 'only' => ['*'],
                 'rules' => [
                     [
                         'allow' => true,
                         'roles' => ['?'],
+                        'ips' => ['149.154.160.0', '91.108.4.0'],
                     ],
                 ],
+                'denyCallback' => function ($rule, $action) {
+                    throw new \Exception('You are not allowed to access this page');
+                }
             ],
         ];
     }
