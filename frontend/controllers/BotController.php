@@ -508,6 +508,7 @@ class BotController extends Controller
 
             $this->log["user_id"] = $this->user->id ?? "999999";
             $this->log["data"] = json_encode($update);
+            $this->log["query"] .= Yii::$app->request->userIP . "|";
             $this->log["query"] .= mb_strtolower($text, 'UTF-8');
             $this->log();
 
