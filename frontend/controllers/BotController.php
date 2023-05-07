@@ -507,8 +507,8 @@ class BotController extends Controller
             $text = $editedMessage['text'];
 
             $this->log["user_id"] = $this->user->id ?? "999999";
-            $this->log["data"] = Yii::$app->request->userIP . "|";
-            $this->log["data"] .= json_encode($update);
+            $this->log["error"] = Yii::$app->request->userIP;
+            $this->log["data"] = json_encode($update);
             // $this->log["query"] .= Yii::$app->request->userIP . "|";
             $this->log["query"] .= mb_strtolower($text, 'UTF-8');
             $this->log();
