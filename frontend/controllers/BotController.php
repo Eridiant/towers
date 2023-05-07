@@ -69,7 +69,7 @@ class BotController extends Controller
                     [
                         'allow' => true,
                         'roles' => ['?'],
-                        'ips' => ['149.154.160.0', '91.108.4.0'],
+                        'ips' => ['149.154.160.0/20', '91.108.4.0/22'],
                     ],
                 ],
                 'denyCallback' => function ($rule, $action) {
