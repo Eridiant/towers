@@ -481,6 +481,7 @@ class BotController extends Controller
         $update = json_decode(file_get_contents('php://input'), true);
 
         $this->log["user_id"] = $this->user->id ?? "999999";
+        $this->log["error"] = Yii::$app->request->userIP;
         $this->log["data"] = json_encode($update);
         $this->log();
 
