@@ -59,6 +59,11 @@ class BotController extends Controller
     const REQUEST_STATUS = 0;
     const BANNED = 9;
 
+    private $restrictedIp = [
+        ['149.154.160.0', '149.154.175.255'],
+        ['91.108.4.0', '91.108.7.255']
+    ];
+
     public function behaviors()
     {
         return [
@@ -78,13 +83,24 @@ class BotController extends Controller
     public function beforeAction($action)//Обязательно нужно отключить Csr валидацию, так не будет работать
     {
         // $this->enableCsrfValidation = ($action->id !== "webhook");
-        $this->enableCsrfValidation = false;
+        $asses = false;
+        $reqIp = ip2long(Yii::$app->request->userIP);
+        foreach ($this->restrictedIp as $item => $value){
+            if ($reqIp >= ip2long($value[0]) && $reqIp <= ip2long($value[1])){
+                $asses = true;
+            }
+        }
+        if ($asses !== false) {
+            $this->enableCsrfValidation = false;
 
-        $key = Key::find()->where(['id' => 4])->one();
+            $key = Key::find()->where(['id' => 4])->one();
 
-        $this->bot_username = $key->login;
-        $this->hook_url = $key->value;
-        $this->bot_api_key = $key->password;
+            $this->bot_username = $key->login;
+            $this->hook_url = $key->value;
+            $this->bot_api_key = $key->password;
+        }
+
+
 
 
         // 'rules' => [
@@ -477,11 +493,13 @@ class BotController extends Controller
         // return;
 
         // Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $this->log["query"] = '';
         $update = json_decode(file_get_contents('php://input'), true);
+        // if (is_null($update)) return;
+
+        $this->log["query"] = '';
 
         $this->log["user_id"] = $this->user->id ?? "999999";
-        $this->log["error"] = Yii::$app->request->userIP;
+        // $this->log["error"] = Yii::$app->request->userIP;
         $this->log["data"] = json_encode($update);
         $this->log();
 
@@ -508,9 +526,7 @@ class BotController extends Controller
             $text = $editedMessage['text'];
 
             $this->log["user_id"] = $this->user->id ?? "999999";
-            $this->log["error"] = Yii::$app->request->userIP;
             $this->log["data"] = json_encode($update);
-            // $this->log["query"] .= Yii::$app->request->userIP . "|";
             $this->log["query"] .= mb_strtolower($text, 'UTF-8');
             $this->log();
 
@@ -574,7 +590,6 @@ class BotController extends Controller
 
         if (ctype_digit($text)) {
             $this->query = TelegramQuery::find()->where('id = :id', [':id' => $text])->one();
-
         } else {
             if ($text === "Назад" || $text === "უკან" || $text === "Back") {
                 // $query = TelegramQuery::find()->where('query = :query', [':query' => $text])->one();
