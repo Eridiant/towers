@@ -35,7 +35,7 @@ use yii\helpers\Url;
 				<a href="viber://add?number=<?= $user_info->viber; ?>">
 					<svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
 				</a>
-				<a href="#" class="top-social-bot">
+				<a href="https://t.me/calligraphy_batumi_bot" class="top-social-bot">
 					<svg width="16" height="16"><use xlink:href="images/icons.svg#telegram"></use></svg>
                     <span>bot</span>
 				</a>
@@ -123,7 +123,7 @@ use yii\helpers\Url;
             <a href="viber://add?number=<?= $user_info->viber; ?>">
                 <svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
             </a>
-            <a href="#" class="top-social-bot">
+            <a href="https://t.me/calligraphy_batumi_bot" class="top-social-bot">
                 <svg width="16" height="16"><use xlink:href="images/icons.svg#telegram"></use></svg>
                 <span>bot</span>
             </a>
