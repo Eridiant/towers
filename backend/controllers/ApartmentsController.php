@@ -161,7 +161,7 @@ class ApartmentsController extends Controller
                             ->where(['num' => $d])
                             ->one();
 
-                        if (is_null($q->status) || $q->status == 1) {
+                        if (is_null($q->status) || $q?->status == 1) {
                             $vr .= '| error=' . $value[0] . '</br>';
                             continue;
                         }
@@ -178,7 +178,7 @@ class ApartmentsController extends Controller
                                 ->where(['num' => $d])
                                 ->one();
 
-                        if (is_null($q->status) || $q->status == 2) {
+                        if (is_null($q->status) || $q?->status == 2) {
                             $vr .= '| error=' . $value[0] . '</br>';
                             continue;
                         }
@@ -195,7 +195,7 @@ class ApartmentsController extends Controller
                                 ->where(['num' => $d])
                                 ->one();
 
-                        if (is_null($q->status) || $q->status == 0) {
+                        if (is_null($q->status) || $q?->status == 0) {
                             $vr .= '| error=' . $value[0] . '</br>';
                             continue;
                         }
@@ -228,7 +228,7 @@ class ApartmentsController extends Controller
                     ->where(['id' => $value[0]])
                     ->one();
 
-                if (is_null($q->status) || $q->status == 1) {
+                if (is_null($q->status) || $q?->status == 1) {
                     $vr .= '| error=' . $value[0] . '</br>';
                     continue;
                 }
@@ -246,7 +246,7 @@ class ApartmentsController extends Controller
                         ->where(['id' => $value[0]])
                         ->one();
 
-                if (is_null($q->status) || $q->status == 2) {
+                if (is_null($q->status) || $q?->status == 2) {
                     $vr .= '| error=' . $value[0] . '</br>';
                     continue;
                 }
@@ -264,7 +264,7 @@ class ApartmentsController extends Controller
                         ->where(['id' => $value[0]])
                         ->one();
 
-                if (is_null($q->status) || $q->status == 0) {
+                if (is_null($q->status) || $q?->status == 0) {
                     $vr .= '| error=' . $value[0] . '</br>';
                     continue;
                 }
@@ -296,7 +296,7 @@ class ApartmentsController extends Controller
                         ->where(['num' => $d])
                         ->one();
 
-                if (is_null($q->status) || $q->status == 2) {
+                if (is_null($q->status) || $q?->status == 2) {
                     $vr .= '| error=' . $value[0] . '</br>';
                     continue;
                 }
@@ -316,7 +316,7 @@ class ApartmentsController extends Controller
                     ->where(['num' => $d])
                     ->one();
 
-                if (is_null($q->status) || $q->status == 1) {
+                if (is_null($q->status) || $q?->status == 1) {
                     $vr .= '| error=' . $value[0] . '</br>';
                     continue;
                 }
@@ -334,7 +334,7 @@ class ApartmentsController extends Controller
                         ->where(['num' => $d])
                         ->one();
 
-                if (is_null($q->status) || $q->status == 0) {
+                if (is_null($q->status) || $q?->status == 0) {
                     $vr .= '| error=' . $value[0] . '</br>';
                     continue;
                 }
