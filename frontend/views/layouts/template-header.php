@@ -36,7 +36,7 @@ use yii\helpers\Url;
 					<svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
 				</a>
 				<a href="https://t.me/calligraphy_batumi_bot" class="top-social-bot">
-					<svg width="20" height="20"><use xlink:href="images/icons.svg#telegram"></use></svg>
+					<svg width="24" height="24"><use xlink:href="images/icons.svg#telegram"></use></svg>
                     <span>bot</span>
 				</a>
 			</div>
@@ -124,7 +124,7 @@ use yii\helpers\Url;
                 <svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
             </a>
             <a href="https://t.me/calligraphy_batumi_bot" class="top-social-bot top-social-menu">
-                <svg width="20" height="20"><use xlink:href="images/icons.svg#telegram"></use></svg>
+                <svg width="24" height="24"><use xlink:href="images/icons.svg#telegram"></use></svg>
                 <span>bot</span>
             </a>
         </div>
