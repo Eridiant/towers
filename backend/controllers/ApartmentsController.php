@@ -189,10 +189,10 @@ class ApartmentsController extends Controller
 
                         if ($check) {
                             $q->status = 1;
-                            $vr .= '| id=' . $value[0] . '_st=1 </br>';
+                            $vr .= '| id=' . $value[0] . '_st=1' . ' | ' . trim($value[6]) . '</br>';
                             $q->save();
                         } else {
-                            $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1 </br>';
+                            $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1' . ' | ' . trim($value[6]) . '</br>';
                         }
                     } else {
                         $q = ApartmentsA::find()
@@ -263,10 +263,10 @@ class ApartmentsController extends Controller
 
                 if ($check) {
                     $q->status = 1;
-                    $vr .= '| id=' . $value[0] . '_st=1 </br>';
+                    $vr .= '| id=' . $value[0] . '_st=1' . ' | ' . trim($value[6]) . '</br>';
                     $q->save();
                 } else {
-                    $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1 </br>';
+                    $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1' . ' | ' . trim($value[6]) . '</br>';
                 }
             } else {
 
@@ -340,10 +340,10 @@ class ApartmentsController extends Controller
 
                 if ($check) {
                     $q->status = 1;
-                    $vr .= '| id=' . $value[0] . '_st=1 ' . 'value=' . $value[6] . '</br>';
+                    $vr .= '| id=' . $value[0] . '_st=1 ' . ' | ' . trim($value[6]) . '</br>';
                     $q->save();
                 } else {
-                    $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1 </br>';
+                    $vr .= '| id=' . $value[0] . ' | old=' . $q->status . ' | new=1' . ' | ' . trim($value[6]) . '</br>';
                 }
             } else {
 
