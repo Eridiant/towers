@@ -289,7 +289,7 @@ class ApartmentsController extends Controller
             // var_dump('<pre>');
             // var_dump($value[0]);
             // var_dump('</pre>');
-            $d = intval(preg_replace('/[^0-9]/', '', $value[1]));
+            $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
             // $d = $value[0];
 
             if ($value[6] == 2 || str_contains(mb_strtolower($value[6]), 'sold') || str_contains($value[6], 'დახურული') || str_contains($value[6], 'გაიყიდა')) {
