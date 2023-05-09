@@ -35,6 +35,10 @@ use yii\helpers\Url;
 				<a href="viber://add?number=<?= $user_info->viber; ?>">
 					<svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
 				</a>
+				<a href="#" class="top-social-bot">
+					<svg width="16" height="16"><use xlink:href="images/icons.svg#telegram"></use></svg>
+                    <span>bot</span>
+				</a>
 			</div>
             <div class="content-empty"></div>
 			<div class="top-navg">
@@ -118,6 +122,10 @@ use yii\helpers\Url;
             </a>
             <a href="viber://add?number=<?= $user_info->viber; ?>">
                 <svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
+            </a>
+            <a href="#" class="top-social-bot">
+                <svg width="16" height="16"><use xlink:href="images/icons.svg#telegram"></use></svg>
+                <span>bot</span>
             </a>
         </div>
         <div class="content-empty"></div>
