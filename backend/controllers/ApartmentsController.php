@@ -175,7 +175,7 @@ class ApartmentsController extends Controller
                                 ->where(['num' => $d])
                                 ->one();
 
-                        if ($q->status != 2)
+                        if ($q->status == 2)
                             continue;
 
                         if ($check) {
@@ -190,7 +190,7 @@ class ApartmentsController extends Controller
                                 ->where(['num' => $d])
                                 ->one();
 
-                        if ($q->status != 0)
+                        if ($q->status == 0)
                             continue;
 
                         if ($check) {
@@ -221,7 +221,7 @@ class ApartmentsController extends Controller
                     ->where(['id' => $value[0]])
                     ->one();
 
-                if ($q->status != 1)
+                if ($q->status == 1)
                     continue;
 
                 if ($check) {
@@ -237,7 +237,7 @@ class ApartmentsController extends Controller
                         ->where(['id' => $value[0]])
                         ->one();
 
-                if ($q->status != 2)
+                if ($q->status == 2)
                     continue;
 
                 if ($check) {
@@ -253,7 +253,7 @@ class ApartmentsController extends Controller
                         ->where(['id' => $value[0]])
                         ->one();
 
-                if ($q->status != 0)
+                if ($q->status == 0)
                     continue;
 
                 if ($check) {
@@ -283,7 +283,7 @@ class ApartmentsController extends Controller
                         ->where(['num' => $d])
                         ->one();
 
-                if ($q->status != 2)
+                if ($q->status == 2)
                     continue;
 
                 if ($check) {
@@ -301,7 +301,7 @@ class ApartmentsController extends Controller
                     ->where(['num' => $d])
                     ->one();
 
-                if ($q->status != 1)
+                if ($q->status == 1)
                     continue;
 
                 if ($check) {
@@ -317,7 +317,7 @@ class ApartmentsController extends Controller
                         ->where(['num' => $d])
                         ->one();
 
-                if ($q->status != 0)
+                if ($q->status == 0)
                     continue;
 
                 if ($check) {
