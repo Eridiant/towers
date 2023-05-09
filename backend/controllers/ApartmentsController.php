@@ -161,8 +161,11 @@ class ApartmentsController extends Controller
                             ->where(['num' => $d])
                             ->one();
 
-                        if ($q->status == 1)
+                        if (is_null($q->status) || $q->status == 1) {
+                            $vr .= '| error=' . $value[0] . '</br>';
                             continue;
+                        }
+
                         if ($check) {
                             $q->status = 1;
                             $vr .= '| id=' . $value[0] . '_st=1 </br>';
@@ -175,8 +178,10 @@ class ApartmentsController extends Controller
                                 ->where(['num' => $d])
                                 ->one();
 
-                        if ($q->status == 2)
+                        if (is_null($q->status) || $q->status == 2) {
+                            $vr .= '| error=' . $value[0] . '</br>';
                             continue;
+                        }
 
                         if ($check) {
                             $q->status = 2;
@@ -190,8 +195,10 @@ class ApartmentsController extends Controller
                                 ->where(['num' => $d])
                                 ->one();
 
-                        if ($q->status == 0)
+                        if (is_null($q->status) || $q->status == 0) {
+                            $vr .= '| error=' . $value[0] . '</br>';
                             continue;
+                        }
 
                         if ($check) {
                             $q->status = 0;
@@ -221,8 +228,10 @@ class ApartmentsController extends Controller
                     ->where(['id' => $value[0]])
                     ->one();
 
-                if ($q->status == 1)
+                if (is_null($q->status) || $q->status == 1) {
+                    $vr .= '| error=' . $value[0] . '</br>';
                     continue;
+                }
 
                 if ($check) {
                     $q->status = 1;
@@ -237,8 +246,10 @@ class ApartmentsController extends Controller
                         ->where(['id' => $value[0]])
                         ->one();
 
-                if ($q->status == 2)
+                if (is_null($q->status) || $q->status == 2) {
+                    $vr .= '| error=' . $value[0] . '</br>';
                     continue;
+                }
 
                 if ($check) {
                     $q->status = 2;
@@ -253,8 +264,10 @@ class ApartmentsController extends Controller
                         ->where(['id' => $value[0]])
                         ->one();
 
-                if ($q->status == 0)
+                if (is_null($q->status) || $q->status == 0) {
+                    $vr .= '| error=' . $value[0] . '</br>';
                     continue;
+                }
 
                 if ($check) {
                     $q->status = 0;
@@ -283,8 +296,10 @@ class ApartmentsController extends Controller
                         ->where(['num' => $d])
                         ->one();
 
-                if ($q->status == 2)
+                if (is_null($q->status) || $q->status == 2) {
+                    $vr .= '| error=' . $value[0] . '</br>';
                     continue;
+                }
 
                 if ($check) {
                     $q->status = 2;
@@ -301,8 +316,10 @@ class ApartmentsController extends Controller
                     ->where(['num' => $d])
                     ->one();
 
-                if ($q->status == 1)
+                if (is_null($q->status) || $q->status == 1) {
+                    $vr .= '| error=' . $value[0] . '</br>';
                     continue;
+                }
 
                 if ($check) {
                     $q->status = 1;
@@ -317,8 +334,10 @@ class ApartmentsController extends Controller
                         ->where(['num' => $d])
                         ->one();
 
-                if ($q->status == 0)
+                if (is_null($q->status) || $q->status == 0) {
+                    $vr .= '| error=' . $value[0] . '</br>';
                     continue;
+                }
 
                 if ($check) {
                     $q->status = 0;
