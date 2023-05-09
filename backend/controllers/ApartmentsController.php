@@ -162,7 +162,7 @@ class ApartmentsController extends Controller
                             ->one();
 
                         if (is_null($q) || is_null($q->status) || $q?->status == 1) {
-                            $vr .= '| error=' . $value[0] . '</br>';
+                            $vr .= '| error=' . $d . ' | ' . $value[0] . '</br>';
                             continue;
                         }
 
@@ -179,7 +179,7 @@ class ApartmentsController extends Controller
                                 ->one();
 
                         if (is_null($q) || is_null($q->status) || $q?->status == 2) {
-                            $vr .= '| error=' . $value[0] . '</br>';
+                            $vr .= '| error=' . $d . ' | ' . $value[0] . '</br>';
                             continue;
                         }
 
@@ -196,7 +196,7 @@ class ApartmentsController extends Controller
                                 ->one();
 
                         if (is_null($q) || is_null($q->status) || $q?->status == 0) {
-                            $vr .= '| error=' . $value[0] . '</br>';
+                            $vr .= '| error=' . $d . ' | ' . $value[0] . '</br>';
                             continue;
                         }
 
@@ -229,7 +229,7 @@ class ApartmentsController extends Controller
                     ->one();
 
                 if (is_null($q) || is_null($q->status) || $q?->status == 1) {
-                    $vr .= '| error=' . $value[0] . '</br>';
+                    $vr .= '| error=' . $d . ' | ' . $value[0] . '</br>';
                     continue;
                 }
 
@@ -247,7 +247,7 @@ class ApartmentsController extends Controller
                         ->one();
 
                 if (is_null($q) || is_null($q->status) || $q?->status == 2) {
-                    $vr .= '| error=' . $value[0] . '</br>';
+                    $vr .= '| error=' . $d . ' | ' . $value[0] . '</br>';
                     continue;
                 }
 
@@ -265,7 +265,7 @@ class ApartmentsController extends Controller
                         ->one();
 
                 if (is_null($q) || is_null($q->status) || $q?->status == 0) {
-                    $vr .= '| error=' . $value[0] . '</br>';
+                    $vr .= '| error=' . $d . ' | ' . $value[0] . '</br>';
                     continue;
                 }
 
@@ -289,7 +289,8 @@ class ApartmentsController extends Controller
             // var_dump('<pre>');
             // var_dump($value[0]);
             // var_dump('</pre>');
-            $d = intval(preg_replace('/[^0-9]/', '', $value[0]));
+            $d = intval(preg_replace('/[^0-9]/', '', $value[1]));
+            // $d = $value[0];
 
             if ($value[6] == 2 || str_contains(mb_strtolower($value[6]), 'sold') || str_contains($value[6], 'დახურული') || str_contains($value[6], 'გაიყიდა')) {
                 $q = ApartmentsC::find()
@@ -297,7 +298,7 @@ class ApartmentsController extends Controller
                         ->one();
 
                 if (is_null($q) || is_null($q->status) || $q?->status == 2) {
-                    $vr .= '| error=' . $value[0] . '</br>';
+                    $vr .= '| error=' . $d . ' | ' . $value[0] . '</br>';
                     continue;
                 }
 
@@ -317,7 +318,7 @@ class ApartmentsController extends Controller
                     ->one();
 
                 if (is_null($q) || is_null($q->status) || $q?->status == 1) {
-                    $vr .= '| error=' . $value[0] . '</br>';
+                    $vr .= '| error=' . $d . ' | ' . $value[0] . '</br>';
                     continue;
                 }
 
@@ -335,7 +336,7 @@ class ApartmentsController extends Controller
                         ->one();
 
                 if (is_null($q) || is_null($q->status) || $q?->status == 0) {
-                    $vr .= '| error=' . $value[0] . '</br>';
+                    $vr .= '| error=' . $d . ' | ' . $value[0] . '</br>';
                     continue;
                 }
 
