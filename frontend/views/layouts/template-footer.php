@@ -164,10 +164,19 @@ $lg_num = \backend\modules\language\models\Language::find()->where(['deleted_at'
 <div class="popup-wrapper video">
     <div class="popup"></div>
 </div>
-
-<div class="cont-wrapper">
-    <div class="cont-inner">
-        <svg width="24" height="24"><use xlink:href="/images/icons.svg#contact"></use></svg>
+<div class="cont-container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
+    <div class="cont-wrapper cont-bot">
+        <div class="cont-inner">
+            <a href="https://t.me/calligraphy_batumi_bot" class="cont-bot-link">
+                <svg width="24" height="24"><use xlink:href="images/icons.svg#telegram"></use></svg>
+                <span>bot</span>
+            </a>
+        </div>
+    </div>
+    <div class="cont-wrapper">
+        <div class="cont-inner">
+            <svg width="24" height="24"><use xlink:href="/images/icons.svg#contact"></use></svg>
+        </div>
     </div>
 </div>
 
