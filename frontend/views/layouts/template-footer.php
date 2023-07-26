@@ -75,7 +75,7 @@ $lg_num = \backend\modules\language\models\Language::find()->where(['deleted_at'
 		</div>
 		<div class="footer-wrapper footer-footer">
 			<a id="privacy-policy" href="<?= Url::toRoute(Yii::$app->params['curLangUrl'] . '/privacy-policy') ?>"><?=Yii::t('frontend', 'Политика конфиденциальности')?></a>
-			<a href="#">Made by&nbsp;&nbsp;&nbsp;<img src="/images/syndicate.png" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>"></a>
+			<a href="https://syndicate.ge/">Made by&nbsp;&nbsp;&nbsp;<img src="/images/syndicate.png" alt="syndicate"></a>
 		</div>
 	</div>
 </footer>
