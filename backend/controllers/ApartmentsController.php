@@ -117,6 +117,7 @@ class ApartmentsController extends Controller
             $arr = array_map('str_getcsv', $csv);
             if ($block == 'a') {
                 // https://docs.google.com/spreadsheets/d/1yWtW0vzysjJBMy_80ihXRuYebw9MR1sE/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+                // https://docs.google.com/spreadsheets/d/1RluBYtMc4pPT9z_Yh7tHQSL_574rIQQ_GnGTxRc3pWk/edit?usp=sharing
                 
                 $rrr = $this->dba($arr, $check);
             }
@@ -130,10 +131,54 @@ class ApartmentsController extends Controller
                 
                 $rrr = $this->dbc($arr, $check);
             }
+            if ($block == 'e') {
+                // https://docs.google.com/spreadsheets/d/1yWtW0vzysjJBMy_80ihXRuYebw9MR1sE/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+                
+                $rrr = $this->bridge($arr, $check);
+                return ['data' => ['success' => $rrr]];
+            }
+            if ($block == 'f') {
+                // https://docs.google.com/spreadsheets/d/1yWtW0vzysjJBMy_80ihXRuYebw9MR1sE/edit?usp=sharing&ouid=113392952037975246587&rtpof=true&sd=true
+                
+                $rrr = $this->bridgef($arr, $check);
+                return ['data' => ['success' => $rrr]];
+            }
             return ['data' => ['success' => $block . '|' . $rrr]];
             // return $this->render('status', compact('stitus'));
         }
         return $this->render('status');
+    }
+    public function bridge($arr, $check)
+    {
+        $pairNumer = [];
+        foreach ($arr as $key => $value) {
+            if ($value == 'NS' || $value == '') {continue;}
+            if (isset($pairNumer[$value[0]])) {
+                $pairNumer[$value[0]] += (int)$value[7];
+            } else {
+                $pairNumer[$value[0]] = (int)$value[7];
+            }
+            if (isset($pairNumer[$value[1]])) {
+                $pairNumer[$value[1]] += (int)$value[8];
+            } else {
+                $pairNumer[$value[1]] = (int)$value[8];
+            }
+        }
+        return $pairNumer;
+    }
+    public function bridgef($arr, $check)
+    {
+        $pairNumer = [];
+        foreach ($arr as $key => $value) {
+            if ($value[0] == 'NS' || $value[0] == '') {continue;}
+            if (isset($pairNumer[$value[1]])) {
+                $pairNumer[$value[1]] += (int)$value[4];
+            } else {
+                $pairNumer[$value[1]] = (int)$value[4];
+            }
+        }
+        natcasesort($pairNumer);
+        return $pairNumer;
     }
     // 1-reserv 2 sold
     public function dba($arr, $check)

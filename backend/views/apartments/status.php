@@ -40,6 +40,20 @@ $this->params['breadcrumbs'][] = $this->title;
         <button type="button" class="check">check</button>
         <button type="submit">submit</button>
     </form>
+<!--     
+    <form action="#" method="post" class="block-f">
+        <p>ссылка на block-f (true)</p>
+        <input type="text" name="message">
+        <button type="button" class="check">check</button>
+        <button type="submit">submit</button>
+    </form>
+    
+    <form action="#" method="post" class="block-e">
+        <p>ссылка на block-e (true)</p>
+        <input type="text" name="message">
+        <button type="button" class="check">check</button>
+        <button type="submit">submit</button>
+    </form> -->
     <br>
     <br>
     <div class="apartments-check"></div>

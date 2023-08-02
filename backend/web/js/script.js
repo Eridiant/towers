@@ -14,6 +14,13 @@ window.addEventListener('load', () => {
             if (target.closest('.block-c')) {
                 rqstBlock('c', target.message.value);
             }
+            if (target.closest('.block-e')) {
+                rqstBlock('e', target.message.value);
+            }
+            if (target.closest('.block-f')) {
+                rqstBlock('f', target.message.value);
+            }
+            // return;
             // return;
         })
         status.addEventListener('click', (e) => {
@@ -29,6 +36,9 @@ window.addEventListener('load', () => {
             }
             if (target.closest('.block-c')) {
                 rqstBlock('c', target.closest('.block-c').message.value, 1);
+            }
+            if (target.closest('.block-e')) {
+                rqstBlock('e', target.closest('.block-e').message.value, 1);
             }
         })
     }

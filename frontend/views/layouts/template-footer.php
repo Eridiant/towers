@@ -173,9 +173,33 @@ $lg_num = \backend\modules\language\models\Language::find()->where(['deleted_at'
             </a>
         </div>
     </div>
-    <div class="cont-wrapper">
-        <div class="cont-inner">
-            <svg width="24" height="24"><use xlink:href="/images/icons.svg#contact"></use></svg>
+    <div class="cont-wrap">
+        <div class="cont-wrapper">
+            <div class="cont-inner">
+                <a href="https://telegram.me/<?= $user_info->telegram; ?>" class="cont-bot-link">
+                    <svg><use xlink:href="images/icons.svg#telegram"></use></svg>
+                </a>
+            </div>
+        </div>
+        <div class="cont-wrapper">
+            <div class="cont-inner">
+                <a href="https://wa.me/<?= $user_info->whats_app; ?>" class="cont-bot-link">
+                    <svg><use xlink:href="/images/icons.svg#whatsapp"></use></svg>
+                </a>
+            </div>
+        </div>
+        <div class="cont-wrapper">
+            <div class="cont-inner">
+                <a href="https://t.me/calligraphy_batumi_bot" class="cont-bot-link">
+                    <svg width="24" height="24"><use xlink:href="images/icons.svg#telegram"></use></svg>
+                    <span>bot</span>
+                </a>
+            </div>
+        </div>
+        <div class="cont-wrapper">
+            <div class="cont-inner">
+                <svg><use xlink:href="images/icons.svg#contact"></use></svg>
+            </div>
         </div>
     </div>
 </div>
