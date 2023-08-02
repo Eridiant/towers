@@ -196,7 +196,7 @@ $lg_num = \backend\modules\language\models\Language::find()->where(['deleted_at'
                 </a>
             </div>
         </div>
-        <div class="cont-wrapper">
+        <div class="cont-wrapper cont-messager">
             <div class="cont-inner">
                 <svg><use xlink:href="images/icons.svg#contact"></use></svg>
             </div>
