@@ -53,8 +53,8 @@ let handleFormSubmit = (event) => {
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
     console.log(data);
-    console.log('token', document.querySelector('meta[name="csrf-token"]').content);
-    return;
+    // console.log('token', document.querySelector('meta[name="csrf-token"]').content);
+    // return;
     ajaxRequest('site/ajax', data)
         .then(response => {
             if (JSON.parse(response).data.success) {
