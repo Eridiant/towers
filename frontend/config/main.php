@@ -57,6 +57,7 @@ return [
                 'infrastructure' => 'site/infrastructure',
                 '<language:(ru|en)>/infrastructure' => 'site/infrastructure',
                 'pdf' => 'site/pdf',
+                'special-offer' => 'site/special-offer',
                 'price' => 'site/price',
                 'swiper' => 'site/swiper',
                 'amocrms' => 'site/amocrms',

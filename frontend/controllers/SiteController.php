@@ -661,6 +661,35 @@ class SiteController extends Controller
 
     }
 
+    public function actionSpecialOffer()
+    {
+        $this->layout = ('@app/views/layouts/special-offer');
+
+        $request = Yii::$app->request;
+
+        if ($request->isAjax){};
+
+        Yii::$app->language = 'ru-RU';
+
+        $floor_num = 10;
+
+        $block = 'b';
+        $blocks = FloorB::find()->all();
+
+        $model = ApartmentsB::find()
+                ->where('floor_num=:floor_num')
+                ->addParams([':floor_num' => 10])
+                ->asArray()
+                ->all();
+        $mod = ApartmentsB::find()
+                ->where('floor_num=:floor_num')
+                ->addParams([':floor_num' => 10]);
+        $rd = $this->renderPartial('_b');
+        $rds = $this->renderPartial('b');
+
+        return $this->render('specialOffer', compact('model', 'mod', 'rds', 'block', 'blocks', 'floor_num'));
+    }
+
     public function actionSwiper()
     {
         $this->layout = ('@app/views/layouts/swiper');

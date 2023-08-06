@@ -1,0 +1,35 @@
+<?php
+
+namespace frontend\assets;
+
+use yii\web\AssetBundle;
+
+/**
+ * Main frontend application asset bundle.
+ */
+class SpecialOfferAsset extends AssetBundle
+{
+    public $basePath = '@webroot';
+    public $baseUrl = '@web';
+    public $css = [
+        'css/swiper-bundle.min.css',
+        'css/app.min.css',
+    ];
+    public $js = [
+        'js/swiper-bundle.min.js',
+        'js/rr.js',
+    ];
+    public $depends = [
+        // 'yii\web\YiiAsset',
+        // 'yii\bootstrap4\BootstrapAsset',
+    ];
+    // public function init()
+    // {
+    //     parent::init();
+    //     // resetting BootstrapAsset to not load own css files
+    //     \Yii::$app->assetManager->bundles['yii\\bootstrap4\\BootstrapAsset'] = [
+    //         'css' => [],
+    //         'js' => []
+    //     ];
+    // }
+}

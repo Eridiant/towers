@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'RoadRadio';
+    src: url('RoadRadio-Bold.eot');
+    src: url('RoadRadio-Bold.eot?#iefix') format('embedded-opentype'),
+        url('RoadRadio-Bold.woff2') format('woff2'),
+        url('RoadRadio-Bold.woff') format('woff'),
+        url('RoadRadio-Bold.ttf') format('truetype'),
+        url('RoadRadio-Bold.svg#RoadRadio-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
