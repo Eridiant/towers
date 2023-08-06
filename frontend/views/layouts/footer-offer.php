@@ -7,7 +7,7 @@
             <p>
 				<?=Yii::t('frontend', 'Введите ваши данные и мы Вам перезвоним')?>
             </p>
-            <form id="form-popup" action="/" method="post" onsubmit="ym(87522082,'reachGoal','popupform')"> 
+            <form id="form-popup" action="/" method="post"> 
                 <input type="hidden" name="body" value="pop-up">
                 <input type="text" name="name" placeholder="<?=Yii::t('frontend', 'Имя')?>" title="<?=Yii::t('frontend', 'только буквы')?>" required>
                 <input type="text" name="phone" placeholder="<?=Yii::t('frontend', 'Телефон')?>" pattern="\+?[0-9\s\-\(\)]+" title="<?=Yii::t('frontend', 'только цифры')?>" required>
@@ -50,6 +50,10 @@
             </p>
         </div>
     </div>
+</div>
+
+<div class="popup-wrapper video">
+    <div class="popup"></div>
 </div>
 
 </body>
