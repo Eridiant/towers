@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded",(function(){
 	}
 
     if (document.querySelector('.renovation')) {
-        var renovation = new Swiper(".renovation-swiper", {
+        var renovations = new Swiper(".renovation-swiper", {
             slidesPerView: 1,
             navigation: {
                 nextEl: ".choose-next",
@@ -41,6 +41,40 @@ document.addEventListener("DOMContentLoaded",(function(){
             document.querySelector('.video .popup').innerHTML = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/165X0EPNK6c?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
 		})
     }
+
+    let swtch = document.querySelector('.flat-switch');
+
+    swtch?.addEventListener('click', (e) => {
+        if (checkSw(e)) {
+            swtch.classList.toggle('repair');
+        }
+    })
+
+    let renovation = document.querySelectorAll('.renovation-wrapper');
+    function checkSw(e) {
+        if (e.target.closest('.flat-switch-switch')) {
+            switchRenovation();
+            return true;
+        }
+        if (e.target.closest('.repair')) {
+            if (e.target.closest('.flat-switch-furniture')) {
+                switchRenovation();
+                return true;
+            }
+        } else if (e.target.closest('.flat-switch-repair')) {
+            switchRenovation();
+            return true;
+        }
+        return false;
+    }
+
+    function switchRenovation() {
+        let hd = document.querySelector('.renovation-wrapper:not(.hidden)');
+        let vz = document.querySelector('.renovation-wrapper.hidden');
+        hd.classList.add('hidden');
+        vz.classList.remove('hidden');
+        document.querySelector('.renovation').scrollIntoView();
+    }
 }))
 
 let handleFormSubmit = (event) => {
@@ -52,7 +86,7 @@ let handleFormSubmit = (event) => {
     const form = event.target;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData);
-    console.log(data);
+    // console.log(data);
     // console.log('token', document.querySelector('meta[name="csrf-token"]').content);
     // return;
     ajaxRequest('site/ajax', data)
