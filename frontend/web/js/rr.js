@@ -149,7 +149,7 @@ function showStatus() {
         .then(response => {
             if (JSON.parse(response)) {
                 let dt = JSON.parse(response).data;
-                document.querySelector('.flat-num-inner .btn').href = `/ru/pdf?block=b&floor=${dt.floor}&flat=${dt.flat}&img=9&view=${dt.views}`;
+                document.querySelector('.flat-num-inner .btn').href = `/ru/pdf?block=b&floor=${dt.floor_num}&flat=${dt.num}&img=9&view=${dt.ru}`;
                 document.querySelector('.floor').innerHTML = dt.floor_num;
                 document.querySelector('.num').innerHTML = dt.num;
                 document.querySelector('.total').innerHTML = dt.total_area;
