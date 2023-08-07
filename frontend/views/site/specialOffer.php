@@ -51,7 +51,7 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
                 <div class="flat-description-inner">
                     <dl>
                         <dt><?=Yii::t('frontend', 'Этаж')?></dt>
-                        <dd><span class="num"><?= $model['floor_num']; ?></span></dd>
+                        <dd><span class="floor"><?= $model['floor_num']; ?></span></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Номер')?></dt>
@@ -115,7 +115,7 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
                     </picture>
                 </div>
                 <div class="flat-num-inner">
-                    <a href="<?= Url::toRoute(['ru/pdf', 'block' => $block, 'floor' => $model['floor_num'], 'flat' => $model['num'], 'img' => 9, 'view' => $model['en']]) ?>" class="contacts-call btn btn-blue" target="_blank">
+                    <a href="<?= Url::toRoute(['ru/pdf', 'block' => $block, 'floor' => $model['floor_num'], 'flat' => $model['num'], 'img' => 9, 'view' => $model['ru']]) ?>" class="contacts-call btn btn-blue" target="_blank">
                         <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                         <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                     </a>

@@ -75,6 +75,11 @@ document.addEventListener("DOMContentLoaded",(function(){
         vz.classList.remove('hidden');
         document.querySelector('.renovation').scrollIntoView();
     }
+
+    document.querySelector('#flat-call').addEventListener('click', (e) => {
+        e.preventDefault();
+        showStatus();
+    })
 }))
 
 let handleFormSubmit = (event) => {
@@ -136,4 +141,45 @@ function ajaxRequest(cntr, rqst) {
         // quizRequest.send(JSON.stringify(data));
         quizRequest.send(JSON.stringify(rqst));
     })
+}
+
+function showStatus() {
+
+    ajaxRequest('site/special-offer')
+        .then(response => {
+            if (JSON.parse(response)) {
+                let dt = JSON.parse(response).data;
+                document.querySelector('.flat-num-inner .btn').href = `/ru/pdf?block=b&floor=${dt.floor}&flat=${dt.flat}&img=9&view=${dt.views}`;
+                document.querySelector('.floor').innerHTML = dt.floor_num;
+                document.querySelector('.num').innerHTML = dt.num;
+                document.querySelector('.total').innerHTML = dt.total_area;
+                document.querySelector('.balcony').innerHTML = dt.balcony_area;
+                document.querySelector('.living').innerHTML = dt.living_space;
+                document.querySelector('.view').innerHTML = dt.ru;
+            }
+        });
+    return;
+
+    test.addEventListener('click', (e) => {
+        let et = e.target.closest('.area');
+        if(et){
+            let floor = et.dataset.floor;
+            let i = et.dataset.i;
+
+            document.querySelector('.flat-num-inner .btn').href = `/ru/pdf?block=${bl}&floor=${floor}&flat=${et.dataset.flat}&img=${i}&view=${et.dataset.views}`;
+            document.querySelector('.num').innerHTML = et.dataset.flat;
+            document.querySelector('.total').innerHTML = et.dataset.total;
+            document.querySelector('.balcony').innerHTML = et.dataset.balcony;
+            document.querySelector('.living').innerHTML = et.dataset.living;
+            document.querySelector('.view').innerHTML = et.dataset.view;
+            document.querySelector('.status').innerHTML = et.dataset.status;
+            document.querySelector('#flat').scrollIntoView();
+        }
+    })
+    // let floorDoc = document.querySelector(`#floor${num}`).contentDocument;
+    // let test = document.querySelector('#test').contentDocument;
+    let focus = document.querySelector('#floor .focus');
+    let flat = document.querySelector('#floor .focus-flat');
+    let status = document.querySelector('#floor .focus-status');
+    focuss(test, focus, flat, status);
 }

@@ -669,41 +669,29 @@ class SiteController extends Controller
 
         Yii::$app->language = 'ru-RU';
 
-        if ($request->isAjax){
-
-            $model = Yii::$app->db->createCommand('SELECT * FROM {{%apartments_b}}
-                WHERE total_area BETWEEN 28 AND 30
-                ORDER BY RAND()
-                LIMIT 1
-                ')->queryOne();
-            $model = ApartmentsB::find()
-                ->where(['between', 'total_area', "28", "30" ])
-                ->orderBy(new yii\db\Expression('rand()'))
-                ->limit(1);
-        };
-
         $model = ApartmentsB::find()
             ->where(['between', 'total_area', "28", "30" ])
             ->orderBy(new \yii\db\Expression('rand()'))
             ->limit(1)
             ->one();
 
+        if ($request->isPost){
 
-        $floor_num = 10;
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+            // $model = json_encode(['model' => $model]);
+
+            return ['data' => $model];
+            // return $model;
+        };
 
         $block = 'b';
         $blocks = FloorB::find()->all();
 
-        // $model = ApartmentsB::find()
-        //         ->where('floor_num=:floor_num')
-        //         ->addParams([':floor_num' => 10])
-        //         ->asArray()
-        //         ->all();
-
         $rd = $this->renderPartial('_b');
         $rds = $this->renderPartial('b');
 
-        return $this->render('specialOffer', compact('model', 'rds', 'block', 'blocks', 'floor_num'));
+        return $this->render('specialOffer', compact('model', 'rds', 'block', 'blocks'));
     }
 
     public function actionSwiper()
