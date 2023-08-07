@@ -115,7 +115,7 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
                     </picture>
                 </div>
                 <div class="flat-num-inner">
-                    <a href="<?=Url::toRoute([Yii::$app->params['curLangUrl'] . '/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => $model['num'], 'img' => 1, 'view' => $model['en']]) ?>" class="contacts-call btn btn-blue" target="_blank">
+                    <a href="<?= Url::toRoute(['ru/pdf', 'block' => $block, 'floor' => $model['floor_num'], 'flat' => $model['num'], 'img' => 9, 'view' => $model['en']]) ?>" class="contacts-call btn btn-blue" target="_blank">
                         <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                         <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                     </a>
