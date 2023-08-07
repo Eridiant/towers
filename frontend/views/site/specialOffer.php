@@ -28,7 +28,6 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
     </div>
 </header>
 
-<?= $this->render('_header') ?>
 
 <div class="lead">
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
@@ -37,6 +36,57 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
 </div>
 
 
+<!-- <div class="header">
+	<div class="header-bg img-bg">
+		<div class="header-bg-wrap header-lights">
+			<picture>
+				<source srcset="/images/dist/header/header_mb_bg_night.jpg, /images/dist/header/header_mb_bg_night-2x.jpg 2x, /images/dist/header/header_mb_bg_night-4x.jpg 4x" media="(max-width: 480px)">
+				<source type="image/jpeg" srcset="/images/dist/header/header_bg_night.jpg, /images/dist/header/header_bg_night-1_5x.jpg 2x">
+				<img src="/images/dist/header/header_bg_night.jpg" alt="Calligraphy Towers. Недвижимость в Батуми">
+			</picture>
+		</div>
+	</div>
+	<div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
+		<div class="header-wrapper">
+			<div class="header-inner">
+				<div class="header-video">
+					<svg width="141" height="141"><use xlink:href="/images/icons.svg#video"></use></svg>
+					<p>Видео</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> -->
+
+
+<div class="gallery">
+    <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
+        <div class="gallery-wrapper">
+            <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper gallery-main">
+                <div class="swiper-wrapper">
+                    <?php for($i=1; $i<7; $i++): ?>
+                        <div class="swiper-slide">
+                            <picture>
+                                <source type="image/jpeg" media="(max-width: 480px)" srcset="/images/dist/gallery/gallery-mb-<?= $i; ?>.jpg, /images/dist/gallery/gallery-mb-<?= $i; ?>-2x.jpg 2x">
+                                <source type="image/jpeg" srcset="/images/dist/gallery/gallery-<?= $i; ?>.jpg, /images/dist/gallery/gallery-<?= $i; ?>-2x.jpg 2x">
+                                <img src="/images/dist/gallery/gallery-<?= $i; ?>.jpg" width="1204" height="779" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Квартиры в Батуми')?>">
+                            </picture>
+                        </div>
+                    <?php endfor; ?>
+                    <?php for($i=21; $i<39; $i++): ?>
+                        <div class="swiper-slide">
+                            <picture>
+                                <img src="/images/dist/gallery/gallery-<?= $i; ?>.jpg" width="1204" height="779" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
+                            </picture>
+                        </div>
+                    <?php endfor; ?>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div id="flat" class="flat">
     <div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">

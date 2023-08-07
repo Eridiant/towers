@@ -80,6 +80,16 @@ document.addEventListener("DOMContentLoaded",(function(){
         e.preventDefault();
         showStatus();
     })
+
+    if (document.querySelector('.gallery')) {
+        var gallery = new Swiper(".gallery-main", {
+			loop: true,
+			navigation: {
+				nextEl: ".swiper-button-next",
+				prevEl: ".swiper-button-prev",
+			},
+		});
+    }
 }))
 
 let handleFormSubmit = (event) => {
