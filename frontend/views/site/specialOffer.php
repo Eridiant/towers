@@ -50,24 +50,28 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
                 <h2><?=Yii::t('frontend', 'Экспликация')?></h2>
                 <div class="flat-description-inner">
                     <dl>
+                        <dt><?=Yii::t('frontend', 'Этаж')?></dt>
+                        <dd><span class="num"><?= $model['floor_num']; ?></span></dd>
+                    </dl>
+                    <dl>
                         <dt><?=Yii::t('frontend', 'Номер')?></dt>
-                        <dd><span class="num"><?= $model[0]['num']; ?></span></dd>
+                        <dd><span class="num"><?= $model['num']; ?></span></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Общая площадь')?></dt>
-                        <dd><span class="total"><?= $model[0]['total_area']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
+                        <dd><span class="total"><?= $model['total_area']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Жилая площадь')?></dt>
-                        <dd><span class="living"><?= $model[0]['living_space']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
+                        <dd><span class="living"><?= $model['living_space']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Балкон')?></dt>
-                        <dd><span class="balcony"><?= $model[0]['balcony_area']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
+                        <dd><span class="balcony"><?= $model['balcony_area']; ?></span> <?=Yii::t('frontend', 'м')?><sup>2</sup></dd>
                     </dl>
                     <dl>
                         <dt><?=Yii::t('frontend', 'Вид')?></dt>
-                        <dd><span class="view"><?= $model[0]['ru']; ?></span></dd>
+                        <dd><span class="view"><?= $model['ru']; ?></span></dd>
                     </dl>
                     <dl>
                 </div>
@@ -79,7 +83,7 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
             <div class="flat-plan">
                 <div class="flat-plan-img">
                     <picture> 
-                        <img src="/images/blocks/<?= $block; ?>/<?= $floor_num; ?>/1.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
+                        <img src="/images/blocks/<?= $block; ?>/<?= $model['floor_num']; ?>/9.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Недвижимость в Батуми')?>">
                     </picture>
                 </div>
                 <!-- <div class="flat-plan-floor">
@@ -107,11 +111,11 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
                 </div>
                 <div class="flat-num-img">
                     <picture>
-                        <img src="/images/blocks/<?= $block; ?>/d/<?= $model[0]['img']; ?>.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
+                        <img src="/images/blocks/<?= $block; ?>/d/<?= $model['img']; ?>.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                     </picture>
                 </div>
                 <div class="flat-num-inner">
-                    <a href="<?=Url::toRoute([Yii::$app->params['curLangUrl'] . '/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => $model[0]['num'], 'img' => 1, 'view' => $model[0]['en']]) ?>" class="contacts-call btn btn-blue" target="_blank">
+                    <a href="<?=Url::toRoute([Yii::$app->params['curLangUrl'] . '/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => $model['num'], 'img' => 1, 'view' => $model['en']]) ?>" class="contacts-call btn btn-blue" target="_blank">
                         <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
                         <svg width="14" height="16"><use xlink:href="/images/icons.svg#pdf"></use></svg>
                     </a>
