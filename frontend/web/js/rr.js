@@ -90,6 +90,15 @@ document.addEventListener("DOMContentLoaded",(function(){
 			},
 		});
     }
+    
+	let aside = document.querySelector('.content');
+	document.querySelector('.menu')?.addEventListener('click', ()=> {
+		aside.classList.add('content-show');
+	})
+
+	document.querySelector('.content-close')?.addEventListener('click', ()=> {
+		aside.classList.remove('content-show');
+	})
 }))
 
 let handleFormSubmit = (event) => {
