@@ -1,0 +1,68 @@
+<?php
+
+use yii\helpers\Url;
+
+
+$user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
+?>
+
+<div class="top">
+	<div class="container" style="max-width: 1600px; margin-left: auto; margin-right: auto">
+		<div class="top-nav">
+			<div class="top-logo">
+				<a href="<?=Url::toRoute('/ru/') ?>">
+					<svg width="100%" height="100%"><use xlink:href="/images/icons.svg#logo"></use></svg>
+				</a>
+			</div>
+			<div class="top-social">
+				<a href="<?= $user_info->fb; ?>">
+					<svg width="16" height="16"><use xlink:href="/images/icons.svg#fb"></use></svg>
+				</a>
+				<a href="<?= $user_info->youtube; ?>">
+					<svg width="16" height="16"><use xlink:href="/images/icons.svg#youtube"></use></svg>
+				</a>
+				<a href="<?= $user_info->instagram; ?>">
+					<svg width="16" height="16"><use xlink:href="/images/icons.svg#instagram"></use></svg>
+				</a>
+				<a href="https://telegram.me/<?= $user_info->telegram; ?>">
+					<svg width="16" height="16"><use xlink:href="/images/icons.svg#telegram"></use></svg>
+				</a>
+				<a href="https://wa.me/<?= $user_info->whats_app; ?>">
+					<svg width="16" height="16"><use xlink:href="/images/icons.svg#whatsapp"></use></svg>
+				</a>
+				<a href="viber://add?number=<?= $user_info->viber; ?>">
+					<svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
+				</a>
+				<a href="https://t.me/calligraphy_batumi_bot" class="top-social-bot">
+					<svg width="24" height="24"><use xlink:href="images/icons.svg#telegram"></use></svg>
+                    <span>bot</span>
+				</a>
+			</div>
+            <div class="content-empty"></div>
+			<div class="top-navg">
+                <a href="<?=Url::toRoute('/ru/') ?>">
+                    <?=Yii::t('frontend', 'Главная')?>
+                </a>
+				<a href="<?=Url::toRoute('/ru/infrastructure') ?>">
+                    <?=Yii::t('frontend', 'Инфраструктура')?>
+                </a>
+                <a href="<?=Url::toRoute('/ru/layouts') ?>">
+                    <?=Yii::t('frontend', 'Планировки')?>
+                </a>
+                <a href="<?=Url::toRoute('/ru/gallery') ?>">
+                    <?=Yii::t('frontend', 'Галерея')?>
+                </a>
+                <a href="<?=Url::toRoute('/ru/about') ?>">
+                    <?=Yii::t('frontend', 'О компании')?>
+                </a>
+                <a href="<?=Url::toRoute('/ru/news') ?>">
+                    <?=Yii::t('frontend', 'Новости')?>
+                </a>
+                <a href="<?=Url::toRoute('/ru/contacts') ?>">
+                    <?=Yii::t('frontend', 'Контакты')?>
+                </a>
+			</div>
+			<a href="tel:<?= $user_info->phone; ?>" class="top-phone phone"><?= preg_replace("/^(\d{3})(\d{3})(\d{2})(\d{2})(\d{2})$/", "+$1($2)-$3-$4-$5", $user_info->phone); ?></a>
+		</div>
+	</div>
+</div>

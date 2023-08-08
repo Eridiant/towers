@@ -19,8 +19,10 @@ SpecialOfferAsset::register($this);
     <?php $this->head() ?>
 
 </head>
-<body class="special-offer">
+<body class="special-offer other bl">
 <?php $this->beginBody() ?>
+
+<?php require_once('head-offer.php'); ?>
 
 <?= $content ?>
 
