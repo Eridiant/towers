@@ -712,7 +712,7 @@ $this->registerMetaTag(['name' => 'description', 'content' => Yii::t('frontend',
                     </picture>
                 </div>
                 <div class="contact-inn">
-                    <div class="contact-cam">
+                    <div class="contact-cam" data-alias="<?= \frontend\models\Key::find()->where(['key' => 'alias'])->one()->value; ?>">
                         <div class="contact-cam-inner">
                             <p>live cam</p>
                             <p><?=Yii::t('frontend', 'Посмотреть')?></p>

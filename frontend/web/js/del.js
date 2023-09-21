@@ -770,14 +770,15 @@ window.addEventListener('load', () => {
 	}
 
     if (document.querySelector('.contact-cam')) {
-        document.querySelector('.contact-cam').addEventListener('click', (e)=>{
+        let camera = document.querySelector('.contact-cam');
+        camera.addEventListener('click', (e)=>{
 			e.preventDefault();
             document.querySelector('.video').classList.add('popup-show');
             // document.querySelector('.video .popup').innerHTML = '<iframe src= "https://rtsp.me/embed/iGYn4s2R/" width="100%" height="100%" frameborder="0" allowfullscreen> </iframe>';
             // document.querySelector('.video .popup').innerHTML = '<iframe src= "https://www.ipcamlive.com/647666f8e61ef" width="100%" height="100%" frameborder="0" allowfullscreen> </iframe>';
             // document.querySelector('.video .popup').innerHTML = '<iframe src= "https://g2.ipcamlive.com/player/player.php?alias=627cc094ae3bb" width="100%" height="100%" frameborder="0" allowfullscreen> </iframe>';
-            document.querySelector('.video .popup').innerHTML = '<iframe src= "https://g2.ipcamlive.com/player/player.php?alias=650a273263406&autoplay=1&&token=0uIhqFG0e9GH5kjEvoWLo9IXh1NpG%2B%2BJERb9r0Q0CzM%3D" width="100%" height="100%" frameborder="0" allowfullscreen> </iframe>';
-            // document.querySelector('.video .popup').innerHTML = '<video id="mediaplaybackdiv_videoplayer" muted="" preload="none" style="width: 100%; height: 100%; background-color: rgb(0, 0, 0); display: block; object-fit: fill;" src="blob:https://www.ipcamlive.com/f2eb76a6-d512-4ccb-831c-36aaddfa3f82" poster="https://s75.ipcamlive.com/streams/4bc61hbyanchv3skn/snapshot.jpg">Your browser does not capable to play this content.</video>'
+            let alias = camera.dataset.alias;
+            document.querySelector('.video .popup').innerHTML = `<iframe src= "https://g2.ipcamlive.com/player/player.php?alias=${alias}" width="100%" height="100%" frameborder="0" allowfullscreen> </iframe>`;
 		})
     }
 })
