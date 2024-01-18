@@ -995,6 +995,8 @@ function changeBlockStatus(model, status, block) {
 
     if (bl == 'g') {
         document.querySelector('.flat-num-img').innerHTML = `<picture><img src="/images/blocks/${bl}/d/${model[0].img}.jpg" alt=""></picture>`;
+    } else {
+        document.querySelector('.flat-num-img').innerHTML = '';
     }
     document.querySelector('.status').innerHTML = status[0];
 }
@@ -1014,6 +1016,8 @@ function showStatus() {
             document.querySelector('.flat-plan-img').innerHTML = `<picture><img src="/images/blocks/${bl}/${floor}/${i}.jpg" alt=""></picture>`;
             if (bl == 'g') {
                 document.querySelector('.flat-num-img').innerHTML = `<picture><img src="/images/blocks/${bl}/d/${et.dataset.img}.jpg" alt=""></picture>`;
+            } else {
+                document.querySelector('.flat-num-img').innerHTML = '';
             }
 
             // document.querySelector('.flat-num-inner .btn').href = `/images/blocks/pdf/${bl}/${floor}/${i}.pdf`;
