@@ -993,7 +993,9 @@ function changeBlockStatus(model, status, block) {
     document.querySelector('.living').innerHTML = model[0].living_space;
     document.querySelector('.view').innerHTML = model[0][currLang];
 
-    document.querySelector('.flat-num-img').innerHTML = `<picture><img src="/images/blocks/${bl}/d/${model[0].img}.jpg" alt=""></picture>`;
+    if (bl == 'g') {
+        document.querySelector('.flat-num-img').innerHTML = `<picture><img src="/images/blocks/${bl}/d/${model[0].img}.jpg" alt=""></picture>`;
+    }
     document.querySelector('.status').innerHTML = status[0];
 }
 
@@ -1010,7 +1012,9 @@ function showStatus() {
             // http://calligraphy1.mamaevjg.beget.tech/pdf?block=a&floor=11&flat=1
             // document.querySelector('#flat-num').innerHTML = flat;http://calligraphy.de/pdf?block=a&floor=11&flat=1
             document.querySelector('.flat-plan-img').innerHTML = `<picture><img src="/images/blocks/${bl}/${floor}/${i}.jpg" alt=""></picture>`;
-            document.querySelector('.flat-num-img').innerHTML = `<picture><img src="/images/blocks/${bl}/d/${et.dataset.img}.jpg" alt=""></picture>`;
+            if (bl == 'g') {
+                document.querySelector('.flat-num-img').innerHTML = `<picture><img src="/images/blocks/${bl}/d/${et.dataset.img}.jpg" alt=""></picture>`;
+            }
 
             // document.querySelector('.flat-num-inner .btn').href = `/images/blocks/pdf/${bl}/${floor}/${i}.pdf`;
             // document.querySelector('.flat-num-inner .btn').href = `http://calligraphy.de/pdf?block=${bl}&floor=${floor}&flat=${i}`;
