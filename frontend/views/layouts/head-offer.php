@@ -34,7 +34,7 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
 					<svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
 				</a>
 				<a href="https://t.me/calligraphy_batumi_bot" class="top-social-bot">
-					<svg width="24" height="24"><use xlink:href="images/icons.svg#telegram"></use></svg>
+					<svg width="24" height="24"><use xlink:href="/images/icons.svg#telegram"></use></svg>
                     <span>bot</span>
 				</a>
 			</div>
@@ -99,7 +99,7 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
                 <svg width="16" height="16"><use xlink:href="/images/icons.svg#viber"></use></svg>
             </a>
             <a href="https://t.me/calligraphy_batumi_bot" class="top-social-bot top-social-menu">
-                <svg width="24" height="24"><use xlink:href="images/icons.svg#telegram"></use></svg>
+                <svg width="24" height="24"><use xlink:href="/images/icons.svg#telegram"></use></svg>
                 <span>bot</span>
             </a>
         </div>
