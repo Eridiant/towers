@@ -273,26 +273,26 @@ $user_info = \common\models\UserInfo::find()->where(['user_id' => 1])->one();
             </div>
             <div class="flat-num">
                 <div class="flat-switch<?= $block == 'a' ? ' none' : ''; ?>">
-                    <div class="flat-switch-repair flat-switch-text">
-                        <p><?=Yii::t('frontend', 'с ремонтом')?></p>
+                    <!-- <div class="flat-switch-repair flat-switch-text">
+                        <p><?//=Yii::t('frontend', 'с ремонтом')?></p>
                         <svg width="24" height="24"><use xlink:href="/images/icons.svg#repair"></use></svg>
                     </div>
                     <div class="flat-switch-furniture flat-switch-text">
                         <svg width="24" height="18"><use xlink:href="/images/icons.svg#furniture"></use></svg>
-                        <p><?=Yii::t('frontend', 'с мебелью')?></p>
+                        <p><?//=Yii::t('frontend', 'с мебелью')?></p>
                     </div>
-                    <p class="flat-switch-switch"></p>
+                    <p class="flat-switch-switch"></p> -->
                 </div>
                 <div class="flat-num-wrapper">
                     <!-- <p>
                         <?//=Yii::t('frontend', 'Цены на квартиры по этажам одна, отличия только вида')?>
                     </p> -->
                 </div>
-                <div class="flat-num-img">
+                <!-- <div class="flat-num-img">
                     <picture>
-                        <img src="/images/blocks/<?= $block; ?>/d/<?= $model[0]['img']; ?>.jpg" alt="Calligraphy Towers. <?=Yii::t('frontend', 'Апартаменты в Батуми')?>">
+                        <img src="/images/blocks/<?//= $block; ?>/d/<?//= $model[0]['img']; ?>.jpg" alt="Calligraphy Towers. <?//=Yii::t('frontend', 'Апартаменты в Батуми')?>">
                     </picture>
-                </div>
+                </div> -->
                 <div class="flat-num-inner">
                     <a href="<?=Url::toRoute([Yii::$app->params['curLangUrl'] . '/pdf', 'block' => $block, 'floor' => $floor_num, 'flat' => $model[0]['num'], 'img' => 1, 'view' => $model[0]['en']]) ?>" class="contacts-call btn btn-blue" target="_blank">
                         <span><?=Yii::t('frontend', 'Скачать план (PDF)')?></span>
